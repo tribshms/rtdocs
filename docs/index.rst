@@ -1,5 +1,5 @@
 .. tribshms documentation master file, created by
-   sphinx-quickstart on Thu Jan 14 23:29:36 2021.
+   sphinx-quickstart on Fri Jan 22 20:05:33 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
