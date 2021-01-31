@@ -20,10 +20,12 @@ Welcome to tRIBS Documentation!
 Installation
 ~~~~~~~~~~~~
 
+Contents:
 .. toctree::
    :maxdepth: 2
 
-   foreword.rst 
+   foreword.rst
+   
 
 
 Indices and tables

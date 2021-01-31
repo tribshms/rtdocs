@@ -1,7 +1,4 @@
 
-.. toctree:: Foreword
-   :maxdepth: 2
-
    =========
    Foreword
    =========
