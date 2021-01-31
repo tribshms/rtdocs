@@ -23,7 +23,7 @@ Installation
 .. toctree::
    :maxdepth: 2
 
-   installation
+   foreword.rst 
 
 
 Indices and tables
