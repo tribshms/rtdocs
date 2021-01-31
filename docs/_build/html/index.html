@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to tribshms’s documentation page! &#8212; tribshms 0.5 documentation</title>
+    <title>Welcome to tRIBS Documentation! &#8212; tribshms 0.5 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -13,8 +13,10 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="foreword.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -22,7 +24,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
- 
+  
+
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -30,18 +33,70 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-tribshms-s-documentation">
-<h1>Welcome to tribshms’s documentation!<a class="headerlink" href="#welcome-to-tribshms-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-tribs-documentation">
+<h1>Welcome to tRIBS Documentation!<a class="headerlink" href="#welcome-to-tribs-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 </div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</div>
+</div>
+<div class="section" id="distributed-hydrologic-model-tribs">
+<h1>Distributed Hydrologic Model <em>tRIBS</em><a class="headerlink" href="#distributed-hydrologic-model-tribs" title="Permalink to this headline">¶</a></h1>
+<p>The development of the tRIBS Model has been the result of hydrologic modeling and software
+development efforts performed by various researchers in the Ralph M. Parsons Laboratory in the
+Department of Civil and Environmental Engineering of the Massachusetts Institute of Technology.
+Model development continues at MIT and New Mexico Tech, among other partnering institutions.
+This document is intended to serve as a user manual for the tRIBS Model, including instructions
+on how to download, compile, set up and run tRIBS. In addition, an effort has been made to document
+the model software design using class and workflow diagrams. This guide assumes that the reader is
+familiar with the capabilities of the tRIBS Model and its intended purposes. More information
+concerning the model can be obtained through the tRIBS Research Description and Publication List.</p>
+<div class="math notranslate nohighlight">
+\[y \sim \mathcal{N}(0, 1)\]</div>
+<p>The <strong>TIN-based Real-time Integrated Basin Simulator (tRIBS)</strong>, is fully
+distributed model of hydrologic processes.</p>
+<div class="figure align-center">
+<img alt="_images/hydrocycle.png" src="_images/hydrocycle.png" />
+</div>
+<p>The <em>tRIBS</em> model description can be found in <a class="reference internal" href="#ivanov-2004a" id="id1"><span>[Ivanov_2004a]</span></a>, <a class="reference internal" href="#ivanov-2004b" id="id2"><span>[Ivanov_2004b]</span></a> and <a class="reference internal" href="#vivoni-2004" id="id3"><span>[Vivoni_2004]</span></a>.</p>
+<p>We mention a few <em>tRIBS</em> processes it models:</p>
+<ul class="simple">
+<li><p>Couple the vadose and saturated zones with the dynamic water table.</p></li>
+<li><p>Moisture infiltration waves.</p></li>
+<li><p>Soil moisture redistribution.</p></li>
+<li><p>Topography-driven lateral fluxes in the vadose and groundtable zones.</p></li>
+<li><p>Computes the radiation and energy balance.</p></li>
+<li><p>Interception, evaporation and evpotrasnpiration.</p></li>
+<li><p>Hydrologic and hydraulic routing.</p></li>
+<li><p>other.</p></li>
+</ul>
+<dl class="citation">
+<dt class="label" id="ivanov-2004a"><span class="brackets"><a class="fn-backref" href="#id1">Ivanov_2004a</a></span></dt>
+<dd><p>Ivanov, V.Y., Vivoni, E.R., Bras, R.L. and Entekhabi, D. 2004a. Catchment Hydrologic
+Response with a Fully-Distributed Triangulated Irregular Network Model. Water Resources Research. 40(11): W11102.</p>
+</dd>
+<dt class="label" id="ivanov-2004b"><span class="brackets"><a class="fn-backref" href="#id2">Ivanov_2004b</a></span></dt>
+<dd><p>Ivanov, V.Y., Vivoni E.R., Bras, R.L. and Entekhabi, D. 2004b. Preserving high-resolution
+surface and rainfall data in operational-scale basin hydrology: A fully-distributed, physically-based
+approach. Journal of Hydrology. 298(1-4): 80-111</p>
+</dd>
+<dt class="label" id="vivoni-2004"><span class="brackets"><a class="fn-backref" href="#id3">Vivoni_2004</a></span></dt>
+<dd><p>Vivoni, E. R., Ivanov, V. Y., Bras, R. L. &amp; Entekhabi, D. (2004). Generation of triangulated
+irregular networks based on hydrological similarity.Journal of Hydrologic Engineering, 9(4), 288–302.</p>
+</dd>
+</dl>
+<hr class="docutils" />
+<p><em>Last update:</em>
+Carlos Lizarraga, 01/30/2021</p>
 </div>
 
 
@@ -58,7 +113,7 @@
 
 
 
-<h3>Test Left </h3>
+
 
 <h3>Navigation</h3>
 
@@ -66,6 +121,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="foreword.html" title="next chapter">&lt;no title&gt;</a></li>
   </ul></li>
 </ul>
 </div>
@@ -104,7 +160,7 @@
     </div>
 
     
-<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
     
   </body>
 </html>
