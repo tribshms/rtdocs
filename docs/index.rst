@@ -5,6 +5,7 @@
 .. toctree::
    :maxdepth: 2
    :caption: Contents
+   foreword.rst
    Introduction
    ModelDesign
    ModelFileStructure
@@ -19,14 +20,7 @@ Welcome to tRIBS Documentation!
 
 Installation
 ~~~~~~~~~~~~
-
-Contents:
-.. toctree::
-   :maxdepth: 2
-
-   foreword.rst
-   
-
+AAA 
 
 Indices and tables
 ~~~~~~~~~~~~~~~~~~
