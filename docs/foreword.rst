@@ -1,18 +1,14 @@
 
-My Title
+*********
+Foreword
 *********
 
-. toctree::
-   :maxdepth: 2
 
-   Foreword
-   =========
-
-   The tRIBS (TIN-based Real-Time Integrated Basin Simulator)
-   Distributed Hydrologic Model is a set of object-oriented,
-   C++ programs that allow for the construction and simulation
-   of catchment scale hydrologic processes on a Triangulated
-   Irregular Network (TIN). The development of the tRIBS Model
+   The **tRIBS (TIN-based Real-Time Integrated Basin Simulator)
+   Distributed Hydrologic Model** is a set of object-oriented,
+   *C++* programs that allow for the construction and simulation
+   of catchment scale hydrologic processes on a *Triangulated
+   Irregular Network (TIN)*. The development of the tRIBS Model
    has been the result of hydrologic modeling and software
    development efforts performed by various researchers in the
    Ralph M. Parsons Laboratory in the Department of Civil and
@@ -31,3 +27,4 @@ My Title
    2000-2002 by Enrique R. Vivoni, Valeri Y. Ivanov, Rafael L. Bras
    and Dara Entekhabi and may not be used for commercial purposes
    without written consent from the authors.
+
