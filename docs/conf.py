@@ -19,7 +19,7 @@ import os
 from os.path import dirname, join
 import sys
 
-import yaml
+#import yaml
 
 #import sphinx_material
 
