@@ -1,10 +1,9 @@
-My Title
+Changelog
 *********
 
-. toctree::
-   :maxdepth: 2
+Changelog
+==========
 
-Changelog Title
-===============
+Version 0.5 of Documentation
+Changed to ReadTheDocs site (01-31-2021) C.Lizarraga
 
-This is some text
