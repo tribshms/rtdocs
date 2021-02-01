@@ -4,10 +4,14 @@
    contain the root `toctree` directive.
 .. toctree::
    :maxdepth: 2
-
-   readme
-   changelog
-   foreword
+   :caption: Contents
+   foreword.rst
+   Introduction
+   ModelDesign
+   ModelFileStructure
+   ModelClassDiagrams
+   ModelWorkFlowDiagrams
+   ComputationalMesh
 
 
 
@@ -16,7 +20,7 @@ Welcome to tRIBS Documentation!
 
 Installation
 ~~~~~~~~~~~~
-AAA
+AAA 
 
 Indices and tables
 ~~~~~~~~~~~~~~~~~~
@@ -49,7 +53,7 @@ distributed model of hydrologic processes.
 
 
 What type of processes does tRIBS model?
-==========================================
+_________________________________________
 
 The *tRIBS* model description can be found in [Ivanov_2004a]_, [Ivanov_2004b]_ and [Vivoni_2004]_.
 

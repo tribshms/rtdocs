@@ -5,6 +5,7 @@ My Title
 . toctree::
    :maxdepth: 2
 
+   =========
    Foreword
    =========
 

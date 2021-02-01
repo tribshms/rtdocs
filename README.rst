@@ -1,0 +1,16 @@
+My Title
+*********
+
+. toctree::
+   :maxdepth: 2
+
+# tribshms.readthedocs.io
+
+README Title 
+===============
+
+tRIBS documentation files for ReadTheDocs.io
+
+This is README.rst
+
+Jan 22, 2020
