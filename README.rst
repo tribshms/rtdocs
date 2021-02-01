@@ -1,16 +1,13 @@
-My Title
+README
 *********
-
-. toctree::
-   :maxdepth: 2
 
 # tribshms.readthedocs.io
 
-README Title 
+README 
 ===============
 
-tRIBS documentation files for ReadTheDocs.io
+This are the latest tRIBS documentation files migrated to tribshms.ReadTheDocs.io
 
-This is README.rst
 
-Jan 22, 2020
+Updated: Jan 31, 2021, C.Lizarraga
+

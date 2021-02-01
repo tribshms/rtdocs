@@ -9,14 +9,13 @@
    changelog
    foreword
 
+tRIBS Documentation
+*********************
 
 
 Welcome to tRIBS Documentation!
 ======================================
 
-Installation
-~~~~~~~~~~~~
-AAA
 
 Indices and tables
 ~~~~~~~~~~~~~~~~~~
