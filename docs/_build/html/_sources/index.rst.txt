@@ -3,11 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   readme
-   changelog
-   foreword
 
 tRIBS Documentation
 *********************
@@ -73,6 +70,11 @@ We mention a few *tRIBS* processes it models:
    irregular networks based on hydrological similarity.Journal of Hydrologic Engineering, 9(4), 288–302.
 -------------------------------------------
 
+  Introduction
+  Model_Design
+  Model_Input_Formats
+  
+
 
 *Last update:*
-Carlos Lizarraga, 01/30/2021
+E. Vivoni. C. Lizarraga, 01/30/2021
