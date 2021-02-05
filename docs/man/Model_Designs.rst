@@ -1,6 +1,5 @@
 .. toctree::
-    :local:
-    :depth: 3
+    :maxdepth: 3
 
     Model Design
     ============

@@ -2,9 +2,6 @@
    sphinx-quickstart on Thu Apr  9 15:33:28 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-.. toctree::
-   :maxdepth: 3
-
 
 tRIBS Documentation
 *********************
@@ -70,10 +67,16 @@ We mention a few *tRIBS* processes it models:
    irregular networks based on hydrological similarity.Journal of Hydrologic Engineering, 9(4), 288–302.
 -------------------------------------------
 
-  Introduction
-  Model_Design
-  Model_Input_Formats
-  
+Contents:
+
+.. toctree::
+   :maxdepth: 3
+
+
+  man/Introduction.rst
+  man/Model_Design.rst
+  man/Model_Input_Formats.rst 
+
 
 
 *Last update:*
