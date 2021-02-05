@@ -74,8 +74,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #html_theme = 'alabaster'
 #html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
-html_theme = 'readable'
-
+html_theme = 'sphinx_readable_theme'
 
 
 # Added this for tables appearance on small screens
