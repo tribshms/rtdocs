@@ -19,8 +19,6 @@ import os
 from os.path import dirname, join
 import sys
 
-import sphinx_readable_theme
-
 #import yaml
 
 #import sphinx_material
@@ -49,7 +47,13 @@ release = '0.8'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode"
+
 ]
 
 napoleon_google_docstring = False
@@ -73,8 +77,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 #html_theme = 'alabaster'
 #html_theme = 'sphinx_rtd_theme'
+
+import sphinx_readable_theme
 html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
-html_theme = 'sphinx_readable_theme'
+html_theme = 'readable'
 
 
 # Added this for tables appearance on small screens
