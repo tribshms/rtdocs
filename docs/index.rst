@@ -70,12 +70,12 @@ Contents:
     Model_Input_Formats.rst
 
 Indices and tables
--------------------
+===================
 
   * :ref:`genindex`
   * :ref:`modindex`
   * :ref:`search`
 
-
-*Last update:*
-E. Vivoni. C. Lizarraga, 01/30/2021
+----------------------------------------------------
+*Author:* E. Vivoni
+*Last update:* C. Lizarraga, 01/30/2021

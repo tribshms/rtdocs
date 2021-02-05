@@ -8,5 +8,6 @@ The TIN-based Real-time Integrated Basin Simulator (tRIBS) is a collection of C+
 
 The tRIBS User Manual is intended to serve as an introduction for new users to the TIN-based distributed hydrologic model. It will cover several topic areas relating to the design, setup, execution and proper usage of the model, in addition to discussing certain limitations and potential future improvements. An exhaustive explanation of each topic area is avoided to maintain this document as a short reference manual. tRIBS is currently a hydrologic research model and is not intended for commercial use and/or professional practice. As a research tool, tRIBS does relatively little error checking to ensure that all the input files are properly constructed. It is the responsibility of the user to make sure that the input file formats are correct and that parameter values are reasonable. This document provides sufficient information for the proper construction and execution of tRIBS. Further questions should be addressed to the authors or found in the various publications.
 
-
-Updated: 02-04-2021 C. Lizarraga 
+----------------------------------------------------
+*Author:* E. Vivoni
+*Last update:* 02/05/2021 C. Lizarraga

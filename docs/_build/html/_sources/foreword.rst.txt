@@ -27,4 +27,7 @@ Foreword
    and Dara Entekhabi and may not be used for commercial purposes
    without written consent from the authors.
 
-Update 02-04-2021
+
+   ----------------------------------------------------
+   *Author:* E. Vivoni
+   *Last update:* 02/05/2021 C. Lizarraga

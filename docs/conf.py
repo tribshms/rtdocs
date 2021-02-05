@@ -76,8 +76,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-#html_theme = 'sphinx_rtd_theme'
-html_theme = 'nature'
+html_theme = 'sphinx_rtd_theme'
+#html_theme = 'nature'
 
 #import sphinx_readable_theme
 #html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
