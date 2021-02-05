@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
 1 tRIBS Documentation
-*********************
+**************************
 
 2 Welcome to tRIBS Documentation!
-======================================
+========================================
 
 3 Distributed Hydrologic Model *tRIBS*
-=====================================
+============================================
 
 The development of the tRIBS Model has been the result of hydrologic modeling and software
 development efforts performed by various researchers in the Ralph M. Parsons Laboratory in the
@@ -24,6 +25,7 @@ concerning the model can be obtained through the tRIBS Research Description and 
 
 .. math::
     y \sim \mathcal{N}(0, 1)
+
 The **TIN-based Real-time Integrated Basin Simulator (tRIBS)**, is fully
 distributed model of hydrologic processes.
 
@@ -55,20 +57,21 @@ We mention a few *tRIBS* processes it models:
    approach. Journal of Hydrology. 298(1-4): 80-111
 .. [Vivoni_2004] Vivoni, E. R., Ivanov, V. Y., Bras, R. L. & Entekhabi, D. (2004). Generation of triangulated
    irregular networks based on hydrological similarity.Journal of Hydrologic Engineering, 9(4), 288–302.
--------------------------------------------
+
+------------------------------------------------------------------------------------
 
 Contents:
 
-.. toctree::
-   :maxdepth: 2
+..  toctree::
+    :maxdepth: 2
 
+    foreword.rst
+    Introduction.rst
+    Model_Design.rst
+    Model_Input_Formats.rst
 
-  man/Introduction.rst
-  man/Model_Design.rst
-  man/Model_Input_Formats.rst
-
-  Indices and tables
-  ~~~~~~~~~~~~~~~~~~
+Indices and tables
+====================
 
   * :ref:`genindex`
   * :ref:`modindex`

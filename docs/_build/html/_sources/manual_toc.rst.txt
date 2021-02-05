@@ -2,7 +2,6 @@
 
 
 .. toctree:: Table of contents
-    :local:
     :depth: 3
 
     foreword.rst
