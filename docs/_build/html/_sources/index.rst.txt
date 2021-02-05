@@ -4,14 +4,14 @@
    contain the root `toctree` directive.
 
 
-1 tRIBS Documentation
+tRIBS Documentation
 **************************
 
-2 Welcome to tRIBS Documentation!
+Welcome to tRIBS Documentation!
 ========================================
 
-3 Distributed Hydrologic Model *tRIBS*
-============================================
+Distributed Hydrologic Model *tRIBS*
+-----------------------------------------
 
 The development of the tRIBS Model has been the result of hydrologic modeling and software
 development efforts performed by various researchers in the Ralph M. Parsons Laboratory in the
@@ -23,9 +23,6 @@ the model software design using class and workflow diagrams. This guide assumes 
 familiar with the capabilities of the tRIBS Model and its intended purposes. More information
 concerning the model can be obtained through the tRIBS Research Description and Publication List.
 
-.. math::
-    y \sim \mathcal{N}(0, 1)
-
 The **TIN-based Real-time Integrated Basin Simulator (tRIBS)**, is fully
 distributed model of hydrologic processes.
 
@@ -34,7 +31,7 @@ distributed model of hydrologic processes.
 
 
 What type of processes does tRIBS model?
-==========================================
+------------------------------------------
 
 The *tRIBS* model description can be found in [Ivanov_2004a]_, [Ivanov_2004b]_ and [Vivoni_2004]_.
 
@@ -61,6 +58,8 @@ We mention a few *tRIBS* processes it models:
 ------------------------------------------------------------------------------------
 
 Contents:
+==========
+
 
 ..  toctree::
     :maxdepth: 2
@@ -71,7 +70,7 @@ Contents:
     Model_Input_Formats.rst
 
 Indices and tables
-====================
+-------------------
 
   * :ref:`genindex`
   * :ref:`modindex`
