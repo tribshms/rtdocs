@@ -3,23 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-tRIBS Documentation
+1 tRIBS Documentation
 *********************
 
-
-Welcome to tRIBS Documentation!
+2 Welcome to tRIBS Documentation!
 ======================================
 
-
-Indices and tables
-~~~~~~~~~~~~~~~~~~
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-Distributed Hydrologic Model *tRIBS*
+3 Distributed Hydrologic Model *tRIBS*
 =====================================
 
 The development of the tRIBS Model has been the result of hydrologic modeling and software
@@ -70,13 +60,19 @@ We mention a few *tRIBS* processes it models:
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
 
   man/Introduction.rst
   man/Model_Design.rst
-  man/Model_Input_Formats.rst 
+  man/Model_Input_Formats.rst
 
+  Indices and tables
+  ~~~~~~~~~~~~~~~~~~
+
+  * :ref:`genindex`
+  * :ref:`modindex`
+  * :ref:`search`
 
 
 *Last update:*

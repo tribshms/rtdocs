@@ -1,7 +1,31 @@
+Model Input Formats
+===================
+
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
-    Model Input Formats
-    ===================
 
-    Text
+
+    Grid Input
+    ----------
+
+     Text here
+
+
+     TIN Input
+     ---------
+
+     Text here
+
+
+     Point Station Input
+     --------------------
+
+     Text here
+
+
+     Text File Inputs
+     -------------------
+
+     Text here
+      

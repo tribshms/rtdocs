@@ -1,8 +1,10 @@
 
-*********
-Foreword
-*********
+***********************
+Foreword with asterisks
+************************
 
+  Foreword with equals
+  =====================
 
    The **tRIBS (TIN-based Real-Time Integrated Basin Simulator)
    Distributed Hydrologic Model** is a set of object-oriented,
@@ -28,3 +30,4 @@ Foreword
    and Dara Entekhabi and may not be used for commercial purposes
    without written consent from the authors.
 
+Update 02-04-2021
