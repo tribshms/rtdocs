@@ -65,22 +65,27 @@ Contents:
     :maxdepth: 2
     :caption: tRIBS Documentation
 
-    man/changelog.rst
-    man/requirements.rst
-    source/modules
-
-
     man/Foreword.rst
     man/Introduction.rst
     man/Model_Design.rst
     man/Model_Input_Formats.rst
 
+Aditional Info
+================
+
+    man/changelog.rst
+    man/requirements.rst
+    source/modules.rst
+
 Indices and tables
 ===================
+..  toctree:
+    :maxdepth:  2
 
   * :ref:`genindex`
   * :ref:`modindex`
   * :ref:`search`
+
 
 ----------------------------------------------------------
 

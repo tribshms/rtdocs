@@ -70,6 +70,13 @@ Contents:
     man/Model_Design.rst
     man/Model_Input_Formats.rst
 
+Aditional Info
+================
+
+    man/changelog.rst
+    man/requirements.rst
+    source/modules.rst
+
 Indices and tables
 ===================
 ..  toctree:
@@ -79,15 +86,6 @@ Indices and tables
   * :ref:`modindex`
   * :ref:`search`
 
-Aditional Info
-===============
-
-..  toctree:
-    :maxtree: 2
-
-    man/changelog.rst
-    man/requirements.rst
-    source/modules.rst
 
 ----------------------------------------------------------
 
