@@ -1,6 +1,6 @@
-tribs
-=====
 
-.. toctree::
-   :maxdepth: 4
+tRIBS Modules
+==============
 
+
+Modules here...
