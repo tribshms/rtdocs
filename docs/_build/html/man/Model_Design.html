@@ -171,19 +171,10 @@
 <div class="section" id="model-file-structure">
 <h2>2.1 Model File Structure<a class="headerlink" href="#model-file-structure" title="Permalink to this headline">¶</a></h2>
 <p>The tRIBS Model is organized into a single directory (called tRIBS) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. Table 2.1 demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (tHydro, tFlowNet, tRasTin), others create the mesh architecture (tMesh, tMeshElements, tMeshList), while others are general purpose classes used for model execution (tSimulator, tInOut, tCNode) or within other classes (tArray, tList, tPtrList).  The Headers and Mathutildirectories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (tGraph, tParallel).</p>
-<p class="centered">
-<strong><strong>Table 2.1</strong> tRIBS Model Subdirectories
-+—————–+——————+——————+——————+
-|   Headers       |   tInOut         |    tMeshList     |   Mathutil       |
-+—————–+——————+——————+——————+
-|   tList         |   tPtrList       |    Utilities     | tListInputData   |
-+—————–+——————+——————+——————+
-|   tRasTin       |   tArray         |    tMesh         |   tSimulator     |
-+—————–+——————+——————+——————+
-|   tCNode        |   tMeshElements  |    tStorm        |   tHydro         |
-+—————–+——————+——————+——————+
-|   tFlowNet      |   tGraph         |    tParallel     |                  |
-+—————–+——————+——————+——————+</strong></p><p>In addition to the sub directories, the tRIBS directory contains a main function (main.cpp) and a makefile for each particular UNIX platform (makeSUN, makeLINUX, makeG5, makeIBM, makeSGI, makeALPHA, makeLAMPI, makeOPENMPI) and makefiles for the parallel model compilation (makeLINUX_PAR, makeMAC_PAR). Running the make file properly will create a directory to store the object files for each class (<em>.o) and the platform-specific executable (called tribs). Each sub directory will include the C++ class files (</em>.cpp used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*</span></code>.h). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998).  Table 2.2 shows a list of the code files in the tRIBS model for further reference.</p>
+<div class="figure align-center">
+<img alt="../_images/Table21.png" src="../_images/Table21.png" />
+</div>
+<p>In addition to the sub directories, the tRIBS directory contains a main function (main.cpp) and a makefile for each particular UNIX platform (makeSUN, makeLINUX, makeG5, makeIBM, makeSGI, makeALPHA, makeLAMPI, makeOPENMPI) and makefiles for the parallel model compilation (makeLINUX_PAR, makeMAC_PAR). Running the make file properly will create a directory to store the object files for each class (<em>.o) and the platform-specific executable (called tribs). Each sub directory will include the C++ class files (</em>.cpp used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*</span></code>.h). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998).  Table 2.2 shows a list of the code files in the tRIBS model for further reference.</p>
 <p class="centered">
 <strong><strong>Table 2.2</strong> tRIBS Model Class and Header Files
 +————–+—————————————–+
