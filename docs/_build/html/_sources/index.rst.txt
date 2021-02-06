@@ -42,7 +42,7 @@ We mention a few *tRIBS* processes it models:
 - Soil moisture redistribution.
 - Topography-driven lateral fluxes in the vadose and groundtable zones.
 - Computes the radiation and energy balance.
-- Interception, evaporation and evpotrasnpiration.
+- Interception, evaporation and evapotranspiration.
 - Hydrologic and hydraulic routing.
 - other.
 
@@ -63,11 +63,15 @@ Contents:
 
 ..  toctree::
     :maxdepth: 2
+    :caption: tRIBS Documentation
 
-    foreword.rst
-    Introduction.rst
-    Model_Design.rst
-    Model_Input_Formats.rst
+    man/changelog.rst
+    man/requirements.rst
+    
+    man/Foreword.rst
+    man/Introduction.rst
+    man/Model_Design.rst
+    man/Model_Input_Formats.rst
 
 Indices and tables
 ===================
@@ -76,6 +80,6 @@ Indices and tables
   * :ref:`modindex`
   * :ref:`search`
 
-----------------------------------------------------
+
 *Author:* E. Vivoni
 *Last update:* C. Lizarraga, 01/30/2021
