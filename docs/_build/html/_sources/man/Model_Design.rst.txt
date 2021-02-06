@@ -18,7 +18,7 @@ In addition to the sub directories, the tRIBS directory contains a main function
 .. figure::  ../images/tRIBS_Table22.png
    :align:   center
 
-   .. figure::  ../images/tRIBA_Table22cont.png
+.. figure::  ../images/tRIBS_Table22cont.png
       :align:   center
 
 
