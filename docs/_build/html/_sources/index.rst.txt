@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
+======================
 tRIBS Documentation
-**************************
+======================
 
 Welcome to tRIBS Documentation!
 ========================================
@@ -67,7 +67,9 @@ Contents:
 
     man/changelog.rst
     man/requirements.rst
-    
+    source/modules
+
+
     man/Foreword.rst
     man/Introduction.rst
     man/Model_Design.rst

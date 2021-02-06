@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=====================
+======================
 tRIBS Documentation
 ======================
 
@@ -68,7 +68,7 @@ Contents:
     man/changelog.rst
     man/requirements.rst
     source/modules
-    
+
 
     man/Foreword.rst
     man/Introduction.rst
