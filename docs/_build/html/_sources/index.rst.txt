@@ -60,10 +60,11 @@ We mention a few *tRIBS* processes it models:
 Contents:
 ==========
 
+  man/changelog.rst
 
 ..  toctree::
     :maxdepth: 2
-    :caption: tRIBS Documentation
+    :caption: TABLE OF CONTENTS
 
     man/Foreword.rst
     man/Introduction.rst
@@ -73,7 +74,6 @@ Contents:
 Aditional Info
 ================
 
-    man/changelog.rst
     man/requirements.rst
     source/modules.rst
 
