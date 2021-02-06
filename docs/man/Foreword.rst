@@ -28,7 +28,8 @@ Foreword
    without written consent from the authors.
 
 
-   ----------------------------------------------------
+----------------------------------------------------
 
-   *Author:* E. Vivoni
-   *Last update:* 02/05/2021 C. Lizarraga
+*Author:* E. Vivoni
+
+*Last update:* 02/05/2021 C. Lizarraga

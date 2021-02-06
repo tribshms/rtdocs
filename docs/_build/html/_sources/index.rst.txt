@@ -82,6 +82,8 @@ Indices and tables
   * :ref:`modindex`
   * :ref:`search`
 
+----------------------------------------------------------
 
-*Author:* E. Vivoni
+*Author:* E. Vivoni.
+
 *Last update:* C. Lizarraga, 01/30/2021
