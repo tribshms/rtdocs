@@ -1,4 +1,4 @@
-Model Input Formats
+3.0 Model Input Formats
 ====================
 
 A schematic of the tRIBS Model Framework illustrates the various components and input types within the model. The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data supplied to the model can be time-invariant (soils and land use) or time-varying (rainfall or weather) grids. The TIN data are inputted into the model in a variety of methods that represent the nodes within the mesh or represent the topography that is intended to be modeled. The method chosen to input the TIN data depends upon the particular application. The point data represent the values of time-varying parameters, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used within the model for inputting parameter values associated with the soil and land use maps or the hydrometeorological data.
@@ -99,7 +99,7 @@ A text file can also be used to run the model and specify the command line optio
 
 
 3.5 Special Parallel Model Inputs
-==================================
+-----------------------------------
 
 The tRIBS model utilizes the same model input formats (``*.points`` file for TIN input, ASCII grids for vegetation and soils input, etc.) as in the tRIBS model. The parallel mode can be toggled on/off using the keyword *PARALLELMODE* in the tRIBS Model Input file (``*.in``). In this section, we will only provide details on the input of the graph partitioning files (``*.graph``). The graph files are utilized to specify how a large watershed domain is partitioned into subbasins and on which computer processor each subbasin is run on. There are currently three methods implemented to partition a domain:
 
@@ -142,7 +142,7 @@ The inlet/outlet-based graph input (**Table 3.2**) is essentially a three-column
 +-------------------------+-------------------------+--------------------------+
 | Processor ID (#)        | Inlet ID (#)            | Outlet ID (#)            |
 +-------------------------+-------------------------+--------------------------+
-| ...                     | ...                     | ...                      | 
+| ...                     | ...                     | ...                      |
 +-------------------------+-------------------------+--------------------------+
 
 

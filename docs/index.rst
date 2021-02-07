@@ -59,7 +59,7 @@ We mention a few *tRIBS* processes it models:
 
 Contents:
 ==========
-    :orphan:
+    
 
     man/changelog.rst
 
