@@ -10,9 +10,6 @@ The software design of the tRIBS Model is based on object-oriented C++ programmi
 
 The tRIBS Model is organized into a single directory (called ``tRIBS``) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. **Table 2.1** demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (``tHydro``, ``tFlowNet``, ``tRasTin``), others create the mesh architecture (``tMesh``, ``tMeshElements``, ``tMeshList``), while others are general purpose classes used for model execution (``tSimulator``, ``tInOut``, ``tCNode``) or within other classes (``tArray``, ``tList``, ``tPtrList``).  The ``Headers`` and ``Mathutil`` directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (``tGraph``, ``tParallel``).
 
-.. .. figure::  ../images/tRIBS_Table21.png
-..   :align:   center
-
 **Table 2.1** tRIBS Model Subdirectories
 
 .. tabularcolumns:: |l|l|l|
@@ -51,9 +48,46 @@ The class names are indicative of the functionality for that particular class. M
 
 Model class diagrams are a useful tool for summarizing the class properties, in terms of variables and functions, in a visual format without recurring to the actual code. Function and variable declarations are presented as they are implemented within the code, including knowledge of the accessibility of each object property and the use of other model objects. For the tRIBS model, the UML (Universal Modeling Language) has been used to create class diagrams through Microsoft Visio, part of the Microsoft Visual Studio development framework. The UML format is a standard diagramming language used by software engineers and architects to document model code. **Table 2.3** presents a list of the model classes and references to the class diagram for each.
 
-.. figure::  ../images/tRIBS_Table23.png
-   :align:   center
+**Table 2.3** tRIBS Class Diagrams
 
+.. tabularcolumns:: |l|l|l|l|
+
++------------------------+------------------------+------------------------+------------------------+
+|   Templated Classes    |   Control and Storage  |             Hydrological Classes                |
+|                        |        Classes         |                                                 |
++========================+========================+========================+========================+
+|  tMesh                 |  tTriangle             |  tHydroModel           |  SoilType              |
++------------------------+------------------------+------------------------+------------------------+
+|  tMeshList             |  tNode                 |  tEvapoTrans           |  GenericSoilData       |
++------------------------+------------------------+------------------------+------------------------+
+|  tMeshListIter         |  tEdge                 |  tIntercept            |  tStorm                |
++------------------------+------------------------+------------------------+------------------------+
+|  tList                 |  tCNode                |  tRainfall             |  tHydroMetStoch        |
++------------------------+------------------------+------------------------+------------------------+
+|  tListNode             |  Point2D               |  tRainGauge            |  tSnowPack             |
++------------------------+------------------------+------------------------+------------------------+
+|  tListIter             |  Point3D               |  tHydroMet             |  tSnowIntercept        |
++------------------------+------------------------+------------------------+------------------------+
+|  tPtrList              |  vcell                 |  tHydroMetConvert      |  tShelter              |
++------------------------+------------------------+------------------------+------------------------+
+|  tPtrListNode          |  Predicates            |  tResample             |  tResData              |
++------------------------+------------------------+------------------------+------------------------+
+|  tPtrListIter          |  Simulator             |  tVariant              |  tReservoir            |
++------------------------+------------------------+------------------------+------------------------+
+|  tArray                |  SimulationControl     |  tFlowNet              |                        |
++------------------------+------------------------+------------------------+------------------------+
+|  tMatrix               |  tRunTimer             |  tFlowResults          |                        |
++------------------------+------------------------+------------------------+------------------------+
+|  tOutput               |  tPreprocess           |  tKinemat              |                        |
++------------------------+------------------------+------------------------+------------------------+
+|  tCOutput              |  tControl              |  tWaterBalance         |                        |
++------------------------+------------------------+------------------------+------------------------+
+|  tListInputData        |                        |  LandType              |                        |
++------------------------+------------------------+------------------------+------------------------+
+|  tIdArray              |                        |  GenericLandData       |                        |
++------------------------+------------------------+------------------------+------------------------+
+
+After table 2.3
 
 2.3 Model Workflow Diagrams
 -----------------------------
