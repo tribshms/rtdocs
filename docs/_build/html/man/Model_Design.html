@@ -210,12 +210,93 @@
 </tbody>
 </table>
 <p>In addition to the sub directories, the <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> directory contains a main function (<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) and a makefile for each particular UNIX platform (<code class="docutils literal notranslate"><span class="pre">makeSUN</span></code>, <code class="docutils literal notranslate"><span class="pre">makeLINUX</span></code>, <code class="docutils literal notranslate"><span class="pre">makeG5</span></code>, <code class="docutils literal notranslate"><span class="pre">makeIBM</span></code>, <code class="docutils literal notranslate"><span class="pre">makeSGI</span></code>, <code class="docutils literal notranslate"><span class="pre">makeALPHA</span></code>, <code class="docutils literal notranslate"><span class="pre">makeLAMPI</span></code>, <code class="docutils literal notranslate"><span class="pre">makeOPENMPI</span></code>) and makefiles for the parallel model compilation (<code class="docutils literal notranslate"><span class="pre">makeLINUX_PAR</span></code>, <code class="docutils literal notranslate"><span class="pre">makeMAC_PAR</span></code>). Running the make file properly will create a directory to store the object files for each class (<code class="docutils literal notranslate"><span class="pre">*.o</span></code>) and the platform-specific executable (called <code class="docutils literal notranslate"><span class="pre">tribs</span></code>). Each sub directory will include the C++ class files (<code class="docutils literal notranslate"><span class="pre">*.cpp</span></code> used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998).  <strong>Table 2.2</strong> shows a list of the code files in the tRIBS model for further reference.</p>
-<div class="figure align-center">
-<img alt="../_images/tRIBS_Table22.png" src="../_images/tRIBS_Table22.png" />
-</div>
-<div class="figure align-center">
-<img alt="../_images/tRIBS_Table22cont.png" src="../_images/tRIBS_Table22cont.png" />
-</div>
+<p><strong>Table 2.2</strong> tRIBS Model Class and Header Files</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>tRIBS</p></td>
+<td><p>main.cpp, makefile</p></td>
+</tr>
+<tr class="row-even"><td><p>/Headers</p></td>
+<td><p>Classes.h, Definitions.h, Inclusions.h, globalFns.h,
+globalFns.cpp, TemplDefinitions.h, tribs_os.h,
+tribs_os_ALPHA64.h, tribs_os_LINUX32.h</p></td>
+</tr>
+<tr class="row-odd"><td><p>/Mathutil</p></td>
+<td><p>geometry.h , mathutil.h, mathutil.cpp, predicates.h,
+predicates.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/Utilities</p></td>
+<td><p>InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tArray</p></td>
+<td><p>tArray.h, tArray.cpp, tMatrix.h, tMatrix.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tCNode</p></td>
+<td><p>tCNode.h, tCNode.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tFlowNet</p></td>
+<td><p>tFlowNet.h, tFlowNet.cpp, tFlowResults.h, tFlowResults.cpp,
+tKinemat.h, tKinemat.cpp, tReservoir.cpp, tReservoir.h,
+tResData.cpp, tResData.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tGraph</p></td>
+<td><p>tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tHydro</p></td>
+<td><p>tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp
+tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,
+tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp
+tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp
+tSnowPack.h, tSnowPack.cpp
+tSnowIntercept.h, tSnowIntercept.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tInOut</p></td>
+<td><p>tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,
+tOstream.h, tOstream.h</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tList</p></td>
+<td><p>tList.h, tList.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tListInputData</p></td>
+<td><p>tListInputData.h, tListInputData.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tMesh</p></td>
+<td><p>tMesh.h, tMesh.cpp, tTriangulator.h, tTriangulator.cpp,
+heapsort.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tMeshElements</p></td>
+<td><p>meshElements.h, meshElements.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tMeshList</p></td>
+<td><p>tMeshList.h, tMeshList.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tParallel</p></td>
+<td><p>tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp, tParallel.h,
+tParallel.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tPtrList</p></td>
+<td><p>tPtrList.h, tPtrList.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tRasTin</p></td>
+<td><p>tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp
+tResample.h, tResample.cpp, tVariant.h, tVariant.cpp
+tRainGauge.h, tRainGauge.cpp
+tShelter.h, tShelter.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tSimulator</p></td>
+<td><p>tRunTimer.h, tRunTimer.cpp, tSimul.h, tRestart.h, tRestart.cpp,
+tSimul.cpp, tControl.h, tControl.cpp, tPreProcess.cpp,
+tPreProcess.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tStorm</p></td>
+<td><p>tStorm.h, tStorm.cpp</p></td>
+</tr>
+</tbody>
+</table>
 <p>The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in <code class="docutils literal notranslate"><span class="pre">tRIBS/Headers/Classes.h</span></code>. The main function is exclusively used in tRIBS to construct the various objects, while the simulation control itself is performed by the SimulationControl class. Further details on the classes and the flow of data in the tRIBS model are presented in concise, graphical format using diagrams.</p>
 </div>
 <div class="section" id="model-class-diagrams">
@@ -231,11 +312,8 @@
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Templated Classes</p></th>
-<th class="head"><dl class="simple">
-<dt>Control and Storage</dt><dd><p>Classes</p>
-</dd>
-</dl>
-</th>
+<th class="head"><p>Control and Storage
+Classes</p></th>
 <th class="head" colspan="2"><p>Hydrological Classes</p></th>
 </tr>
 </thead>

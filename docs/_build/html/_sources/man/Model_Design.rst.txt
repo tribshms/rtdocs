@@ -33,11 +33,70 @@ The tRIBS Model is organized into a single directory (called ``tRIBS``) with var
 
 In addition to the sub directories, the ``tRIBS`` directory contains a main function (``main.cpp``) and a makefile for each particular UNIX platform (``makeSUN``, ``makeLINUX``, ``makeG5``, ``makeIBM``, ``makeSGI``, ``makeALPHA``, ``makeLAMPI``, ``makeOPENMPI``) and makefiles for the parallel model compilation (``makeLINUX_PAR``, ``makeMAC_PAR``). Running the make file properly will create a directory to store the object files for each class (``*.o``) and the platform-specific executable (called ``tribs``). Each sub directory will include the C++ class files (``*.cpp`` used as convention) and the C++ Header Files (``*.h``). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998).  **Table 2.2** shows a list of the code files in the tRIBS model for further reference.
 
-.. figure::  ../images/tRIBS_Table22.png
-   :align:   center
 
-.. figure::  ../images/tRIBS_Table22cont.png
-      :align:   center
+**Table 2.2** tRIBS Model Class and Header Files
+
+.. tabularcolumns:: |l|l|
+
++--------------------+-------------------------------------------------------------------+
+|  tRIBS             |  main.cpp, makefile                                               |
++--------------------+-------------------------------------------------------------------+
+|  /Headers          |  Classes.h, Definitions.h, Inclusions.h, globalFns.h,             |
+|                    |  globalFns.cpp, TemplDefinitions.h, tribs_os.h,                   |
+|                    |  tribs_os_ALPHA64.h, tribs_os_LINUX32.h                           |
++--------------------+-------------------------------------------------------------------+
+|  /Mathutil         |  geometry.h , mathutil.h, mathutil.cpp, predicates.h,             |
+|                    |  predicates.cpp                                                   |
++--------------------+-------------------------------------------------------------------+
+|  /Utilities        |  InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp                |
++--------------------+-------------------------------------------------------------------+
+|  /tArray           |  tArray.h, tArray.cpp, tMatrix.h, tMatrix.cpp                     |
++--------------------+-------------------------------------------------------------------+
+|  /tCNode           |  tCNode.h, tCNode.cpp                                             |
++--------------------+-------------------------------------------------------------------+
+|  /tFlowNet         |  tFlowNet.h, tFlowNet.cpp, tFlowResults.h, tFlowResults.cpp,      |
+|                    |  tKinemat.h, tKinemat.cpp, tReservoir.cpp, tReservoir.h,          |
+|                    |  tResData.cpp, tResData.h                                         |
++--------------------+-------------------------------------------------------------------+
+|  /tGraph           |  tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp               |
++--------------------+-------------------------------------------------------------------+
+|  /tHydro           |  tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp       |
+|                    |  tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,      |
+|                    |  tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp                |
+|                    |  tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp |
+|                    |  tSnowPack.h, tSnowPack.cpp                                       |
+|                    |  tSnowIntercept.h, tSnowIntercept.cpp                             |
++--------------------+-------------------------------------------------------------------+
+|  /tInOut           |  tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,            |
+|                    |  tOstream.h, tOstream.h                                           |
++--------------------+-------------------------------------------------------------------+
+|  /tList            |  tList.h, tList.cpp                                               |
++--------------------+-------------------------------------------------------------------+
+|  /tListInputData   |  tListInputData.h, tListInputData.cpp                             |
++--------------------+-------------------------------------------------------------------+
+|  /tMesh            |  tMesh.h, tMesh.cpp, tTriangulator.h, tTriangulator.cpp,          |
+|                    |  heapsort.h                                                       |
++--------------------+-------------------------------------------------------------------+
+|  /tMeshElements    |  meshElements.h, meshElements.cpp                                 |
++--------------------+-------------------------------------------------------------------+
+|  /tMeshList        |  tMeshList.h, tMeshList.cpp                                       |
++--------------------+-------------------------------------------------------------------+
+|  /tParallel        |  tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp, tParallel.h,     |
+|                    |  tParallel.cpp                                                    |
++--------------------+-------------------------------------------------------------------+
+|  /tPtrList         |  tPtrList.h, tPtrList.cpp                                         |
++--------------------+-------------------------------------------------------------------+
+|  /tRasTin          |  tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp         |
+|                    |  tResample.h, tResample.cpp, tVariant.h, tVariant.cpp             |
+|                    |  tRainGauge.h, tRainGauge.cpp                                     |
+|                    |  tShelter.h, tShelter.cpp                                         |
++--------------------+-------------------------------------------------------------------+
+|  /tSimulator       |  tRunTimer.h, tRunTimer.cpp, tSimul.h, tRestart.h, tRestart.cpp,  | 
+|                    |  tSimul.cpp, tControl.h, tControl.cpp, tPreProcess.cpp,           |
+|                    |  tPreProcess.h                                                    |
++--------------------+-------------------------------------------------------------------+
+|  /tStorm           |  tStorm.h, tStorm.cpp                                             |
++--------------------+-------------------------------------------------------------------+
 
 
 The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in ``tRIBS/Headers/Classes.h``. The main function is exclusively used in tRIBS to construct the various objects, while the simulation control itself is performed by the SimulationControl class. Further details on the classes and the flow of data in the tRIBS model are presented in concise, graphical format using diagrams.
@@ -53,8 +112,8 @@ Model class diagrams are a useful tool for summarizing the class properties, in 
 .. tabularcolumns:: |l|l|l|l|
 
 +------------------------+------------------------+------------------------+------------------------+
-|   Templated Classes    |   Control and Storage  |             Hydrological Classes                |
-|                        |        Classes         |                                                 |
+|  Templated Classes     |  Control and Storage   |  Hydrological Classes                           |
+|                        |  Classes               |                                                 |
 +========================+========================+========================+========================+
 |  tMesh                 |  tTriangle             |  tHydroModel           |  SoilType              |
 +------------------------+------------------------+------------------------+------------------------+
