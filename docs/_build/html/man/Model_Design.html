@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.0 Model Design &mdash; tRIBS 0.8 documentation</title>
+  <title>2.0 Model Design &mdash; tRIBS Distributed Hydrological Model 0.8 documentation</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> tRIBS
+            <a href="../index.html" class="icon icon-home"> tRIBS Distributed Hydrological Model
           
 
           
@@ -113,7 +113,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">tRIBS</a>
+          <a href="../index.html">tRIBS Distributed Hydrological Model</a>
         
       </nav>
 
@@ -247,11 +247,11 @@ tResData.cpp, tResData.h</p></td>
 <td><p>tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp</p></td>
 </tr>
 <tr class="row-odd"><td><p>/tHydro</p></td>
-<td><p>tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp
+<td><p>tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp,
 tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,
-tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp
-tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp
-tSnowPack.h, tSnowPack.cpp
+tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp,
+tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp,
+tSnowPack.h, tSnowPack.cpp,
 tSnowIntercept.h, tSnowIntercept.cpp</p></td>
 </tr>
 <tr class="row-even"><td><p>/tInOut</p></td>
@@ -282,9 +282,9 @@ tParallel.cpp</p></td>
 <td><p>tPtrList.h, tPtrList.cpp</p></td>
 </tr>
 <tr class="row-even"><td><p>/tRasTin</p></td>
-<td><p>tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp
-tResample.h, tResample.cpp, tVariant.h, tVariant.cpp
-tRainGauge.h, tRainGauge.cpp
+<td><p>tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp,
+tResample.h, tResample.cpp, tVariant.h, tVariant.cpp,
+tRainGauge.h, tRainGauge.cpp,
 tShelter.h, tShelter.cpp</p></td>
 </tr>
 <tr class="row-odd"><td><p>/tSimulator</p></td>
@@ -297,7 +297,6 @@ tPreProcess.h</p></td>
 </tr>
 </tbody>
 </table>
-<p>After table 2.2</p>
 <p>The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in <code class="docutils literal notranslate"><span class="pre">tRIBS/Headers/Classes.h</span></code>. The main function is exclusively used in tRIBS to construct the various objects, while the simulation control itself is performed by the SimulationControl class. Further details on the classes and the flow of data in the tRIBS model are presented in concise, graphical format using diagrams.</p>
 </div>
 <div class="section" id="model-class-diagrams">

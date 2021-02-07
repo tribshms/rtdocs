@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'tRIBS'
-copyright = '2021. V.Y. Ivanov, E.R. Vivoni, R.L.  Bras,  and D. Entekhabi'
+copyright = '2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
 author = 'E. Vivoni, C. Lizarraga'
 
 # The full version, including alpha/beta/rc tags
