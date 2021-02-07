@@ -60,11 +60,11 @@ In addition to the sub directories, the ``tRIBS`` directory contains a main func
 +--------------------+-------------------------------------------------------------------+
 |  /tGraph           |  tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp               |
 +--------------------+-------------------------------------------------------------------+
-|  /tHydro           |  tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp       |
+|  /tHydro           |  tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp,      |
 |                    |  tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,      |
-|                    |  tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp                |
-|                    |  tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp |
-|                    |  tSnowPack.h, tSnowPack.cpp                                       |
+|                    |  tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp,               |
+|                    |  tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp,|
+|                    |  tSnowPack.h, tSnowPack.cpp,                                      |
 |                    |  tSnowIntercept.h, tSnowIntercept.cpp                             |
 +--------------------+-------------------------------------------------------------------+
 |  /tInOut           |  tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,            |
@@ -86,9 +86,9 @@ In addition to the sub directories, the ``tRIBS`` directory contains a main func
 +--------------------+-------------------------------------------------------------------+
 |  /tPtrList         |  tPtrList.h, tPtrList.cpp                                         |
 +--------------------+-------------------------------------------------------------------+
-|  /tRasTin          |  tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp         |
-|                    |  tResample.h, tResample.cpp, tVariant.h, tVariant.cpp             |
-|                    |  tRainGauge.h, tRainGauge.cpp                                     |
+|  /tRasTin          |  tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp,        |
+|                    |  tResample.h, tResample.cpp, tVariant.h, tVariant.cpp,            |
+|                    |  tRainGauge.h, tRainGauge.cpp,                                    |
 |                    |  tShelter.h, tShelter.cpp                                         |
 +--------------------+-------------------------------------------------------------------+
 |  /tSimulator       |  tRunTimer.h, tRunTimer.cpp, tSimul.h, tRestart.h, tRestart.cpp,  |
@@ -98,7 +98,6 @@ In addition to the sub directories, the ``tRIBS`` directory contains a main func
 |  /tStorm           |  tStorm.h, tStorm.cpp                                             |
 +--------------------+-------------------------------------------------------------------+
 
-After table 2.2
 
 The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in ``tRIBS/Headers/Classes.h``. The main function is exclusively used in tRIBS to construct the various objects, while the simulation control itself is performed by the SimulationControl class. Further details on the classes and the flow of data in the tRIBS model are presented in concise, graphical format using diagrams.
 
