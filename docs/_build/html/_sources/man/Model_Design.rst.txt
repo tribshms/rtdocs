@@ -14,6 +14,9 @@ The tRIBS Model is organized into a single directory (called ``tRIBS``) with var
 ..   :align:   center
 
 **Table 2.1** tRIBS Model Subdirectories
+
+.. tabularcolumns:: |l|l|l|
+
 +--------------------+--------------------+--------------------+
 |  Headers           |  tInOut            |  tMeshList         |
 +--------------------+--------------------+--------------------+
