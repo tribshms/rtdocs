@@ -55,15 +55,15 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home"> tRIBS
           
 
-          
-            
-            <img src="../_static/tribs_meshfig_med.jpg" class="logo" alt="Logo"/>
           
           </a>
 
+          
+            
+            
           
 
           
@@ -171,9 +171,22 @@
 <div class="section" id="model-file-structure">
 <h2>2.1 Model File Structure<a class="headerlink" href="#model-file-structure" title="Permalink to this headline">¶</a></h2>
 <p>The tRIBS Model is organized into a single directory (called <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code>) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. <strong>Table 2.1</strong> demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (<code class="docutils literal notranslate"><span class="pre">tHydro</span></code>, <code class="docutils literal notranslate"><span class="pre">tFlowNet</span></code>, <code class="docutils literal notranslate"><span class="pre">tRasTin</span></code>), others create the mesh architecture (<code class="docutils literal notranslate"><span class="pre">tMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshElements</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshList</span></code>), while others are general purpose classes used for model execution (<code class="docutils literal notranslate"><span class="pre">tSimulator</span></code>, <code class="docutils literal notranslate"><span class="pre">tInOut</span></code>, <code class="docutils literal notranslate"><span class="pre">tCNode</span></code>) or within other classes (<code class="docutils literal notranslate"><span class="pre">tArray</span></code>, <code class="docutils literal notranslate"><span class="pre">tList</span></code>, <code class="docutils literal notranslate"><span class="pre">tPtrList</span></code>).  The <code class="docutils literal notranslate"><span class="pre">Headers</span></code> and <code class="docutils literal notranslate"><span class="pre">Mathutil</span></code> directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (<code class="docutils literal notranslate"><span class="pre">tGraph</span></code>, <code class="docutils literal notranslate"><span class="pre">tParallel</span></code>).</p>
-<div class="figure align-center">
-<img alt="../_images/tRIBS_Table21.png" src="../_images/tRIBS_Table21.png" />
-</div>
+<p><strong>Table 2.1</strong> tRIBS Model Subdirectories
++——————–+——————–+——————–+
+|  Headers           |  tInOut            |  tMeshList         |
++——————–+——————–+——————–+
+|  Mathutil          |  tList             |  tPtrList          |
++——————–+——————–+——————–+
+|  Utilities         |  tListInputData    |  tRasTin           |
++——————–+——————–+——————–+
+|  tArray            |  tMesh             |  tSimulator        |
++——————–+——————–+——————–+
+|  tCNode            |  tMeshElements     |  tStorm            |
++——————–+——————–+——————–+
+|  tHydro            |  tFlowNet          |  tGraph            |
++——————–+——————–+——————–+
+|  tParallel         |                    |                    |
++——————–+——————–+——————–+</p>
 <p>In addition to the sub directories, the <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> directory contains a main function (<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) and a makefile for each particular UNIX platform (<code class="docutils literal notranslate"><span class="pre">makeSUN</span></code>, <code class="docutils literal notranslate"><span class="pre">makeLINUX</span></code>, <code class="docutils literal notranslate"><span class="pre">makeG5</span></code>, <code class="docutils literal notranslate"><span class="pre">makeIBM</span></code>, <code class="docutils literal notranslate"><span class="pre">makeSGI</span></code>, <code class="docutils literal notranslate"><span class="pre">makeALPHA</span></code>, <code class="docutils literal notranslate"><span class="pre">makeLAMPI</span></code>, <code class="docutils literal notranslate"><span class="pre">makeOPENMPI</span></code>) and makefiles for the parallel model compilation (<code class="docutils literal notranslate"><span class="pre">makeLINUX_PAR</span></code>, <code class="docutils literal notranslate"><span class="pre">makeMAC_PAR</span></code>). Running the make file properly will create a directory to store the object files for each class (<code class="docutils literal notranslate"><span class="pre">*.o</span></code>) and the platform-specific executable (called <code class="docutils literal notranslate"><span class="pre">tribs</span></code>). Each sub directory will include the C++ class files (<code class="docutils literal notranslate"><span class="pre">*.cpp</span></code> used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998).  <strong>Table 2.2</strong> shows a list of the code files in the tRIBS model for further reference.</p>
 <div class="figure align-center">
 <img alt="../_images/tRIBS_Table22.png" src="../_images/tRIBS_Table22.png" />
@@ -227,7 +240,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021. V.Y. Ivanov, E.R. Vivoni, R.L.  Bras,  and D. Entekhabi.
+        &#169; Copyright 2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.
 
     </p>
   </div>

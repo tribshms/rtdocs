@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'tRIBS'
-copyright = '2021. V.Y. Ivanov, E.R. Vivoni, R.L.  Bras,  and D. Entekhabi'
+copyright = '2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
 author = 'E. Vivoni, C. Lizarraga'
 
 # The full version, including alpha/beta/rc tags
@@ -77,12 +77,14 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 
+# Logo here
 #html_static_path = ['_static']
-html_logo = "images/tribs_meshfig_med.jpg"
-html_theme_options = {
-    'logo_only': True,
-    'display_version': False,
-}
+
+#html_logo = "images/tribs_meshfig_med.jpg"
+#html_theme_options = {
+#    'logo_only': False,
+#    'display_version': False,
+#}
 
 
 

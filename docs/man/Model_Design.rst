@@ -10,8 +10,26 @@ The software design of the tRIBS Model is based on object-oriented C++ programmi
 
 The tRIBS Model is organized into a single directory (called ``tRIBS``) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. **Table 2.1** demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (``tHydro``, ``tFlowNet``, ``tRasTin``), others create the mesh architecture (``tMesh``, ``tMeshElements``, ``tMeshList``), while others are general purpose classes used for model execution (``tSimulator``, ``tInOut``, ``tCNode``) or within other classes (``tArray``, ``tList``, ``tPtrList``).  The ``Headers`` and ``Mathutil`` directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (``tGraph``, ``tParallel``).
 
-.. figure::  ../images/tRIBS_Table21.png
-   :align:   center
+.. .. figure::  ../images/tRIBS_Table21.png
+..   :align:   center
+
+**Table 2.1** tRIBS Model Subdirectories
++--------------------+--------------------+--------------------+
+|  Headers           |  tInOut            |  tMeshList         |
++--------------------+--------------------+--------------------+
+|  Mathutil          |  tList             |  tPtrList          |
++--------------------+--------------------+--------------------+
+|  Utilities         |  tListInputData    |  tRasTin           |
++--------------------+--------------------+--------------------+
+|  tArray            |  tMesh             |  tSimulator        |
++--------------------+--------------------+--------------------+
+|  tCNode            |  tMeshElements     |  tStorm            |
++--------------------+--------------------+--------------------+
+|  tHydro            |  tFlowNet          |  tGraph            |
++--------------------+--------------------+--------------------+
+|  tParallel         |                    |                    |
++--------------------+--------------------+--------------------+
+
 
 In addition to the sub directories, the ``tRIBS`` directory contains a main function (``main.cpp``) and a makefile for each particular UNIX platform (``makeSUN``, ``makeLINUX``, ``makeG5``, ``makeIBM``, ``makeSGI``, ``makeALPHA``, ``makeLAMPI``, ``makeOPENMPI``) and makefiles for the parallel model compilation (``makeLINUX_PAR``, ``makeMAC_PAR``). Running the make file properly will create a directory to store the object files for each class (``*.o``) and the platform-specific executable (called ``tribs``). Each sub directory will include the C++ class files (``*.cpp`` used as convention) and the C++ Header Files (``*.h``). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998).  **Table 2.2** shows a list of the code files in the tRIBS model for further reference.
 
