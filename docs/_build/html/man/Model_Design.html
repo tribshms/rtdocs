@@ -62,9 +62,6 @@
           </a>
 
           
-            
-            
-          
 
           
 <div role="search">
@@ -98,6 +95,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html#special-parallel-model-inputs">3.5 Special Parallel Model Inputs</a></li>
 </ul>
 
             
@@ -197,22 +195,18 @@
 <div class="section" id="computational-mesh">
 <h2>2.4 Computational Mesh<a class="headerlink" href="#computational-mesh" title="Permalink to this headline">¶</a></h2>
 <p>The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture directly from the CHILD model framework (Tucker et. al, 1999). As such, the model has the same capabilities as CHILD in constructing TIN meshes using the various options available in the tMesh class. In addition, some new input capabilities have been added that take advantage of the TIN creation capabilities of Arc/Info TIN (ESRI, 1996). These new input capabilities e| end the mesh framework to the more complicated topography present in real world watersheds and also allow us to input “hydrologically” significant TIN terrain representations. The existing options for creating the computational mesh include:</p>
-<ul>
+<ul class="simple">
 <li><p>Generating a synthetic rectangular mesh with random or hexagonal node arrangements.</p></li>
 <li><p>Read in an existing tRIBS Mesh files from a previous run.</p></li>
 <li><p>Generate a mesh from a given set of (x,y,z,b) points.</p></li>
-<li><p>Generate a mesh from a Digital Elevation Model (DEM) Arc/Info ascii grid   |</p></li>
+<li><p>Generate a mesh from a Digital Elevation Model (DEM) Arc/Info ascii grid</p></li>
 <li><p>Generate a set of points from an Arc/Info TIN ungenerate file (<code class="docutils literal notranslate"><span class="pre">*</span></code>.net)</p></li>
-<li><p>Generate a set of points from an Arc/Info TIN ungenerate files (<code class="docutils literal notranslate"><span class="pre">*</span></code>.pnt, <code class="docutils literal notranslate"><span class="pre">*</span></code>.lin)                |</p>
-<blockquote>
-<div><p>Additional details concerning the generation of the TIN input for the tRIBS Model will be discussed further in this document. It is important, however, to briefly describe the concept behind the TIN computational mesh for the two distributed hydrologic and geomorphologic models (tRIBS and CHILD). A TIN within these models can be described as a set of highly interconnected triangle objects that each possesses three edge and three node objects (as defined in MeshElements.cpp). The TIN mesh allows for flow and transport from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation in the tRIBS model. The Voronoi polygon (or Thiessen polygon) is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge. Since a unique relation exists between a TIN Mesh and its Voronoi Polygon Network (VPN), it is convenient to use both representations interchangeably within the model to simulate hydrological processes. For more details, the reader is referred to Tucker et. al (2001).</p>
-</div></blockquote>
-</li>
+<li><p>Generate a set of points from an Arc/Info TIN ungenerate files (<code class="docutils literal notranslate"><span class="pre">*</span></code>.pnt, <code class="docutils literal notranslate"><span class="pre">*</span></code>.lin)</p></li>
 </ul>
+<p>Additional details concerning the generation of the TIN input for the tRIBS Model will be discussed further in this document. It is important, however, to briefly describe the concept behind the TIN computational mesh for the two distributed hydrologic and geomorphologic models (tRIBS and CHILD). A TIN within these models can be described as a set of highly interconnected triangle objects that each possesses three edge and three node objects (as defined in MeshElements.cpp). The TIN mesh allows for flow and transport from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation in the tRIBS model. The Voronoi polygon (or Thiessen polygon) is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge. Since a unique relation exists between a TIN Mesh and its Voronoi Polygon Network (VPN), it is convenient to use both representations interchangeably within the model to simulate hydrological processes. For more details, the reader is referred to Tucker et. al (2001).</p>
 <hr class="docutils" />
 <blockquote>
-<div><p><em>Author:</em> E. Vivoni</p>
-<p><em>Last update:</em> 02/05/2021 C. Lizarraga</p>
+<div><p><em>Last update:</em> 02/05/2021 C. Lizarraga</p>
 </div></blockquote>
 </div>
 </div>

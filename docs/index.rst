@@ -59,8 +59,9 @@ We mention a few *tRIBS* processes it models:
 
 Contents:
 ==========
+    :orphan:
 
-  man/changelog.rst
+    man/changelog.rst
 
 ..  toctree::
     :maxdepth: 2
@@ -88,7 +89,5 @@ Indices and tables
 
 
 ----------------------------------------------------------
-
-*Author:* E. Vivoni.
 
 *Last update:* C. Lizarraga, 01/30/2021

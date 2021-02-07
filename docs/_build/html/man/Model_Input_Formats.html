@@ -61,9 +61,6 @@
           </a>
 
           
-            
-            
-          
 
           
 <div role="search">
@@ -85,21 +82,19 @@
               
             
             
-              <p class="caption"><span class="caption-text">tRIBS Documentation</span></p>
+              <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Version History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/modules.html">tRIBS Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1.0 Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Design.html">2.0 Model Design</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Model Input Formats</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#grid-input">Grid Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tin-input">TIN Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#point-station-input">Point Station Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#text-file-inputs">Text File Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid-input">3.1 Grid Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tin-input">3.2 TIN Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#point-station-input">3.3 Point Station Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-file-inputs">3.4 Text File Inputs</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#special-parallel-model-inputs">3.5 Special Parallel Model Inputs</a></li>
 </ul>
 
             
@@ -169,34 +164,251 @@
             
   <div class="section" id="model-input-formats">
 <h1>Model Input Formats<a class="headerlink" href="#model-input-formats" title="Permalink to this headline">¶</a></h1>
+<p>A schematic of the tRIBS Model Framework illustrates the various components and input types within the model. The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data supplied to the model can be time-invariant (soils and land use) or time-varying (rainfall or weather) grids. The TIN data are inputted into the model in a variety of methods that represent the nodes within the mesh or represent the topography that is intended to be modeled. The method chosen to input the TIN data depends upon the particular application. The point data represent the values of time-varying parameters, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used within the model for inputting parameter values associated with the soil and land use maps or the hydrometeorological data.</p>
 <div class="section" id="grid-input">
-<h2>Grid Input<a class="headerlink" href="#grid-input" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Text here</p>
-</div></blockquote>
+<h2>3.1 Grid Input<a class="headerlink" href="#grid-input" title="Permalink to this headline">¶</a></h2>
+<p>A standard ASCII grid format is used for all grid input to the model, which may include soil and land use reclassification fields, initial groundwater table depth, depth to bedrock and radar rainfall grids. The ASCII grid format used is a standard created by ESRI for the exchange of grid data for GIS applications. It consists of a small, 6-line header that describes the matrix data presented in the text file. This format is a convenient method for data exchange into GIS since the format is easily read by all ESRI software. In other software programs for visualization of matrix data (<em>i.e.</em> MATLAB), care must be taken when reading in the header information. Any extension name for the grid data can be used within tRIBS as long the filename is specified in the Model Input File. However, for visualization of the grid within GIS, an extension <code class="docutils literal notranslate"><span class="pre">*.asc</span></code> is required for the grid to be read properly (ESRI, 1996).</p>
+<p>As mentioned previously, the grid input to the tRIBS model can consist of time-invariant watershed descriptors, such as soil and land use coverage grids, or time-varying, spatially-distributed hydrometeorologic forcings, such as radar rainfall estimates or grid meteorological data from numerical weather models. Although each grid input is treated differently within the model, the user input should be identical. It consists mostly of specifying the grid pathname within the Model Input File, as described in a later section. As illustrated in the tRIBS Model Framework, all grid input are resampled onto the TIN terrain representation created within the tRIBS model, and specifically onto the Voronoi Polygon Network (VPN).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ncols</p></td>
+<td><p>6</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>nrows</p></td>
+<td><p>6</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>xllcorner</p></td>
+<td><p>346035</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>yllcorner</p></td>
+<td><p>3979905</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>cellsize</p></td>
+<td><p>2000</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NODATA_value</p></td>
+<td><p>-9999</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>0.511</p></td>
+<td><p>0.111</p></td>
+<td><p>-9999</p></td>
+</tr>
+<tr class="row-even"><td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>0.951</p></td>
+<td><p>1.873</p></td>
+<td><p>0.239</p></td>
+<td><p>-9999</p></td>
+</tr>
+<tr class="row-odd"><td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>0.824</p></td>
+<td><p>0.412</p></td>
+<td><p>0.444</p></td>
+<td><p>1.051</p></td>
+</tr>
+<tr class="row-even"><td><p>-9999</p></td>
+<td><p>3.123</p></td>
+<td><p>0.154</p></td>
+<td><p>0.853</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.090</p></td>
+<td><p>2.541</p></td>
+<td><p>0.288</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+</tr>
+<tr class="row-even"><td><p>2.241</p></td>
+<td><p>0.312</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+<td><p>-9999</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Figure 3.1.</strong> Example of a standard ASCII grid file.</p>
+<p><strong>Figure 3.1</strong> illustrates an example of a grid ASCII input to the model with the appropriate header information and the matrix of values. These values may be any particular type of input that needs to be resampled onto the tRIBS mesh. In this particular case, it represents NEXRAD radar rainfall values (in <em>cm/hr</em>) at a resolution of 2 kilometer by 2 kilometers within the perimeter of the Peacheater Creek Watershed (see Sample Application in tRIBS Watershed Downloads Page). Illustrated in the figure are various features to note:</p>
+<ol class="arabic simple">
+<li><p>the grid input must be composed of square grid cells (<em>i.e. dx = dy = cellsize</em> (in meters)),</p></li>
+<li><p>the coordinate system is specified by the values of x and y at the lower left corner (in this case, UTM zone 15 coordinates are shown),</p></li>
+<li><p>the entire grid can be rectangular, such that <em>nrows</em> and <em>ncols</em> can differ and</p></li>
+<li><p>the NODATA_value can be used to represent cells outside of the domain of interest.</p></li>
+</ol>
 </div>
 <div class="section" id="tin-input">
-<h2>TIN Input<a class="headerlink" href="#tin-input" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Text here</p>
-</div></blockquote>
+<h2>3.2 TIN Input<a class="headerlink" href="#tin-input" title="Permalink to this headline">¶</a></h2>
+<p>Topographic data is inputted into the tRIBS Model through a variety of methods that are implemented in the tMesh class.  For applications in real watersheds with complex topography and stream networks, the method of choice is to generate the TIN mesh within Arc/Info GIS and export it into a format that tRIBS can convert to a Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>). This Points File is then read during a subsequent model run. For tRIBS, a set of Arc/Info scripts have been created that manipulate the watershed Digital Elevation Model (DEM), the stream network, the watershed boundary and the bottom-valley floodplain to created a “hydrologically” significant TIN Terrain Model. Further details of these scripts are presented in the Terrain Analysis Section of this document. Exporting the TIN mesh from Arc/Info is performed through a procedure that ungenerates the TIN into a set of points (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>) and lines (<code class="docutils literal notranslate"><span class="pre">*.lin</span></code>). tRIBS can read these files and construct from them a Points (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>) file, an example of which is shown in <strong>Figure 3.2</strong>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>405</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>495</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>585</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>360</p></td>
+<td><p>90</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>450</p></td>
+<td><p>90</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>540</p></td>
+<td><p>90</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>630</p></td>
+<td><p>90</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Figure 3.2.</strong> Example of a tRIBS Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>)</p>
+<p>A Points File is a simple text file that contains a listing of point coordinates (<em>x, y, z</em>) and the boundary code (<em>b</em>) for each point (in that specific order) with a small header that indicates the total number of points in the file. The boundary code is indicative of the node position within the watershed: 0 (mesh interior node), 1 (closed mesh boundary node), 2 (open mesh boundary or outlet node), 3 (stream network node). Proper creation and consistency of the Points File is very important for the tRIBS Model and the <code class="docutils literal notranslate"><span class="pre">*.points</span></code> file should be carefully inspected using ArcView GIS or a similar environment. The Points File can be the appropriate method of TIN input for points obtained from a field survey, from a GIS point coverage, from a sampled DEM or from a ungenerated TIN mesh.</p>
+<p>The Points File is the recommended TIN input for the tRIBS Model during the initial model construction, usually necessary when a new basin is modeled for the first time. After a successful tRIBS model run, the model outputs a set of files that describe the TIN mesh properties in greater detail, including the connectivity between nodes and the triangles within the mesh. The set of files includes: <code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code> and <code class="docutils literal notranslate"><span class="pre">*.z</span></code>. These files can be read directly into the model during subsequent model runs, thus avoiding the use of the <code class="docutils literal notranslate"><span class="pre">*.points</span></code> file and speeding up the process of mesh construction. Further details on both of these options will be discussed in subsequent sections and are also available in Tucker (1999).</p>
 </div>
 <div class="section" id="point-station-input">
-<h2>Point Station Input<a class="headerlink" href="#point-station-input" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Text here</p>
-</div></blockquote>
+<h2>3.3 Point Station Input<a class="headerlink" href="#point-station-input" title="Permalink to this headline">¶</a></h2>
+<p>Hydrometeorological data can be inputted into the tRIBS model through methods for Point Station Input implemented in the <code class="docutils literal notranslate"><span class="pre">tEvapoTrans</span></code> and <code class="docutils literal notranslate"><span class="pre">tRainfall</span></code> classes and the <code class="docutils literal notranslate"><span class="pre">tHydroMet</span></code> and <code class="docutils literal notranslate"><span class="pre">tRainGauge</span></code> storage classes. Point Station Input is useful for providing meteorological data from a sparse set of weather stations or for providing rain gauge rainfall data, instead for radar rainfall maps, to the model. The data from these sparse stations or points is resampled onto the Voronoi Polygon Network (VPN) by using a Thiessen polygon method at the point coordinates. The station properties, including coordinates, are specified through an SDF file (Station Descriptor File), while the station data are provided in an MDF file (Meteorological Data File). Both file types are discussed in the section on Meteorological Point Data Input in this document.</p>
 </div>
 <div class="section" id="text-file-inputs">
-<h2>Text File Inputs<a class="headerlink" href="#text-file-inputs" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Text here</p>
-</div></blockquote>
-<p>End</p>
-<hr class="docutils" />
-<p><em>Author:</em> E. Vivoni</p>
-<p><em>Last update:</em> 02/05/2021 C. Lizarraga</p>
+<h2>3.4 Text File Inputs<a class="headerlink" href="#text-file-inputs" title="Permalink to this headline">¶</a></h2>
+<p>Various types of text files are used in the tRIBS Model to specify model options, hydrologic parameters or control commands. The most important of the text files is the Model Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>). This file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. There are over 40 different keyword inputs in a typical Model Input File. These can be classified into various groupings: Model Run Parameters, Model Run Options and Model Input Files and Pathnames. Subgroupings include: Time Variables, Routing Variables, Mesh Generation, Resampling Grids, Meteorological Data and Output Data. More details concerning the Model Input File will be presented in the section on Model Input File in this document.</p>
+<p>Another important use of text files is for the reclassification of soil and land use grids into meaningful hydrologic parameters assigned to each Voronoi polygon. A simple text file is used to relate each cover class to the particular hydrologic parameter required for the model equations. It consists of a small header followed by a matrix of parameter values for each cover class. In the case of the soil reclassification table (<code class="docutils literal notranslate"><span class="pre">*.sdt</span></code>), the parameters are used to specify the soil hydraulic and thermal properties. In the case of the land reclassification table (<code class="docutils literal notranslate"><span class="pre">*.ldt</span></code>), the parameters are used to relate the cover type to the interception and evapotranspiration properties of the vegetation and land cover. Both types of files will be explain in greater detail in the section on Soil and Land Use Input.</p>
+<p>A text file can also be used to run the model and specify the command line options desired during the run by using a Model Run File (<code class="docutils literal notranslate"><span class="pre">*_run</span></code>). This file consists of a single line that specifies the pathname of the tRIBS executable followed by the name of the Model Input File and the desired command line options.</p>
 </div>
+</div>
+<div class="section" id="special-parallel-model-inputs">
+<h1>3.5 Special Parallel Model Inputs<a class="headerlink" href="#special-parallel-model-inputs" title="Permalink to this headline">¶</a></h1>
+<p>The tRIBS model utilizes the same model input formats (<code class="docutils literal notranslate"><span class="pre">*.points</span></code> file for TIN input, ASCII grids for vegetation and soils input, etc.) as in the tRIBS model. The parallel mode can be toggled on/off using the keyword <em>PARALLELMODE</em> in the tRIBS Model Input file (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>). In this section, we will only provide details on the input of the graph partitioning files (<code class="docutils literal notranslate"><span class="pre">*.graph</span></code>). The graph files are utilized to specify how a large watershed domain is partitioned into subbasins and on which computer processor each subbasin is run on. There are currently three methods implemented to partition a domain:</p>
+<ol class="arabic simple">
+<li><p>A default partitioning of the graph;</p></li>
+<li><p>A reach-based partitioning; and</p></li>
+<li><p>An inlet/outlet-based partitioning.</p></li>
+</ol>
+<p>The various options can be selected utilizing the keyword <em>GRAPHOPTION</em>. The default graph partitioning is based on an automatic splitting of the internal node list. It is a simple method that does not permit user control or interaction. As a result, it may not be an optimal way for subdividing a domain into a well-balanced computational effort among different processors. The reach-based and inlet/outlet-based methods require user input of a file into tRIBS by specifying the filename using the keyword <em>GRAPHFILE</em>. The file structure varies for each type of domain decomposition. The following tables indicate the file structure for the reach-based and inlet/outlet-based approaches.</p>
+<p><strong>Table 3.1</strong> Reach-based Graph Input File (<code class="docutils literal notranslate"><span class="pre">*.graph</span></code>)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Processor ID (#)</p></td>
+<td><p>Reach ID (#)</p></td>
+</tr>
+<tr class="row-even"><td><p>Processor ID (#)</p></td>
+<td><p>Reach ID (#)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Processor ID (#)</p></td>
+<td><p>Reach ID (#)</p></td>
+</tr>
+<tr class="row-even"><td><p>Processor ID (#)</p></td>
+<td><p>Reach ID (#)</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>The reach-based graph input (<strong>Table 3.1</strong>) is essentially a two-column text file with no header. Column 1 holds the numerical IDs of the computer processors to be used (labeled from 0 to N) while Column 2 holds the numerical IDs (labeled from 0 to M) of the reaches to be run on the corresponding computer processors. The number of available computer processors will depend on the cluster in use. The number of reaches will depend on the size of the problem treated. For large domains, manual construction of the graph input file may become cumbersome. The reach IDs need to be determined from the <code class="docutils literal notranslate"><span class="pre">*.reach</span></code> file generated by the tRIBS model after mesh construction. This file is typically imported as a line coverage into a GIS package to identify the spatial location of each reach and their corresponding reach ID. The user will need to determine the most appropriate method for distributing the various reaches onto the available processors. Proper load balancing needs to be considered to distribute effort among different subbasins. Vivoni <em>et al.</em> (2006) presents a discussion of this issue with respect to some test cases.</p>
+<p>The inlet/outlet-based graph input (<strong>Table 3.2</strong>) is essentially a three-column text file with no header. Column 1 holds the numerical IDs of the computer processors to be used (labeled from 0 to N), Column 2 holds the numerical IDs of the channel nodes that form the inlet (upstream) segment of a reach and Column 3 holds the numerical IDs of the channel nodes that form the outlet (downstream) segment of a reach. Inlet nodes are typically inside sub-basins along the headwater areas, while outlet nodes are typically the closest downstream location along the main channel. The inlet/outlet-based graph partitioning provides for flexibility to the user, but may be more complicated to set up. The inlet/outlet IDs need to be determined from the <code class="docutils literal notranslate"><span class="pre">*.voi</span></code> file generated by the tRIBS model after mesh construction. This file is typically imported as a polygon coverage into a GIS package to identify the spatial location of each node and their corresponding ID. As with the above case, the user will need to experiment with the inlet/outlet partitioning in order to obtain proper load balancing and performance.</p>
+<p><strong>Table 3.2</strong> Inlet/Outlet-based Graph Input File (<code class="docutils literal notranslate"><span class="pre">*.graph</span></code>)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 34%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Processor ID (#)</p></td>
+<td><p>Inlet ID (#)</p></td>
+<td><p>Outlet ID (#)</p></td>
+</tr>
+<tr class="row-even"><td><p>Processor ID (#)</p></td>
+<td><p>Inlet ID (#)</p></td>
+<td><p>Outlet ID (#)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Processor ID (#)</p></td>
+<td><p>Inlet ID (#)</p></td>
+<td><p>Outlet ID (#)</p></td>
+</tr>
+<tr class="row-even"><td><p>Processor ID (#)</p></td>
+<td><p>Inlet ID (#)</p></td>
+<td><p>Outlet ID (#)</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><em>Last update:</em> 02/06/2021 C. Lizarraga</p>
 </div>
 
 
