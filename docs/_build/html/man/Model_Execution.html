@@ -166,7 +166,7 @@
 <blockquote>
 <div><p>The release of the tRIBS Model is intended solely for use as a research hydrology model. The distribution of the model code is provided only upon written consent from the authors. The tRIBS code is provided in a single tar formatted file called <code class="docutils literal notranslate"><span class="pre">tribs.tar</span></code>. The file should be unpacked using the tar UNIX utility and placed in a directory of choice:</p>
 <blockquote>
-<div><p><strong>% tar -xvf tribs.tar</strong></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">tar</span> <span class="pre">-xvf</span> <span class="pre">tribs.tar</span></code></p>
 </div></blockquote>
 <p>The tar bundle will contain the subdirectory structure and code files presented in <strong>Tables 2.1</strong> and <strong>2.2</strong>. An executable is not included in the tar bundle. A sample application for a synthetic element and for a complex watershed (Peacheater Creek) are available along with the model tar bundle. For most users, only an executable in the appropriate platform is provided along with the model examples.</p>
 <p>The tRIBS Model was originally written and compiled on an SGI Irix 6.5 UNIX system. Since the model design uses standard C++ programming structures, the compilation onto other UNIX platforms is straightforward. tRIBS has been compiled for a range of platforms (Mac G5, Alpha Tru64, Linux, Cygwin, IBM, Solaris). The current version should compile on all platforms without need for any major changes to the code by using the different makefiles provided. As an example, the model code is compiled for SUN Solaris by issuing the following command at the UNIX prompt:</p>
@@ -176,7 +176,7 @@
 <p>The makefile provided allows for various options to be included after the command: <em>clean</em> (erases the previously compiled objects) and <em>all</em> (cleans and compiles the code). If no options are included, then the command simply compiles the code without removing the previous objects. The user should be warned that the compilation of certain low-level objects requires all objects to be recreated for proper functioning. For this reason, the <em>all</em> option is recommended. The make utility will create an executable called <code class="docutils literal notranslate"><span class="pre">tribs</span></code> in the current working directory. It will also place the object files under a directory <code class="docutils literal notranslate"><span class="pre">_Objects_</span></code> that must be created within the directory of the executable.</p>
 <p>To run the model using the parallelized option, the operating system requries the appropriate MPI libraries. The current version should compile on other platforms with MPI libraries without need for any major changes to the code. Several makefiles are provided for the particular compilation of tRIBS (<code class="docutils literal notranslate"><span class="pre">makeLINUX_PAR</span></code> and <code class="docutils literal notranslate"><span class="pre">makeMAC_PAR</span></code>). As an example, the model code is compiled for LINUX by issuing the following command at the prompt</p>
 <blockquote>
-<div><p><strong>% make -f makeLINUX_PAR [options]</strong></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">make</span> <span class="pre">-f</span> <span class="pre">makeLINUX_PAR</span> <span class="pre">[options]</span></code></p>
 </div></blockquote>
 <p>In order to run the tRIBS Model, a Model Input File will be required. This file can have any name, but by convention the extension <code class="docutils literal notranslate"><span class="pre">*.in</span></code> is used. The model can be run from the UNIX command line by using the following syntax (within the same directory as the <code class="docutils literal notranslate"><span class="pre">tribs</span></code> executable):</p>
 <blockquote>
@@ -184,7 +184,7 @@
 </div></blockquote>
 <p>For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:</p>
 <blockquote>
-<div><p><strong>% mpirun [options] ./tRIBS inputfile.in [options]</strong></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">mpirun</span> <span class="pre">[options]</span> <span class="pre">./tRIBS</span> <span class="pre">inputfile.in</span> <span class="pre">[options]</span></code></p>
 </div></blockquote>
 <p>In the above, the command mpirun is particular for parallel model applications and it contains various possible options related to the assignment of particular processors. The user is recommend to check <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">mpirun</span></code> and also the sample applications for the tRIBS Model.</p>
 <p>Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Model Input File. An easier way of running the model is to create a Model Run File that contains the one line UNIX command presented above. Although Model Run Files can have any name, the extension <code class="docutils literal notranslate"><span class="pre">*_run</span></code> is used by convention. It is important to make sure that the Model Run File has read, write and execute permissions. These can be changed using the UNIX utility <code class="docutils literal notranslate"><span class="pre">chmod</span></code>.  Running the Model Run File (called here inputfile_run) would consist of issuing the following command:</p>
@@ -196,9 +196,9 @@
 <div><p><strong>Table 4.1</strong> tRIBS Run Options (<code class="docutils literal notranslate"><span class="pre">*_run</span></code>)</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 63%" />
-<col style="width: 22%" />
+<col style="width: 18%" />
+<col style="width: 61%" />
+<col style="width: 21%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Run Option</p></th>

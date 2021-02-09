@@ -72,12 +72,6 @@ Contents:
     man/Model_Execution.rst
 
 
-Aditional Info
-================
-
-..    man/requirements.rst
-..    source/modules.rst
-
 Indices and tables
 ===================
 ..  toctree:

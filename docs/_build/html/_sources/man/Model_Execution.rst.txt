@@ -10,7 +10,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
     ===========================
     The release of the tRIBS Model is intended solely for use as a research hydrology model. The distribution of the model code is provided only upon written consent from the authors. The tRIBS code is provided in a single tar formatted file called ``tribs.tar``. The file should be unpacked using the tar UNIX utility and placed in a directory of choice:
 
-            **% tar -xvf tribs.tar**
+            ``% tar -xvf tribs.tar``
 
     The tar bundle will contain the subdirectory structure and code files presented in **Tables 2.1** and **2.2**. An executable is not included in the tar bundle. A sample application for a synthetic element and for a complex watershed (Peacheater Creek) are available along with the model tar bundle. For most users, only an executable in the appropriate platform is provided along with the model examples.
 
@@ -25,7 +25,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
     To run the model using the parallelized option, the operating system requries the appropriate MPI libraries. The current version should compile on other platforms with MPI libraries without need for any major changes to the code. Several makefiles are provided for the particular compilation of tRIBS (``makeLINUX_PAR`` and ``makeMAC_PAR``). As an example, the model code is compiled for LINUX by issuing the following command at the prompt
 
-            **% make -f makeLINUX_PAR [options]**
+            ``% make -f makeLINUX_PAR [options]``
 
     4.3 Run Instructions
     =======================
@@ -36,7 +36,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
     For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:
 
-              **% mpirun [options] ./tRIBS inputfile.in [options]**
+              ``% mpirun [options] ./tRIBS inputfile.in [options]``
 
     In the above, the command mpirun is particular for parallel model applications and it contains various possible options related to the assignment of particular processors. The user is recommend to check ``man mpirun`` and also the sample applications for the tRIBS Model.
 
@@ -48,30 +48,28 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
       **Table 4.1** tRIBS Run Options (``*_run``)
 
-      .. tabularcolumns:: |l|l|l|
+      .. tabularcolumns:: |c|l|c|
 
-      +--------------+-------------------------------------------------------+-------------------+
-      |  Run Option  |   Description                                         |  Default Setting  |
-      +==============+=======================================================+===================+
-      |  *-A*        |   Automatic listing of rainfall fields                |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-R*        |   Write intermediate states (spatial output)          |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-G*        |   Run groundwater model                               |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-F*        |   Measured and forecasted rain                        |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-M*        |   Do NOT write headers in output files                |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-V*        |   [NodeID] Verbose mode (output run-time info)        |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-O*        |   On after simulation completion, awaiting user input |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-K*        |   Check input file for consistency                    |  (default = on)   |
-      +--------------+-------------------------------------------------------+-------------------+
-      |  *-H*        |   Write intermediate hydrographs (``*.mrf``)          |  (default = off)  |
-      +--------------+-------------------------------------------------------+-------------------+
+      +----------------+-------------------------------------------------------+-------------------+
+      |  Run Option    |   Description                                         |  Default Setting  |
+      +================+=======================================================+===================+
+      |    *-A*        |   Automatic listing of rainfall fields                |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-R*        |   Write intermediate states (spatial output)          |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-G*        |   Run groundwater model                               |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-F*        |   Measured and forecasted rain                        |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-M*        |   Do NOT write headers in output files                |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-V*        |   [NodeID] Verbose mode (output run-time info)        |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-O*        |   On after simulation completion, awaiting user input |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-K*        |   Check input file for consistency                    |  (default = on)   |
+      +----------------+-------------------------------------------------------+-------------------+
+      |    *-H*        |   Write intermediate hydrographs (``*.mrf``)          |  (default = off)  |
+      +----------------+-------------------------------------------------------+-------------------+
 
     The most important of these options for the new user to be acquainted with are *-R* (write intermediate results), *-G* (run the groundwater model), *-V* (verbose screen output), *-O* (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Model Input File (all model inputs except the TIN Mesh can be altered). Redirecting the model screen output should not be done if the *-O* flag is used. Many of the other options have yet to be used to the fullest potential in tRIBS, especially those concerned with the use of forecasted rainfall. Further details on the run options are available in the ``tControl.cpp`` code.
-
-    
