@@ -33,8 +33,7 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = '| tRIBS 
-| Distributed Hydrological Model'
+project = '| tRIBS | Distributed Hydrological Model'
 copyright = '2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
 authors = 'E. Vivoni, C. Lizarraga'
 
