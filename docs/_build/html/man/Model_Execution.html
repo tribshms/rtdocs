@@ -176,9 +176,9 @@
 <h2>4.1 Download instructions<a class="headerlink" href="#download-instructions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The release of the tRIBS Model is intended solely for use as a research hydrology model. The distribution of the model code is provided only upon written consent from the authors. The tRIBS code is provided in a single tar formatted file called <code class="docutils literal notranslate"><span class="pre">tribs.tar</span></code>. The file should be unpacked using the tar UNIX utility and placed in a directory of choice:</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">tar</span> <span class="pre">-xvf</span> <span class="pre">tribs.tar</span></code></p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">tribs</span><span class="o">.</span><span class="n">tar</span>
+</pre></div>
+</div>
 <p>The tar bundle will contain the subdirectory structure and code files presented in <strong>Tables 2.1</strong> and <strong>2.2</strong>. An executable is not included in the tar bundle. A sample application for a synthetic element and for a complex watershed (Peacheater Creek) are available along with the model tar bundle. For most users, only an executable in the appropriate platform is provided along with the model examples.</p>
 </div></blockquote>
 </div>
@@ -186,9 +186,9 @@
 <h2>4.2 Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The tRIBS Model was originally written and compiled on an SGI Irix 6.5 UNIX system. Since the model design uses standard C++ programming structures, the compilation onto other UNIX platforms is straightforward. tRIBS has been compiled for a range of platforms (Mac G5, Alpha Tru64, Linux, Cygwin, IBM, Solaris). The current version should compile on all platforms without need for any major changes to the code by using the different makefiles provided. As an example, the model code is compiled for SUN Solaris by issuing the following command at the UNIX prompt:</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">make</span> <span class="pre">-f</span> <span class="pre">makeSUN</span> <span class="pre">[options]</span></code></p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">makeSUN</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>The makefile provided allows for various options to be included after the command: <em>clean</em> (erases the previously compiled objects) and <em>all</em> (cleans and compiles the code). If no options are included, then the command simply compiles the code without removing the previous objects. The user should be warned that the compilation of certain low-level objects requires all objects to be recreated for proper functioning. For this reason, the <em>all</em> option is recommended. The make utility will create an executable called <code class="docutils literal notranslate"><span class="pre">tribs</span></code> in the current working directory. It will also place the object files under a directory <code class="docutils literal notranslate"><span class="pre">_Objects_</span></code> that must be created within the directory of the executable.</p>
 <p>To run the model using the parallelized option, the operating system requries the appropriate MPI libraries. The current version should compile on other platforms with MPI libraries without need for any major changes to the code. Several makefiles are provided for the particular compilation of tRIBS (<code class="docutils literal notranslate"><span class="pre">makeLINUX_PAR</span></code> and <code class="docutils literal notranslate"><span class="pre">makeMAC_PAR</span></code>). As an example, the model code is compiled for LINUX by issuing the following command at the prompt</p>
 <blockquote>
@@ -274,13 +274,15 @@
 <h2>4.4 Creating Model Inputs<a class="headerlink" href="#creating-model-inputs" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message. A properly setup run will begin and end by providing the user with the following message:</p>
-<blockquote>
-<div><p>tRIBS Distributed Hydrological Model
-TIN-based Real-time Integrated Basin Simulator
-Ralph M. Parsons Laboratory
-Massachusetts Institute of Technology
-Version Number and Release Date</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------</span>
+                <span class="n">tRIBS</span> <span class="n">Distributed</span> <span class="n">Hydrological</span> <span class="n">Model</span>
+                <span class="n">TIN</span><span class="o">-</span><span class="n">based</span> <span class="n">Real</span><span class="o">-</span><span class="n">time</span> <span class="n">Integrated</span> <span class="n">Basin</span> <span class="n">Simulator</span>
+                <span class="n">Ralph</span> <span class="n">M</span><span class="o">.</span> <span class="n">Parsons</span> <span class="n">Laboratory</span>
+                <span class="n">Massachusetts</span> <span class="n">Institute</span> <span class="n">of</span> <span class="n">Technology</span>
+                <span class="n">Version</span> <span class="n">Number</span> <span class="ow">and</span> <span class="n">Release</span> <span class="n">Date</span>
+<span class="o">----------------------------------------------------------------</span>
+</pre></div>
+</div>
 <p>In between this header and footer, the model run output file obtained after redirecting the run file (<code class="docutils literal notranslate"><span class="pre">output</span></code>) will contain various sections relating to the model workflow: Reading Input Parameters, Creating Mesh, Creating Stream Network, Creating Resampling for Grids, Creating Output Files, Creating Hydrologic System, Hydrologic Simulation Loop, Deleting Objects and Exiting Program. A sample output or log file can be found in the sample applications described previously. In order to obtain a proper model run, however, the user must make sure that all model inputs, parameters and files are appropriately constructed and referenced in the Model Input File.</p>
 </div></blockquote>
 <div class="section" id="model-input-file">

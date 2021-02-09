@@ -9,8 +9,10 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 4.1 Download instructions
 ===========================
     The release of the tRIBS Model is intended solely for use as a research hydrology model. The distribution of the model code is provided only upon written consent from the authors. The tRIBS code is provided in a single tar formatted file called ``tribs.tar``. The file should be unpacked using the tar UNIX utility and placed in a directory of choice:
+    ::
 
-            ``% tar -xvf tribs.tar``
+            % tar -xvf tribs.tar
+
 
     The tar bundle will contain the subdirectory structure and code files presented in **Tables 2.1** and **2.2**. An executable is not included in the tar bundle. A sample application for a synthetic element and for a complex watershed (Peacheater Creek) are available along with the model tar bundle. For most users, only an executable in the appropriate platform is provided along with the model examples.
 
@@ -18,8 +20,10 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 =============================
 
     The tRIBS Model was originally written and compiled on an SGI Irix 6.5 UNIX system. Since the model design uses standard C++ programming structures, the compilation onto other UNIX platforms is straightforward. tRIBS has been compiled for a range of platforms (Mac G5, Alpha Tru64, Linux, Cygwin, IBM, Solaris). The current version should compile on all platforms without need for any major changes to the code by using the different makefiles provided. As an example, the model code is compiled for SUN Solaris by issuing the following command at the UNIX prompt:
+    ::
 
-            ``% make -f makeSUN [options]``
+            % make -f makeSUN [options]
+            
 
     The makefile provided allows for various options to be included after the command: *clean* (erases the previously compiled objects) and *all* (cleans and compiles the code). If no options are included, then the command simply compiles the code without removing the previous objects. The user should be warned that the compilation of certain low-level objects requires all objects to be recreated for proper functioning. For this reason, the *all* option is recommended. The make utility will create an executable called ``tribs`` in the current working directory. It will also place the object files under a directory ``_Objects_`` that must be created within the directory of the executable.
 
@@ -78,14 +82,16 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 ===========================
 
     As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message. A properly setup run will begin and end by providing the user with the following message:
+    ::
 
-    ---------------------------------------------------------------
-                     tRIBS Distributed Hydrological Model
-                     TIN-based Real-time Integrated Basin Simulator
-                     Ralph M. Parsons Laboratory
-                     Massachusetts Institute of Technology
-                     Version Number and Release Date
-    ----------------------------------------------------------------
+
+        ---------------------------------------------------------------
+                        tRIBS Distributed Hydrological Model
+                        TIN-based Real-time Integrated Basin Simulator
+                        Ralph M. Parsons Laboratory
+                        Massachusetts Institute of Technology
+                        Version Number and Release Date
+        ----------------------------------------------------------------
 
     In between this header and footer, the model run output file obtained after redirecting the run file (``output``) will contain various sections relating to the model workflow: Reading Input Parameters, Creating Mesh, Creating Stream Network, Creating Resampling for Grids, Creating Output Files, Creating Hydrologic System, Hydrologic Simulation Loop, Deleting Objects and Exiting Program. A sample output or log file can be found in the sample applications described previously. In order to obtain a proper model run, however, the user must make sure that all model inputs, parameters and files are appropriately constructed and referenced in the Model Input File.
 
