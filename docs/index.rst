@@ -59,7 +59,7 @@ We mention a few *tRIBS* processes it models:
 
 Contents:
 ==========
-    
+
 
 ..  toctree::
     :maxdepth: 2
@@ -69,12 +69,14 @@ Contents:
     man/Introduction.rst
     man/Model_Design.rst
     man/Model_Input_Formats.rst
+    man/Model_Execution.rst
+
 
 Aditional Info
 ================
 
-    man/requirements.rst
-    source/modules.rst
+..    man/requirements.rst
+..    source/modules.rst
 
 Indices and tables
 ===================
