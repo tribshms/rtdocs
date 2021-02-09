@@ -1,6 +1,6 @@
-******************
+
 1.0 Introduction
-******************
+==================
 
 A number of physically-based, distributed hydrologic models of varying degrees of complexity have been developed for the purpose of flood prediction. Physically-based models solve parameterized equations for fluid flow in the land components of the hydrologic cycle, rather than using the calibration approach of conceptual models. Distributed models try to resolve these physical processes in both space and time, leading to the implementation of numeric codes. Most physically-based, distributed models, however, tend to be so complex that execution times are prohibitively large. This drawback diminishes the capacity for model calibration and validation and eliminates the possibility for ensemble averaging or probabilistic forecasting. One of the major factors leading to the large execution times is the inefficiency in the representation of terrain inherent in a raster grid, the preferred mesh structure in most commercial or research-based distributed hydrologic models. This document elaborates on the use and application of a new distributed model that attempts to bypass many of the current difficulties by representing the terrain through triangulated irregular networks (TINs).
 

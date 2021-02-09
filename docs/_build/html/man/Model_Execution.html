@@ -191,27 +191,27 @@
 </div>
 <p>The makefile provided allows for various options to be included after the command: <em>clean</em> (erases the previously compiled objects) and <em>all</em> (cleans and compiles the code). If no options are included, then the command simply compiles the code without removing the previous objects. The user should be warned that the compilation of certain low-level objects requires all objects to be recreated for proper functioning. For this reason, the <em>all</em> option is recommended. The make utility will create an executable called <code class="docutils literal notranslate"><span class="pre">tribs</span></code> in the current working directory. It will also place the object files under a directory <code class="docutils literal notranslate"><span class="pre">_Objects_</span></code> that must be created within the directory of the executable.</p>
 <p>To run the model using the parallelized option, the operating system requries the appropriate MPI libraries. The current version should compile on other platforms with MPI libraries without need for any major changes to the code. Several makefiles are provided for the particular compilation of tRIBS (<code class="docutils literal notranslate"><span class="pre">makeLINUX_PAR</span></code> and <code class="docutils literal notranslate"><span class="pre">makeMAC_PAR</span></code>). As an example, the model code is compiled for LINUX by issuing the following command at the prompt</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">make</span> <span class="pre">-f</span> <span class="pre">makeLINUX_PAR</span> <span class="pre">[options]</span></code></p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">makeLINUX_PAR</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
 </div></blockquote>
 </div>
 <div class="section" id="run-instructions">
 <h2>4.3 Run Instructions<a class="headerlink" href="#run-instructions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>In order to run the tRIBS Model, a Model Input File will be required. This file can have any name, but by convention the extension <code class="docutils literal notranslate"><span class="pre">*.in</span></code> is used. The model can be run from the UNIX command line by using the following syntax (within the same directory as the <code class="docutils literal notranslate"><span class="pre">tribs</span></code> executable):</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">tribs</span> <span class="pre">inputfile.in</span> <span class="pre">[options]</span></code></p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tribs</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">mpirun</span> <span class="pre">[options]</span> <span class="pre">./tRIBS</span> <span class="pre">inputfile.in</span> <span class="pre">[options]</span></code></p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mpirun</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">./</span><span class="n">tRIBS</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>In the above, the command mpirun is particular for parallel model applications and it contains various possible options related to the assignment of particular processors. The user is recommend to check <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">mpirun</span></code> and also the sample applications for the tRIBS Model.</p>
 <p>Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Model Input File. An easier way of running the model is to create a Model Run File that contains the one line UNIX command presented above. Although Model Run Files can have any name, the extension <code class="docutils literal notranslate"><span class="pre">*_run</span></code> is used by convention. It is important to make sure that the Model Run File has read, write and execute permissions. These can be changed using the UNIX utility <code class="docutils literal notranslate"><span class="pre">chmod</span></code>.  Running the Model Run File (called here inputfile_run) would consist of issuing the following command:</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">inputfile_run</span> <span class="pre">&gt;</span> <span class="pre">output</span></code></p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">inputfile_run</span> <span class="o">&gt;</span> <span class="n">output</span>
+</pre></div>
+</div>
 <p>The arrow key (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) redirects the model screen output to a file called <code class="docutils literal notranslate"><span class="pre">output</span></code>. Without the arrow key, the model output associated with the progress of the run is directed to the screen. Various command line options are available when running the tRIBS model, either through the command line or through the Model Run File. <strong>Table 4.1</strong> presents a list of these options with descriptions and default values.</p>
 <blockquote>
 <div><p><strong>Table 4.1</strong> tRIBS Run Options (<code class="docutils literal notranslate"><span class="pre">*_run</span></code>)</p>
@@ -274,13 +274,13 @@
 <h2>4.4 Creating Model Inputs<a class="headerlink" href="#creating-model-inputs" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message. A properly setup run will begin and end by providing the user with the following message:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">------------------------------------------------------------------------</span>
                 <span class="n">tRIBS</span> <span class="n">Distributed</span> <span class="n">Hydrological</span> <span class="n">Model</span>
                 <span class="n">TIN</span><span class="o">-</span><span class="n">based</span> <span class="n">Real</span><span class="o">-</span><span class="n">time</span> <span class="n">Integrated</span> <span class="n">Basin</span> <span class="n">Simulator</span>
                 <span class="n">Ralph</span> <span class="n">M</span><span class="o">.</span> <span class="n">Parsons</span> <span class="n">Laboratory</span>
                 <span class="n">Massachusetts</span> <span class="n">Institute</span> <span class="n">of</span> <span class="n">Technology</span>
                 <span class="n">Version</span> <span class="n">Number</span> <span class="ow">and</span> <span class="n">Release</span> <span class="n">Date</span>
-<span class="o">----------------------------------------------------------------</span>
+<span class="o">------------------------------------------------------------------------</span>
 </pre></div>
 </div>
 <p>In between this header and footer, the model run output file obtained after redirecting the run file (<code class="docutils literal notranslate"><span class="pre">output</span></code>) will contain various sections relating to the model workflow: Reading Input Parameters, Creating Mesh, Creating Stream Network, Creating Resampling for Grids, Creating Output Files, Creating Hydrologic System, Hydrologic Simulation Loop, Deleting Objects and Exiting Program. A sample output or log file can be found in the sample applications described previously. In order to obtain a proper model run, however, the user must make sure that all model inputs, parameters and files are appropriately constructed and referenced in the Model Input File.</p>
