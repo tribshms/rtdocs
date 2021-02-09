@@ -181,8 +181,7 @@
 <div><p>A standard ASCII grid format is used for all grid input to the model, which may include soil and land use reclassification fields, initial groundwater table depth, depth to bedrock and radar rainfall grids. The ASCII grid format used is a standard created by ESRI for the exchange of grid data for GIS applications. It consists of a small, 6-line header that describes the matrix data presented in the text file. This format is a convenient method for data exchange into GIS since the format is easily read by all ESRI software. In other software programs for visualization of matrix data (<em>i.e.</em> MATLAB), care must be taken when reading in the header information. Any extension name for the grid data can be used within tRIBS as long the filename is specified in the Model Input File. However, for visualization of the grid within GIS, an extension <code class="docutils literal notranslate"><span class="pre">*.asc</span></code> is required for the grid to be read properly (ESRI, 1996).</p>
 <p>As mentioned previously, the grid input to the tRIBS model can consist of time-invariant watershed descriptors, such as soil and land use coverage grids, or time-varying, spatially-distributed hydrometeorologic forcings, such as radar rainfall estimates or grid meteorological data from numerical weather models. Although each grid input is treated differently within the model, the user input should be identical. It consists mostly of specifying the grid pathname within the Model Input File, as described in a later section. As illustrated in the tRIBS Model Framework, all grid input are resampled onto the TIN terrain representation created within the tRIBS model, and specifically onto the Voronoi Polygon Network (VPN).</p>
 <blockquote>
-<div></div></blockquote>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 24%" />
 <col style="width: 16%" />
@@ -278,8 +277,7 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<div><p><strong>Figure 3.1.</strong> Example of a standard ASCII grid file.</p>
+<p><strong>Figure 3.1.</strong> Example of a standard ASCII grid file.</p>
 </div></blockquote>
 <p><strong>Figure 3.1</strong> illustrates an example of a grid ASCII input to the model with the appropriate header information and the matrix of values. These values may be any particular type of input that needs to be resampled onto the tRIBS mesh. In this particular case, it represents NEXRAD radar rainfall values (in <em>cm/hr</em>) at a resolution of 2 kilometer by 2 kilometers within the perimeter of the Peacheater Creek Watershed (see Sample Application in tRIBS Watershed Downloads Page). Illustrated in the figure are various features to note:</p>
 <blockquote>
@@ -297,8 +295,7 @@
 <blockquote>
 <div><p>Topographic data is inputted into the tRIBS Model through a variety of methods that are implemented in the tMesh class.  For applications in real watersheds with complex topography and stream networks, the method of choice is to generate the TIN mesh within Arc/Info GIS and export it into a format that tRIBS can convert to a Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>). This Points File is then read during a subsequent model run. For tRIBS, a set of Arc/Info scripts have been created that manipulate the watershed Digital Elevation Model (DEM), the stream network, the watershed boundary and the bottom-valley floodplain to created a “hydrologically” significant TIN Terrain Model. Further details of these scripts are presented in the Terrain Analysis Section of this document. Exporting the TIN mesh from Arc/Info is performed through a procedure that ungenerates the TIN into a set of points (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>) and lines (<code class="docutils literal notranslate"><span class="pre">*.lin</span></code>). tRIBS can read these files and construct from them a Points (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>) file, an example of which is shown in <strong>Figure 3.2</strong>.</p>
 <blockquote>
-<div></div></blockquote>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 26%" />
@@ -348,8 +345,7 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<div><p><strong>Figure 3.2.</strong> Example of a tRIBS Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>)</p>
+<p><strong>Figure 3.2.</strong> Example of a tRIBS Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>)</p>
 </div></blockquote>
 <p>A Points File is a simple text file that contains a listing of point coordinates (<em>x, y, z</em>) and the boundary code (<em>b</em>) for each point (in that specific order) with a small header that indicates the total number of points in the file. The boundary code is indicative of the node position within the watershed: 0 (mesh interior node), 1 (closed mesh boundary node), 2 (open mesh boundary or outlet node), 3 (stream network node). Proper creation and consistency of the Points File is very important for the tRIBS Model and the <code class="docutils literal notranslate"><span class="pre">*.points</span></code> file should be carefully inspected using ArcView GIS or a similar environment. The Points File can be the appropriate method of TIN input for points obtained from a field survey, from a GIS point coverage, from a sampled DEM or from a ungenerated TIN mesh.</p>
 <p>The Points File is the recommended TIN input for the tRIBS Model during the initial model construction, usually necessary when a new basin is modeled for the first time. After a successful tRIBS model run, the model outputs a set of files that describe the TIN mesh properties in greater detail, including the connectivity between nodes and the triangles within the mesh. The set of files includes: <code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code> and <code class="docutils literal notranslate"><span class="pre">*.z</span></code>. These files can be read directly into the model during subsequent model runs, thus avoiding the use of the <code class="docutils literal notranslate"><span class="pre">*.points</span></code> file and speeding up the process of mesh construction. Further details on both of these options will be discussed in subsequent sections and are also available in Tucker (1999).</p>
@@ -383,9 +379,6 @@
 <p>The various options can be selected utilizing the keyword <em>GRAPHOPTION</em>. The default graph partitioning is based on an automatic splitting of the internal node list. It is a simple method that does not permit user control or interaction. As a result, it may not be an optimal way for subdividing a domain into a well-balanced computational effort among different processors. The reach-based and inlet/outlet-based methods require user input of a file into tRIBS by specifying the filename using the keyword <em>GRAPHFILE</em>. The file structure varies for each type of domain decomposition. The following tables indicate the file structure for the reach-based and inlet/outlet-based approaches.</p>
 <blockquote>
 <div><p><strong>Table 3.1</strong> Reach-based Graph Input File (<code class="docutils literal notranslate"><span class="pre">*.graph</span></code>)</p>
-<blockquote>
-<div></div></blockquote>
-</div></blockquote>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -409,11 +402,11 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p>The reach-based graph input (<strong>Table 3.1</strong>) is essentially a two-column text file with no header. Column 1 holds the numerical IDs of the computer processors to be used (labeled from 0 to N) while Column 2 holds the numerical IDs (labeled from 0 to M) of the reaches to be run on the corresponding computer processors. The number of available computer processors will depend on the cluster in use. The number of reaches will depend on the size of the problem treated. For large domains, manual construction of the graph input file may become cumbersome. The reach IDs need to be determined from the <code class="docutils literal notranslate"><span class="pre">*.reach</span></code> file generated by the tRIBS model after mesh construction. This file is typically imported as a line coverage into a GIS package to identify the spatial location of each reach and their corresponding reach ID. The user will need to determine the most appropriate method for distributing the various reaches onto the available processors. Proper load balancing needs to be considered to distribute effort among different subbasins. Vivoni <em>et al.</em> (2006) presents a discussion of this issue with respect to some test cases.</p>
 <p>The inlet/outlet-based graph input (<strong>Table 3.2</strong>) is essentially a three-column text file with no header. Column 1 holds the numerical IDs of the computer processors to be used (labeled from 0 to N), Column 2 holds the numerical IDs of the channel nodes that form the inlet (upstream) segment of a reach and Column 3 holds the numerical IDs of the channel nodes that form the outlet (downstream) segment of a reach. Inlet nodes are typically inside sub-basins along the headwater areas, while outlet nodes are typically the closest downstream location along the main channel. The inlet/outlet-based graph partitioning provides for flexibility to the user, but may be more complicated to set up. The inlet/outlet IDs need to be determined from the <code class="docutils literal notranslate"><span class="pre">*.voi</span></code> file generated by the tRIBS model after mesh construction. This file is typically imported as a polygon coverage into a GIS package to identify the spatial location of each node and their corresponding ID. As with the above case, the user will need to experiment with the inlet/outlet partitioning in order to obtain proper load balancing and performance.</p>
 <blockquote>
 <div><p><strong>Table 3.2</strong> Inlet/Outlet-based Graph Input File (<code class="docutils literal notranslate"><span class="pre">*.graph</span></code>)</p>
-</div></blockquote>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -443,6 +436,7 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div></blockquote>
 <hr class="docutils" />
 <blockquote>
