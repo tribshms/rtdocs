@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'tRIBS - Distributed Hydrologic Model System'
-copyright = '2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
+copyright = '2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
 authors = 'E. Vivoni, C. Lizarraga'
 
 # The full version, including alpha/beta/rc tags
@@ -47,13 +47,12 @@ release = '0.8'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.napoleon",
+    'sphinx.ext.napoleon',
+
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
     "sphinx.ext.mathjax",
-    "sphinx.ext.viewcode",
-    "sphinx.ext.autosummary", 
-    "sphinx.ext.extlinks"
+    "sphinx.ext.viewcode"
 ]
 
 napoleon_google_docstring = False
@@ -86,6 +85,14 @@ html_theme = 'sphinx_rtd_theme'
 #    'logo_only': False,
 #    'display_version': False,
 #}
+
+
+
+#html_theme = 'nature'
+
+#import sphinx_readable_theme
+#html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
+#html_theme = 'readable'
 
 
 # Added this for tables appearance on small screens
