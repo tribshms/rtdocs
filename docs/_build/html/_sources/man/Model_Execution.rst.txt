@@ -109,9 +109,216 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
         The tRIBS Model Input File (``*.in``) is currently the primary user interface to the model. Although not a graphical medium, it is an easy and efficient means of manipulating all modeling options, parameters and inputs. Not all of the parameters are required for every single run since choosing a particular option may require some additional parameters that an alternate option may not. Nevertheless, it is recommended to have as complete a set of parameters as possible. Those parameters that are not required for a particular run are ignored by the model. The ``*.in`` file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. **Table 4.2** presents a list of the model parameters used in the tRIBS Model Input File. Note that all parameters are capitalized. The values associated with each parameter may be a number (int, double) or a string (pathname, extension). If the units are specified as ints or doubles, this implies that the parameters are dimensionless, otherwise a unit is expressed. The difference between a pathname and a base pathname is simply that the pathname includes the entire path plus the entire name of the file, including the extension, while a base pathname is only the path and the base name of the file (no extension). NOTE: All keywords in the inputfile must have a entry for proper model execution.
 
-        **Table 4.2** List of Model Parameters in tRIBS Model Input File
+            **Table 4.2** List of Model Parameters in tRIBS Model Input File
+            .. tabularcolumns:: |l|c|l|
+
+            +----------------------+-----------------+----------------------------------------------------+
+            |  Keyword             |   Units         |    Description                                     |
+            +======================+=================+====================================================+
+            |  *STARTDATE*         |   *date format* |   Date of start of simulation                      |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RUNTIME*           |   *hours*       |   Total number of hours in run                     |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *TIMESTEP*          |   *mins*        |   Unsaturated zone time step                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *GWSTEP*            |   *mins*        |   Saturated zone time step                         |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *METSTEP*           |   *mins*        |   Meteorological data input time step              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *ETISTEP*           |   *hours*       |   ET, interception and snow time step              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RAININTRVL*        |   *hours*       |   Rainfall data input time step                    |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPINTRVL*          |   *hours*       |   Output interval                                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *SPOPINTRVL*        |   *hours*       |   Spatial output interval                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *INTSTORMMAX*       |   *hours*       |   Interstorm interval                              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RAINSEARCH*        |   *hours*       |   Rainfall search interval                         |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *BASEFLOW*          |   *m3/s*        |   Minimum baseflow discharge                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *VELOCITYCOEF*      |   *double*      |   Discharge-velocity coefficient                   |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *KINEMVELCOEF*      |   *double*      |   Kinematic routing velocity coefficient           |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *VELOCITYRATIO*     |   *double*      |   Stream-hillslope velocity coefficient            |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *FLOWEXP*           |   *double*      |   Nonlinear discharge coefficient                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANNELROUGHNESS*  |   *double*      |   Uniform channel roughness value                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANNELWIDTH*      |   *double*      |   Uniform channel width                            |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANNELWIDTHCOEFF* |   *double*      |   Coefficient in width-area relation               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANNELWIDTHEXPNT* |   *double*      |   Exponent in width-area relation                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANNELWIDTHFILE*  |   *pathname*    |   Input file name for channel widths               |
+            +----------------------+-----------------+----------------------------------------------------+
+            | *CHANNELCONDUCTIVITY*|   *double*      |   Hydraulic conductivity in channel                |
+            +----------------------+-----------------+----------------------------------------------------+
+            |*TRANSIENTCONDUCTIVITY*|  *double*      |   Hydraulic conductivity during transient period   |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *TRANSIENTTIME*     |   *double*      |   Time until transient period ends                 |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANNELPOROSITY*   |   *double*      |   Porosity in channel                              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANPOREINDEX*     |   *double*      |   Pore index parameter in channel                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CHANPSIB*          |   *double*      |   Matric potential in channel                      |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTMESHINPUT*      |   *int*         |   Option for Mesh generation                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RAINSOURCE*        |   *int*         |   Source of rainfall data                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTEVAPOTRANS*     |   *int*         |   Option for Evapotranspiration scheme             |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTSNOW*           |   *int*         |   Option for snow                                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *HILLALBOPT*        |   *int*         |   Option for hillslope albedo                      |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTRADSHELT*       |   *int*         |   Option for radiation sheltering of snow          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTINTERCEPT*      |   *int*         |   Option for Interception scheme                   |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTLANDUSE*        |   *int*         |   Option for static or dynamic land cover          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTLUINTERP*       |   *int*         |   Option for land cover interpolation              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTSOILTYPE*       |   *int*         |   Option for soil parameter format                 |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *GFLUXOPTION*       |   *int*         |   Option for Ground heat flux scheme               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *METDATAOPTION*     |   *int*         |   Point or Grid weather data                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *CONVERTDATA*       |   *int*         |   Processing weather or raingauge data             |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTBEDROCK*        |   *int*         |   Option for uniform or variable depth             |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTGWFILE*         |   *int*         |   Option for groundwater input file                |
+            +----------------------+-----------------+----------------------------------------------------+
+            | *WIDTHINTERPOLATION* |   *int*         |   Option for interpolating width variables         |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTRUNON*          |   *int*         |   Option for hillslope runon                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTRESERVOIR*      |	 *int*         |	 Option for reservoir routing                      |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OPTPERCOLATION*    |   *int*         |   Option for channel percolation losses            |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *INPUTDATAFILE*     | *base pathname* |   Input file base name for Mesh files              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *INPUTTIME*         |   *int*         |   Time slice for Mesh file input                   |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *ARCINFOFILENAME*   | *base pathname* |   Input file base name for Arc files               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *POINTFILENAME*     |   *pathname*    |   Input file name for Points files                 |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *SOILTABLENAME*     |   *pathname*    |   Soil parameter reference table                   |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *SOILMAPNAME*       |   *pathname*    |   Soil texture ASCII grid                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *LANDTABLENAME*     |   *pathname*    |   Land use parameter reference table               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *LANDMAPNAME*       |   *pathname*    |   Land use ASCII grid                              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *GWATERFILE*        |   *pathname*    |   Ground water ASCII grid                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *DEMFILE*           |   *pathname*    |   DEM for sheltering                               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RAINFILE*          | *base pathname* |   Radar Rainfall ASCII grids                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RAINEXTENSION*     |  *extension*    |   Extension for Radar Rainfall grids               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *DEPTHTOBEDROCK*    |  *meters*       |   Uniform depth to bedrock                         |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *BEDROCKFILE*       |  *pathname*     |   Bedrock depth ASCII grid                         |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *LUGRID*            |  *pathname*     |   Dynamic land cover ASCII grid list               |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *SCGRID*            |  *pathname*     |  Spatially-variable soil parameter ASCII grid list |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *HYDROMETSTATIONS*  |  *pathname*     |   Hydrometeorological station file                 |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *HYDROMETGRID*     |  *pathname*     |   Hydrometeorological ASCII grid list              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *HYDROMETCONVERT*  |  *pathname*     |   Hydrometeorological data input file              |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *HYDROMETBASENAME* | *base pathname* |   Hydrometeorological data file                    |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *GAUGESTATIONS*    | *pathname*      |   Rain gauge station file                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *GAUGECONVERT*     |  *pathname*     |   Rain gauge data input file                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *GAUGEBASENAME*    | *base pathname* |   Rain gauge data file                             |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *RESPOLYGONID*     |  *pathname*     |   Reservoir polygon ID file                        |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *RESDATA*          |  *pathname*     |   Reservoir data table                             |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *OUTFILENAME*      | *base pathname* |   tMesh and variable output                        |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *OUTHYDROFILENAME* | *base pathname* |   Hydrograph output                                |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OUTHYDROEXTENSION* |  *extension*    |   Extension for hydrographs                        |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *RIBSHYDOUTPUT*     |   *int*         |   Compatibility with RIBS Output                   |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *NODEOUTPUTLIST*    |   *pathname*    |   Node output list file                            |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *HYDRONODELIST*     |   *pathname*    |   Node runtime output list file                    |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *OUTLETNODELIST*    |   *pathname*    |   Interior node output list                        |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *FORECASTMODE*     |   *int*         |   Forecast mode options                            |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *FORECASTTIME*     |   *int*         |   Time in hours from start                         |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *FORECASTLEADTIME* |   *int*         |   Total lead time (hrs)                            |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *FORECASTLENGTH*    |   *int*         |   Total forecast length (hrs)                      |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *FORECASTFILE*      |   *pathname*    |   Forecast file directory                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *CLIMATOLOGY*      |   *double*      |   Climatology rainfall (mm/hr)                     |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *RAINDISTRIBUTION* |   *int*         |   Spatial or lumped rainfall                       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *STOCHASTICMODE*   |   *int*         |   Stochastic model option                          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *PMEAN*            |   *double*      |   Mean rainfall intensity (mm/hr)                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *STDUR*            |   *double*      |   Mean storm duration (hrs)                        |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *ISTDUR*           |   *double*      |   Mean time interval between storms (hrs)          |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *SEED*             |   *int*         |   Random seed                                      |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *PERIOD*           |   *double*      |   Period of variation (hrs)                        |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *MAXPMEAN*         |   *double*      |   Maximum value of mean rainfall intensity (mm/hr) |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *MAXSTDURMN*       |   *double*      |   Maximum value of mean storm duration (hrs)       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |   *MAXISTDURMN*      |   *double*      |   Maximum value of mean interstorm duration (hrs)  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *WEATHERTABLENAME*  |   *filename*    |   Stochastic weather file name                     |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *TLINKE*            |   *double*      |   Atmospheric turbidity parameter                  |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *MINSNTEMP*         |   *double*      |   Minimum snow temperature allowed (Celsius)       |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *TEMPLAPSE*         |   *double*      |   Temperature lapse rate                           |
+            +----------------------+-----------------+----------------------------------------------------+
+            |  *PRECLAPSE*         |   *double*      |   Precipitation lapse rate                         |
+            +----------------------+-----------------+----------------------------------------------------+
+
+        The tRIBS Model Input File provides an appropriate means for summarizing the various modeling options and capabilities in the tRIBS Release. An exhaustive explanation of each item is avoided in this document for brevity and the user is referred to the more complete description tRIBS and CHILD descriptions:
+
+            
 
 
 
 --------------------------------------------------------------------------------
-          *Last Update: 02-08-2021  C. Lizarraga 
+          *Last Update: 02-08-2021  C. Lizarraga
