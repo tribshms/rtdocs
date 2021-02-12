@@ -291,6 +291,417 @@
 <div><p>The tRIBS Model Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>) is currently the primary user interface to the model. Although not a graphical medium, it is an easy and efficient means of manipulating all modeling options, parameters and inputs. Not all of the parameters are required for every single run since choosing a particular option may require some additional parameters that an alternate option may not. Nevertheless, it is recommended to have as complete a set of parameters as possible. Those parameters that are not required for a particular run are ignored by the model. The <code class="docutils literal notranslate"><span class="pre">*.in</span></code> file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. <strong>Table 4.2</strong> presents a list of the model parameters used in the tRIBS Model Input File. Note that all parameters are capitalized. The values associated with each parameter may be a number (int, double) or a string (pathname, extension). If the units are specified as ints or doubles, this implies that the parameters are dimensionless, otherwise a unit is expressed. The difference between a pathname and a base pathname is simply that the pathname includes the entire path plus the entire name of the file, including the extension, while a base pathname is only the path and the base name of the file (no extension). NOTE: All keywords in the inputfile must have a entry for proper model execution.</p>
 <blockquote>
 <div><p><strong>Table 4.2</strong> List of Model Parameters in tRIBS Model Input File</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Units</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>STARTDATE</em></p></td>
+<td><p><em>date format</em></p></td>
+<td><p>Date of start of simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>RUNTIME</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>Total number of hours in run</p></td>
+</tr>
+<tr class="row-even"><td><p><em>TIMESTEP</em></p></td>
+<td><p><em>mins</em></p></td>
+<td><p>Unsaturated zone time step</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>GWSTEP</em></p></td>
+<td><p><em>mins</em></p></td>
+<td><p>Saturated zone time step</p></td>
+</tr>
+<tr class="row-even"><td><p><em>METSTEP</em></p></td>
+<td><p><em>mins</em></p></td>
+<td><p>Meteorological data input time step</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>ETISTEP</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>ET, interception and snow time step</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RAININTRVL</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>Rainfall data input time step</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPINTRVL</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>Output interval</p></td>
+</tr>
+<tr class="row-even"><td><p><em>SPOPINTRVL</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>Spatial output interval</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>INTSTORMMAX</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>Interstorm interval</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RAINSEARCH</em></p></td>
+<td><p><em>hours</em></p></td>
+<td><p>Rainfall search interval</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>BASEFLOW</em></p></td>
+<td><p><em>m3/s</em></p></td>
+<td><p>Minimum baseflow discharge</p></td>
+</tr>
+<tr class="row-even"><td><p><em>VELOCITYCOEF</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Discharge-velocity coefficient</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>KINEMVELCOEF</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Kinematic routing velocity coefficient</p></td>
+</tr>
+<tr class="row-even"><td><p><em>VELOCITYRATIO</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Stream-hillslope velocity coefficient</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>FLOWEXP</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Nonlinear discharge coefficient</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CHANNELROUGHNESS</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Uniform channel roughness value</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CHANNELWIDTH</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Uniform channel width</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CHANNELWIDTHCOEFF</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Coefficient in width-area relation</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CHANNELWIDTHEXPNT</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Exponent in width-area relation</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CHANNELWIDTHFILE</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Input file name for channel widths</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CHANNELCONDUCTIVITY</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Hydraulic conductivity in channel</p></td>
+</tr>
+<tr class="row-even"><td><p><em>TRANSIENTCONDUCTIVITY</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Hydraulic conductivity during transient period</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>TRANSIENTTIME</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Time until transient period ends</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CHANNELPOROSITY</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Porosity in channel</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CHANPOREINDEX</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Pore index parameter in channel</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CHANPSIB</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Matric potential in channel</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTMESHINPUT</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for Mesh generation</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RAINSOURCE</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Source of rainfall data</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTEVAPOTRANS</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for Evapotranspiration scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OPTSNOW</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for snow</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>HILLALBOPT</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for hillslope albedo</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OPTRADSHELT</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for radiation sheltering of snow</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTINTERCEPT</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for Interception scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OPTLANDUSE</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for static or dynamic land cover</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTLUINTERP</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for land cover interpolation</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OPTSOILTYPE</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for soil parameter format</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>GFLUXOPTION</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for Ground heat flux scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><em>METDATAOPTION</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Point or Grid weather data</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONVERTDATA</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Processing weather or raingauge data</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OPTBEDROCK</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for uniform or variable depth</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTGWFILE</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for groundwater input file</p></td>
+</tr>
+<tr class="row-even"><td><p><em>WIDTHINTERPOLATION</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for interpolating width variables</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTRUNON</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for hillslope runon</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OPTRESERVOIR</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for reservoir routing</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OPTPERCOLATION</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Option for channel percolation losses</p></td>
+</tr>
+<tr class="row-even"><td><p><em>INPUTDATAFILE</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>Input file base name for Mesh files</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>INPUTTIME</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Time slice for Mesh file input</p></td>
+</tr>
+<tr class="row-even"><td><p><em>ARCINFOFILENAME</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>Input file base name for Arc files</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>POINTFILENAME</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Input file name for Points files</p></td>
+</tr>
+<tr class="row-even"><td><p><em>SOILTABLENAME</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Soil parameter reference table</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>SOILMAPNAME</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Soil texture ASCII grid</p></td>
+</tr>
+<tr class="row-even"><td><p><em>LANDTABLENAME</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Land use parameter reference table</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>LANDMAPNAME</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Land use ASCII grid</p></td>
+</tr>
+<tr class="row-even"><td><p><em>GWATERFILE</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Ground water ASCII grid</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>DEMFILE</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>DEM for sheltering</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RAINFILE</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>Radar Rainfall ASCII grids</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>RAINEXTENSION</em></p></td>
+<td><p><em>extension</em></p></td>
+<td><p>Extension for Radar Rainfall grids</p></td>
+</tr>
+<tr class="row-even"><td><p><em>DEPTHTOBEDROCK</em></p></td>
+<td><p><em>meters</em></p></td>
+<td><p>Uniform depth to bedrock</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>BEDROCKFILE</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Bedrock depth ASCII grid</p></td>
+</tr>
+<tr class="row-even"><td><p><em>LUGRID</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Dynamic land cover ASCII grid list</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>SCGRID</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Spatially-variable soil parameter ASCII grid list</p></td>
+</tr>
+<tr class="row-even"><td><p><em>HYDROMETSTATIONS</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Hydrometeorological station file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>HYDROMETGRID</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Hydrometeorological ASCII grid list</p></td>
+</tr>
+<tr class="row-even"><td><p><em>HYDROMETCONVERT</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Hydrometeorological data input file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>HYDROMETBASENAME</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>Hydrometeorological data file</p></td>
+</tr>
+<tr class="row-even"><td><p><em>GAUGESTATIONS</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Rain gauge station file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>GAUGECONVERT</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Rain gauge data input file</p></td>
+</tr>
+<tr class="row-even"><td><p><em>GAUGEBASENAME</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>Rain gauge data file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>RESPOLYGONID</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Reservoir polygon ID file</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RESDATA</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Reservoir data table</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OUTFILENAME</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>tMesh and variable output</p></td>
+</tr>
+<tr class="row-even"><td><p><em>OUTHYDROFILENAME</em></p></td>
+<td><p><em>base pathname</em></p></td>
+<td><p>Hydrograph output</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OUTHYDROEXTENSION</em></p></td>
+<td><p><em>extension</em></p></td>
+<td><p>Extension for hydrographs</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RIBSHYDOUTPUT</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Compatibility with RIBS Output</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>NODEOUTPUTLIST</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Node output list file</p></td>
+</tr>
+<tr class="row-even"><td><p><em>HYDRONODELIST</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Node runtime output list file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>OUTLETNODELIST</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Interior node output list</p></td>
+</tr>
+<tr class="row-even"><td><p><em>FORECASTMODE</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Forecast mode options</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>FORECASTTIME</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Time in hours from start</p></td>
+</tr>
+<tr class="row-even"><td><p><em>FORECASTLEADTIME</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Total lead time (hrs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>FORECASTLENGTH</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Total forecast length (hrs)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>FORECASTFILE</em></p></td>
+<td><p><em>pathname</em></p></td>
+<td><p>Forecast file directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CLIMATOLOGY</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Climatology rainfall (mm/hr)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RAINDISTRIBUTION</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Spatial or lumped rainfall</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>STOCHASTICMODE</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Stochastic model option</p></td>
+</tr>
+<tr class="row-even"><td><p><em>PMEAN</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Mean rainfall intensity (mm/hr)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>STDUR</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Mean storm duration (hrs)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>ISTDUR</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Mean time interval between storms (hrs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>SEED</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p>Random seed</p></td>
+</tr>
+<tr class="row-even"><td><p><em>PERIOD</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Period of variation (hrs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>MAXPMEAN</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Maximum value of mean rainfall intensity (mm/hr)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>MAXSTDURMN</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Maximum value of mean storm duration (hrs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>MAXISTDURMN</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Maximum value of mean interstorm duration (hrs)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>WEATHERTABLENAME</em></p></td>
+<td><p><em>filename</em></p></td>
+<td><p>Stochastic weather file name</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>TLINKE</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Atmospheric turbidity parameter</p></td>
+</tr>
+<tr class="row-even"><td><p><em>MINSNTEMP</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Minimum snow temperature allowed (Celsius)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>TEMPLAPSE</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Temperature lapse rate</p></td>
+</tr>
+<tr class="row-even"><td><p><em>PRECLAPSE</em></p></td>
+<td><p><em>double</em></p></td>
+<td><p>Precipitation lapse rate</p></td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <p>The tRIBS Model Input File provides an appropriate means for summarizing the various modeling options and capabilities in the tRIBS Release. An exhaustive explanation of each item is avoided in this document for brevity and the user is referred to the more complete description tRIBS and CHILD descriptions:</p>
 </div></blockquote>
