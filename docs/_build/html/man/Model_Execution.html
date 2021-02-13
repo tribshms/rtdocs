@@ -113,6 +113,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#soil-and-land-use-input">4.4.2 Soil and Land Use Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meteorological-point-data-input">4.4.3 Meteorological Point Data Input</a></li>
 </ul>
 </li>
 </ul>
@@ -949,6 +950,224 @@
 <p>Once the land use and soil class codes are assigned to each Voronoi or TIN node, a set of procedures in tInvariant take care of constructing objects for each cover type. These cover type objects are referenced by the codes in the input grids and include references to the various parameter values associated with each cover type. The parameter values for the soil and land use grids are read from a reclassification table inputted separately into the model by using the keywords <em>SOILTABLENAME</em> and <em>LANDTABLENAME</em>. The format of these soil reclassification (<code class="docutils literal notranslate"><span class="pre">*.sdt</span></code>) and land use reclassification (<code class="docutils literal notranslate"><span class="pre">*.ldt</span></code>) tables are straightforward. They include a small header which specifies the number of cover types (<em>#Types</em>) and the number of variables for each type (<em>#Params</em>), as shown in <strong>Figure 4.4a</strong> and <strong>Figure 4.5a</strong>. The header is followed by a matrix of parameter values where each row represents one cover type and each column represents one parameter. Currently, there <strong>must</strong> be 12 parameters in the soil and land use reclassification tables. Without this appropriate number of parameters in the file, erroneous calculations may take place. In addition, the order and units of these parameters are <strong>fixed</strong>. Since parameter values outside the appropriate range may results in inaccurate calculations, the user should be careful to select realistic values from literature sources prior to model use.</p>
 <blockquote>
 <div><p><strong>Figure 4.4a</strong> Soil Reclassification Table Structure (<code class="docutils literal notranslate"><span class="pre">*.sdt</span></code>)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>#Types</em></p></td>
+<td><p><em>nParams</em></p></td>
+<td colspan="10"></td>
+</tr>
+<tr class="row-even"><td><p><em>ID</em></p></td>
+<td><p><em>Ks</em></p></td>
+<td><p><em>thetaS</em></p></td>
+<td><p><em>thetaR</em></p></td>
+<td><p><em>m</em></p></td>
+<td><p><em>PsiB</em></p></td>
+<td><p><em>f</em></p></td>
+<td><p><em>As</em></p></td>
+<td><p><em>Au</em></p></td>
+<td><p><em>n</em></p></td>
+<td><p><em>ks</em></p></td>
+<td><p><em>Cs</em></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Figure 4.4.b</strong> Soil Parameter Description</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 56%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Ks</em></p></td>
+<td><p>Saturated Hydraulic Conductivity</p></td>
+<td><p>[<em>mm/h</em>]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>thetaS</em></p></td>
+<td><p>Soil Moisture at Saturation</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>thetaR</em></p></td>
+<td><p>Residual Soil Moisture</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>m</em></p></td>
+<td><p>Pore distribution index</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>PsiB</em></p></td>
+<td><p>Air Entry Bubbling Pressure</p></td>
+<td><p>[<em>mm</em>](negative)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>f</em></p></td>
+<td><p>Decay parameter</p></td>
+<td><p>[<em>mm^-1</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>As</em></p></td>
+<td><p>Saturated Anisotropy Ratio</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Au</em></p></td>
+<td><p>Unsaturated Anisotropy Ratio</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>n</em></p></td>
+<td><p>Porosity</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>ks</em></p></td>
+<td><p>Volumetric Heat Conductivity</p></td>
+<td><p>[<em>J/msK</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Cs</em></p></td>
+<td><p>Soil Heat Capacity</p></td>
+<td><p>[<em>J/m3K</em>]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Figure 4.4* presents the parameter values for the soil reclassification table. Notice that these parameters relate to the hydraulic and thermal properties of the soil cover type in the upper portions of the soil profile. Most of these can be directly related to the surface soil texture. The first nine parameters are essential for running the Unsaturated Zone Model while the last two are required if the keyword <em>GFLUXOPTION = 1</em> (Wang and Bras, 1999). Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. Examples of a soil reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.</p>
+<blockquote>
+<div><p><strong>Figure 4.5a</strong> Land Use Reclassification Table Structure (<code class="docutils literal notranslate"><span class="pre">*.ldt</span></code>)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 9%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>#Types</em></p></td>
+<td><p><em>nParams</em></p></td>
+<td colspan="11"></td>
+</tr>
+<tr class="row-even"><td><p><em>ID</em></p></td>
+<td><p><em>a</em></p></td>
+<td><p><em>bI</em></p></td>
+<td><p><em>P</em></p></td>
+<td><p><em>S</em></p></td>
+<td><p><em>K</em></p></td>
+<td><p><em>b2</em></p></td>
+<td><p><em>Al</em></p></td>
+<td><p><em>h</em></p></td>
+<td><p><em>Kt</em></p></td>
+<td><p><em>Rs</em></p></td>
+<td><p><em>V</em></p></td>
+<td><p><em>LAI</em></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Figure 4.5b</strong> Land Use Parameter Description</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 59%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>A</em></p></td>
+<td><p>Canopy Storage - Storage</p></td>
+<td><p>[<em>mm</em>]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>bI</em></p></td>
+<td><p>Interception Coefficient - Storage</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>P</em></p></td>
+<td><p>Free Throughfall Coefficient - Rutter</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>S</em></p></td>
+<td><p>Canopy Field Capacity - Rutter</p></td>
+<td><p>[<em>mm</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>K</em></p></td>
+<td><p>Drainage Coefficient - Rutter</p></td>
+<td><p>[<em>mm/hr</em>]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>b2</em></p></td>
+<td><p>Drainage Exponential Parameter - Rutter</p></td>
+<td><p>[<em>mm^-1</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Al</em></p></td>
+<td><p>Land-Use Albedo</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>H</em></p></td>
+<td><p>Vegetation height</p></td>
+<td><p>[<em>m</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Kt</em></p></td>
+<td><p>Optical Transmission Coefficient</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Rs</em></p></td>
+<td><p>Canopy-average Stomatal Resistance</p></td>
+<td><p>[<em>s/m</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>V</em></p></td>
+<td><p>Vegetation Fraction</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>LAI</em></p></td>
+<td><p>Canopy Leaf Area Index</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p>theta*_s</p></td>
+<td><p>Stress threshold for Soil Evaporation</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td><p>theta*_t</p></td>
+<td><p>Stress threshold for Plant Transpiration</p></td>
+<td><p>[]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Figure 4.5</strong> presents the parameter values for the land use reclassification table. Notice that these parameters relate to the interception and evaporation properties of the vegetative cover or land use type. Most of these can be directly related to the land use codes. The first two parameters are required if the keyword <em>OPTINTERCEPT = 1</em>, while the next four are required if <em>OPTINTERCEPT = 2</em>.  The final five parameters are required for various options of the keyword <em>OPTEVAPOTRANS</em>. Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. The last two parameters have been recently added to specify the soil moisture stress threshold for soil evaporation and plant transpiration. These used to be specified simply as 0.75*thetaS, but now the user is responsible for setting these in units [] consistent with other soil moisture thresholds. Examples of a land use reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.</p>
+</div></blockquote>
+</div>
+<div class="section" id="meteorological-point-data-input">
+<h3>4.4.3 Meteorological Point Data Input<a class="headerlink" href="#meteorological-point-data-input" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The input of meteorological data is essential for utilizing the tRIBS Model for continuous hydrologic simulations over storm and interstorm cycles. Meteorological input into tRIBS can from point data or grid data, depending on the data sources available (i.e. from weather observing stations or from numerical model predictions). The data input used for weather station data is based on the Point Station Data Input described previously.  The data input for the grid meteorological parameters is based on the structure to the radar rainfall input as described in the Meteorological Grid Input section of this document. The two data inputs are treated in a distinctly different manner within the model.  Whereas the entire point data time series is stored into an object (e.g. <code class="docutils literal notranslate"><span class="pre">tHydroMet</span></code>), the grid data is read sequentially for each time step without object storage. <strong>Figure 4.6</strong> shows the two forms of meteorological data input and storage.</p>
+<blockquote>
+<div><p><strong>Figure 4.6</strong> Meteorological Data Input Methods</p>
 </div></blockquote>
 </div></blockquote>
 </div>

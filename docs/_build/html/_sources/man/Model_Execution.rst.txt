@@ -442,38 +442,141 @@ Model Modes: Stochastic Rainfall Mode
 
         The description of the land surface characteristics in the tRIBS Model is achieved through the input of soil textural and land use/land cover data in the form of ASCII grids of a particular soil or land use code. The soil (``*.soi``) and land use (``*.lan``) grids are specified in the Model Input File by using the keywords *SOILMAPNAME* and *LANDMAPNAME*, respectively. **Figure 4.3** presents an example of a soil or land use grid similar to the rainfall ASCII grid presented in **Figure 3.1** for the Peacheater Creek basin at a resolution of 2 kilometers by 2 kilometers. As with other grid input, care should be taken to specify the grids in the same coordinate system as the topographic TIN data. The resampling routines included in the tResample class are designed to read the land use and soil cover grids and assign the appropriate codes to the TIN mesh nodes according to the geographic overlap of the two coverages. The geographic assignment is performed in one of two possible fashions, depending on the relative size of the grid input as compared to the Voronoi cell scale. For large input grids, such as those available from radar rainfall input, the resampling is performed by a nearest neighbor approach. For grid inputs at the scale of the Voronoi polygons, an aerial weighting is used to determine the dominant cover type. Further details are available elsewhere in the tRIBS documentation
 
-                  **Figure 4.3** Example of Soil or Land Use Class ASCII grid (``*.soi`` and ``*.lan``)
+            **Figure 4.3** Example of Soil or Land Use Class ASCII grid (``*.soi`` and ``*.lan``)
 
-                  .. tabularcolumns:: |l|l|l|l|l|l|
+            .. tabularcolumns:: |l|l|l|l|l|l|
 
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  nrows         |    6    |                                       |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  ncols         |    6    |                                       |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  xllcorner     | 346035  |                                       |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  yllcorner     | 3979905 |                                       |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  cellsize      |   2000  |                                       |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  NODATA_value  |  -9999  |                                       |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  -9999         |  -9999  |  -9999  |   1     |    0    |  -9999  |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  -9999         |  -9999  |    1    |    0    |    0    |  -9999  |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  -9999         |  -9999  |    1    |    0    |    1    |    1    |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |  -9999         |    0    |    1    |    1    |  -9999  |  -9999  |
-                  +----------------+---------+---------+---------+---------+---------+
-                  |    0           |    0    |  -9999  |  -9999  |  -9999  |  -9999  |
-                  +----------------+---------+---------+---------+---------+---------+
+            +----------------+---------+---------+---------+---------+---------+
+            |  nrows         |    6    |                                       |
+            +----------------+---------+---------+---------+---------+---------+
+            |  ncols         |    6    |                                       |
+            +----------------+---------+---------+---------+---------+---------+
+            |  xllcorner     | 346035  |                                       |
+            +----------------+---------+---------+---------+---------+---------+
+            |  yllcorner     | 3979905 |                                       |
+            +----------------+---------+---------+---------+---------+---------+
+            |  cellsize      |   2000  |                                       |
+            +----------------+---------+---------+---------+---------+---------+
+            |  NODATA_value  |  -9999  |                                       |
+            +----------------+---------+---------+---------+---------+---------+
+            |  -9999         |  -9999  |  -9999  |   1     |    0    |  -9999  |
+            +----------------+---------+---------+---------+---------+---------+
+            |  -9999         |  -9999  |    1    |    0    |    0    |  -9999  |
+            +----------------+---------+---------+---------+---------+---------+
+            |  -9999         |  -9999  |    1    |    0    |    1    |    1    |
+            +----------------+---------+---------+---------+---------+---------+
+            |  -9999         |    0    |    1    |    1    |  -9999  |  -9999  |
+            +----------------+---------+---------+---------+---------+---------+
+            |    0           |    0    |  -9999  |  -9999  |  -9999  |  -9999  |
+            +----------------+---------+---------+---------+---------+---------+
 
 
         Once the land use and soil class codes are assigned to each Voronoi or TIN node, a set of procedures in tInvariant take care of constructing objects for each cover type. These cover type objects are referenced by the codes in the input grids and include references to the various parameter values associated with each cover type. The parameter values for the soil and land use grids are read from a reclassification table inputted separately into the model by using the keywords *SOILTABLENAME* and *LANDTABLENAME*. The format of these soil reclassification (``*.sdt``) and land use reclassification (``*.ldt``) tables are straightforward. They include a small header which specifies the number of cover types (*#Types*) and the number of variables for each type (*#Params*), as shown in **Figure 4.4a** and **Figure 4.5a**. The header is followed by a matrix of parameter values where each row represents one cover type and each column represents one parameter. Currently, there **must** be 12 parameters in the soil and land use reclassification tables. Without this appropriate number of parameters in the file, erroneous calculations may take place. In addition, the order and units of these parameters are **fixed**. Since parameter values outside the appropriate range may results in inaccurate calculations, the user should be careful to select realistic values from literature sources prior to model use.
 
             **Figure 4.4a** Soil Reclassification Table Structure (``*.sdt``)
+
+            .. tabularcolumns:: |l|l|l|l|l|l|l|l|l|l|l|l|
+
+            +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
+            |*#Types* |*nParams*|                                                                        |
+            +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
+            |  *ID*   |  *Ks*   |*thetaS* |*thetaR* | *m* | *PsiB* | *f* | *As* | *Au* | *n* | *ks*| *Cs*|
+            +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
+
+            **Figure 4.4.b** Soil Parameter Description
+
+            .. tabularcolumns:: |l|l|l|
+
+            +------------+------------------------------------+----------------+
+            |  Parameter |  Description                       |  Units         |
+            +============+====================================+================+
+            |  *Ks*      |  Saturated Hydraulic Conductivity  |    [*mm/h*]    |
+            +------------+------------------------------------+----------------+
+            |  *thetaS*  |  Soil Moisture at Saturation       |    []          |
+            +------------+------------------------------------+----------------+
+            |  *thetaR*  |  Residual Soil Moisture            |    []          |
+            +------------+------------------------------------+----------------+
+            |  *m*       |  Pore distribution index           |    []          |
+            +------------+------------------------------------+----------------+
+            |  *PsiB*    |  Air Entry Bubbling Pressure       |[*mm*](negative)|
+            +------------+------------------------------------+----------------+
+            |  *f*       |  Decay parameter                   |  [*mm^-1*]     |
+            +------------+------------------------------------+----------------+
+            |  *As*      |  Saturated Anisotropy Ratio        |  []            |
+            +------------+------------------------------------+----------------+
+            |  *Au*      |  Unsaturated Anisotropy Ratio      |  []            |
+            +------------+------------------------------------+----------------+
+            |  *n*       |  Porosity                          |  []            |
+            +------------+------------------------------------+----------------+
+            |  *ks*      |  Volumetric Heat Conductivity      |  [*J/msK*]     |
+            +------------+------------------------------------+----------------+
+            |  *Cs*      |  Soil Heat Capacity                |  [*J/m3K*]     |
+            +------------+------------------------------------+----------------+
+
+
+        **Figure 4.4* presents the parameter values for the soil reclassification table. Notice that these parameters relate to the hydraulic and thermal properties of the soil cover type in the upper portions of the soil profile. Most of these can be directly related to the surface soil texture. The first nine parameters are essential for running the Unsaturated Zone Model while the last two are required if the keyword *GFLUXOPTION = 1* (Wang and Bras, 1999). Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. Examples of a soil reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
+
+            **Figure 4.5a** Land Use Reclassification Table Structure (``*.ldt``)
+
+            .. tabularcolumns:: |l|l|l|l|l|l|l|l|l|l|l|l|l|
+
+            +---------+---------+--------+---------+-----+--------+-----+------+------+-----+-----+-----+------+
+            |*#Types* |*nParams*|                                                                              |
+            +---------+---------+--------+---------+-----+--------+-----+------+------+-----+-----+-----+------+
+            |  *ID*   |  *a*    | *bI*   |*P*      | *S* | *K*    | *b2*| *Al* | *h*  |*Kt* | *Rs*| *V* | *LAI*|
+            +---------+---------+--------+---------+-----+--------+-----+------+------+-----+-----+-----+------+
+
+
+            **Figure 4.5b** Land Use Parameter Description
+
+            .. tabularcolumns:: |l|l|l|
+
+            +------------+----------------------------------------+----------------+
+            |  Parameter |  Description                           |  Units         |
+            +============+========================================+================+
+            |  *A*       |  Canopy Storage - Storage              |    [*mm*]      |
+            +------------+----------------------------------------+----------------+
+            |  *bI*      | Interception Coefficient - Storage     |    []          |
+            +------------+----------------------------------------+----------------+
+            |  *P*       |Free Throughfall Coefficient - Rutter   |    []          |
+            +------------+----------------------------------------+----------------+
+            |  *S*       |  Canopy Field Capacity - Rutter        |    [*mm*]      |
+            +------------+----------------------------------------+----------------+
+            |  *K*       |  Drainage Coefficient - Rutter         |   [*mm/hr*]    |
+            +------------+----------------------------------------+----------------+
+            |  *b2*      |Drainage Exponential Parameter - Rutter |  [*mm^-1*]     |
+            +------------+----------------------------------------+----------------+
+            |  *Al*      |  Land-Use Albedo                       |  []            |
+            +------------+----------------------------------------+----------------+
+            |  *H*       |  Vegetation height                     |  [*m*]         |
+            +------------+----------------------------------------+----------------+
+            |  *Kt*      |  Optical Transmission Coefficient      |  []            |
+            +------------+----------------------------------------+----------------+
+            |  *Rs*      |  Canopy-average Stomatal Resistance    |  [*s/m*]       |
+            +------------+----------------------------------------+----------------+
+            |  *V*       |  Vegetation Fraction                   |  []            |
+            +------------+----------------------------------------+----------------+
+            |  *LAI*     |  Canopy Leaf Area Index                |  []            |
+            +------------+----------------------------------------+----------------+
+            |  theta*_s  |  Stress threshold for Soil Evaporation | []             |
+            +------------+----------------------------------------+----------------+
+            | theta*_t   |Stress threshold for Plant Transpiration|  []            |
+            +------------+----------------------------------------+----------------+
+
+
+        **Figure 4.5** presents the parameter values for the land use reclassification table. Notice that these parameters relate to the interception and evaporation properties of the vegetative cover or land use type. Most of these can be directly related to the land use codes. The first two parameters are required if the keyword *OPTINTERCEPT = 1*, while the next four are required if *OPTINTERCEPT = 2*.  The final five parameters are required for various options of the keyword *OPTEVAPOTRANS*. Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. The last two parameters have been recently added to specify the soil moisture stress threshold for soil evaporation and plant transpiration. These used to be specified simply as 0.75*thetaS, but now the user is responsible for setting these in units [] consistent with other soil moisture thresholds. Examples of a land use reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
+
+
+4.4.3 Meteorological Point Data Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        The input of meteorological data is essential for utilizing the tRIBS Model for continuous hydrologic simulations over storm and interstorm cycles. Meteorological input into tRIBS can from point data or grid data, depending on the data sources available (i.e. from weather observing stations or from numerical model predictions). The data input used for weather station data is based on the Point Station Data Input described previously.  The data input for the grid meteorological parameters is based on the structure to the radar rainfall input as described in the Meteorological Grid Input section of this document. The two data inputs are treated in a distinctly different manner within the model.  Whereas the entire point data time series is stored into an object (e.g. ``tHydroMet``), the grid data is read sequentially for each time step without object storage. **Figure 4.6** shows the two forms of meteorological data input and storage.
+
+            **Figure 4.6** Meteorological Data Input Methods
+
+
+
+
 
 
 
