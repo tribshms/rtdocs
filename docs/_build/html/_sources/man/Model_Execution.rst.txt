@@ -520,11 +520,11 @@ Model Modes: Stochastic Rainfall Mode
 
             .. tabularcolumns:: |l|l|l|l|l|l|l|l|l|l|l|l|l|
 
-            +---------+---------+--------+---------+-----+--------+-----+------+------+-----+-----+-----+------+
-            |*#Types* |*nParams*|                                                                              |
-            +---------+---------+--------+---------+-----+--------+-----+------+------+-----+-----+-----+------+
-            |  *ID*   |  *a*    | *bI*   |*P*      | *S* | *K*    | *b2*| *Al* | *h*  |*Kt* | *Rs*| *V* | *LAI*|
-            +---------+---------+--------+---------+-----+--------+-----+------+------+-----+-----+-----+------+
+            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
+            |*#Types* |*nParams*|                                                                    |
+            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
+            |  *ID*   |  *a*    | *bI* |*P* | *S* | *K* | *b2*| *Al* | *h* | *Kt* | *Rs*| *V* | *LAI*|
+            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
 
 
             **Figure 4.5b** Land Use Parameter Description
@@ -602,11 +602,11 @@ Station Descriptor File Structure
 
         .. tabularcolumns::     |l|l|l|l|l|l|l|l|l|l|
 
-        +-------------+------------+----------+----------+-----------+-----------+-------+----------------+------------------+---------+
-        |*#Stations*  |*#Params*   |          |          |           |           |       |                |                  |         |
-        +-------------+------------+----------+----------+-----------+-----------+-------+----------------+------------------+---------+
-        | *StationID* | *FilePath* | *AbsLat* | *RefLat* | *AbsLong* | *RefLong* | *GMT* | *RecordLength* | *#WeatherParams* | *Other* |
-        +-------------+------------+----------+----------+-----------+-----------+-------+----------------+------------------+---------+
+        +-----------+----------+--------+--------+---------+---------+-----+--------------+----------------+-------+
+        |*#Stations*|*#Params* |        |        |         |         |     |              |                |       |
+        +-----------+----------+--------+--------+---------+---------+-----+--------------+----------------+-------+
+        |*StationID*|*FilePath*|*AbsLat*|*RefLat*|*AbsLong*|*RefLong*|*GMT*|*RecordLength*|*#WeatherParams*|*Other*|
+        +-----------+----------+--------+--------+---------+---------+-----+--------------+----------------+-------+
 
 
         **Figure 4.7b.** Rain Gauge SDF Structure
@@ -892,7 +892,7 @@ Meteorological Data File Structure
         The parameter grids required are *KS* (Surface hydraulic conductivity, *Ks*), *TS* (Soil Moisture at Saturation, *thetaS*), *TR* (Residual Soil moisture, *thetaR*), *PI* (Pore distribution index, *m*), *PB* (Air entry bubbling pressure, *PsiB*), *FD* (Decay parameter, *f*), *AR* (Saturated Anisotropy Ratio, *As*), *UA* (Unsaturated Anisotropy Ratio, *Au*), *PO* (Porosity, *n*), *VH* (Volumetric heat conductivity, *ks*), and *SH* (Soil heat capacity, *Cs*), which are described in **Figure 4.4a** and **4.4b** in terms of units.
 
 4.5 Model Output
-=================
+------------------
 
         The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. **Figure 4.16** summarizes the various output files created by a typical tRIBS model run.
 

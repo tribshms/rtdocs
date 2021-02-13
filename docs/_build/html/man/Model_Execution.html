@@ -124,9 +124,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#soil-grid-data-input">4.4.7 Soil Grid Data Input</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#model-output">4.5 Model Output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#model-output">4.5 Model Output</a></li>
 </ul>
 
             
@@ -1060,19 +1060,19 @@
 <div><p><strong>Figure 4.5a</strong> Land Use Reclassification Table Structure (<code class="docutils literal notranslate"><span class="pre">*.ldt</span></code>)</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 9%" />
-<col style="width: 10%" />
-<col style="width: 6%" />
-<col style="width: 9%" />
-<col style="width: 6%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 5%" />
 <col style="width: 7%" />
 <col style="width: 7%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
 <col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><em>#Types</em></p></td>
@@ -1223,14 +1223,14 @@
 <colgroup>
 <col style="width: 11%" />
 <col style="width: 10%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 6%" />
-<col style="width: 14%" />
-<col style="width: 15%" />
 <col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 5%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 7%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><em>#Stations</em></p></td>
@@ -1794,9 +1794,8 @@
 </div></blockquote>
 </div>
 </div>
-</div>
 <div class="section" id="model-output">
-<h1>4.5 Model Output<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h1>
+<h2>4.5 Model Output<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. <strong>Figure 4.16</strong> summarizes the various output files created by a typical tRIBS model run.</p>
 <blockquote>
@@ -1887,6 +1886,7 @@
 </div></blockquote>
 <p>A similar structure and file is used for the keyword <em>HYDRONODELIST</em> and <em>OUTLETNODELIST</em>. Using this file, allows the user to obtain the runtime hydrologic information in the unsaturated and saturated model for each time step as output to the screen, a useful tool for debugging. No filename suppresses the debugging information. A more detailed description of the output format for each file type is not included here for brevity. The user is referred to the CHILD User Manual (Tucker, 1999) for information on the Mesh Output Files and to the tRIBS Sample Application for more details concerning the output files particular to tRIBS. In addition, more information can be found in the tRIBS Temporal and Spatial Model Output section within the tRIBS website.</p>
 </div></blockquote>
+</div>
 </div>
 
 
