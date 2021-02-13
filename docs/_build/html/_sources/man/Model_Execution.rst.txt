@@ -514,7 +514,7 @@ Model Modes: Stochastic Rainfall Mode
             +------------+------------------------------------+----------------+
 
 
-        **Figure 4.4* presents the parameter values for the soil reclassification table. Notice that these parameters relate to the hydraulic and thermal properties of the soil cover type in the upper portions of the soil profile. Most of these can be directly related to the surface soil texture. The first nine parameters are essential for running the Unsaturated Zone Model while the last two are required if the keyword *GFLUXOPTION = 1* (Wang and Bras, 1999). Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. Examples of a soil reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
+        **Figure 4.4** presents the parameter values for the soil reclassification table. Notice that these parameters relate to the hydraulic and thermal properties of the soil cover type in the upper portions of the soil profile. Most of these can be directly related to the surface soil texture. The first nine parameters are essential for running the Unsaturated Zone Model while the last two are required if the keyword *GFLUXOPTION = 1* (Wang and Bras, 1999). Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. Examples of a soil reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
 
             **Figure 4.5a** Land Use Reclassification Table Structure (``*.ldt``)
 
@@ -575,11 +575,376 @@ Model Modes: Stochastic Rainfall Mode
             **Figure 4.6** Meteorological Data Input Methods
 
 
+            .. tabularcolumns:: |l|l|l|
+
+            +--------------+--------------------------------------+---------------------------------------------+
+            |Characteristic|  Point Data                          |  Grid Data                                  |
+            +==============+======================================+=============================================+
+            |  *Input*     |*Station Descriptor File* (``*.sdf``) |*ASCII grids* (``*.txt``,``*.lan``,``*.soi``)|
+            +--------------+--------------------------------------+---------------------------------------------+
+            |              |*Meteorological Data File* (``*.mdf``)|                                             |
+            +--------------+--------------------------------------+---------------------------------------------+
+            | *Storage*    | *Assignment to storage objects*      | *Direct assignment to* ``tCNode``           |
+            +--------------+--------------------------------------+---------------------------------------------+
+            |*Manipulation*|*Thiessen point resampling*           | *Grid resampling*                           |
+            +--------------+--------------------------------------+---------------------------------------------+
+            | *Examples*   | ``tHydroMet``, ``tRainGauge``        | ``tRainfall``, ``tVariant``, ``tInvariant`` |
+            +--------------+--------------------------------------+---------------------------------------------+
+
+
+        Note that the methodology for the input of meteorological data is reused for various purposes. For example. the tHydroMet object (used in ``tEvapoTrans``), which stores data from weather stations, was simplified to create the ``tRainGauge`` class (used in ``tRainfall``) with very similar functionality. The ``tRainfall`` grid manipulations where extended to read in time-invariant grid, such as land use and soils (``tInvariant``), and time-varying weather parameter grids (``tVariant``). The format of the Station Descriptor Files (``*.sdf``) and the Meteorological Data Files (``*.mdf``) is modified slightly depending on whether these contain meteorological, rain gauge or pan evaporation data. **Figures 4.7** and **4.8** describe the format of the ``*.sdf`` and ``*.mdf`` files for the various applications, including comments on the parameters and units.
+
+
+Station Descriptor File Structure
+"""""""""""""""""""""""""""""""""""
+
+        **Figure 4.7a.** Weather Station and Pan Evaporation SDF Structure
+
+        .. tabularcolumns::     |l|l|l|l|l|l|l|l|l|l|
+
+        +-------------+------------+----------+----------+-----------+-----------+-------+----------------+------------------+---------+
+        |*#Stations*  |*#Params*   |          |          |           |           |       |                |                  |         |
+        +-------------+------------+----------+----------+-----------+-----------+-------+----------------+------------------+---------+
+        | *StationID* | *FilePath* | *AbsLat* | *RefLat* | *AbsLong* | *RefLong* | *GMT* | *RecordLength* | *#WeatherParams* | *Other* |
+        +-------------+------------+----------+----------+-----------+-----------+-------+----------------+------------------+---------+
+
+
+        **Figure 4.7b.** Rain Gauge SDF Structure
+
+        .. tabularcolumns::   |l|l|l||l|l|l|l|
+
+        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+        | *#Stations* | *#Params*  |          |           |                |               |             |
+        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+        | *StationID* | *FilePath* | *RefLat* | *RefLong* | *RecordLength* | *#RainParams* | *Elevation* |
+        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+
+        Note that the following: *#Stations* is the number of total stations to be read, *#Params* is the number of parameters for each of the subsequent lines, *StationID* must be unique values for each station (starting at 0), the *FilePath* refers to the MDF file for that particular station and must be relative to the location of the executable, the *AbsLong* and *AbsLat* must be in decimal degree (lat/long), the RefLong and RefLat must be in the same coordinate system as the input grids and watershed TIN, Greenwich Mean Time (*GMT*) is difference in hours between the location and the Greenwich  Meridian (negative number in Western Hemisphere), the *RecordLength* is the length of the time series in the MDF file, the *#WeatherParams* and *#RainParams* are the number of parameters in the MDF file including the date and time, and *Other* is used for inputting additional station information, such as station elevation, if desired. Also note that these keywords are not included in the file, just the parameter value. An example of an SDF file is presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
+
+
+Meteorological Data File Structure
+""""""""""""""""""""""""""""""""""""
+
+            **Figure 4.8a.** Weather Station MDF Structure
+
+            .. tabularcolumns::  |l|l|l|l|l|l|l|l|l|l|l|l|
+
+            +-----+-----+-----+-----+------+------------+----------------+------+------+------+------+------+
+            | *Y* | *M* | *D* | *H* | *PA* | *TD/RH/VP* |                | *XC* | *US* | *TA* | *TS* | *NR* |
+            +-----+-----+-----+-----+------+------------+----------------+------+------+------+------+------+
+            | ... | ... | ... | ... | ...  | ...        |                | ...  | ...  | ...  | ...  | ...  |
+            +-----+-----+-----+-----+------+------------+----------------+------+------+------+------+------+
+
+            **Figure 4.8b.** Rain Gauge and Pan Evaporation MDF Structure
+
+            .. tabularcolumns::  |l|l|l|l|l|
+
+            +-----+-----+-----+-----+--------+
+            | *Y* | *M* | *D* | *H* | *R/ET* |
+            +-----+-----+-----+-----+--------+
+            | ... | ... | ... | ... | ...    |
+            +-----+-----+-----+-----+--------+
+
+
+            **Figure 4.8c.** MDF Parameter Description
+
+            .. tabularcolumns::  |l|l|l|
+
+            +-------------+------------------------------+------------+
+            |  Parameter  |   Description                |  Units     |
+            +=============+==============================+============+
+            |  *Y*        |  Year                        |  [*yyyy*]  |
+            +-------------+------------------------------+------------+
+            |  *M*        |  Month                       |  [*mm*]    |
+            +-------------+------------------------------+------------+
+            |  *D*        |  Day                         |  [*dd*]    |
+            +-------------+------------------------------+------------+
+            |  *H*        |  Hour                        |  [*hh*]    |
+            +-------------+------------------------------+------------+
+            |  *PA*       |  Atmospheric Pressure        |  [*mb*]    |
+            +-------------+------------------------------+------------+
+            |  *TD*       |  Dew Point Temperature       |  [*C*]     |
+            +-------------+------------------------------+------------+
+            |  *RH*       |  Relative Humidity           |  [*%*]     |
+            +-------------+------------------------------+------------+
+            |  *VP*       |  Vapor Pressure              |  [*mb*]    |
+            +-------------+------------------------------+------------+
+            |  *XC*       |  Sky Cover                   |  [*tenths*]|
+            +-------------+------------------------------+------------+
+            |  *US*       |  Wind Speed                  |  [*m/s*]   |
+            +-------------+------------------------------+------------+
+            |  *TA*       |  Air Temperature             |   [*C*]    |
+            +-------------+------------------------------+------------+
+            |  *TS*       |  Surface Temperature         |   [*C*]    |
+            +-------------+------------------------------+------------+
+            |  *IS*       |  Incoming Solar Radiation    |  [*W/m2*]  |
+            +-------------+------------------------------+------------+
+            |  *NR*       |  Net Radiation               |  [*W/m2*]  |
+            +-------------+------------------------------+------------+
+            |  *ET*       |  Pan Evaporation             |  [*mm/hr*] |
+            +-------------+------------------------------+------------+
+            |  *R*        |  Rainfall                    |  [*mm/hr*] |
+            +-------------+------------------------------+------------+
+
+
+        Note the following: the parameter names must be a placed in a header for each MDF file, the *TD/RH* and *R/EP* imply that either one of these parameters can be inputted into that particular field, there must be *RecordLength* number of lines following after the header in intervals, missing data must be inputted with the NO_DATA flag = 9999.99, and the units must be retained as indicated, including for *IS*, *NR* and *TS* (but not for *ET*). Rainfall (*R*) is typically specified in its own MDF file. Notice that the file does not contain a minute column. Nevertheless, sub-hourly data can be inputted into the model at intervals that are multiples of the *TIMESTEP*. For example, for 15-minute data, the user should specify four rows for each hour (same *H*) in order. A similar approach is taken for sub-hourly rain gauge data. Examples of MDF files for weather stations and raingauge stations are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
+
+
+4.4.4 Meteorological Grid Data Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        An alternative input format type for meteorological data is with the use of grid data. This option in the tRIBS model is used with the keyword *METDATAOPTION = 2*, while the more traditional weather station data is specified with *METDATAOPTION = 1*. The use of grid weather variables maybe convenient for inputting results from a numerical weather model that predicts the conditions of the atmosphere over large regions and produces grid output of temperature, wind or other fields. As described in **Figure 4.6**, the format for the meteorological grid input inherits its capability from the radar rainfall input in ``tRainfall``, but with a slight modification necessary to deal with the multiple weather grids to be read for each time step. The additional information is provided through a text file for reading in meteorological input (``*.gdf``) as specified through the keyword *HYDROMETGRID* in the Model Input File. The structure of the Grid Data File or GDF is presented in **Figure 4.9**.
+
+
+            **Figure 4.9** Meteorological GDF File Structure
+
+            .. tabularcolumns:: |l|l|l|
+
+            +------------+----------------------+------------------+
+            | *#Params*                                            |
+            +------------+----------------------+------------------+
+            | *Latitude* | *Longitude*          |  *GMT*           |
+            +------------+----------------------+------------------+
+            | *PA*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *TD*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *XC*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *US*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *TA*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *IS*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+            | *TS*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+            | *NR*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+            | *RH*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+
+
+        It is apparent from comparing the GDF file structure to the MDF and SDF files that there are similarities in the approaches. Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next *#Params* lines are used to specify the parameter code, the file pathname of the weather grid (including the basename of the file) and the extension given to the particular grid. The *NO_DATA* flag is used to specify that weather grids are not available for a particular parameter. As with the weather station data, all the keywords used to represent the parameters are fixed as well as the units, as specified in *Figure 4.8c*. A variation to the GDF format can be made so that grid values of evaporation can be directly inputted into the model, thus bypassing the model calculations. The required changes involve using only one parameter line with the parameter name *ET* and the corresponding filepath name and extension, in addition to specifying the keyword *OPTEVAPOTRANS = 4* in the tRIBS Model Input File.
+
+
+4.4.5 Land Cover Grid Data Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        An alternative input format type for dynamic land cover data is with the use of grid data. This option in the tRIBS model is used with the keyword *OPTLANDUSE = 1*, while the more static land cover  is specified with *OPTLANDUSE = 0*. The use of dynamic land cover variables maybe convenient for inputting remotely sensed vegetation fields. The format for the dynamic grid input is similar to the meteorological grid input. Information is provided through a text file for reading in land cover grid input (``*.gdf``) as specified through the keyword *LUGRID* in the Model Input File. The structure of the Grid Data File or GDF is presented in **Figure 4.10**.
+
+
+            **Figure 4.10** Land Cover GDF File Structure
+
+            .. tabularcolumns::  |l|l|l|
+
+            +------------+-----------------------+------------------+
+            | *#Params*                                             |
+            +------------+-----------------------+------------------+
+            | *Latitude* |  *Longitude*          |  *GMT*           |
+            +------------+-----------------------+------------------+
+            | *AL*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *TF*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *VH*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *SR*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *VF*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *CS*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *IC*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *CC*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *DC*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *DE*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *OT*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *LA*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+
+
+        Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next *#Params* lines are used to specify the parameter code, the file pathname of the land cover parameter grid (including the basename of the file) and the extension given to the particular grid. The *NO_DATA* flag is used to specify the grids that are not available for a particular parameter. The parameter grids that can be inputted are *AL* (albedo, *Al*), *TF* (free throughfall coefficient, *P*), *VH* (vegetation height, *H*), *SR* (stomatal resistance, *Rs*), *VF* (vegetation fraction, *V*), *CS* (canopy storage, *A*), *IC* (interception coefficient, *b1*), *CC* (canopy field capacity, *S*), *DC* (drainage coefficient, *K*), *DE* (drainage exponential coefficient, *b2*), *OT* (optical transmission coefficient, *Kt*) and *LA* (canopy leaf area index, *LAI*), which are described in **Figure 4.5a** and **4.5b** in terms of units.
+
+
+4.4.6 Reservoir Data Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        The input of reservoir data into tRIBS enables the level pool routing simulation within the hydraulic channel routing scheme (``tKinemat``). To enable this routing option, there are two main files the user is required to provide. The Reservoir Polygon ID File provides information concerning the selected nodes to be used as Reservoirs. **Figure 4.11** presents the format required in the Polygon ID file (``*.res``). The number of reservoirs (*nReservoirs*) specifies the number of TIN nodes (Voronoi polygons) that will be used as dam locations in the simulation. *nNodeParams* are the number of parameters required for each node, which should always be set at 3. In the body of the file, the user should include the ID number of the TIN node in the first column (*NodeID*, int, node selected by the user as a reservoir), followed by the type of reservoir the node will be (*ResNodeType*, int, type of reservoir associated with the node, linked to the *RESDATA* information) and the initial water surface elevation (*Initial_H*, double, meters) at the reservoir in the third column (empty reservoir should be specified as 0.0 m). When assigning the node to be used as a reservoir, the user should assign nodes that correspond to the start or the end of a river reach, to do so it is recommended to use the Voronoi mesh and stream network to identify potential nodes. An example of a ``*.res`` file is presented in **Figure 4.12**.
+
+            **Figure 4.11** Format for the Reservoir Polygon ID File (``*.res``).
+
+            .. tabularcolumns::  |l|l|l|
+
+            +----------------+-----------------+-----------------+
+            | *#Reservoirs*  |  *nNodeParams*  |                 |
+            +----------------+-----------------+-----------------+
+            | *NodeID*       |   *ResNodeType* |  *Initial_H*    |
+            +----------------+-----------------+-----------------+
+
+
+            **Figure 4.12** Example of a Reservoir Polygon ID File (``*.res``).
+
+            .. tabularcolumns::  |l|l|l|
+
+            +-----------+---------+-------+
+            |  *4*      |   *3*   |       |
+            |           |         |       |
+            +-----------+---------+-------+
+            |  *578867* | *0*     | *0.0* |
+            +-----------+---------+-------+
+            |  *575490* | *1*     | *0.0* |
+            +-----------+---------+-------+
+            |  *573514* | *2*     | *0.0* |
+            +-----------+---------+-------+
+            |  *574354* | *3*     | *0.0* |
+            +-----------+---------+-------+
+
+
+        The second file that the user should provide is the *RESDATA* information (``*.eds``) related to the elevation-discharge-storage data of each reservoir type. **Figure 4.13** presents the format required for the elevation-discharge-storage data file (``*.eds``). The header will include the number of types (*nTypes*) of reservoirs and the number of reservoir parameters (*nResParams*) required which should always be set to 4. The identifier for the type of reservoir should start with the number zero and be repeated for each row that describes an individual reservoir type. For a second reservoir type, the identifier would have a number of one. The second column will have the elevation (in meters) with the corresponding discharge (*m3/s*, double) and storage (1000 m3, double) for that elevation in the third and fourth column. An example of the reservoir data file (*RESDATA*) is presented in **Figure 4.14**, notice the change from 0 to 1 in the first column indicating the change from one reservoir type to another.
+
+
+            **Figure 4.13** Format for the Reservoir Data File (``*.eds``).
+
+
+            .. tabularcolumns::  |l|l|l|l|
+
+            +-----------+-------------------+----------------------------------------------+
+            | *nTypes*  |  *nResParams*     |                                              |
+            +-----------+-------------------+----------------------------------------------+
+            | *Type#*   |  *Eñevation (m)*  |  *Discharge (m3/s)*   |  *Storage (1000m3)*  |
+            +-----------+-------------------+----------------------------------------------+
+
+
+            **Figure 4.14** Example of a Reservoir Data File (``*.eds``).
+
+            .. tabularcolumns::  |l|l|l|l|
+
+            +------+-------+--------+--------+
+            | *2*  |  *4*  |                 |
+            |      |       |                 |
+            +------+-------+--------+--------+
+            | *0*  |  *0*  |  *0*   |  *0*   |
+            +------+-------+--------+--------+
+            | *0*  | *0.5* | *50*   |  *10*  |
+            +------+-------+--------+--------+
+            | *0*  |  *1*  | *350*  |  *50*  |
+            +------+-------+--------+--------+
+            | *0*  | *1.5* | *1200* |  *300* |
+            +------+-------+--------+--------+
+            | *0*  |  *2*  | *1500* |*12000* |
+            +------+-------+--------+--------+
+            | *1*  |  *0*  | *0*    |  *0*   |
+            +------+-------+--------+--------+
+            | *1*  | *0.5* | *10*   |  *100* |
+            +------+-------+--------+--------+
+            | *1*  |  *1*  | *20*   |  *400* |
+            +------+-------+--------+--------+
+            | *1*  | *1.5* | *30*   |  *800* |
+            +------+-------+--------+--------+
+            | *1*  |  *2*  | *40*   | *1600* |
+            +------+-------+--------+--------+
+
+
+4.4.7 Soil Grid Data Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        Gridded soil data can be used as an alternative to the tabular soil parameter input. Similar to the Land Cover Grid Data Input, the use of grid data may be convenient for inputting soil parameters obtained from remotely sensed data. To activate the use of the gridded soil data the user must the keyword *OPTSOILTYPE = 1* in the Input File (``*.in``). If *OPTSOILTYPE = 0* then the use of the tabular data will be selected. The information is provided in a similar fashion as the dynamic land cover grids, through the use of a text file for reading soil grid input (``*.gdf``) specified through the keyword *SCGRID* in the Input File. The Structure of the soil grid data file or GDF is similar to the one seen in **Figure 4.10**. The user can copy the format required from **Figure 4.15**. The path name and abbreviation should be kept. The location of the GDF text file should be within the newly created folder "``SoilTexture``", as such, the location specified in the Input File should be: "``SoilTexture/*.gdf``". The format of each individual grid should follow the same specifications provided in **Figure 4.3**.
+
+            **Figure 4.15** Soil Parameter GDF File Structure
+
+            .. tabularcolumns::  |l|l|l|
+
+            +------------+-----------------------+------------------+
+            | *#Params*                                             |
+            +------------+-----------------------+------------------+
+            | *Latitude* |  *Longitude*          |  *GMT*           |
+            +------------+-----------------------+------------------+
+            | *KS*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *TS*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *TR*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *PI*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *PB*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *FD*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *AR*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *UA*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *PO*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *VH*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *SH*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+
+
+        The parameter grids required are *KS* (Surface hydraulic conductivity, *Ks*), *TS* (Soil Moisture at Saturation, *thetaS*), *TR* (Residual Soil moisture, *thetaR*), *PI* (Pore distribution index, *m*), *PB* (Air entry bubbling pressure, *PsiB*), *FD* (Decay parameter, *f*), *AR* (Saturated Anisotropy Ratio, *As*), *UA* (Unsaturated Anisotropy Ratio, *Au*), *PO* (Porosity, *n*), *VH* (Volumetric heat conductivity, *ks*), and *SH* (Soil heat capacity, *Cs*), which are described in **Figure 4.4a** and **4.4b** in terms of units.
+
+4.5 Model Output
+=================
+
+        The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. **Figure 4.16** summarizes the various output files created by a typical tRIBS model run.
+
+            **Figure 4.16** Summary of tRIBS Output Files
+
+            .. tabularcolumns::  |l|l|l|
+
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | Output File Type             |  Extension       | Content Summary                                                |
+            +==============================+==================+================================================================+
+            | *Mesh Node File*             |  ``*.nodes``     | Node (x,y), ID of spoke, boundary code.                        |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | *Mesh Edge File*             |  ``*.edges``     | ID of origin and destination node, ID of CCW edge.             |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | *Mesh Triangle File*         |  ``*.tri``       | ID of vertex nodes, ID of neighboring triangles opposite the   |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            |                              |                  | vertex node , ID of CCW edge originating with the vertex node. |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | *Mesh Node Elevation File*   | ``*.z``          |  Node elevation (meters).                                      |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | *Mesh Voronoi Geometry*      | ``*_voi``        |Arc/Info Generate format file with the Voronoi polygon geometry.|
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | *Basin Averaged File*        |  ``*.mrf``       | Time series of outlet hydrograph (m3/s) and                    |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            |                              |                  | mean basin rainfall (mm/hr).                                   |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            |*Hydrograph Runoff Types File*|  ``*.rft``       | Time series of outlet hydrograph by runoff type (m3/s).        |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            | *Node Dynamic Output File*   |  ``*.pixel``     |  Time series of dynamic variables for a specific node.         |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            |*Mesh Dynamic Output File*    |``*timestamp_00d``|  Dynamic variable output for all mesh nodes at specific time.  |
+            +------------------------------+------------------+----------------------------------------------------------------+
+            |*Mesh Integrated Output File* |``*timestamp_00i``|  Time-integrated variable output for all mesh nodes.           |
+            +------------------------------+------------------+----------------------------------------------------------------+
 
 
 
+        The location of the output files is specified in the tRIBS Model Input File by using the keywords *OUTFILENAME* and *OUTHYDROFILENAME*. Typically, two separate directories are created within a basin output directory, one for the output related to the mesh (``voronoi``) and one with the output related to the hydrograph files (``hyd``). The keywords describe the pathname to those directories relative to the location of the executable and the basename to be given to all the files. The two directories facilitates the distinction between spatial and temporal output from the tRIBS Model. An important note to make is that the ``*.mrf``, ``*.rft`` and ``*.dat`` files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each *OPINTRVL* time step, the model will produce output of the ``*.mrf`` type, while the ``*.rft`` file is produced only after completion of the entire run. The spatial output (``*timestamp_00d``) are determined by the time step specified in the *SPOPINTRVL* keyword. Time-integrated spatial output (``*timestamp_00i``) is produced only at the end of the simulation. The model also produces various files with a ``*.pixel`` extension followed by a node ID number at the end of the run. The ``*.pixel#`` files contain the dynamic variable output for a single node for all model times. The number of ``*.pixel#`` files produced is specified through a Node Output List (``*.nol``) File described in *Figure 4.17*.
 
 
+            **Figure 4.17** Node Output List File Structure
 
-------------------------------------------------
-          *Last Update: 02-08-2021  C. Lizarraga
+            .. tabularcolumns:: |l|l|l|
+
+            +-----------+-----------+-----------+
+            | *#Nodes*  |                       |
+            +-----------+-----------+-----------+
+            | *NodeID1* | *NodeID2* | *NodeID3* |
+            +-----------+-----------+-----------+
+
+        A similar structure and file is used for the keyword *HYDRONODELIST* and *OUTLETNODELIST*. Using this file, allows the user to obtain the runtime hydrologic information in the unsaturated and saturated model for each time step as output to the screen, a useful tool for debugging. No filename suppresses the debugging information. A more detailed description of the output format for each file type is not included here for brevity. The user is referred to the CHILD User Manual (Tucker, 1999) for information on the Mesh Output Files and to the tRIBS Sample Application for more details concerning the output files particular to tRIBS. In addition, more information can be found in the tRIBS Temporal and Spatial Model Output section within the tRIBS website.
+
+
+---------------------------------------------------------
+    *Last Update: 02-13-2021  C. Lizarraga
