@@ -577,19 +577,19 @@ Model Modes: Stochastic Rainfall Mode
 
             .. tabularcolumns:: |l|l|l|
 
-            +--------------+--------------------------------------+---------------------------------------------+
-            |Characteristic|  Point Data                          |  Grid Data                                  |
-            +==============+======================================+=============================================+
-            |  *Input*     |*Station Descriptor File* (``*.sdf``) |*ASCII grids* (``*.txt``,``*.lan``,``*.soi``)|
-            +--------------+--------------------------------------+---------------------------------------------+
-            |              |*Meteorological Data File* (``*.mdf``)|                                             |
-            +--------------+--------------------------------------+---------------------------------------------+
-            | *Storage*    | *Assignment to storage objects*      | *Direct assignment to* ``tCNode``           |
-            +--------------+--------------------------------------+---------------------------------------------+
-            |*Manipulation*|*Thiessen point resampling*           | *Grid resampling*                           |
-            +--------------+--------------------------------------+---------------------------------------------+
-            | *Examples*   | ``tHydroMet``, ``tRainGauge``        | ``tRainfall``, ``tVariant``, ``tInvariant`` |
-            +--------------+--------------------------------------+---------------------------------------------+
+            +--------------+--------------------------------------+-----------------------------------------------+
+            |Characteristic|  Point Data                          |  Grid Data                                    |
+            +==============+======================================+===============================================+
+            |  *Input*     |*Station Descriptor File* (``*.sdf``) |*ASCII grids* (``*.txt``, ``*.lan``, ``*.soi``)|
+            +--------------+--------------------------------------+-----------------------------------------------+
+            |              |*Meteorological Data File* (``*.mdf``)|                                               |
+            +--------------+--------------------------------------+-----------------------------------------------+
+            | *Storage*    | *Assignment to storage objects*      | *Direct assignment to* ``tCNode``             |
+            +--------------+--------------------------------------+-----------------------------------------------+
+            |*Manipulation*|*Thiessen point resampling*           | *Grid resampling*                             |
+            +--------------+--------------------------------------+-----------------------------------------------+
+            | *Examples*   | ``tHydroMet``, ``tRainGauge``        | ``tRainfall``, ``tVariant``, ``tInvariant``   |
+            +--------------+--------------------------------------+-----------------------------------------------+
 
 
         Note that the methodology for the input of meteorological data is reused for various purposes. For example. the tHydroMet object (used in ``tEvapoTrans``), which stores data from weather stations, was simplified to create the ``tRainGauge`` class (used in ``tRainfall``) with very similar functionality. The ``tRainfall`` grid manipulations where extended to read in time-invariant grid, such as land use and soils (``tInvariant``), and time-varying weather parameter grids (``tVariant``). The format of the Station Descriptor Files (``*.sdf``) and the Meteorological Data Files (``*.mdf``) is modified slightly depending on whether these contain meteorological, rain gauge or pan evaporation data. **Figures 4.7** and **4.8** describe the format of the ``*.sdf`` and ``*.mdf`` files for the various applications, including comments on the parameters and units.
@@ -600,14 +600,23 @@ Station Descriptor File Structure
 
         **Figure 4.7a.** Weather Station and Pan Evaporation SDF Structure
 
-        .. tabularcolumns::     |l|l|l|l|l|l|l|l|l|l|
+        .. tabularcolumns::     |l|l|l|l|l|l|
 
-        +-----------+----------+--------+--------+---------+---------+-----+--------------+----------------+-------+
-        |*#Stations*|*#Params* |        |        |         |         |     |              |                |       |
-        +-----------+----------+--------+--------+---------+---------+-----+--------------+----------------+-------+
-        |*StationID*|*FilePath*|*AbsLat*|*RefLat*|*AbsLong*|*RefLong*|*GMT*|*RecordLength*|*#WeatherParams*|*Other*|
-        +-----------+----------+--------+--------+---------+---------+-----+--------------+----------------+-------+
+        +-----------+----------+--------+--------+---------+-------+
+        |*#Stations*|*#Params* |        |        |         |  ...  |
+        +-----------+----------+--------+--------+---------+-------+
+        |*StationID*|*FilePath*|*AbsLat*|*RefLat*|*AbsLong*| ...   |
+        +-----------+----------+--------+--------+---------+-------+
 
+        (cont.)
+
+        .. tabularcolumns::     |l|l|l|l|l|l|
+
+        +-----+---------+-----+--------------+----------------+-------+
+        | ... |         |     |              |                |       |
+        +-----+---------+-----+--------------+----------------+-------+
+        | ... |*RefLong*|*GMT*|*RecordLength*|*#WeatherParams*|*Other*|
+        +-----+---------+-----+--------------+----------------+-------+
 
         **Figure 4.7b.** Rain Gauge SDF Structure
 
