@@ -35,14 +35,14 @@ The *tRIBS* model description can be found in [Ivanov_2004a]_, [Ivanov_2004b]_ a
 
 We mention a few *tRIBS* processes it models:
 
-- Couple the vadose and saturated zones with the dynamic water table.
-- Moisture infiltration waves.
-- Soil moisture redistribution.
-- Topography-driven lateral fluxes in the vadose and groundtable zones.
-- Computes the radiation and energy balance.
-- Interception, evaporation and evapotranspiration.
-- Hydrologic and hydraulic routing.
-- other.
+    - Couple the vadose and saturated zones with the dynamic water table.
+    - Moisture infiltration waves.
+    - Soil moisture redistribution.
+    - Topography-driven lateral fluxes in the vadose and groundtable zones.
+    - Computes the radiation and energy balance.
+    - Interception, evaporation and evapotranspiration.
+    - Hydrologic and hydraulic routing.
+    - other.
 
 
 .. [Ivanov_2004a] Ivanov, V.Y., Vivoni, E.R., Bras, R.L. and Entekhabi, D. 2004a. Catchment Hydrologic
@@ -65,6 +65,7 @@ We mention a few *tRIBS* processes it models:
     man/Model_Design.rst
     man/Model_Input_Formats.rst
     man/Model_Execution.rst
+    man/Terrain_Analysis_for_Model_Setup.rst 
 
 
 Indices and tables

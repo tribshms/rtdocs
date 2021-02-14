@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5.0 Terrain Analysis for Model Setup &mdash; tRIBS - Distributed Hydrologic Model System 0.8 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="4.0 Model Execution" href="Model_Execution.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> tRIBS - Distributed Hydrologic Model System
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1.0 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">2.0 Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">3.0 Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4.0 Model Execution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5.0 Terrain Analysis for Model Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#digital-elevation-models-and-stream-networks">5.1 Digital Elevation Models and Stream Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#triangulated-irregular-network-model">5.2 Triangulated Irregular Network Model</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tRIBS - Distributed Hydrologic Model System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>5.0 Terrain Analysis for Model Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/man/Terrain_Analysis_for_Model_Setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="terrain-analysis-for-model-setup">
+<h1>5.0 Terrain Analysis for Model Setup<a class="headerlink" href="#terrain-analysis-for-model-setup" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>An important task in the application of TIN-based distributed hydrologic models is the automatic creation of a TIN Terrain Model that is tailored specifically for watershed hydrology. Although the creation of a TIN terrain model through existing software packages is common, ensuring that a TIN model’s resolution, features and representation are adequate for the purpose of TIN-based hydrologic modeling is a critical exercise that is often ignored in the modeling process. For example, various TIN-based watershed models apply a set constant resolution triangles to represent the watershed, a feature which does not take advantage of the topographic diversity in the watershed terrain and the potential for multiple resolutions. In addition, the creation of the TIN must also conform to various linear features present in the topography, which may include the stream network and the watershed boundary. These features ensure that the generation of the TIN Terrain model is “hydrologically” significant for distributed modeling purposes. Although various software packages exist for the creation of a TIN terrain model (<em>e.g.</em> Arc/Info, IDL and other finite element mesh generators), the use of Arc/Info is recommended due to its easier integration with the data sources required to create the hydrologic TIN model. For tRIBS, a set of Arc/Info scripts written in AML (Arc Macro Language) have been developed to take the various inputs describing the watershed and create a TIN which can ultimately be inputted into the tRIBS Model using options 5 or 6 of the keyword <em>OPTMESHINPUT</em>.</p>
+</div></blockquote>
+<div class="section" id="digital-elevation-models-and-stream-networks">
+<h2>5.1 Digital Elevation Models and Stream Networks<a class="headerlink" href="#digital-elevation-models-and-stream-networks" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The basic building block of the TIN mesh developed for watersheds with complex topography is the raster Digital Elevation Model (DEM). Topographic representation through Digital Elevation Models (DEMs) has increased our capability of modeling the surface and subsurface hydrologic processes that govern the rainfall-runoff conversion. High resolution DEMs are readily available from the US Geological Survey at various spatial resolutions. Typical data sets are derived from printed contour maps after procedures for digitizing and interpolating onto a regular grid. The highest resolution product from the USGS are the 7.5 minute DEM products (30 meters ground resolution). Higher resolution DEMs would require field surveying techniques, aerial photogrammetric analysis or LIDAR measurements that are currently difficult to obtain at a low cost. Recommended sources of DEM data include:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://datagateway.nrcs.usda.gov/">USDA National Resources Conservation Service: Geospatial Data Gateway</a> , from where you can download the National Elevation Datasets (10m, 30m)</p>
+<blockquote>
+<div><p>..* Watershed Boundary Datasets (8, 10 and 12 Digit)
+..* National Land Cover Datasets by State
+..* Gridded Soil Survey Geographic (gSSURGO) by State
+..* Climate (Monthly and Annual Normals for Precipitation and Max &amp; Min Temperatures)</p>
+<p>..`National Weather Service &lt;<a class="reference external" href="https://www.weather.gov/">https://www.weather.gov/</a>&gt;`_</p>
+<p>..`Meteorological Data from Synoptic Data &lt;<a class="reference external" href="https://synopticdata.com/see-our-data/">https://synopticdata.com/see-our-data/</a>&gt;`_</p>
+</div></blockquote>
+</div></blockquote>
+<p>Each data distributor will provide the topographic data is a slightly different format or projection. ArcView GIS or Arc/Info can be used to visualize the elevation data and perform many of the required hydrologic computations based on the topography. The DEM should be hydrologically corrected by removing pits or sinks, thus ensuring a continuous water flow over the watershed. Further DEM processing includes: (1) defining the cell slopes, (2) defining the flow directions, and (3) calculating the flow accumulations. Although the tRIBS model does not require any of these inputs directly, they are an important part of deriving the watershed boundary and the stream network. The stream network is computed from the flow accumulations grid by setting a threshold value on the definition of a stream cell. By comparing the drainage density between the DEM-based stream network to the drainage density of the blue-line vectors from a USGS Quad Sheet, one can determine an appropriate threshold parameter. Although not directly used in the modeling process, the hydrography vector data is an important source of information for obtaining the correct DEM-based stream network. Recommended sources of hydrography data include:</p>
+<p><a class="reference external" href="https://datagateway.nrcs.usda.gov/">USDA National Resources Conservation Service: Geospatial Data Gateway</a> , from where you can download the Watershed Boundary Datasets (8, 10 and 12 Digit)</p>
+<p>Having the appropriate stream network, the derivation of the watershed boundary can be performed again within the ArcView GIS or Arc/Info environments. Specific details on the methods used to derive watershed descriptors is omitted from this document for the sake of brevity. The user is referred to a set of AML DEM processing scripts included in the TIAP software page as a starting point for watershed data analysis using DEMs.</p>
+</div></blockquote>
+</div>
+<div class="section" id="triangulated-irregular-network-model">
+<h2>5.2 Triangulated Irregular Network Model<a class="headerlink" href="#triangulated-irregular-network-model" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>A “hydrologically” significant TIN terrain representation consists of a set of triangular elements that together represent the important hydrologic features within a complex watershed. The multiple resolution capability of TIN models is a principal advantage to using a TIN representation. The use of multiple resolutions allows flat terrain to be represented with a coarser resolution as compared to a rugged landscape, thus having significant computational savings in regions of low-gradients within the watershed. Obtaining a multiple resolution TIN is performed by sampling the Digital Elevation Model at points considered to be topographically important at a global scale. Without entering into details, this implies that only points whose elevation is critical to the proper TIN representation, as compared to the original DEM, are kept within the TIN Terrain Model. All other points are discarded. This DEM sampling procedure permits high resolution to be used for rugged terrain and lower resolution for flat landscapes. Details concerning this procedure and the objective measures used to determine the appropriate sampling are presented elsewhere in the tRIBS documentation.</p>
+<p>In addition to sampling the DEM to obtain a multiple resolution TIN, the generation of an appropriate terrain model for hydrological purposes should include the representation of linear features within the watershed. Two types of linear features are of critical importance: the watershed boundary and the watershed stream network. Ensuring that the TIN conforms to these linear features will result in capturing the appropriate watershed area and converging the terrain to the water bodies present inside the watershed. Techniques for incorporating the watershed boundary and the stream network have been developed and applied to a variety of watersheds. Various considerations that arise when computing the dual diagram or Voronoi Polygon Network (VPN) from the TIN have also been incorporated into the creation of the mesh. Again, more details are presented elsewhere in the tRIBS documentation.</p>
+<p>The generation of a multiple resolution TIN mesh using the linear watershed features and the DEM sampling does not necessarily take into account the fact that a “hydrologically” significant TIN should have increased resolution near the stream network. Additional resolution near the channel network and within the floodplain is important when a hydrologic model considers the contraction and expansion of variable source areas for runoff. With poor spatial discretization within a floodplain, the runoff producing areas during a storm event are not well captured. For this reason, a set of procedures for identifying a floodplain and deriving a floodplain-scale, constant resolution TIN mesh from a watershed DEM have been developed. The floodplain TIN is then used as an input to the watershed-scale TIN to obtain a finer discretization of the near-channel source areas.</p>
+<p>A manuscript describing the procedures for the generation of a TIN Terrain model with the hydrologic considerations in mind is in preparation with a set of example case studies and objective measures to guide the user in the proper selection of procedure parameters. The user is also referred to a set of AML TIN generation scripts included in the TIAP software page as a starting point for understanding the methods used to arrive at a “hydrologically” significant TIN Terrain Model.</p>
+</div></blockquote>
+<hr class="docutils" />
+<blockquote>
+<div><p><a href="#id2"><span class="problematic" id="id3">*</span></a>Updated: 02/13/2021  C. Lizarraga</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Model_Execution.html" class="btn btn-neutral float-left" title="4.0 Model Execution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
