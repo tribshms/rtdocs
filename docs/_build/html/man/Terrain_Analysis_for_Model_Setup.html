@@ -172,20 +172,32 @@
 <div class="section" id="digital-elevation-models-and-stream-networks">
 <h2>5.1 Digital Elevation Models and Stream Networks<a class="headerlink" href="#digital-elevation-models-and-stream-networks" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>The basic building block of the TIN mesh developed for watersheds with complex topography is the raster Digital Elevation Model (DEM). Topographic representation through Digital Elevation Models (DEMs) has increased our capability of modeling the surface and subsurface hydrologic processes that govern the rainfall-runoff conversion. High resolution DEMs are readily available from the US Geological Survey at various spatial resolutions. Typical data sets are derived from printed contour maps after procedures for digitizing and interpolating onto a regular grid. The highest resolution product from the USGS are the 7.5 minute DEM products (30 meters ground resolution). Higher resolution DEMs would require field surveying techniques, aerial photogrammetric analysis or LIDAR measurements that are currently difficult to obtain at a low cost. Recommended sources of DEM data include:</p>
+<div><p>The basic building block of the TIN mesh developed for watersheds with complex topography is the raster Digital Elevation Model (DEM). Topographic representation through Digital Elevation Models (DEMs) has increased our capability of modeling the surface and subsurface hydrologic processes that govern the rainfall-runoff conversion. High resolution DEMs are readily available from the US Geological Survey at various spatial resolutions. Typical data sets are derived from printed contour maps after procedures for digitizing and interpolating onto a regular grid. The highest resolution product from the USGS are the 0.25, 1.25, 2.5 and 7.5 minute DEM products (1, 5, 10 and 30 meters ground resolution respectively). Higher resolution DEMs would require field surveying techniques, aerial photogrammetric analysis or LIDAR measurements, which there is a number of limited datasets.</p>
+<p>Recommended sources of DEM data include:</p>
 <blockquote>
-<div><p><a class="reference external" href="https://datagateway.nrcs.usda.gov/">USDA National Resources Conservation Service: Geospatial Data Gateway</a> , from where you can download the National Elevation Datasets (10m, 30m)</p>
-<blockquote>
-<div><p>..* Watershed Boundary Datasets (8, 10 and 12 Digit)
-..* National Land Cover Datasets by State
-..* Gridded Soil Survey Geographic (gSSURGO) by State
-..* Climate (Monthly and Annual Normals for Precipitation and Max &amp; Min Temperatures)</p>
-<p>..`National Weather Service &lt;<a class="reference external" href="https://www.weather.gov/">https://www.weather.gov/</a>&gt;`_</p>
-<p>..`Meteorological Data from Synoptic Data &lt;<a class="reference external" href="https://synopticdata.com/see-our-data/">https://synopticdata.com/see-our-data/</a>&gt;`_</p>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://datagateway.nrcs.usda.gov/">USDA National Resources Conservation Service: Geospatial Data Gateway</a></p></li>
+<li><p><a class="reference external" href="https://www.geoplatform.gov/">GeoPlatform.gov - Federal Geographic Data Committee (FGDC)</a></p></li>
+<li><p><a href="#id3"><span class="problematic" id="id4">`USGS 3D Elevation Program (LIDAR)&lt;https://www.usgs.gov/core-science-systems/ngp/3dep/&gt;`_</span></a></p></li>
+</ul>
 </div></blockquote>
+<p>In the USDA NRCS Geospatial Data Gateway you can also download:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Watershed Boundary Datasets (8, 10 and 12 Digit)</p></li>
+<li><p>National Land Cover Datasets by State</p></li>
+<li><p>Gridded Soil Survey Geographic (gSSURGO) by State</p></li>
+<li><p>Climate (Monthly and Annual Normals for Precipitation and Max &amp; Min Temperatures)</p></li>
+</ul>
 </div></blockquote>
 <p>Each data distributor will provide the topographic data is a slightly different format or projection. ArcView GIS or Arc/Info can be used to visualize the elevation data and perform many of the required hydrologic computations based on the topography. The DEM should be hydrologically corrected by removing pits or sinks, thus ensuring a continuous water flow over the watershed. Further DEM processing includes: (1) defining the cell slopes, (2) defining the flow directions, and (3) calculating the flow accumulations. Although the tRIBS model does not require any of these inputs directly, they are an important part of deriving the watershed boundary and the stream network. The stream network is computed from the flow accumulations grid by setting a threshold value on the definition of a stream cell. By comparing the drainage density between the DEM-based stream network to the drainage density of the blue-line vectors from a USGS Quad Sheet, one can determine an appropriate threshold parameter. Although not directly used in the modeling process, the hydrography vector data is an important source of information for obtaining the correct DEM-based stream network. Recommended sources of hydrography data include:</p>
-<p><a class="reference external" href="https://datagateway.nrcs.usda.gov/">USDA National Resources Conservation Service: Geospatial Data Gateway</a> , from where you can download the Watershed Boundary Datasets (8, 10 and 12 Digit)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://datagateway.nrcs.usda.gov/">USDA National Resources Conservation Service: Geospatial Data Gateway</a></p></li>
+<li><p><a class="reference external" href="https://www.geoplatform.gov/">GeoPlatform.gov - Federal Geographic Data Committee (FGDC)</a></p></li>
+<li><p><a class="reference external" href="https://www.usgs.gov/core-science-systems/ngp/national-hydrography/">USGS National Hydrography</a></p></li>
+</ul>
+</div></blockquote>
 <p>Having the appropriate stream network, the derivation of the watershed boundary can be performed again within the ArcView GIS or Arc/Info environments. Specific details on the methods used to derive watershed descriptors is omitted from this document for the sake of brevity. The user is referred to a set of AML DEM processing scripts included in the TIAP software page as a starting point for watershed data analysis using DEMs.</p>
 </div></blockquote>
 </div>
@@ -199,7 +211,7 @@
 </div></blockquote>
 <hr class="docutils" />
 <blockquote>
-<div><p><a href="#id2"><span class="problematic" id="id3">*</span></a>Updated: 02/13/2021  C. Lizarraga</p>
+<div><p><em>Last Update:</em> 02/25/2021  C. Lizarraga</p>
 </div></blockquote>
 </div>
 </div>
