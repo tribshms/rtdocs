@@ -1,12 +1,12 @@
 
-4.0 Model Execution
+Model Execution
 =====================
 
 Execution of the tRIBS Model has been improved significantly for this release. A concerted effort has been made to provide a well document, standardized set of model inputs for the various types of formats previously discussed. In addition, the model output has been improved significantly in order to make use of the visualization capabilities of ArcView GIS and the time series analysis of MATLAB. Model screen output has been tailored to provide the user with only the necessary information about the status of the model run and sufficient detail as to possible errors. Despite this, the tRIBS model is a research-based code that does not provide as much error checking as could be possible or desirable. For this reason, the responsibility is placed on the user to provide the model with the appropriate inputs in the correct format. This document describes all model input and output in sufficient detail for the beginning user. More advanced users should consult the sample applications provided or the model code.
 
 Execution of the parallel tRIBS Model is still quite experimental. We have not optimized the subbasins partitioning to achieve equitable distribution of labor on the individual processors. Nevertheless, the parallel version of the tRIBS Model is operational and can be tested by users for their own purposes. Most of the functionality (e.g., input, output, directory structure, etc.) remains identical to the original tRIBS model.
 
-4.1 Download instructions
+Download instructions
 ---------------------------
 
     The release of the tRIBS Model is intended solely for use as a research hydrology model. The distribution of the model code is provided only upon written consent from the authors. The tRIBS code is provided in a single tar formatted file called ``tribs.tar``. The file should be unpacked using the tar UNIX utility and placed in a directory of choice:
@@ -17,7 +17,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
     The tar bundle will contain the subdirectory structure and code files presented in **Tables 2.1** and **2.2**. An executable is not included in the tar bundle. A sample application for a synthetic element and for a complex watershed (Peacheater Creek) are available along with the model tar bundle. For most users, only an executable in the appropriate platform is provided along with the model examples.
 
-4.2 Compilation Instructions
+Compilation Instructions
 -------------------------------
 
     The tRIBS Model was originally written and compiled on an SGI Irix 6.5 UNIX system. Since the model design uses standard C++ programming structures, the compilation onto other UNIX platforms is straightforward. tRIBS has been compiled for a range of platforms (Mac G5, Alpha Tru64, Linux, Cygwin, IBM, Solaris). The current version should compile on all platforms without need for any major changes to the code by using the different makefiles provided. As an example, the model code is compiled for SUN Solaris by issuing the following command at the UNIX prompt:
@@ -34,7 +34,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
             % make -f makeLINUX_PAR [options]
 
 
-4.3 Run Instructions
+Run Instructions
 ----------------------
 
     In order to run the tRIBS Model, a Model Input File will be required. This file can have any name, but by convention the extension ``*.in`` is used. The model can be run from the UNIX command line by using the following syntax (within the same directory as the ``tribs`` executable):
@@ -87,7 +87,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
     The most important of these options for the new user to be acquainted with are *-R* (write intermediate results), *-G* (run the groundwater model), *-V* (verbose screen output), *-O* (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Model Input File (all model inputs except the TIN Mesh can be altered). Redirecting the model screen output should not be done if the *-O* flag is used. Many of the other options have yet to be used to the fullest potential in tRIBS, especially those concerned with the use of forecasted rainfall. Further details on the run options are available in the ``tControl.cpp`` code.
 
-4.4 Creating Model Inputs
+Creating Model Inputs
 -----------------------------
 
     As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message. A properly setup run will begin and end by providing the user with the following message:
@@ -104,7 +104,7 @@ Execution of the parallel tRIBS Model is still quite experimental. We have not o
 
     In between this header and footer, the model run output file obtained after redirecting the run file (``output``) will contain various sections relating to the model workflow: Reading Input Parameters, Creating Mesh, Creating Stream Network, Creating Resampling for Grids, Creating Output Files, Creating Hydrologic System, Hydrologic Simulation Loop, Deleting Objects and Exiting Program. A sample output or log file can be found in the sample applications described previously. In order to obtain a proper model run, however, the user must make sure that all model inputs, parameters and files are appropriately constructed and referenced in the Model Input File.
 
-4.4.1 Model Input File
+Model Input File
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
         The tRIBS Model Input File (``*.in``) is currently the primary user interface to the model. Although not a graphical medium, it is an easy and efficient means of manipulating all modeling options, parameters and inputs. Not all of the parameters are required for every single run since choosing a particular option may require some additional parameters that an alternate option may not. Nevertheless, it is recommended to have as complete a set of parameters as possible. Those parameters that are not required for a particular run are ignored by the model. The ``*.in`` file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. **Table 4.2** presents a list of the model parameters used in the tRIBS Model Input File. Note that all parameters are capitalized. The values associated with each parameter may be a number (int, double) or a string (pathname, extension). If the units are specified as ints or doubles, this implies that the parameters are dimensionless, otherwise a unit is expressed. The difference between a pathname and a base pathname is simply that the pathname includes the entire path plus the entire name of the file, including the extension, while a base pathname is only the path and the base name of the file (no extension). NOTE: All keywords in the inputfile must have a entry for proper model execution.
@@ -437,7 +437,7 @@ Model Modes: Stochastic Rainfall Mode
 
         The tRIBS model can be forced with real rainfall data or stochastic rainfall input using the Eagleson or Rodriguez-Iturbe type Poisson storm process at a point. The Stochastic Rainfall Mode is invoked with the keyword *STOCHASTICMODE* specified as other than zero. The keywords *PMEAN*, *STDUR*, *ISTDUR* are used alone (option 1: mean forcing), in conjunction with the random seed *SEED* (option 2: random forcing), in conjunction with periodic forcing using the *PERIOD*, *MAXPMEAN*, *MAXSTDURMN* and *MAXISTDURMN* (option 3: sinusoidal forcing), in combination of both mean and sinusoidal (option 4: mean and sinusoidal forcing) or in combination of both mean and random forcing (option 5: mean and random forcing). The user should carefully review implications of selection with the ``tStorm`` class definition. A complete stochastic weather generator (Ivanov, 2004) for all climatic variables can also be utilized by specifying *STOCHASTICMODE = 6* and a filename for *WEATHERTABLENAME*. See Ivanov (2004) chapter on stochastic climate forcing for more details.
 
-4.4.2 Soil and Land Use Input
+Soil and Land Use Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         The description of the land surface characteristics in the tRIBS Model is achieved through the input of soil textural and land use/land cover data in the form of ASCII grids of a particular soil or land use code. The soil (``*.soi``) and land use (``*.lan``) grids are specified in the Model Input File by using the keywords *SOILMAPNAME* and *LANDMAPNAME*, respectively. **Figure 4.3** presents an example of a soil or land use grid similar to the rainfall ASCII grid presented in **Figure 3.1** for the Peacheater Creek basin at a resolution of 2 kilometers by 2 kilometers. As with other grid input, care should be taken to specify the grids in the same coordinate system as the topographic TIN data. The resampling routines included in the tResample class are designed to read the land use and soil cover grids and assign the appropriate codes to the TIN mesh nodes according to the geographic overlap of the two coverages. The geographic assignment is performed in one of two possible fashions, depending on the relative size of the grid input as compared to the Voronoi cell scale. For large input grids, such as those available from radar rainfall input, the resampling is performed by a nearest neighbor approach. For grid inputs at the scale of the Voronoi polygons, an aerial weighting is used to determine the dominant cover type. Further details are available elsewhere in the tRIBS documentation
@@ -567,7 +567,7 @@ Model Modes: Stochastic Rainfall Mode
         **Figure 4.5** presents the parameter values for the land use reclassification table. Notice that these parameters relate to the interception and evaporation properties of the vegetative cover or land use type. Most of these can be directly related to the land use codes. The first two parameters are required if the keyword *OPTINTERCEPT = 1*, while the next four are required if *OPTINTERCEPT = 2*.  The final five parameters are required for various options of the keyword *OPTEVAPOTRANS*. Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. The last two parameters have been recently added to specify the soil moisture stress threshold for soil evaporation and plant transpiration. These used to be specified simply as 0.75*thetaS, but now the user is responsible for setting these in units [] consistent with other soil moisture thresholds. Examples of a land use reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
 
 
-4.4.3 Meteorological Point Data Input
+Meteorological Point Data Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         The input of meteorological data is essential for utilizing the tRIBS Model for continuous hydrologic simulations over storm and interstorm cycles. Meteorological input into tRIBS can from point data or grid data, depending on the data sources available (i.e. from weather observing stations or from numerical model predictions). The data input used for weather station data is based on the Point Station Data Input described previously.  The data input for the grid meteorological parameters is based on the structure to the radar rainfall input as described in the Meteorological Grid Input section of this document. The two data inputs are treated in a distinctly different manner within the model.  Whereas the entire point data time series is stored into an object (e.g. ``tHydroMet``), the grid data is read sequentially for each time step without object storage. **Figure 4.6** shows the two forms of meteorological data input and storage.
@@ -699,7 +699,7 @@ Meteorological Data File Structure
         Note the following: the parameter names must be a placed in a header for each MDF file, the *TD/RH* and *R/EP* imply that either one of these parameters can be inputted into that particular field, there must be *RecordLength* number of lines following after the header in intervals, missing data must be inputted with the NO_DATA flag = 9999.99, and the units must be retained as indicated, including for *IS*, *NR* and *TS* (but not for *ET*). Rainfall (*R*) is typically specified in its own MDF file. Notice that the file does not contain a minute column. Nevertheless, sub-hourly data can be inputted into the model at intervals that are multiples of the *TIMESTEP*. For example, for 15-minute data, the user should specify four rows for each hour (same *H*) in order. A similar approach is taken for sub-hourly rain gauge data. Examples of MDF files for weather stations and raingauge stations are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.
 
 
-4.4.4 Meteorological Grid Data Input
+Meteorological Grid Data Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         An alternative input format type for meteorological data is with the use of grid data. This option in the tRIBS model is used with the keyword *METDATAOPTION = 2*, while the more traditional weather station data is specified with *METDATAOPTION = 1*. The use of grid weather variables maybe convenient for inputting results from a numerical weather model that predicts the conditions of the atmosphere over large regions and produces grid output of temperature, wind or other fields. As described in **Figure 4.6**, the format for the meteorological grid input inherits its capability from the radar rainfall input in ``tRainfall``, but with a slight modification necessary to deal with the multiple weather grids to be read for each time step. The additional information is provided through a text file for reading in meteorological input (``*.gdf``) as specified through the keyword *HYDROMETGRID* in the Model Input File. The structure of the Grid Data File or GDF is presented in **Figure 4.9**.
@@ -737,7 +737,7 @@ Meteorological Data File Structure
         It is apparent from comparing the GDF file structure to the MDF and SDF files that there are similarities in the approaches. Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next *#Params* lines are used to specify the parameter code, the file pathname of the weather grid (including the basename of the file) and the extension given to the particular grid. The *NO_DATA* flag is used to specify that weather grids are not available for a particular parameter. As with the weather station data, all the keywords used to represent the parameters are fixed as well as the units, as specified in *Figure 4.8c*. A variation to the GDF format can be made so that grid values of evaporation can be directly inputted into the model, thus bypassing the model calculations. The required changes involve using only one parameter line with the parameter name *ET* and the corresponding filepath name and extension, in addition to specifying the keyword *OPTEVAPOTRANS = 4* in the tRIBS Model Input File.
 
 
-4.4.5 Land Cover Grid Data Input
+Land Cover Grid Data Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         An alternative input format type for dynamic land cover data is with the use of grid data. This option in the tRIBS model is used with the keyword *OPTLANDUSE = 1*, while the more static land cover  is specified with *OPTLANDUSE = 0*. The use of dynamic land cover variables maybe convenient for inputting remotely sensed vegetation fields. The format for the dynamic grid input is similar to the meteorological grid input. Information is provided through a text file for reading in land cover grid input (``*.gdf``) as specified through the keyword *LUGRID* in the Model Input File. The structure of the Grid Data File or GDF is presented in **Figure 4.10**.
@@ -781,7 +781,7 @@ Meteorological Data File Structure
         Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next *#Params* lines are used to specify the parameter code, the file pathname of the land cover parameter grid (including the basename of the file) and the extension given to the particular grid. The *NO_DATA* flag is used to specify the grids that are not available for a particular parameter. The parameter grids that can be inputted are *AL* (albedo, *Al*), *TF* (free throughfall coefficient, *P*), *VH* (vegetation height, *H*), *SR* (stomatal resistance, *Rs*), *VF* (vegetation fraction, *V*), *CS* (canopy storage, *A*), *IC* (interception coefficient, *b1*), *CC* (canopy field capacity, *S*), *DC* (drainage coefficient, *K*), *DE* (drainage exponential coefficient, *b2*), *OT* (optical transmission coefficient, *Kt*) and *LA* (canopy leaf area index, *LAI*), which are described in **Figure 4.5a** and **4.5b** in terms of units.
 
 
-4.4.6 Reservoir Data Input
+Reservoir Data Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         The input of reservoir data into tRIBS enables the level pool routing simulation within the hydraulic channel routing scheme (``tKinemat``). To enable this routing option, there are two main files the user is required to provide. The Reservoir Polygon ID File provides information concerning the selected nodes to be used as Reservoirs. **Figure 4.11** presents the format required in the Polygon ID file (``*.res``). The number of reservoirs (*nReservoirs*) specifies the number of TIN nodes (Voronoi polygons) that will be used as dam locations in the simulation. *nNodeParams* are the number of parameters required for each node, which should always be set at 3. In the body of the file, the user should include the ID number of the TIN node in the first column (*NodeID*, int, node selected by the user as a reservoir), followed by the type of reservoir the node will be (*ResNodeType*, int, type of reservoir associated with the node, linked to the *RESDATA* information) and the initial water surface elevation (*Initial_H*, double, meters) at the reservoir in the third column (empty reservoir should be specified as 0.0 m). When assigning the node to be used as a reservoir, the user should assign nodes that correspond to the start or the end of a river reach, to do so it is recommended to use the Voronoi mesh and stream network to identify potential nodes. An example of a ``*.res`` file is presented in **Figure 4.12**.
@@ -860,7 +860,7 @@ Meteorological Data File Structure
             +------+-------+--------+--------+
 
 
-4.4.7 Soil Grid Data Input
+Soil Grid Data Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         Gridded soil data can be used as an alternative to the tabular soil parameter input. Similar to the Land Cover Grid Data Input, the use of grid data may be convenient for inputting soil parameters obtained from remotely sensed data. To activate the use of the gridded soil data the user must the keyword *OPTSOILTYPE = 1* in the Input File (``*.in``). If *OPTSOILTYPE = 0* then the use of the tabular data will be selected. The information is provided in a similar fashion as the dynamic land cover grids, through the use of a text file for reading soil grid input (``*.gdf``) specified through the keyword *SCGRID* in the Input File. The Structure of the soil grid data file or GDF is similar to the one seen in **Figure 4.10**. The user can copy the format required from **Figure 4.15**. The path name and abbreviation should be kept. The location of the GDF text file should be within the newly created folder "``SoilTexture``", as such, the location specified in the Input File should be: "``SoilTexture/*.gdf``". The format of each individual grid should follow the same specifications provided in **Figure 4.3**.
@@ -900,7 +900,7 @@ Meteorological Data File Structure
 
         The parameter grids required are *KS* (Surface hydraulic conductivity, *Ks*), *TS* (Soil Moisture at Saturation, *thetaS*), *TR* (Residual Soil moisture, *thetaR*), *PI* (Pore distribution index, *m*), *PB* (Air entry bubbling pressure, *PsiB*), *FD* (Decay parameter, *f*), *AR* (Saturated Anisotropy Ratio, *As*), *UA* (Unsaturated Anisotropy Ratio, *Au*), *PO* (Porosity, *n*), *VH* (Volumetric heat conductivity, *ks*), and *SH* (Soil heat capacity, *Cs*), which are described in **Figure 4.4a** and **4.4b** in terms of units.
 
-4.5 Model Output
+Model Output
 ------------------
 
         The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. **Figure 4.16** summarizes the various output files created by a typical tRIBS model run.

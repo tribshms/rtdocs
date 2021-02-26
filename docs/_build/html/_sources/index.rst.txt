@@ -37,7 +37,7 @@ tRIBS Documentation
 
 
 
-**Distributed Hydrologic Model *tRIBS***
+**Distributed Hydrologic Model *tRIBS* **
 
 
     The development of the tRIBS Model has been the result of hydrologic modeling and software

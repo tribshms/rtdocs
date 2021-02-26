@@ -1,10 +1,10 @@
 
-6.0 Hydrometeorological Data Processing
+Hydrometeorological Data Processing
 =========================================
 
         Hydrometeorological data is a requirement in the tRIBS Distributed Hydrologic Model whenever the application calls for continuous hydrologic simulations over the storm-interstorm cycle or even during event-based modeling where the rainfall forcing is required. In either case, the appropriate hydrometeorological data must be obtained from available sources and preprocessed into a format amenable for input into the tRIBS Model. The processing of radar rainfall data and weather station data are briefly described in the following sections. Additional model capabilities, including rain gauge precipitation input and grid meteorological input, are omitted for brevity but have also been incorporated into the tRIBS model. Further details are available upon submitting a request to the authors.
 
-6.1 NEXRAD Stage III and WSI Rainfall Radar Data
+NEXRAD Stage III and WSI Rainfall Radar Data
 ---------------------------------------------------
 
         Various sources of rainfall data for hydrologic modeling are available through the National Weather Service (NWS) and other state, local or federal agencies. Rain gauges, the traditional sources of rainfall data, measure the amount of precipitation falling inside a calibrated bucket at a single point. Measurements from rain gauges are typically sparse in their spatial coverage (1 rain gauge for every 1-50 square kilometers) but reasonably accurate a single point. The use of rain gauges for distributed hydrologic modeling requires an interpolation of rainfall values over the watershed (using Thiessen polygons) so that each model computational element is assigned the value of its nearest neighboring gauge. An improvement upon the use of rainfall gauges can be obtained by using the spatially-variable rainfall fields available from radar sensors. In the United States, a significant effort has been made to sample rainfall fields through a nationwide network of weather radars. The NEXRAD system provides rainfall coverage for the continental United States by using approximately 160 individual radars that measure the three dimensional reflectivity field every six minutes at a spatial resolution of 2 kilometers by 2 kilometers.
@@ -23,7 +23,7 @@
         In terms of the tRIBS Model, the use of the two radar rainfall sources is controlled by the keyword *RAINSOURCE* ( *= 0*, NEXRAD Stage III, *= 1*, WSI Product ) in the tRIBS Model Input File. The *RAINFILE* and *RAINEXTENSION* keywords are used to specify the pathname and basename, and the extension of the rainfall input grids. In addition, the *RAININTRVL* and *RAINSEARCH* keywords are used to specify the temporal spacing of the input rainfall grids and the maximum time over which the model will search for a new input rainfall grid. Finally, the tRIBS Model computes a basin-averaged rainfall hyetograph from the grid input rainfall fields, which is outputted as the second column of the hydrograph (``*.mdf``) file.
 
 
-6.2 Operational RFC Meteorological Data
+Operational RFC Meteorological Data
 -----------------------------------------
 
         Various sources are available for hydrometeorological data through state, federal and local government agencies. In the United States, however, the distribution of weather data is neither standardized or centralized. Weather data, in general, is available in a number of different formats, sampling periods, number of parameters, record lengths, aerial extents and accuracy. Finding an appropriate source for input into a hydrologic model is not straightforward, even more so if you consider that a change in the any of the above properties alters the input code, data checks and calculations possible within the model. In the search for hydrometeorological data, the reader is referred to the following data sources:

@@ -1,5 +1,5 @@
 
-7.0 Contacts and Further Readings
+Contacts and Further Readings
 =====================================
 
 Contacts
@@ -10,7 +10,7 @@ Contacts
         School of Earth and Space Exploration
 
         School of Sustainable Engineering and the Built Environment
-        
+
         Arizona State University
 
         vivoni@asu.edu

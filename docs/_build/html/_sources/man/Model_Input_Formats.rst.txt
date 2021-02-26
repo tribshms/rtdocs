@@ -1,4 +1,4 @@
-3.0 Model Input Formats
+Model Input Formats
 ========================
 
   .. figure::  ../images/tRIBSFlowchart.jpg
@@ -8,7 +8,7 @@
       A schematic of the tRIBS Model Framework illustrates the various components and input types within the model. The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data supplied to the model can be time-invariant (soils and land use) or time-varying (rainfall or weather) grids. The TIN data are inputted into the model in a variety of methods that represent the nodes within the mesh or represent the topography that is intended to be modeled. The method chosen to input the TIN data depends upon the particular application. The point data represent the values of time-varying parameters, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used within the model for inputting parameter values associated with the soil and land use maps or the hydrometeorological data.
 
 
-3.1 Grid Input
+Grid Input
 ---------------
 
     A standard ASCII grid format is used for all grid input to the model, which may include soil and land use reclassification fields, initial groundwater table depth, depth to bedrock and radar rainfall grids. The ASCII grid format used is a standard created by ESRI for the exchange of grid data for GIS applications. It consists of a small, 6-line header that describes the matrix data presented in the text file. This format is a convenient method for data exchange into GIS since the format is easily read by all ESRI software. In other software programs for visualization of matrix data (*i.e.* MATLAB), care must be taken when reading in the header information. Any extension name for the grid data can be used within tRIBS as long the filename is specified in the Model Input File. However, for visualization of the grid within GIS, an extension ``*.asc`` is required for the grid to be read properly (ESRI, 1996).
@@ -54,7 +54,7 @@
         4) the NODATA_value can be used to represent cells outside of the domain of interest.
 
 
-3.2 TIN Input
+TIN Input
 --------------
 
     Topographic data is inputted into the tRIBS Model through a variety of methods that are implemented in the tMesh class.  For applications in real watersheds with complex topography and stream networks, the method of choice is to generate the TIN mesh within Arc/Info GIS and export it into a format that tRIBS can convert to a Points File (``*.points``). This Points File is then read during a subsequent model run. For tRIBS, a set of Arc/Info scripts have been created that manipulate the watershed Digital Elevation Model (DEM), the stream network, the watershed boundary and the bottom-valley floodplain to created a "hydrologically" significant TIN Terrain Model. Further details of these scripts are presented in the Terrain Analysis Section of this document. Exporting the TIN mesh from Arc/Info is performed through a procedure that ungenerates the TIN into a set of points (``*.pnt``) and lines (``*.lin``). tRIBS can read these files and construct from them a Points (``*.points``) file, an example of which is shown in **Figure 3.2**.
@@ -86,13 +86,13 @@
     The Points File is the recommended TIN input for the tRIBS Model during the initial model construction, usually necessary when a new basin is modeled for the first time. After a successful tRIBS model run, the model outputs a set of files that describe the TIN mesh properties in greater detail, including the connectivity between nodes and the triangles within the mesh. The set of files includes: ``*.nodes``, ``*.edges``, ``*.tri`` and ``*.z``. These files can be read directly into the model during subsequent model runs, thus avoiding the use of the ``*.points`` file and speeding up the process of mesh construction. Further details on both of these options will be discussed in subsequent sections and are also available in Tucker (1999).
 
 
-3.3 Point Station Input
+Point Station Input
 -------------------------
 
     Hydrometeorological data can be inputted into the tRIBS model through methods for Point Station Input implemented in the ``tEvapoTrans`` and ``tRainfall`` classes and the ``tHydroMet`` and ``tRainGauge`` storage classes. Point Station Input is useful for providing meteorological data from a sparse set of weather stations or for providing rain gauge rainfall data, instead for radar rainfall maps, to the model. The data from these sparse stations or points is resampled onto the Voronoi Polygon Network (VPN) by using a Thiessen polygon method at the point coordinates. The station properties, including coordinates, are specified through an SDF file (Station Descriptor File), while the station data are provided in an MDF file (Meteorological Data File). Both file types are discussed in the section on Meteorological Point Data Input in this document.
 
 
-3.4 Text File Inputs
+Text File Inputs
 ----------------------
 
     Various types of text files are used in the tRIBS Model to specify model options, hydrologic parameters or control commands. The most important of the text files is the Model Input File (``*.in``). This file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. There are over 40 different keyword inputs in a typical Model Input File. These can be classified into various groupings: Model Run Parameters, Model Run Options and Model Input Files and Pathnames. Subgroupings include: Time Variables, Routing Variables, Mesh Generation, Resampling Grids, Meteorological Data and Output Data. More details concerning the Model Input File will be presented in the section on Model Input File in this document.
@@ -102,7 +102,7 @@
     A text file can also be used to run the model and specify the command line options desired during the run by using a Model Run File (``*_run``). This file consists of a single line that specifies the pathname of the tRIBS executable followed by the name of the Model Input File and the desired command line options.
 
 
-3.5 Special Parallel Model Inputs
+Special Parallel Model Inputs
 -----------------------------------
 
     The tRIBS model utilizes the same model input formats (``*.points`` file for TIN input, ASCII grids for vegetation and soils input, etc.) as in the tRIBS model. The parallel mode can be toggled on/off using the keyword *PARALLELMODE* in the tRIBS Model Input file (``*.in``). In this section, we will only provide details on the input of the graph partitioning files (``*.graph``). The graph files are utilized to specify how a large watershed domain is partitioned into subbasins and on which computer processor each subbasin is run on. There are currently three methods implemented to partition a domain:
