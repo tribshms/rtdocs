@@ -38,7 +38,7 @@ tRIBS Documentation
 
         .. figure::  images/hydrocycle.png
           :width: 400
-          :alt: tRIBS Distributed Hydrologic Model System 
+          :alt: tRIBS Distributed Hydrologic Model System
           :align:   center
 
 
@@ -89,6 +89,8 @@ tRIBS Documentation
 
 ..  toctree::
     :maxdepth: 3
+    :numbered:
+    :titlesonly:
     :caption: TABLE OF CONTENTS
 
     man/Introduction.rst
@@ -99,8 +101,6 @@ tRIBS Documentation
     man/Hydrometeorological_Data_Processing.rst
     man/Contacts_Further_Readings.rst
 
-
-**Indices and tables**
 
 
 ..  toctree:

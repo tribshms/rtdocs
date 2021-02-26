@@ -12,7 +12,7 @@ Model File Structure
 
         **Table 2.1** tRIBS Model Subdirectories
 
-        .. tabularcolumns:: |l|l|l|
+        .. tabularcolumns:: |c|c|c|
 
         +--------------------+--------------------+--------------------+
         |  Headers           |  tInOut            |  tMeshList         |
@@ -36,7 +36,7 @@ Model File Structure
 
         **Table 2.2** tRIBS Model Class and Header Files
 
-        .. tabularcolumns:: |l|l|
+        .. tabularcolumns:: |c|l|
 
         +--------------------+-------------------------------------------------------------------+
         |  tRIBS             |  main.cpp, makefile                                               |
@@ -125,7 +125,7 @@ Model Class Diagrams
 
         **Table 2.3** tRIBS Class Diagrams
 
-        .. tabularcolumns:: |l|l|l|l|
+        .. tabularcolumns:: |c|c|c|c|
 
         +------------------------+------------------------+------------------------+------------------------+
         |**Templated**           |**Control and Storage** |**Hydrological**        |                        |

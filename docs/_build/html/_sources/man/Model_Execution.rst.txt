@@ -111,7 +111,7 @@ Model Input File
 
             **Table 4.2** List of Model Parameters in tRIBS Model Input File
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|c|l|
 
             +-----------------------+-----------------+----------------------------------------------------+
             |  Keyword              |   Units         |    Description                                     |
@@ -324,7 +324,7 @@ Parallel Model Inputs
 
             Table 4.3 List of Additional Inputs for Parallel Model Runs
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|c|l|
 
             +---------------------+--------------+-----------------------------------------------------+
             |   Keyword           |   Units      |   Description                                       |
@@ -444,7 +444,7 @@ Soil and Land Use Input
 
             **Figure 4.3** Example of Soil or Land Use Class ASCII grid (``*.soi`` and ``*.lan``)
 
-            .. tabularcolumns:: |l|l|l|l|l|l|
+            .. tabularcolumns:: |c|c|c|c|c|c|
 
             +----------------+---------+---------+---------+---------+---------+
             |  nrows         |    6    |                                       |
@@ -475,7 +475,7 @@ Soil and Land Use Input
 
             **Figure 4.4a** Soil Reclassification Table Structure (``*.sdt``)
 
-            .. tabularcolumns:: |l|l|l|l|l|l|l|l|l|l|l|l|
+            .. tabularcolumns:: |c|c|c|c|c|c|c|c|c|c|c|c|
 
             +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
             |*#Types* |*nParams*|                                                                        |
@@ -485,7 +485,7 @@ Soil and Land Use Input
 
             **Figure 4.4.b** Soil Parameter Description
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|l|c|
 
             +------------+------------------------------------+----------------+
             |  Parameter |  Description                       |  Units         |
@@ -518,7 +518,7 @@ Soil and Land Use Input
 
             **Figure 4.5a** Land Use Reclassification Table Structure (``*.ldt``)
 
-            .. tabularcolumns:: |l|l|l|l|l|l|l|l|l|l|l|l|l|
+            .. tabularcolumns:: |c|c|c|c|c|c|c|c|c|c|c|c|c|
 
             +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
             |*#Types* |*nParams*|                                                                    |
@@ -529,7 +529,7 @@ Soil and Land Use Input
 
             **Figure 4.5b** Land Use Parameter Description
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|l|c|
 
             +------------+----------------------------------------+----------------+
             |  Parameter |  Description                           |  Units         |
@@ -575,7 +575,7 @@ Meteorological Point Data Input
             **Figure 4.6** Meteorological Data Input Methods
 
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|c|c|
 
             +--------------+--------------------------------------+-----------------------------------------------+
             |Characteristic|  Point Data                          |  Grid Data                                    |
@@ -600,7 +600,7 @@ Station Descriptor File Structure
 
         **Figure 4.7a.** Weather Station and Pan Evaporation SDF Structure
 
-        .. tabularcolumns::     |l|l|l|l|l|l|l|
+        .. tabularcolumns::     |c|c|c|c|c|c|c|
 
         +-----------+----------+--------+--------+---------+----------+-----+
         |*#Stations*|*#Params* |        |        |         |          | ... |
@@ -610,7 +610,7 @@ Station Descriptor File Structure
 
         (cont.)
 
-        .. tabularcolumns::     |l|l|l|l|l|
+        .. tabularcolumns::     |c|c|c|c|c|
 
         +-----+---------+--------------+----------------+-------+
         | ... |         |              |                |       |
@@ -620,7 +620,7 @@ Station Descriptor File Structure
 
         **Figure 4.7b.** Rain Gauge SDF Structure
 
-        .. tabularcolumns::   |l|l|l||l|l|l|l|
+        .. tabularcolumns::   |c|c|c|c|c|c|c|
 
         +-------------+------------+----------+-----------+----------------+---------------+-------------+
         | *#Stations* | *#Params*  |          |           |                |               |             |
@@ -636,7 +636,7 @@ Meteorological Data File Structure
 
             **Figure 4.8a.** Weather Station MDF Structure
 
-            .. tabularcolumns::  |l|l|l|l|l|l|l|l|l|l|l|
+            .. tabularcolumns::  |c|c|c|c|c|c|c|c|c|c|c|
 
             +-----+-----+-----+-----+------+------------+------+------+------+------+------+
             | *Y* | *M* | *D* | *H* | *PA* | *TD/RH/VP* | *XC* | *US* | *TA* | *TS* | *NR* |
@@ -646,7 +646,7 @@ Meteorological Data File Structure
 
             **Figure 4.8b.** Rain Gauge and Pan Evaporation MDF Structure
 
-            .. tabularcolumns::  |l|l|l|l|l|
+            .. tabularcolumns::  |c|c|c|c|c|
 
             +-----+-----+-----+-----+--------+
             | *Y* | *M* | *D* | *H* | *R/ET* |
@@ -657,7 +657,7 @@ Meteorological Data File Structure
 
             **Figure 4.8c.** MDF Parameter Description
 
-            .. tabularcolumns::  |l|l|l|
+            .. tabularcolumns::  |c|l|c|
 
             +-------------+------------------------------+------------+
             |  Parameter  |   Description                |  Units     |
@@ -707,7 +707,7 @@ Meteorological Grid Data Input
 
             **Figure 4.9** Meteorological GDF File Structure
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|c|c|
 
             +------------+----------------------+------------------+
             | *#Params*                                            |
@@ -745,7 +745,7 @@ Land Cover Grid Data Input
 
             **Figure 4.10** Land Cover GDF File Structure
 
-            .. tabularcolumns::  |l|l|l|
+            .. tabularcolumns::  |c|c|c|
 
             +------------+-----------------------+------------------+
             | *#Params*                                             |
@@ -788,7 +788,7 @@ Reservoir Data Input
 
             **Figure 4.11** Format for the Reservoir Polygon ID File (``*.res``).
 
-            .. tabularcolumns::  |l|l|l|
+            .. tabularcolumns::  |c|c|c|
 
             +----------------+-----------------+-----------------+
             | *#Reservoirs*  |  *nNodeParams*  |                 |
@@ -799,7 +799,7 @@ Reservoir Data Input
 
             **Figure 4.12** Example of a Reservoir Polygon ID File (``*.res``).
 
-            .. tabularcolumns::  |l|l|l|
+            .. tabularcolumns::  |c|c|c|
 
             +-----------+---------+-------+
             |  *4*      |   *3*   |       |
@@ -821,7 +821,7 @@ Reservoir Data Input
             **Figure 4.13** Format for the Reservoir Data File (``*.eds``).
 
 
-            .. tabularcolumns::  |l|l|l|l|
+            .. tabularcolumns::  |c|c|c|c|
 
             +-----------+-------------------+----------------------------------------------+
             | *nTypes*  |  *nResParams*     |                                              |
@@ -832,7 +832,7 @@ Reservoir Data Input
 
             **Figure 4.14** Example of a Reservoir Data File (``*.eds``).
 
-            .. tabularcolumns::  |l|l|l|l|
+            .. tabularcolumns::  |c|c|c|c|
 
             +------+-------+--------+--------+
             | *2*  |  *4*  |                 |
@@ -867,7 +867,7 @@ Soil Grid Data Input
 
             **Figure 4.15** Soil Parameter GDF File Structure
 
-            .. tabularcolumns::  |l|l|l|
+            .. tabularcolumns::  |c|c|c|
 
             +------------+-----------------------+------------------+
             | *#Params*                                             |
@@ -907,7 +907,7 @@ Model Output
 
             **Figure 4.16** Summary of tRIBS Output Files
 
-            .. tabularcolumns::  |l|l|l|
+            .. tabularcolumns::  |c|c|l|
 
             +------------------------------+------------------+----------------------------------------------------------------+
             | Output File Type             |  Extension       | Content Summary                                                |
@@ -944,7 +944,7 @@ Model Output
 
             **Figure 4.17** Node Output List File Structure
 
-            .. tabularcolumns:: |l|l|l|
+            .. tabularcolumns:: |c|c|c|
 
             +-----------+-----------+-----------+
             | *#Nodes*  |                       |

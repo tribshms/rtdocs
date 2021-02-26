@@ -15,7 +15,7 @@ Grid Input
 
     As mentioned previously, the grid input to the tRIBS model can consist of time-invariant watershed descriptors, such as soil and land use coverage grids, or time-varying, spatially-distributed hydrometeorologic forcings, such as radar rainfall estimates or grid meteorological data from numerical weather models. Although each grid input is treated differently within the model, the user input should be identical. It consists mostly of specifying the grid pathname within the Model Input File, as described in a later section. As illustrated in the tRIBS Model Framework, all grid input are resampled onto the TIN terrain representation created within the tRIBS model, and specifically onto the Voronoi Polygon Network (VPN).
 
-        .. tabularcolumns:: |l|l|l|l|l|l|
+        .. tabularcolumns:: |c|c|c|c|c|c|
 
         +-----------------+-----------+-----------+-----------+----------+----------+
         | ncols           | 6         |           |           |          |          |
@@ -59,7 +59,7 @@ TIN Input
 
     Topographic data is inputted into the tRIBS Model through a variety of methods that are implemented in the tMesh class.  For applications in real watersheds with complex topography and stream networks, the method of choice is to generate the TIN mesh within Arc/Info GIS and export it into a format that tRIBS can convert to a Points File (``*.points``). This Points File is then read during a subsequent model run. For tRIBS, a set of Arc/Info scripts have been created that manipulate the watershed Digital Elevation Model (DEM), the stream network, the watershed boundary and the bottom-valley floodplain to created a "hydrologically" significant TIN Terrain Model. Further details of these scripts are presented in the Terrain Analysis Section of this document. Exporting the TIN mesh from Arc/Info is performed through a procedure that ungenerates the TIN into a set of points (``*.pnt``) and lines (``*.lin``). tRIBS can read these files and construct from them a Points (``*.points``) file, an example of which is shown in **Figure 3.2**.
 
-        .. tabularcolumns:: |l|l|l|l|
+        .. tabularcolumns:: |c|c|c|c|
 
         +---------+----------+----------+----------+
         | 7       |          |          |          |
@@ -115,7 +115,7 @@ Special Parallel Model Inputs
 
           **Table 3.1** Reach-based Graph Input File (``*.graph``)
 
-          .. tabularcolumns:: |l|l|
+          .. tabularcolumns:: |c|c|
 
           +-------------------------+-------------------------+
           | Processor ID (#)        | Reach ID (#)            |
@@ -136,7 +136,7 @@ Special Parallel Model Inputs
 
         **Table 3.2** Inlet/Outlet-based Graph Input File (``*.graph``)
 
-        .. tabularcolumns:: |l|l|l|
+        .. tabularcolumns:: |c|c|c|
 
         +-------------------------+-------------------------+--------------------------+
         | Processor ID (#)        | Inlet ID (#)            | Outlet ID (#)            |
