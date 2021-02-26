@@ -128,8 +128,8 @@ Model Class Diagrams
         .. tabularcolumns:: |l|l|l|l|
 
         +------------------------+------------------------+------------------------+------------------------+
-        |  Templated Classes     |  Control and Storage   |  Hydrological Classes                           |
-        |                        |  Classes               |                                                 |
+        |  **Templated Classes** |**Control and Storage** |**Hydrological Classes**|                        |
+        |                        |  **Classes**           |                        |                        |
         +========================+========================+========================+========================+
         |  tMesh                 |  tTriangle             |  tHydroModel           |  SoilType              |
         +------------------------+------------------------+------------------------+------------------------+
