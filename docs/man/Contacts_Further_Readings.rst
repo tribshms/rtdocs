@@ -6,11 +6,15 @@ Contacts
 ------------------
 
         Enrique R. Vivoni
+
         School of Earth and Space Exploration
+
         School of Sustainable Engineering and the Built Environment
+        
         Arizona State University
 
         vivoni@asu.edu
+
         http://vivoni.asu.edu
 
 References
@@ -41,7 +45,7 @@ References
         Tucker, G.E., Lancaster, S.T., Gasparini, N.M., Bras, R.L and Rybarczyk, S.M. 2001. An object-oriented framework for distributed hydrologic and geomorphologic modeling using triangulated irregular networks. Computers and Geosciences. 27(8): 959-973.
 
         Young, C.B., Bradley, A.A., Krajewksi, W.F., Kruger, A. and Morrissey, M.L. 2000. Evaluating NEAD Multisensor Precipitation Estimates for Operational Hydrologic Forecasting. Journal of Hydrometeorology. 1: 214-254.
-        
+
         Wang, J. and Bras, R.L. 1999. Ground heat flux estimates from surface soil temperature. Journal of Hydrology. 216: 214-226.
 
 
