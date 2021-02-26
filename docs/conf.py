@@ -77,6 +77,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 #html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
+ 
+html_theme_options = {
+#     "use_download_button": True,
+#     "home_page_in_toc": True
+ }
 
 # Logo here
 #html_static_path = ['_static']
