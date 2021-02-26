@@ -91,13 +91,13 @@ tRIBS Documentation
     :numbered:
     :caption: TABLE OF CONTENTS
 
-man/Introduction.rst
-man/Model_Design.rst
-man/Model_Input_Formats.rst
-man/Model_Execution.rst
-man/Terrain_Analysis_for_Model_Setup.rst
-man/Hydrometeorological_Data_Processing.rst
-man/Contacts_Further_Readings.rst
+    man/Introduction.rst
+    man/Model_Design.rst
+    man/Model_Input_Formats.rst
+    man/Model_Execution.rst
+    man/Terrain_Analysis_for_Model_Setup.rst
+    man/Hydrometeorological_Data_Processing.rst
+    man/Contacts_Further_Readings.rst
 
 
 
