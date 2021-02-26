@@ -12,12 +12,10 @@
         Recommended sources of DEM data include:
 
             * `USDA National Resources Conservation Service: Geospatial Data Gateway <https://datagateway.nrcs.usda.gov/>`_
-
             * `GeoPlatform.gov - Federal Geographic Data Committee (FGDC) <https://www.geoplatform.gov/>`_
+            * `USGS 3D Elevation Program (LIDAR) <https://www.usgs.gov/core-science-systems/ngp/3dep/>`_
 
-            * `USGS 3D Elevation Program (LIDAR)<https://www.usgs.gov/core-science-systems/ngp/3dep/>`_
-
-        In the USDA NRCS Geospatial Data Gateway you can also download:
+        From the `USDA NRCS Geospatial Data Gateway <https://datagateway.nrcs.usda.gov/>`_ you can download the following datasets and more:
 
             * Watershed Boundary Datasets (8, 10 and 12 Digit)
             * National Land Cover Datasets by State
