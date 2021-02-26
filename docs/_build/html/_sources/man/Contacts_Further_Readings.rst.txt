@@ -44,6 +44,8 @@ References
 
 .. [Tucker_2001] Tucker, G.E., Lancaster, S.T., Gasparini, N.M., Bras, R.L and Rybarczyk, S.M. 2001. An object-oriented framework for distributed hydrologic and geomorphologic modeling using triangulated irregular networks. Computers and Geosciences. 27(8): 959-973.
 
+.. [Vivoni_2006] Vivoni, E.R., Bowman, R.S., Wyckoff, R.L., Jakubowski, R.T., and Richards, K.E. 2006. Analysis of a Monsoon Flood Event in an Ephemeral Tributary and Its Downstream Hydrologic Effects.Water Resources Research. 42(3)
+
 .. [Young_2000] Young, C.B., Bradley, A.A., Krajewksi, W.F., Kruger, A. and Morrissey, M.L. 2000. Evaluating NEAD Multisensor Precipitation Estimates for Operational Hydrologic Forecasting. Journal of Hydrometeorology. 1: 214-254.
 
 .. [Wang_Bras_1999] Wang, J. and Bras, R.L. 1999. Ground heat flux estimates from surface soil temperature. Journal of Hydrology. 216: 214-226.
