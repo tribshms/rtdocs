@@ -12,7 +12,7 @@ NEXRAD Stage III and WSI Rainfall Radar Data
         For hydrologic modeling purposes, the NEXRAD reflectivity data from the individual radars have to be processed to obtain a mosaiced rainfall product that has been adjusted by raingauge values (mean-field bias adjustment). Various sources of NEXRAD data are available from different public and private sector distributors:
 
             * NOAA National Centers for Environmental Information (`Radar Data <https://www.ncdc.noaa.gov/data-access/radar-data/>`_)
-            * National Weather Service (`Radar and Satellite Page <https://www.weather.gov/akq/RadarSatellite/>)`_
+            * National Weather Service (`Radar and Satellite Page <https://www.weather.gov/akq/RadarSatellite/>`_)
             * `DTN Weather Services <https://www.dtn.com/>`_
             * `IBM Weather <https://www.ibm.com/weather/>`_
 
