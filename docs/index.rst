@@ -30,7 +30,7 @@ tRIBS Documentation
     through the tRIBS Research Description and Publication List.
 
     Additional instructions regarding the Mesh Generation can be
-    found in the CHILD Model User Manual.
+    found in the `CHILD Model User Manual <https://github.com/childmodel/child/blob/master/Child/Docs/child_users_guide.pdf/>`_.
 
     tRIBS is copyrighted 2000-2021 by Enrique R. Vivoni, Valeri Y. Ivanov, Rafael L. Bras
     and Dara Entekhabi and may not be used for commercial purposes without written consent from the authors.
@@ -86,7 +86,7 @@ tRIBS Documentation
 
 
 ..  toctree::
-    :maxdepth: 2
+    :maxdepth: 3
     :caption: TABLE OF CONTENTS
 
     man/Introduction.rst
@@ -98,8 +98,8 @@ tRIBS Documentation
     man/Contacts_Further_Readings.rst
 
 
-Indices and tables
--------------------
+**Indices and tables**
+
 
 ..  toctree:
     :maxdepth:  2

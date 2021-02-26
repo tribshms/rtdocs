@@ -38,8 +38,8 @@ copyright = '2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
 authors = 'E. Vivoni, C. Lizarraga'
 
 # The full version, including alpha/beta/rc tags
-release = '0.8'
-author='Editor: Carlos Lizárraga Celaya'
+release = '1.1'
+author='Enrique R. Vivoni, Carlos Lizárraga-Celaya'
 
 # -- General configuration ---------------------------------------------------
 
