@@ -39,7 +39,7 @@ authors = 'E. Vivoni, C. Lizarraga'
 
 # The full version, including alpha/beta/rc tags
 release = '0.8'
-
+author='Editor: Carlos Lizárraga Celaya'
 
 # -- General configuration ---------------------------------------------------
 

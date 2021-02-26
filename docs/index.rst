@@ -8,8 +8,8 @@ tRIBS Documentation
 ======================
 
 
-Distributed Hydrologic Model *tRIBS*
------------------------------------------
+**Distributed Hydrologic Model *tRIBS***
+
 
 The development of the tRIBS Model has been the result of hydrologic modeling and software
 development efforts performed by various researchers in the Ralph M. Parsons Laboratory in the
@@ -28,8 +28,8 @@ distributed model of hydrologic processes.
    :align:   center
 
 
-What type of processes does tRIBS model?
-------------------------------------------
+**What type of processes does tRIBS model?**
+
 
 The *tRIBS* model description can be found in [Ivanov_2004a]_, [Ivanov_2004b]_ and [Vivoni_2004]_.
 
@@ -60,7 +60,6 @@ We mention a few *tRIBS* processes it models:
     :maxdepth: 2
     :caption: TABLE OF CONTENTS
 
-    man/Foreword.rst
     man/Introduction.rst
     man/Model_Design.rst
     man/Model_Input_Formats.rst

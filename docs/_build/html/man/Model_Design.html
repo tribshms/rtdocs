@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.0 Model Design &mdash; tRIBS - Distributed Hydrologic Model System 0.8 documentation</title>
+  <title>Model Design &mdash; tRIBS - Distributed Hydrologic Model System 0.8 documentation</title>
   
 
   
@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.0 Model Input Formats" href="Model_Input_Formats.html" />
-    <link rel="prev" title="1.0 Introduction" href="Introduction.html" /> 
+    <link rel="prev" title="Introduction" href="Introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,17 +88,19 @@
             
               <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Foreword.html">Foreword</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1.0 Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2.0 Model Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#model-file-structure">2.1 Model File Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-class-diagrams">2.2 Model Class Diagrams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-workflow-diagrams">2.3 Model Workflow Diagrams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#computational-mesh">2.4 Computational Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model-file-structure">Model File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-class-diagrams">Model Class Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-workflow-diagrams">Model Workflow Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computational-mesh">Computational Mesh</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">3.0 Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4.0 Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terrain_Analysis_for_Model_Setup.html">5.0 Terrain Analysis for Model Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hydrometeorological_Data_Processing.html">6.0 Hydrometeorological Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7.0 Contacts and Further Readings</a></li>
 </ul>
 
             
@@ -147,7 +149,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>2.0 Model Design</li>
+      <li>Model Design</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -167,12 +169,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="model-design">
-<h1>2.0 Model Design<a class="headerlink" href="#model-design" title="Permalink to this headline">¶</a></h1>
+<h1>Model Design<a class="headerlink" href="#model-design" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><p>The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs as set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. <strong>Tables 2.1</strong> and <strong>2.2</strong> list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates. After knowing the various class names, the user should inspect the Class Diagrams to understand the variables and functions within each class. Class Diagrams summarize the class properties in a visual format without recurring to the actual code. Work Flow Diagrams present how the model procedures flow from one to another, thus allowing a new user to grasp how various objects depend upon and call other objects. Again, these diagrams are tools for quick inspection and a more detailed understanding requires interpretation of the actual code. Since the total code for tRIBS includes approximately 60,000 lines of code within the various files, these tools for quick inspection should be very useful for the new tRIBS user. Note that some new classes have been added to the tRIBS model to handle parallelization routines.</p>
 </div></blockquote>
 <div class="section" id="model-file-structure">
-<h2>2.1 Model File Structure<a class="headerlink" href="#model-file-structure" title="Permalink to this headline">¶</a></h2>
+<h2>Model File Structure<a class="headerlink" href="#model-file-structure" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The tRIBS Model is organized into a single directory (called <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code>) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. <strong>Table 2.1</strong> demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (<code class="docutils literal notranslate"><span class="pre">tHydro</span></code>, <code class="docutils literal notranslate"><span class="pre">tFlowNet</span></code>, <code class="docutils literal notranslate"><span class="pre">tRasTin</span></code>), others create the mesh architecture (<code class="docutils literal notranslate"><span class="pre">tMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshElements</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshList</span></code>), while others are general purpose classes used for model execution (<code class="docutils literal notranslate"><span class="pre">tSimulator</span></code>, <code class="docutils literal notranslate"><span class="pre">tInOut</span></code>, <code class="docutils literal notranslate"><span class="pre">tCNode</span></code>) or within other classes (<code class="docutils literal notranslate"><span class="pre">tArray</span></code>, <code class="docutils literal notranslate"><span class="pre">tList</span></code>, <code class="docutils literal notranslate"><span class="pre">tPtrList</span></code>).  The <code class="docutils literal notranslate"><span class="pre">Headers</span></code> and <code class="docutils literal notranslate"><span class="pre">Mathutil</span></code> directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (<code class="docutils literal notranslate"><span class="pre">tGraph</span></code>, <code class="docutils literal notranslate"><span class="pre">tParallel</span></code>).</p>
 <blockquote>
@@ -309,7 +311,7 @@ tPreProcess.h</p></td>
 </div></blockquote>
 </div>
 <div class="section" id="model-class-diagrams">
-<h2>2.2 Model Class Diagrams<a class="headerlink" href="#model-class-diagrams" title="Permalink to this headline">¶</a></h2>
+<h2>Model Class Diagrams<a class="headerlink" href="#model-class-diagrams" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Model class diagrams are a useful tool for summarizing the class properties, in terms of variables and functions, in a visual format without recurring to the actual code. Function and variable declarations are presented as they are implemented within the code, including knowledge of the accessibility of each object property and the use of other model objects. For the tRIBS model, the UML (Universal Modeling Language) has been used to create class diagrams through Microsoft Visio, part of the Microsoft Visual Studio development framework. The UML format is a standard diagramming language used by software engineers and architects to document model code. <strong>Table 2.3</strong> presents a list of the model classes and references to the class diagram for each.</p>
 <blockquote>
@@ -410,13 +412,13 @@ Classes</p></th>
 </div></blockquote>
 </div>
 <div class="section" id="model-workflow-diagrams">
-<h2>2.3 Model Workflow Diagrams<a class="headerlink" href="#model-workflow-diagrams" title="Permalink to this headline">¶</a></h2>
+<h2>Model Workflow Diagrams<a class="headerlink" href="#model-workflow-diagrams" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Model workflow diagrams present the steps followed during model execution in a graphical manner that facilitates understanding of the model procedures. The workflow could be documented at various levels of complexity (at the model level, at the class level and at the function level). Here, the model level is chosen as an appropriate representation and the details of the workflow within classes or functions are not shown for brevity. The tRIBS Model Workflow Diagram presents the model procedure at the coarsest level possible. For more information, the user is referred to the <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">tSimul.cpp</span></code> classes which encapsulate the model execution procedures.</p>
 </div></blockquote>
 </div>
 <div class="section" id="computational-mesh">
-<h2>2.4 Computational Mesh<a class="headerlink" href="#computational-mesh" title="Permalink to this headline">¶</a></h2>
+<h2>Computational Mesh<a class="headerlink" href="#computational-mesh" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture directly from the CHILD model framework (Tucker <em>et. al</em>, 1999). As such, the model has the same capabilities as CHILD in constructing TIN meshes using the various options available in the <code class="docutils literal notranslate"><span class="pre">tMesh</span></code> class. In addition, some new input capabilities have been added that take advantage of the TIN creation capabilities of Arc/Info TIN (ESRI, 1996). These new input capabilities e| end the mesh framework to the more complicated topography present in real world watersheds and also allow us to input “hydrologically” significant TIN terrain representations. The existing options for creating the computational mesh include:</p>
 <blockquote>
@@ -445,7 +447,7 @@ Classes</p></th>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Model_Input_Formats.html" class="btn btn-neutral float-right" title="3.0 Model Input Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Introduction.html" class="btn btn-neutral float-left" title="1.0 Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
