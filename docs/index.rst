@@ -36,6 +36,11 @@ tRIBS Documentation
     and Dara Entekhabi and may not be used for commercial purposes without written consent from the authors.
 
 
+        .. figure::  images/hydrocycle.png
+          :width: 400
+          :alt: tRIBS Distributed Hydrologic Model System 
+          :align:   center
+
 
 **Distributed Hydrologic Model tRIBS**
 
@@ -52,9 +57,6 @@ tRIBS Documentation
 
     The **TIN-based Real-time Integrated Basin Simulator (tRIBS)**, is fully
     distributed model of hydrologic processes.
-
-    .. figure::  images/hydrocycle.png
-      :align:   center
 
 
 **What type of processes does tRIBS model?**

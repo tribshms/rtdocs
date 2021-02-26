@@ -20,11 +20,11 @@ Contacts
 References
 -------------------
 
-.. [Deitel_Deitel_2001] Deitel, H.M. and Deitel, P.J. 2001. C++ How to Program. Third Edition. Prentice Hall, Upper Saddle River, NJ.
-
 .. [ArcView_SpatialAnalyst_1996] Environmental Systems Research Institute. 1996. ArcView Spatial Analyst. Redlands, CA.
 
 .. [ArcInfoMethod_1996] Environmental Systems Research Institute. 1996. Understanding GIS: The Arc/Info Method. Redlands, CA.
+
+.. [Deitel_Deitel_2001] Deitel, H.M. and Deitel, P.J. 2001. C++ How to Program. Third Edition. Prentice Hall, Upper Saddle River, NJ.
 
 .. [Garrote_Bras_1995a] Garrote, L. and Bras, R.L. 1995. A distributed model for real-time flood forecasting using digital elevation models. Journal of Hydrology. 167(1-4): 279-306.
 
