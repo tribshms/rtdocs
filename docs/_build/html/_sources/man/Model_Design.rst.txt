@@ -176,7 +176,7 @@ Computational Mesh
 
       - Generating a synthetic rectangular mesh with random or hexagonal node arrangements.
       - Read in an existing tRIBS Mesh files from a previous run.
-      - Generate a mesh from a given set of (*x*,*y*,*z*,*b*) points.
+      - Generate a mesh from a given set of (*x* , *y* , *z*, *b*) points.
       - Generate a mesh from a Digital Elevation Model (DEM) Arc/Info ascii grid
       - Generate a set of points from an Arc/Info TIN ungenerate file (``*.net``)
       - Generate a set of points from an Arc/Info TIN ungenerate files (``*.pnt``, ``*.lin``)
