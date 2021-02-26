@@ -90,7 +90,6 @@ tRIBS Documentation
 ..  toctree::
     :maxdepth: 3
     :numbered:
-    :titlesonly:
     :caption: TABLE OF CONTENTS
 
     man/Introduction.rst
