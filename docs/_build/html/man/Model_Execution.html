@@ -199,8 +199,10 @@
             
   <div class="section" id="model-execution">
 <h1><span class="section-number">4. </span>Model Execution<a class="headerlink" href="#model-execution" title="Permalink to this headline">¶</a></h1>
-<p>Execution of the tRIBS Model has been improved significantly for this release. A concerted effort has been made to provide a well document, standardized set of model inputs for the various types of formats previously discussed. In addition, the model output has been improved significantly in order to make use of the visualization capabilities of ArcView GIS and the time series analysis of MATLAB. Model screen output has been tailored to provide the user with only the necessary information about the status of the model run and sufficient detail as to possible errors. Despite this, the tRIBS model is a research-based code that does not provide as much error checking as could be possible or desirable. For this reason, the responsibility is placed on the user to provide the model with the appropriate inputs in the correct format. This document describes all model input and output in sufficient detail for the beginning user. More advanced users should consult the sample applications provided or the model code.</p>
+<blockquote>
+<div><p>Execution of the tRIBS Model has been improved significantly for this release. A concerted effort has been made to provide a well document, standardized set of model inputs for the various types of formats previously discussed. In addition, the model output has been improved significantly in order to make use of the visualization capabilities of ArcView GIS and the time series analysis of MATLAB. Model screen output has been tailored to provide the user with only the necessary information about the status of the model run and sufficient detail as to possible errors. Despite this, the tRIBS model is a research-based code that does not provide as much error checking as could be possible or desirable. For this reason, the responsibility is placed on the user to provide the model with the appropriate inputs in the correct format. This document describes all model input and output in sufficient detail for the beginning user. More advanced users should consult the sample applications provided or the model code.</p>
 <p>Execution of the parallel tRIBS Model is still quite experimental. We have not optimized the subbasins partitioning to achieve equitable distribution of labor on the individual processors. Nevertheless, the parallel version of the tRIBS Model is operational and can be tested by users for their own purposes. Most of the functionality (e.g., input, output, directory structure, etc.) remains identical to the original tRIBS model.</p>
+</div></blockquote>
 <div class="section" id="download-instructions">
 <h2><span class="section-number">4.1. </span>Download instructions<a class="headerlink" href="#download-instructions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -1222,7 +1224,8 @@
 <h4><span class="section-number">4.4.3.1. </span>Station Descriptor File Structure<a class="headerlink" href="#station-descriptor-file-structure" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><p><strong>Figure 4.7a.</strong> Weather Station and Pan Evaporation SDF Structure</p>
-<table class="docutils align-default">
+<blockquote>
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 16%" />
@@ -1305,15 +1308,16 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p>Note that the following: <em>#Stations</em> is the number of total stations to be read, <em>#Params</em> is the number of parameters for each of the subsequent lines, <em>StationID</em> must be unique values for each station (starting at 0), the <em>FilePath</em> refers to the MDF file for that particular station and must be relative to the location of the executable, the <em>AbsLong</em> and <em>AbsLat</em> must be in decimal degree (lat/long), the RefLong and RefLat must be in the same coordinate system as the input grids and watershed TIN, Greenwich Mean Time (<em>GMT</em>) is difference in hours between the location and the Greenwich Meridian (negative number in Western Hemisphere), the <em>RecordLength</em> is the length of the time series in the MDF file, the <em>#WeatherParams</em> and <em>#RainParams</em> are the number of parameters in the MDF file including the date and time, and <em>Other</em> is used for inputting additional station information, such as station elevation, if desired. Also note that these keywords are not included in the file, just the parameter value. An example of an SDF file is presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.</p>
 </div></blockquote>
 </div>
 <div class="section" id="meteorological-data-file-structure">
 <h4><span class="section-number">4.4.3.2. </span>Meteorological Data File Structure<a class="headerlink" href="#meteorological-data-file-structure" title="Permalink to this headline">¶</a></h4>
 <blockquote>
-<div><blockquote>
 <div><p><strong>Figure 4.8a.</strong> Weather Station MDF Structure</p>
-<table class="docutils align-default">
+<blockquote>
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -1354,8 +1358,10 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p><strong>Figure 4.8b.</strong> Rain Gauge and Pan Evaporation MDF Structure</p>
-<table class="docutils align-default">
+<blockquote>
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 18%" />
@@ -1378,8 +1384,10 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p><strong>Figure 4.8c.</strong> MDF Parameter Description</p>
-<table class="docutils align-default">
+<blockquote>
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 24%" />
 <col style="width: 55%" />
@@ -1467,9 +1475,9 @@
 <h3><span class="section-number">4.4.4. </span>Meteorological Grid Data Input<a class="headerlink" href="#meteorological-grid-data-input" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>An alternative input format type for meteorological data is with the use of grid data. This option in the tRIBS model is used with the keyword <em>METDATAOPTION = 2</em>, while the more traditional weather station data is specified with <em>METDATAOPTION = 1</em>. The use of grid weather variables maybe convenient for inputting results from a numerical weather model that predicts the conditions of the atmosphere over large regions and produces grid output of temperature, wind or other fields. As described in <strong>Figure 4.6</strong>, the format for the meteorological grid input inherits its capability from the radar rainfall input in <code class="docutils literal notranslate"><span class="pre">tRainfall</span></code>, but with a slight modification necessary to deal with the multiple weather grids to be read for each time step. The additional information is provided through a text file for reading in meteorological input (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>) as specified through the keyword <em>HYDROMETGRID</em> in the Model Input File. The structure of the Grid Data File or GDF is presented in <strong>Figure 4.9</strong>.</p>
+<p><strong>Figure 4.9</strong> Meteorological GDF File Structure</p>
 <blockquote>
-<div><p><strong>Figure 4.9</strong> Meteorological GDF File Structure</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 42%" />
@@ -1528,9 +1536,9 @@
 <h3><span class="section-number">4.4.5. </span>Land Cover Grid Data Input<a class="headerlink" href="#land-cover-grid-data-input" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>An alternative input format type for dynamic land cover data is with the use of grid data. This option in the tRIBS model is used with the keyword <em>OPTLANDUSE = 1</em>, while the more static land cover  is specified with <em>OPTLANDUSE = 0</em>. The use of dynamic land cover variables maybe convenient for inputting remotely sensed vegetation fields. The format for the dynamic grid input is similar to the meteorological grid input. Information is provided through a text file for reading in land cover grid input (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>) as specified through the keyword <em>LUGRID</em> in the Model Input File. The structure of the Grid Data File or GDF is presented in <strong>Figure 4.10</strong>.</p>
+<p><strong>Figure 4.10</strong> Land Cover GDF File Structure</p>
 <blockquote>
-<div><p><strong>Figure 4.10</strong> Land Cover GDF File Structure</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 43%" />
@@ -1601,9 +1609,9 @@
 <h3><span class="section-number">4.4.6. </span>Reservoir Data Input<a class="headerlink" href="#reservoir-data-input" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>The input of reservoir data into tRIBS enables the level pool routing simulation within the hydraulic channel routing scheme (<code class="docutils literal notranslate"><span class="pre">tKinemat</span></code>). To enable this routing option, there are two main files the user is required to provide. The Reservoir Polygon ID File provides information concerning the selected nodes to be used as Reservoirs. <strong>Figure 4.11</strong> presents the format required in the Polygon ID file (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>). The number of reservoirs (<em>nReservoirs</em>) specifies the number of TIN nodes (Voronoi polygons) that will be used as dam locations in the simulation. <em>nNodeParams</em> are the number of parameters required for each node, which should always be set at 3. In the body of the file, the user should include the ID number of the TIN node in the first column (<em>NodeID</em>, int, node selected by the user as a reservoir), followed by the type of reservoir the node will be (<em>ResNodeType</em>, int, type of reservoir associated with the node, linked to the <em>RESDATA</em> information) and the initial water surface elevation (<em>Initial_H</em>, double, meters) at the reservoir in the third column (empty reservoir should be specified as 0.0 m). When assigning the node to be used as a reservoir, the user should assign nodes that correspond to the start or the end of a river reach, to do so it is recommended to use the Voronoi mesh and stream network to identify potential nodes. An example of a <code class="docutils literal notranslate"><span class="pre">*.res</span></code> file is presented in <strong>Figure 4.12</strong>.</p>
+<p><strong>Figure 4.11</strong> Format for the Reservoir Polygon ID File (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>).</p>
 <blockquote>
-<div><p><strong>Figure 4.11</strong> Format for the Reservoir Polygon ID File (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>).</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 32%" />
 <col style="width: 34%" />
@@ -1620,8 +1628,10 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p><strong>Figure 4.12</strong> Example of a Reservoir Polygon ID File (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>).</p>
-<table class="docutils align-default">
+<blockquote>
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 41%" />
 <col style="width: 33%" />
@@ -1652,9 +1662,9 @@
 </table>
 </div></blockquote>
 <p>The second file that the user should provide is the <em>RESDATA</em> information (<code class="docutils literal notranslate"><span class="pre">*.eds</span></code>) related to the elevation-discharge-storage data of each reservoir type. <strong>Figure 4.13</strong> presents the format required for the elevation-discharge-storage data file (<code class="docutils literal notranslate"><span class="pre">*.eds</span></code>). The header will include the number of types (<em>nTypes</em>) of reservoirs and the number of reservoir parameters (<em>nResParams</em>) required which should always be set to 4. The identifier for the type of reservoir should start with the number zero and be repeated for each row that describes an individual reservoir type. For a second reservoir type, the identifier would have a number of one. The second column will have the elevation (in meters) with the corresponding discharge (<em>m3/s</em>, double) and storage (1000 m3, double) for that elevation in the third and fourth column. An example of the reservoir data file (<em>RESDATA</em>) is presented in <strong>Figure 4.14</strong>, notice the change from 0 to 1 in the first column indicating the change from one reservoir type to another.</p>
+<p><strong>Figure 4.13</strong> Format for the Reservoir Data File (<code class="docutils literal notranslate"><span class="pre">*.eds</span></code>).</p>
 <blockquote>
-<div><p><strong>Figure 4.13</strong> Format for the Reservoir Data File (<code class="docutils literal notranslate"><span class="pre">*.eds</span></code>).</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 25%" />
@@ -1671,8 +1681,10 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p><strong>Figure 4.14</strong> Example of a Reservoir Data File (<code class="docutils literal notranslate"><span class="pre">*.eds</span></code>).</p>
-<table class="docutils align-default">
+<blockquote>
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 24%" />
@@ -1743,9 +1755,9 @@
 <h3><span class="section-number">4.4.7. </span>Soil Grid Data Input<a class="headerlink" href="#soil-grid-data-input" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>Gridded soil data can be used as an alternative to the tabular soil parameter input. Similar to the Land Cover Grid Data Input, the use of grid data may be convenient for inputting soil parameters obtained from remotely sensed data. To activate the use of the gridded soil data the user must the keyword <em>OPTSOILTYPE = 1</em> in the Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>). If <em>OPTSOILTYPE = 0</em> then the use of the tabular data will be selected. The information is provided in a similar fashion as the dynamic land cover grids, through the use of a text file for reading soil grid input (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>) specified through the keyword <em>SCGRID</em> in the Input File. The Structure of the soil grid data file or GDF is similar to the one seen in <strong>Figure 4.10</strong>. The user can copy the format required from <strong>Figure 4.15</strong>. The path name and abbreviation should be kept. The location of the GDF text file should be within the newly created folder “<code class="docutils literal notranslate"><span class="pre">SoilTexture</span></code>”, as such, the location specified in the Input File should be: “<code class="docutils literal notranslate"><span class="pre">SoilTexture/*.gdf</span></code>”. The format of each individual grid should follow the same specifications provided in <strong>Figure 4.3</strong>.</p>
+<p><strong>Figure 4.15</strong> Soil Parameter GDF File Structure</p>
 <blockquote>
-<div><p><strong>Figure 4.15</strong> Soil Parameter GDF File Structure</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 43%" />
@@ -1813,9 +1825,9 @@
 <h2><span class="section-number">4.5. </span>Model Output<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. <strong>Figure 4.16</strong> summarizes the various output files created by a typical tRIBS model run.</p>
+<p><strong>Figure 4.16</strong> Summary of tRIBS Output Files</p>
 <blockquote>
-<div><p><strong>Figure 4.16</strong> Summary of tRIBS Output Files</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 16%" />
@@ -1880,9 +1892,9 @@
 </table>
 </div></blockquote>
 <p>The location of the output files is specified in the tRIBS Model Input File by using the keywords <em>OUTFILENAME</em> and <em>OUTHYDROFILENAME</em>. Typically, two separate directories are created within a basin output directory, one for the output related to the mesh (<code class="docutils literal notranslate"><span class="pre">voronoi</span></code>) and one with the output related to the hydrograph files (<code class="docutils literal notranslate"><span class="pre">hyd</span></code>). The keywords describe the pathname to those directories relative to the location of the executable and the basename to be given to all the files. The two directories facilitates the distinction between spatial and temporal output from the tRIBS Model. An important note to make is that the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code>, <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> and <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each <em>OPINTRVL</em> time step, the model will produce output of the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code> type, while the <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> file is produced only after completion of the entire run. The spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code>) are determined by the time step specified in the <em>SPOPINTRVL</em> keyword. Time-integrated spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code>) is produced only at the end of the simulation. The model also produces various files with a <code class="docutils literal notranslate"><span class="pre">*.pixel</span></code> extension followed by a node ID number at the end of the run. The <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files contain the dynamic variable output for a single node for all model times. The number of <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files produced is specified through a Node Output List (<code class="docutils literal notranslate"><span class="pre">*.nol</span></code>) File described in <em>Figure 4.17</em>.</p>
+<p><strong>Figure 4.17</strong> Node Output List File Structure</p>
 <blockquote>
-<div><p><strong>Figure 4.17</strong> Node Output List File Structure</p>
-<table class="docutils align-default">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
