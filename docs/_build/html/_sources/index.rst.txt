@@ -67,7 +67,7 @@ We mention a few *tRIBS* processes it models:
     man/Model_Execution.rst
     man/Terrain_Analysis_for_Model_Setup.rst
     man/Hydrometeorological_Data_Processing.rst
-    
+    man/Contacts_Further_Readings.rst
 
 
 Indices and tables
