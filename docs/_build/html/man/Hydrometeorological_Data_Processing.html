@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>6. Hydrometeorological Data Processing &mdash; tRIBS - Distributed Hydrologic Model System 1.0 documentation</title>
+  <title>6. Hydrometeorological Data Processing &mdash; tRIBS - Distributed Hydrologic Model System 3.0 documentation</title>
   
 
   
@@ -179,9 +179,11 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>NOAA National Centers for Environmental Information (<a class="reference external" href="https://www.ncdc.noaa.gov/data-access/radar-data/">Radar Data</a>)</p></li>
-<li><p>National Weather Service (<a class="reference external" href="https://www.weather.gov/akq/RadarSatellite/">Radar and Satellite Page</a>)</p></li>
+<li><p>National Weather Service (<a class="reference external" href="https://radar.weather.gov/#/">Radar</a>)</p></li>
 <li><p><a class="reference external" href="https://www.dtn.com/">DTN Weather Services</a></p></li>
 <li><p><a class="reference external" href="https://www.ibm.com/weather/">IBM Weather</a></p></li>
+<li><p><a class="reference external" href="https://www.wunderground.com/">Weather Underground</a></p></li>
+<li><p><a class="reference external" href="https://weather.com/">The Weather Channel (IBM)</a></p></li>
 </ul>
 </div></blockquote>
 <p>Each distributor performs a different set of correction and conversion algorithms to obtain accurate rainfall grids over the entire United States. The Stage III data is freely available from the NWS and well documented (e.g. Young et. al, 2000) <a class="reference internal" href="Contacts_Further_Readings.html#young-2000" id="id1"><span>[Young_2000]</span></a>. The NEXRAD data is organized by monthly intervals and by River Forecasting Center (RFC) so that a mosaic for each RFC (e.g. Arkansas-Red River Basin) is available at hourly intervals on a 4 km by 4 km grid. The other two data sources are available from the distributors for a fee. More information about the data distribution and processing algorithms must be obtained from the corporations themselves, as they are proprietary.</p>
@@ -200,7 +202,7 @@
 <li><p>NOAA National Centers for Environmental Information (<a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/datatools/lcd/">Local Climatological Data</a>)</p></li>
 <li><p>National Weather Service Advanced Hydrologic Prediction Service (<a class="reference external" href="https://water.weather.gov/ahps/rfc/rfc.php/">River Forecast Centers</a>)</p></li>
 <li><p><a class="reference external" href="https://download.synopticdata.com/">Synoptic Data</a></p></li>
-<li><p>State Mesonet Weather Network Data (e.g. Oklahoma Mesonet)</p></li>
+<li><p>State Mesonet Weather Network Data (e.g. <a class="reference external" href="http://www.mesonet.org/index.php/">Oklahoma Mesonet</a>, Arizona AZMET&lt;<a class="reference external" href="https://cals.arizona.edu/azmet/index.html/">https://cals.arizona.edu/azmet/index.html/</a>&gt;`_, <a class="reference external" href="http://www.coagmet.colostate.edu/">Colorado CoAgMet</a>, <a class="reference external" href="https://cimis.water.ca.gov/">California CIMIS</a>,  )</p></li>
 </ul>
 </div></blockquote>
 <p>Other sources of data from meteorological stations and/or interpolations of weather observations are available from other government agencies or research institutions. For the tRIBS, the use of the Operational RFC Point Data was selected as the weather data source of choice. Among the reasons for this selection were the fact that the data is available freely for the entire United States at an hourly interval and includes all the necessary weather parameters necessary for a complete description of the atmospheric state. In addition, the Operational RFC Point Data is a collection of data provided to the River Forecasting Centers (RFC) from different data providers, including state-wide mesonets, for flood forecasting purposes. As such, this data source ensures appropriate compatibility with the weather information available real-time at the RFC centers. Finally, the data availability only lags behind the current date by one year, allowing recent events to be modeled without waiting for data releases that occur 2-3 years after the date of observations (e.g. CD-ROMs).</p>
@@ -246,7 +248,7 @@
 </div></blockquote>
 <hr class="docutils" />
 <blockquote>
-<div><p><em>Last Update:</em> 02/25/2021  C. Lizarraga</p>
+<div><p><em>Last Update:</em> 02/28/2021  C. Lizarraga</p>
 </div></blockquote>
 </div>
 </div>
