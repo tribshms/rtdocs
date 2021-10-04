@@ -1,72 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>4. Model Execution &mdash; tRIBS - Distributed Hydrologic Model System 3.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Terrain Analysis for Model Setup" href="Terrain_Analysis_for_Model_Setup.html" />
     <link rel="prev" title="3. Model Input Formats" href="Model_Input_Formats.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> tRIBS - Distributed Hydrologic Model System
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
@@ -132,79 +84,38 @@
 <li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7. Contacts and Further Readings</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">tRIBS - Distributed Hydrologic Model System</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li><span class="section-number">4. </span>Model Execution</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/man/Model_Execution.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="model-execution">
-<h1><span class="section-number">4. </span>Model Execution<a class="headerlink" href="#model-execution" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="model-execution">
+<h1><span class="section-number">4. </span>Model Execution<a class="headerlink" href="#model-execution" title="Permalink to this headline"></a></h1>
 <blockquote>
 <div><p>Execution of the tRIBS Model has been improved significantly for this release. A concerted effort has been made to provide a well document, standardized set of model inputs for the various types of formats previously discussed. In addition, the model output has been improved significantly in order to make use of the visualization capabilities of ArcView GIS and the time series analysis of MATLAB. Model screen output has been tailored to provide the user with only the necessary information about the status of the model run and sufficient detail as to possible errors. Despite this, the tRIBS model is a research-based code that does not provide as much error checking as could be possible or desirable. For this reason, the responsibility is placed on the user to provide the model with the appropriate inputs in the correct format. This document describes all model input and output in sufficient detail for the beginning user. More advanced users should consult the sample applications provided or the model code.</p>
 <p>Execution of the parallel tRIBS Model is still quite experimental. We have not optimized the subbasins partitioning to achieve equitable distribution of labor on the individual processors. Nevertheless, the parallel version of the tRIBS Model is operational and can be tested by users for their own purposes. Most of the functionality (e.g., input, output, directory structure, etc.) remains identical to the original tRIBS model.</p>
 </div></blockquote>
-<div class="section" id="download-instructions">
-<h2><span class="section-number">4.1. </span>Download instructions<a class="headerlink" href="#download-instructions" title="Permalink to this headline">¶</a></h2>
+<section id="download-instructions">
+<h2><span class="section-number">4.1. </span>Download instructions<a class="headerlink" href="#download-instructions" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>The release of the tRIBS Model is intended solely for use as a research hydrology model. The distribution of the model code is provided only upon written consent from the authors. The tRIBS code is provided in a single tar formatted file called <code class="docutils literal notranslate"><span class="pre">tribs.tar</span></code>. The file should be unpacked using the tar UNIX utility and placed in a directory of choice:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">tribs</span><span class="o">.</span><span class="n">tar</span>
@@ -212,9 +123,9 @@
 </div>
 <p>The tar bundle will contain the subdirectory structure and code files presented in <strong>Tables 2.1</strong> and <strong>2.2</strong>. An executable is not included in the tar bundle. A sample application for a synthetic element and for a complex watershed (Peacheater Creek) are available along with the model tar bundle. For most users, only an executable in the appropriate platform is provided along with the model examples.</p>
 </div></blockquote>
-</div>
-<div class="section" id="compilation-instructions">
-<h2><span class="section-number">4.2. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compilation-instructions">
+<h2><span class="section-number">4.2. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>The tRIBS Model was originally written and compiled on an SGI Irix 6.5 UNIX system. Since the model design uses standard C++ programming structures, the compilation onto other UNIX platforms is straightforward. tRIBS has been compiled for a range of platforms (Mac G5, Alpha Tru64, Linux, Cygwin, IBM, Solaris). The current version should compile on all platforms without need for any major changes to the code by using the different makefiles provided. As an example, the model code is compiled for SUN Solaris by issuing the following command at the UNIX prompt:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">makeSUN</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
@@ -226,9 +137,9 @@
 </pre></div>
 </div>
 </div></blockquote>
-</div>
-<div class="section" id="run-instructions">
-<h2><span class="section-number">4.3. </span>Run Instructions<a class="headerlink" href="#run-instructions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="run-instructions">
+<h2><span class="section-number">4.3. </span>Run Instructions<a class="headerlink" href="#run-instructions" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>In order to run the tRIBS Model, a Model Input File will be required. This file can have any name, but by convention the extension <code class="docutils literal notranslate"><span class="pre">*.in</span></code> is used. The model can be run from the UNIX command line by using the following syntax (within the same directory as the <code class="docutils literal notranslate"><span class="pre">tribs</span></code> executable):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tribs</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
@@ -300,9 +211,9 @@
 </div></blockquote>
 <p>The most important of these options for the new user to be acquainted with are <em>-R</em> (write intermediate results), <em>-G</em> (run the groundwater model), <em>-V</em> (verbose screen output), <em>-O</em> (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Model Input File (all model inputs except the TIN Mesh can be altered). Redirecting the model screen output should not be done if the <em>-O</em> flag is used. Many of the other options have yet to be used to the fullest potential in tRIBS, especially those concerned with the use of forecasted rainfall. Further details on the run options are available in the <code class="docutils literal notranslate"><span class="pre">tControl.cpp</span></code> code.</p>
 </div></blockquote>
-</div>
-<div class="section" id="creating-model-inputs">
-<h2><span class="section-number">4.4. </span>Creating Model Inputs<a class="headerlink" href="#creating-model-inputs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-model-inputs">
+<h2><span class="section-number">4.4. </span>Creating Model Inputs<a class="headerlink" href="#creating-model-inputs" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message. A properly setup run will begin and end by providing the user with the following message:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">------------------------------------------------------------------------</span>
@@ -316,8 +227,8 @@
 </div>
 <p>In between this header and footer, the model run output file obtained after redirecting the run file (<code class="docutils literal notranslate"><span class="pre">output</span></code>) will contain various sections relating to the model workflow: Reading Input Parameters, Creating Mesh, Creating Stream Network, Creating Resampling for Grids, Creating Output Files, Creating Hydrologic System, Hydrologic Simulation Loop, Deleting Objects and Exiting Program. A sample output or log file can be found in the sample applications described previously. In order to obtain a proper model run, however, the user must make sure that all model inputs, parameters and files are appropriately constructed and referenced in the Model Input File.</p>
 </div></blockquote>
-<div class="section" id="model-input-file">
-<h3><span class="section-number">4.4.1. </span>Model Input File<a class="headerlink" href="#model-input-file" title="Permalink to this headline">¶</a></h3>
+<section id="model-input-file">
+<h3><span class="section-number">4.4.1. </span>Model Input File<a class="headerlink" href="#model-input-file" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>The tRIBS Model Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>) is currently the primary user interface to the model. Although not a graphical medium, it is an easy and efficient means of manipulating all modeling options, parameters and inputs. Not all of the parameters are required for every single run since choosing a particular option may require some additional parameters that an alternate option may not. Nevertheless, it is recommended to have as complete a set of parameters as possible. Those parameters that are not required for a particular run are ignored by the model. The <code class="docutils literal notranslate"><span class="pre">*.in</span></code> file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. <strong>Table 4.2</strong> presents a list of the model parameters used in the tRIBS Model Input File. Note that all parameters are capitalized. The values associated with each parameter may be a number (int, double) or a string (pathname, extension). If the units are specified as ints or doubles, this implies that the parameters are dimensionless, otherwise a unit is expressed. The difference between a pathname and a base pathname is simply that the pathname includes the entire path plus the entire name of the file, including the extension, while a base pathname is only the path and the base name of the file (no extension). NOTE: All keywords in the inputfile must have a entry for proper model execution.</p>
 <blockquote>
@@ -736,8 +647,8 @@
 </div></blockquote>
 <p>The tRIBS Model Input File provides an appropriate means for summarizing the various modeling options and capabilities in the tRIBS Release. An exhaustive explanation of each item is avoided in this document for brevity and the user is referred to the more complete description tRIBS and CHILD descriptions:</p>
 </div></blockquote>
-<div class="section" id="parallel-model-inputs">
-<h4><span class="section-number">4.4.1.1. </span>Parallel Model Inputs<a class="headerlink" href="#parallel-model-inputs" title="Permalink to this headline">¶</a></h4>
+<section id="parallel-model-inputs">
+<h4><span class="section-number">4.4.1.1. </span>Parallel Model Inputs<a class="headerlink" href="#parallel-model-inputs" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The use of the parallel version of the model led to the development of the following new keywords:</p>
 <blockquote>
@@ -795,39 +706,39 @@
 </table>
 </div></blockquote>
 </div></blockquote>
-</div>
-<div class="section" id="model-run-parameters-restart-mode">
-<h4><span class="section-number">4.4.1.2. </span>Model Run Parameters: Restart Mode<a class="headerlink" href="#model-run-parameters-restart-mode" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-run-parameters-restart-mode">
+<h4><span class="section-number">4.4.1.2. </span>Model Run Parameters: Restart Mode<a class="headerlink" href="#model-run-parameters-restart-mode" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The tRIBS model can now output binary files corresponding to the entire set of model states at a particular time interval. This capability was created to facilitate model runs beginning in the middle of a simulation. This may be necessary for recovering from a system crash and can be very useful in data assimilation and forecasting schemes. The restart mechanism is invoked by using the <em>RESTARTMODE</em> keyword which has four options: No restart mechanism (option 0), Write files only (option 1), Read files only (option 2), Read and write files (option 3). In this context, writing implies making model output states at a specified interval defined by the keyword <em>RESTARTINTRVL</em> (in hours); while reading implies using a previously generated restart file as your initial state. The restart output is written to a directory specified by the keyword <em>RESTARTDIR</em> (pathname of directory); while the restart reading is from a file specified by the keyword <em>RESTARTFILE</em> (filename). The restart mechanism should be utilized with caution with respect to file space as the restart files can be large.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-run-parameters-parallel-mode">
-<h4><span class="section-number">4.4.1.3. </span>Model Run Parameters: Parallel Mode<a class="headerlink" href="#model-run-parameters-parallel-mode" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-run-parameters-parallel-mode">
+<h4><span class="section-number">4.4.1.3. </span>Model Run Parameters: Parallel Mode<a class="headerlink" href="#model-run-parameters-parallel-mode" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The tRIBS model can now be run in either serial or parallel mode, depending on user selection. The keyword <em>PARALLELMODE</em> is used to specify either serial (option 0) or parallel (option 1) computation. If the parallel mode is used, then attention needs to be paid to the graph file partitioning option. Three methods for graph partitioning can be selected utilizing the keyword <em>GRAPHOPTION</em>: (a) A default partitioning of the graph (option 0); (b) A reach-based partitioning (option 1); and (c) An inlet/outlet-based partitioning (option 2). If either option 1 or 2 are selected, the keyword <em>GRAPHFILE</em> needs to be specified with the name of the graph file to be used (either reach or inlet/outlet based). Otherwise, no filename is required.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-run-parameters-visualization-mode">
-<h4><span class="section-number">4.4.1.4. </span>Model Run Parameters: Visualization Mode<a class="headerlink" href="#model-run-parameters-visualization-mode" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-run-parameters-visualization-mode">
+<h4><span class="section-number">4.4.1.4. </span>Model Run Parameters: Visualization Mode<a class="headerlink" href="#model-run-parameters-visualization-mode" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The tRIBS model can now save model output in binary format for visualization purposes (using ParaView and Ensight). The keyword <em>OPTVIZ</em> is used to specify either no writing of visualization output (option 0) or writing of binary output files (option 1). If the visualization output is used, <em>OUTVIZFILENAME</em> is used to specify the name of the binary file to be written.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-run-parameters-time-variables">
-<h4><span class="section-number">4.4.1.5. </span>Model Run Parameters: Time Variables<a class="headerlink" href="#model-run-parameters-time-variables" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-run-parameters-time-variables">
+<h4><span class="section-number">4.4.1.5. </span>Model Run Parameters: Time Variables<a class="headerlink" href="#model-run-parameters-time-variables" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The first ten item codes or parameters in the tRIBS Model Input File are related to the various timesteps used within the model.  The <em>STARTDATE</em> keyword is used to indicate the starting time of the model simulation in the following format: <code class="docutils literal notranslate"><span class="pre">MM/DD/YYYY/HH/MM</span></code> (Month/Day/Year/Hour/Minutes). Values of the rainfall and meteorological inputs must exist for this starting date for the model to execute properly. The <em>RUNTIME</em> keyword is used to specify the number of hours in the total length of the simulation. Similarly, there must be hydrometeorologic data that span the period between the start date and the end date. The <em>TIMESTEP</em> parameter is used to specify the Unsaturated Zone computational time step in minutes. For proper execution, the unsaturated time step should be on the order of minutes. The <em>GWSTEP</em> represents the groundwater or Saturated Zone computational time step, also in minutes. Typically, the groundwater time step can be on the order of tens of minutes for most applications. <em>METSTEP</em> specifies the time step of hydrometeorological data input from weather stations, in minutes. This time step is usually set to 60 minutes since the weather parameters are available at this temporal resolution. <em>ETISTEP</em> specifies the interval for the evapotranspiration, interception and snow model calculations in hours. The <em>RAININTRVL</em> keyword is used for the input time interval of rainfall data, either from radar rainfall grids or from raingauges, in hours. This interval will depend on the resolution of the radar data which is available from 15 minute up to daily intervals. <em>OPTINTVL</em> notifies the model at what interval the model output will be produced. Finally, the last two parameters are related to the rainfall scheme. <em>INTSTORMMAX</em> is the amount of hours without rainfall that the model considers to be sufficient for an interstorm period to begin, while <em>RAINSEARCH</em> is the amount of hours that the model will search for the next rainfall file without producing an error message and exiting the program.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-run-parameters-routing-variables">
-<h4><span class="section-number">4.4.1.6. </span>Model Run Parameters: Routing Variables<a class="headerlink" href="#model-run-parameters-routing-variables" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-run-parameters-routing-variables">
+<h4><span class="section-number">4.4.1.6. </span>Model Run Parameters: Routing Variables<a class="headerlink" href="#model-run-parameters-routing-variables" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The tRIBS currently possesses a simplified hydrologic routing scheme inherited from the raster-based RIBS model (Garrote and Bras, 1995) <a class="reference internal" href="Contacts_Further_Readings.html#garrote-bras-1995a" id="id1"><span>[Garrote_Bras_1995a]</span></a> for hillslope routing and a finite-element channel routing scheme. The model allows for non-linear routing based on the discharge at a single watershed outlet and two parameter values, the stream velocity and the hillslope velocity, shared by all TIN nodes of that particular type. The hydrologic routing scheme utilizes the discharge at the closest stream node to determine the hillslope velocity. Six routing parameters are specified to the model: <em>BASEFLOW</em>, <em>VELOCITYCOEF</em>, <em>FLOWEXP</em>, <em>VELOCITYRATIO</em>, <em>CHANNELROUGHNESS</em>, and <em>CHANNELWIDTH</em>. The first of these is used to specify the minimum flow in the stream network in cubic meters per second, a required parameter since the flow network velocities depend on the outlet discharge in some linear or nonlinear fashion. If the <em>BASEFLOW</em> parameter is not specified, a value of 0.001 cubic meters per second is assigned as default. <em>VELOCITYCOEF</em> is used to specify the coefficient in the relationship between the stream velocity and the outlet discharge, while the <em>FLOWEXP</em> is the exponent on the discharge in this relationship. Specifying <em>FLOWEXP = 0</em> implies a linear relationship between the stream velocity and the outlet discharge. The <em>VELOCITYRATIO</em> keyword is the ratio between the calculated stream velocity and the hillslope velocity assigned to non-stream nodes. The last two parameters: <em>CHANNELROUGHNESS</em> and <em>CHANNELWIDTH</em> are both uniform parameters for the entire stream network in this model version. The roughness parameters refers to a non-dimensional Manning’s coefficient while the width is a channel width in meters.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-run-options">
-<h4><span class="section-number">4.4.1.7. </span>Model Run Options<a class="headerlink" href="#model-run-options" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-run-options">
+<h4><span class="section-number">4.4.1.7. </span>Model Run Options<a class="headerlink" href="#model-run-options" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>A major section in the tRIBS Model Input File is dedicated to the model run options used to specify which hydrological processes are chosen for a particular model run. A brief discussion of each model run option is presented here for the sake of brevity. More details concerning the hydrologic processes themselves are available from other tRIBS documentation sources.</p>
 <p>The <em>OPTMESHINPUT</em> keyword is used to indicate the option for inputting the topographic data into the model. It controls the sort of mesh data that is read by the model and necessary input data files related to the model mesh. Seven options currently are implemented within the tRIBS Model: 1 = tMesh files from a prior run are used to recreate the mesh (<code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code>, <code class="docutils literal notranslate"><span class="pre">*.z</span></code>); 2 = Point file used to create a new mesh (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>); 3 = Arc/Info Grid file is read and sampled randomly to create the mesh; 4 = Arc/Info Grid file is read and sampled hexagonally to create the mesh; 5 = Arc/Info Ungenerated TIN file used to create a Points File (<code class="docutils literal notranslate"><span class="pre">*.net</span></code>); 6 = Arc/Info Ungenerated TIN files used to create a Points File (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code> and <code class="docutils literal notranslate"><span class="pre">*.lin</span></code>); 7 = Mesh constructed from scratch; 8 = Point File used with Tipper Triangulation procedure (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>); 9 = Meshbuilder routines to deal with very large TIN domains (&gt;200,000 to 10s of millions of nodes). The Meshbuilder is a separate executable that operates with an input file (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>) and a points file (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>). It is available for distribution through the code repository and should be compiled separately (a short readme describes its usage).</p>
@@ -844,47 +755,47 @@
 <p>The <em>OPTRESERVOIR</em> keyword is used to activate the use of the linear reservoir module (<code class="docutils literal notranslate"><span class="pre">tReservoir</span></code>) in the model. 0 = Disable the use of Reservoirs. 1 = Activate the use of Reservoirs. If <em>OPTRESERVOIR = 1</em> then additional information is required by specifying the path to the file containing the TIN nodes (or Voronoi polygons) to be used as reservoirs in <em>RESPOLYGONID</em> (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>) and the path to the file containing the elevation-discharge-storage information for each type of reservoir in <em>RESDATA</em> (<code class="docutils literal notranslate"><span class="pre">*.eds</span></code>).</p>
 <p>The <em>OPTPERCOLATION</em> keyword allows the user to select from several options for channel percolation losses. 0 = No channel percolation. 1 = Constant loss method where the infiltration rate is equal to the channel saturated hydraulic conductivity specified under <em>CHANNELCONDUCTIVITY</em>. 2 = Constant loss method with a transient period applied with the transient hydraulic conductivity specified as <em>TRANSIENTCONDUCTIVITY</em> and the transient time period specified as <em>TRANSIENTTIME</em>. 3 = Green-Ampt infiltration equation with the parameters specified as <em>CHANNELPOROSITY</em>, <em>CHANPOREINDEX</em> and <em>CHANPSIB</em>.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-input-files-and-pathnames-mesh-generation">
-<h4><span class="section-number">4.4.1.8. </span>Model Input Files and Pathnames: Mesh Generation<a class="headerlink" href="#model-input-files-and-pathnames-mesh-generation" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-input-files-and-pathnames-mesh-generation">
+<h4><span class="section-number">4.4.1.8. </span>Model Input Files and Pathnames: Mesh Generation<a class="headerlink" href="#model-input-files-and-pathnames-mesh-generation" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>When specifying the <em>OPTMESHINPUT</em> option, the model will require that the pathname of the input files be included within the Mesh Generation section of the Model Input File. The <em>INPUTDATAFILE</em> option is used to input the basename for the Mesh input files produced during a previous run (<em>OPTMESHINPUT = 1</em>), while the <em>INPUTTIME</em> keyword specifies the time slice for mesh input (for tRIBS, <em>INPUTTIME</em> should always be set to zero). If using <em>OPTMESHINPUT = 2</em>, then the <em>POINTFILENAME</em> keyword must be used to specify the pathname and filename of the Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>). If using <em>OPTMESHINPUT = 2</em> through <em>6</em>, then the keyword <em>ARCINFOFILENAME</em> specifies the pathname and basename for the Arc/Info grids or output files (<code class="docutils literal notranslate"><span class="pre">*.asc</span></code>, <code class="docutils literal notranslate"><span class="pre">*.net</span></code>, <code class="docutils literal notranslate"><span class="pre">*.lin</span></code>, <code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>).</p>
 </div></blockquote>
-</div>
-<div class="section" id="mesh-input-files-and-pathnames-resampling-grids">
-<h4><span class="section-number">4.4.1.9. </span>Mesh Input Files and Pathnames: Resampling Grids<a class="headerlink" href="#mesh-input-files-and-pathnames-resampling-grids" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="mesh-input-files-and-pathnames-resampling-grids">
+<h4><span class="section-number">4.4.1.9. </span>Mesh Input Files and Pathnames: Resampling Grids<a class="headerlink" href="#mesh-input-files-and-pathnames-resampling-grids" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The path and filenames of the grid input and the reclassification tables for the soil and land use data are grouped together within this section of the Model Input File. The soil grid (<code class="docutils literal notranslate"><span class="pre">*.soi</span></code>), land use grid (<code class="docutils literal notranslate"><span class="pre">*.lan</span></code>) and initial groundwater table position (<code class="docutils literal notranslate"><span class="pre">*.iwt</span></code>) are specified using the <em>SOILMAPNAME</em>, <em>LANDMAPNAME</em> and <em>GWATERFILE</em> keywords. The DEM used to derive the remote sheltering grids is specified by the <em>DEMFILE</em> keyword. The DEM used should encompass the study area and all significant surrounding topographic features, possibly outside the study area. The radar rainfall grid (for <em>RAINSOURCE = 1</em> or <em>2</em>) base name is specified using the <em>RAINFILE</em> keyword and the extension is inputted by using the <em>RAINEXTENSION</em> keyword.</p>
 </div></blockquote>
-</div>
-<div class="section" id="mesh-input-files-and-pathnames-meteorological-data">
-<h4><span class="section-number">4.4.1.10. </span>Mesh Input Files and Pathnames: Meteorological Data<a class="headerlink" href="#mesh-input-files-and-pathnames-meteorological-data" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="mesh-input-files-and-pathnames-meteorological-data">
+<h4><span class="section-number">4.4.1.10. </span>Mesh Input Files and Pathnames: Meteorological Data<a class="headerlink" href="#mesh-input-files-and-pathnames-meteorological-data" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The path and filenames of the meteorological data are grouped together in this section of the Model Input File. If <em>METDATAOPTION = 1</em>, then the Station Data File (<code class="docutils literal notranslate"><span class="pre">*.sdf</span></code>) must be specified in <em>HYDROMETSTATIONS</em> and the Meteorological Data File (<code class="docutils literal notranslate"><span class="pre">*.mdf</span></code>) basename in <em>HYDROMETBASENAME</em>. Otherwise, if <em>METDATAOPTION = 2</em>, then the <em>HYDROMETGRID</em> keyword must contain the Grid Data File (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>). If <em>CONVERTDATA = 1</em>, then the <em>HYDROMETCONVERT</em> parameter must specify the path and filename of the Meteorological Data Input (<code class="docutils literal notranslate"><span class="pre">*.mdi</span></code>) File.  If <em>CONVERTDATA = 2</em>, then the <em>GAUGECONVERT</em> parameter must be specify the path and filename of the rain gauge conversion file (<code class="docutils literal notranslate"><span class="pre">*.mdi</span></code>). The <em>GAUGEBASENAME</em> keyword is used to specify the base pathname of the MDF raingauge files. Finally, if <em>RAINSOURCE = 3</em>, then the <em>GAUGESTATIONS</em> keyword is used to specify the rain gauge SDF file. If <em>CONVERTDATA = 3</em>, then preprocessing of DMIP formatted observed energy forcings is performed. This results in an MDF file particular to the basin of interest (1992-2000 period) with somewhat altered list of meteorological parameters that can be ingested into the model. A separate SDF file must be prepared to correspond with this data.</p>
 <p>Lapse rates have been implemented in the model for precipitation and temperature. The temperature lapse rate is assigned from <em>TEMPLAPSERATE</em>. The precipitation lapse rate is specified by <em>PRECLAPSE</em> in <em>mm/m</em>. Scattered light from opposing hillslopes can be a significant component of incoming radiations in snowy environments. <em>HILLALBOPT = 0</em> uses the snow albedo for the hillslope albedo, <em>HILLALBOPT = 1</em> uses the land-use albedo for the hillslope albedo, and <em>HILLALBOPT = 2</em> uses a dynamic representation of albedo, where the snow albedo is used if there is snow in the canopy and a vegetative fraction weighted average of snow and land-use albedo is used otherwise.</p>
 </div></blockquote>
-</div>
-<div class="section" id="mesh-input-files-and-pathnames-output-data">
-<h4><span class="section-number">4.4.1.11. </span>Mesh Input Files and Pathnames: Output Data<a class="headerlink" href="#mesh-input-files-and-pathnames-output-data" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="mesh-input-files-and-pathnames-output-data">
+<h4><span class="section-number">4.4.1.11. </span>Mesh Input Files and Pathnames: Output Data<a class="headerlink" href="#mesh-input-files-and-pathnames-output-data" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The path and basenames of the output data are grouped in this section of the Model Input File. The keyword <em>OUTFILENAME</em> is used to specify the location and basename of the output mesh and the voronoi file (<code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.z</span></code> and <code class="docutils literal notranslate"><span class="pre">*.voi</span></code>) as well as the dynamic variable output (<code class="docutils literal notranslate"><span class="pre">*.pixel</span></code> and <code class="docutils literal notranslate"><span class="pre">*.dat</span></code>). The keyword <em>OUTHYDROFILENAME</em> specifies the path and basename of the outputted hydrograph and hyetograph time series. The format of the hydrograph and hyetograph file (<code class="docutils literal notranslate"><span class="pre">*.mdf</span></code>) depends on the value of <em>RIBSHYDOUTPUT</em>: <em>= 0</em>, not compatible with RIBS output; or <em>= 1</em>, compatible with RIBS output. This distinction is necessary if the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code> files are to be used with the RIBS graphical user interface. The <em>NODEOUTPUTLIST</em> specifies the path and filename of the Node Output List (<code class="docutils literal notranslate"><span class="pre">*.nol</span></code>) file used to input the node IDs for dynamic variable output. The <em>OUTLETNODELIST</em> keyword specifies the interior stream nodes to be used for output of the interior hydrographs (<code class="docutils literal notranslate"><span class="pre">*.nol</span></code>) file.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-modes-rainfall-forecasting-mode">
-<h4><span class="section-number">4.4.1.12. </span>Model Modes: Rainfall Forecasting Mode<a class="headerlink" href="#model-modes-rainfall-forecasting-mode" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-modes-rainfall-forecasting-mode">
+<h4><span class="section-number">4.4.1.12. </span>Model Modes: Rainfall Forecasting Mode<a class="headerlink" href="#model-modes-rainfall-forecasting-mode" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The tRIBS model can be used for real-time flood forecasting given predicted rainfall data from any number of sources (radar extrapolation, numerical weather prediction). Currently, the Rainfall Forecasting Mode allows the user to specify the forecast time, lead time and forecasting interval using the <em>FORECASTTIME</em>, <em>FORECASTLEADTIME</em> and <em>FORECASTLENGTH</em> keywords. The Forecasting mode is turned on using <em>FORECASTMODE</em>. Three options are available: Single or Updating forecast, Persistence Forecast or Climatological Forecasting. They differ in the product used after the forecast time. For single or updating, the <em>FORECASTFILE</em> directory is read for the forecast product. Otherwise, a persistence of the last available rainfall or the climatological value are used. The <em>RAINDISTRIBUTION</em> enables the inputted rainfall to be spatially-averaged within tRIBS.</p>
 </div></blockquote>
-</div>
-<div class="section" id="model-modes-stochastic-rainfall-mode">
-<h4><span class="section-number">4.4.1.13. </span>Model Modes: Stochastic Rainfall Mode<a class="headerlink" href="#model-modes-stochastic-rainfall-mode" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="model-modes-stochastic-rainfall-mode">
+<h4><span class="section-number">4.4.1.13. </span>Model Modes: Stochastic Rainfall Mode<a class="headerlink" href="#model-modes-stochastic-rainfall-mode" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p>The tRIBS model can be forced with real rainfall data or stochastic rainfall input using the Eagleson or Rodriguez-Iturbe type Poisson storm process at a point. The Stochastic Rainfall Mode is invoked with the keyword <em>STOCHASTICMODE</em> specified as other than zero. The keywords <em>PMEAN</em>, <em>STDUR</em>, <em>ISTDUR</em> are used alone (option 1: mean forcing), in conjunction with the random seed <em>SEED</em> (option 2: random forcing), in conjunction with periodic forcing using the <em>PERIOD</em>, <em>MAXPMEAN</em>, <em>MAXSTDURMN</em> and <em>MAXISTDURMN</em> (option 3: sinusoidal forcing), in combination of both mean and sinusoidal (option 4: mean and sinusoidal forcing) or in combination of both mean and random forcing (option 5: mean and random forcing). The user should carefully review implications of selection with the <code class="docutils literal notranslate"><span class="pre">tStorm</span></code> class definition. A complete stochastic weather generator (Ivanov, 2004) for all climatic variables can also be utilized by specifying <em>STOCHASTICMODE = 6</em> and a filename for <em>WEATHERTABLENAME</em>. See Ivanov (2004) chapter on stochastic climate forcing for more details.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="soil-and-land-use-input">
-<h3><span class="section-number">4.4.2. </span>Soil and Land Use Input<a class="headerlink" href="#soil-and-land-use-input" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="soil-and-land-use-input">
+<h3><span class="section-number">4.4.2. </span>Soil and Land Use Input<a class="headerlink" href="#soil-and-land-use-input" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>The description of the land surface characteristics in the tRIBS Model is achieved through the input of soil textural and land use/land cover data in the form of ASCII grids of a particular soil or land use code. The soil (<code class="docutils literal notranslate"><span class="pre">*.soi</span></code>) and land use (<code class="docutils literal notranslate"><span class="pre">*.lan</span></code>) grids are specified in the Model Input File by using the keywords <em>SOILMAPNAME</em> and <em>LANDMAPNAME</em>, respectively. <strong>Figure 4.3</strong> presents an example of a soil or land use grid similar to the rainfall ASCII grid presented in <strong>Figure 3.1</strong> for the Peacheater Creek basin at a resolution of 2 kilometers by 2 kilometers. As with other grid input, care should be taken to specify the grids in the same coordinate system as the topographic TIN data. The resampling routines included in the tResample class are designed to read the land use and soil cover grids and assign the appropriate codes to the TIN mesh nodes according to the geographic overlap of the two coverages. The geographic assignment is performed in one of two possible fashions, depending on the relative size of the grid input as compared to the Voronoi cell scale. For large input grids, such as those available from radar rainfall input, the resampling is performed by a nearest neighbor approach. For grid inputs at the scale of the Voronoi polygons, an aerial weighting is used to determine the dominant cover type. Further details are available elsewhere in the tRIBS documentation</p>
 <blockquote>
@@ -1175,9 +1086,9 @@
 </div></blockquote>
 <p><strong>Figure 4.5</strong> presents the parameter values for the land use reclassification table. Notice that these parameters relate to the interception and evaporation properties of the vegetative cover or land use type. Most of these can be directly related to the land use codes. The first two parameters are required if the keyword <em>OPTINTERCEPT = 1</em>, while the next four are required if <em>OPTINTERCEPT = 2</em>.  The final five parameters are required for various options of the keyword <em>OPTEVAPOTRANS</em>. Detailed descriptions of each parameter and their use within the model equations is beyond the scope of this document and the user is referred to the available tRIBS documentation. The last two parameters have been recently added to specify the soil moisture stress threshold for soil evaporation and plant transpiration. These used to be specified simply as 0.75*thetaS, but now the user is responsible for setting these in units [] consistent with other soil moisture thresholds. Examples of a land use reclassification table, including parameter values in the appropriate range, are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.</p>
 </div></blockquote>
-</div>
-<div class="section" id="meteorological-point-data-input">
-<h3><span class="section-number">4.4.3. </span>Meteorological Point Data Input<a class="headerlink" href="#meteorological-point-data-input" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="meteorological-point-data-input">
+<h3><span class="section-number">4.4.3. </span>Meteorological Point Data Input<a class="headerlink" href="#meteorological-point-data-input" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>The input of meteorological data is essential for utilizing the tRIBS Model for continuous hydrologic simulations over storm and interstorm cycles. Meteorological input into tRIBS can from point data or grid data, depending on the data sources available (i.e. from weather observing stations or from numerical model predictions). The data input used for weather station data is based on the Point Station Data Input described previously.  The data input for the grid meteorological parameters is based on the structure to the radar rainfall input as described in the Meteorological Grid Input section of this document. The two data inputs are treated in a distinctly different manner within the model.  Whereas the entire point data time series is stored into an object (e.g. <code class="docutils literal notranslate"><span class="pre">tHydroMet</span></code>), the grid data is read sequentially for each time step without object storage. <strong>Figure 4.6</strong> shows the two forms of meteorological data input and storage.</p>
 <blockquote>
@@ -1220,8 +1131,8 @@
 </div></blockquote>
 <p>Note that the methodology for the input of meteorological data is reused for various purposes. For example. the tHydroMet object (used in <code class="docutils literal notranslate"><span class="pre">tEvapoTrans</span></code>), which stores data from weather stations, was simplified to create the <code class="docutils literal notranslate"><span class="pre">tRainGauge</span></code> class (used in <code class="docutils literal notranslate"><span class="pre">tRainfall</span></code>) with very similar functionality. The <code class="docutils literal notranslate"><span class="pre">tRainfall</span></code> grid manipulations where extended to read in time-invariant grid, such as land use and soils (<code class="docutils literal notranslate"><span class="pre">tInvariant</span></code>), and time-varying weather parameter grids (<code class="docutils literal notranslate"><span class="pre">tVariant</span></code>). The format of the Station Descriptor Files (<code class="docutils literal notranslate"><span class="pre">*.sdf</span></code>) and the Meteorological Data Files (<code class="docutils literal notranslate"><span class="pre">*.mdf</span></code>) is modified slightly depending on whether these contain meteorological, rain gauge or pan evaporation data. <strong>Figures 4.7</strong> and <strong>4.8</strong> describe the format of the <code class="docutils literal notranslate"><span class="pre">*.sdf</span></code> and <code class="docutils literal notranslate"><span class="pre">*.mdf</span></code> files for the various applications, including comments on the parameters and units.</p>
 </div></blockquote>
-<div class="section" id="station-descriptor-file-structure">
-<h4><span class="section-number">4.4.3.1. </span>Station Descriptor File Structure<a class="headerlink" href="#station-descriptor-file-structure" title="Permalink to this headline">¶</a></h4>
+<section id="station-descriptor-file-structure">
+<h4><span class="section-number">4.4.3.1. </span>Station Descriptor File Structure<a class="headerlink" href="#station-descriptor-file-structure" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p><strong>Figure 4.7a.</strong> Weather Station and Pan Evaporation SDF Structure</p>
 <blockquote>
@@ -1311,9 +1222,9 @@
 </div></blockquote>
 <p>Note that the following: <em>#Stations</em> is the number of total stations to be read, <em>#Params</em> is the number of parameters for each of the subsequent lines, <em>StationID</em> must be unique values for each station (starting at 0), the <em>FilePath</em> refers to the MDF file for that particular station and must be relative to the location of the executable, the <em>AbsLong</em> and <em>AbsLat</em> must be in decimal degree (lat/long), the RefLong and RefLat must be in the same coordinate system as the input grids and watershed TIN, Greenwich Mean Time (<em>GMT</em>) is difference in hours between the location and the Greenwich Meridian (negative number in Western Hemisphere), the <em>RecordLength</em> is the length of the time series in the MDF file, the <em>#WeatherParams</em> and <em>#RainParams</em> are the number of parameters in the MDF file including the date and time, and <em>Other</em> is used for inputting additional station information, such as station elevation, if desired. Also note that these keywords are not included in the file, just the parameter value. An example of an SDF file is presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.</p>
 </div></blockquote>
-</div>
-<div class="section" id="meteorological-data-file-structure">
-<h4><span class="section-number">4.4.3.2. </span>Meteorological Data File Structure<a class="headerlink" href="#meteorological-data-file-structure" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="meteorological-data-file-structure">
+<h4><span class="section-number">4.4.3.2. </span>Meteorological Data File Structure<a class="headerlink" href="#meteorological-data-file-structure" title="Permalink to this headline"></a></h4>
 <blockquote>
 <div><p><strong>Figure 4.8a.</strong> Weather Station MDF Structure</p>
 <blockquote>
@@ -1469,10 +1380,10 @@
 </div></blockquote>
 <p>Note the following: the parameter names must be a placed in a header for each MDF file, the <em>TD/RH</em> and <em>R/EP</em> imply that either one of these parameters can be inputted into that particular field, there must be <em>RecordLength</em> number of lines following after the header in intervals, missing data must be inputted with the <em>NO_DATA</em> flag <em>= 9999.99</em>, and the units must be retained as indicated, including for <em>IS</em>, <em>NR</em> and <em>TS</em> (but not for <em>ET</em>). Rainfall (<em>R</em>) is typically specified in its own MDF file. Notice that the file does not contain a minute column. Nevertheless, sub-hourly data can be inputted into the model at intervals that are multiples of the <em>TIMESTEP</em>. For example, for 15-minute data, the user should specify four rows for each hour (same <em>H</em>) in order. A similar approach is taken for sub-hourly rain gauge data. Examples of MDF files for weather stations and raingauge stations are presented in the tRIBS Sample Application in the tRIBS Watershed Downloads Page.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="meteorological-grid-data-input">
-<h3><span class="section-number">4.4.4. </span>Meteorological Grid Data Input<a class="headerlink" href="#meteorological-grid-data-input" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="meteorological-grid-data-input">
+<h3><span class="section-number">4.4.4. </span>Meteorological Grid Data Input<a class="headerlink" href="#meteorological-grid-data-input" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>An alternative input format type for meteorological data is with the use of grid data. This option in the tRIBS model is used with the keyword <em>METDATAOPTION = 2</em>, while the more traditional weather station data is specified with <em>METDATAOPTION = 1</em>. The use of grid weather variables maybe convenient for inputting results from a numerical weather model that predicts the conditions of the atmosphere over large regions and produces grid output of temperature, wind or other fields. As described in <strong>Figure 4.6</strong>, the format for the meteorological grid input inherits its capability from the radar rainfall input in <code class="docutils literal notranslate"><span class="pre">tRainfall</span></code>, but with a slight modification necessary to deal with the multiple weather grids to be read for each time step. The additional information is provided through a text file for reading in meteorological input (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>) as specified through the keyword <em>HYDROMETGRID</em> in the Model Input File. The structure of the Grid Data File or GDF is presented in <strong>Figure 4.9</strong>.</p>
 <p><strong>Figure 4.9</strong> Meteorological GDF File Structure</p>
@@ -1531,9 +1442,9 @@
 </div></blockquote>
 <p>It is apparent from comparing the GDF file structure to the MDF and SDF files that there are similarities in the approaches. Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next <em>#Params</em> lines are used to specify the parameter code, the file pathname of the weather grid (including the basename of the file) and the extension given to the particular grid. The <em>NO_DATA</em> flag is used to specify that weather grids are not available for a particular parameter. As with the weather station data, all the keywords used to represent the parameters are fixed as well as the units, as specified in <em>Figure 4.8c</em>. A variation to the GDF format can be made so that grid values of evaporation can be directly inputted into the model, thus bypassing the model calculations. The required changes involve using only one parameter line with the parameter name <em>ET</em> and the corresponding filepath name and extension, in addition to specifying the keyword <em>OPTEVAPOTRANS = 4</em> in the tRIBS Model Input File.</p>
 </div></blockquote>
-</div>
-<div class="section" id="land-cover-grid-data-input">
-<h3><span class="section-number">4.4.5. </span>Land Cover Grid Data Input<a class="headerlink" href="#land-cover-grid-data-input" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="land-cover-grid-data-input">
+<h3><span class="section-number">4.4.5. </span>Land Cover Grid Data Input<a class="headerlink" href="#land-cover-grid-data-input" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>An alternative input format type for dynamic land cover data is with the use of grid data. This option in the tRIBS model is used with the keyword <em>OPTLANDUSE = 1</em>, while the more static land cover  is specified with <em>OPTLANDUSE = 0</em>. The use of dynamic land cover variables maybe convenient for inputting remotely sensed vegetation fields. The format for the dynamic grid input is similar to the meteorological grid input. Information is provided through a text file for reading in land cover grid input (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>) as specified through the keyword <em>LUGRID</em> in the Model Input File. The structure of the Grid Data File or GDF is presented in <strong>Figure 4.10</strong>.</p>
 <p><strong>Figure 4.10</strong> Land Cover GDF File Structure</p>
@@ -1604,9 +1515,9 @@
 </div></blockquote>
 <p>Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next <em>#Params</em> lines are used to specify the parameter code, the file pathname of the land cover parameter grid (including the basename of the file) and the extension given to the particular grid. The <em>NO_DATA</em> flag is used to specify the grids that are not available for a particular parameter. The parameter grids that can be inputted are <em>AL</em> (albedo, <em>Al</em>), <em>TF</em> (free throughfall coefficient, <em>P</em>), <em>VH</em> (vegetation height, <em>H</em>), <em>SR</em> (stomatal resistance, <em>Rs</em>), <em>VF</em> (vegetation fraction, <em>V</em>), <em>CS</em> (canopy storage, <em>A</em>), <em>IC</em> (interception coefficient, <em>b1</em>), <em>CC</em> (canopy field capacity, <em>S</em>), <em>DC</em> (drainage coefficient, <em>K</em>), <em>DE</em> (drainage exponential coefficient, <em>b2</em>), <em>OT</em> (optical transmission coefficient, <em>Kt</em>) and <em>LA</em> (canopy leaf area index, <em>LAI</em>), which are described in <strong>Figure 4.5a</strong> and <strong>4.5b</strong> in terms of units.</p>
 </div></blockquote>
-</div>
-<div class="section" id="reservoir-data-input">
-<h3><span class="section-number">4.4.6. </span>Reservoir Data Input<a class="headerlink" href="#reservoir-data-input" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="reservoir-data-input">
+<h3><span class="section-number">4.4.6. </span>Reservoir Data Input<a class="headerlink" href="#reservoir-data-input" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>The input of reservoir data into tRIBS enables the level pool routing simulation within the hydraulic channel routing scheme (<code class="docutils literal notranslate"><span class="pre">tKinemat</span></code>). To enable this routing option, there are two main files the user is required to provide. The Reservoir Polygon ID File provides information concerning the selected nodes to be used as Reservoirs. <strong>Figure 4.11</strong> presents the format required in the Polygon ID file (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>). The number of reservoirs (<em>nReservoirs</em>) specifies the number of TIN nodes (Voronoi polygons) that will be used as dam locations in the simulation. <em>nNodeParams</em> are the number of parameters required for each node, which should always be set at 3. In the body of the file, the user should include the ID number of the TIN node in the first column (<em>NodeID</em>, int, node selected by the user as a reservoir), followed by the type of reservoir the node will be (<em>ResNodeType</em>, int, type of reservoir associated with the node, linked to the <em>RESDATA</em> information) and the initial water surface elevation (<em>Initial_H</em>, double, meters) at the reservoir in the third column (empty reservoir should be specified as 0.0 m). When assigning the node to be used as a reservoir, the user should assign nodes that correspond to the start or the end of a river reach, to do so it is recommended to use the Voronoi mesh and stream network to identify potential nodes. An example of a <code class="docutils literal notranslate"><span class="pre">*.res</span></code> file is presented in <strong>Figure 4.12</strong>.</p>
 <p><strong>Figure 4.11</strong> Format for the Reservoir Polygon ID File (<code class="docutils literal notranslate"><span class="pre">*.res</span></code>).</p>
@@ -1750,9 +1661,9 @@
 </table>
 </div></blockquote>
 </div></blockquote>
-</div>
-<div class="section" id="soil-grid-data-input">
-<h3><span class="section-number">4.4.7. </span>Soil Grid Data Input<a class="headerlink" href="#soil-grid-data-input" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="soil-grid-data-input">
+<h3><span class="section-number">4.4.7. </span>Soil Grid Data Input<a class="headerlink" href="#soil-grid-data-input" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><p>Gridded soil data can be used as an alternative to the tabular soil parameter input. Similar to the Land Cover Grid Data Input, the use of grid data may be convenient for inputting soil parameters obtained from remotely sensed data. To activate the use of the gridded soil data the user must the keyword <em>OPTSOILTYPE = 1</em> in the Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>). If <em>OPTSOILTYPE = 0</em> then the use of the tabular data will be selected. The information is provided in a similar fashion as the dynamic land cover grids, through the use of a text file for reading soil grid input (<code class="docutils literal notranslate"><span class="pre">*.gdf</span></code>) specified through the keyword <em>SCGRID</em> in the Input File. The Structure of the soil grid data file or GDF is similar to the one seen in <strong>Figure 4.10</strong>. The user can copy the format required from <strong>Figure 4.15</strong>. The path name and abbreviation should be kept. The location of the GDF text file should be within the newly created folder “<code class="docutils literal notranslate"><span class="pre">SoilTexture</span></code>”, as such, the location specified in the Input File should be: “<code class="docutils literal notranslate"><span class="pre">SoilTexture/*.gdf</span></code>”. The format of each individual grid should follow the same specifications provided in <strong>Figure 4.3</strong>.</p>
 <p><strong>Figure 4.15</strong> Soil Parameter GDF File Structure</p>
@@ -1819,10 +1730,10 @@
 </div></blockquote>
 <p>The parameter grids required are <em>KS</em> (Surface hydraulic conductivity, <em>Ks</em>), <em>TS</em> (Soil Moisture at Saturation, <em>thetaS</em>), <em>TR</em> (Residual Soil moisture, <em>thetaR</em>), <em>PI</em> (Pore distribution index, <em>m</em>), <em>PB</em> (Air entry bubbling pressure, <em>PsiB</em>), <em>FD</em> (Decay parameter, <em>f</em>), <em>AR</em> (Saturated Anisotropy Ratio, <em>As</em>), <em>UA</em> (Unsaturated Anisotropy Ratio, <em>Au</em>), <em>PO</em> (Porosity, <em>n</em>), <em>VH</em> (Volumetric heat conductivity, <em>ks</em>), and <em>SH</em> (Soil heat capacity, <em>Cs</em>), which are described in <strong>Figure 4.4a</strong> and <strong>4.4b</strong> in terms of units.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="model-output">
-<h2><span class="section-number">4.5. </span>Model Output<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="model-output">
+<h2><span class="section-number">4.5. </span>Model Output<a class="headerlink" href="#model-output" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. <strong>Figure 4.16</strong> summarizes the various output files created by a typical tRIBS model run.</p>
 <p><strong>Figure 4.16</strong> Summary of tRIBS Output Files</p>
@@ -1917,55 +1828,38 @@
 <blockquote>
 <div><p><em>Last Update:</em> 02/13/2021  C. Lizarraga</p>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Terrain_Analysis_for_Model_Setup.html" class="btn btn-neutral float-right" title="5. Terrain Analysis for Model Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Model_Input_Formats.html" class="btn btn-neutral float-left" title="3. Model Input Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Terrain_Analysis_for_Model_Setup.html" class="btn btn-neutral float-right" title="5. Terrain Analysis for Model Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.
-
-    </p>
+    <p>&#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

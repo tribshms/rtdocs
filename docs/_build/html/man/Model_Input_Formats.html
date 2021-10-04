@@ -1,72 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>3. Model Input Formats &mdash; tRIBS - Distributed Hydrologic Model System 3.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Model Execution" href="Model_Execution.html" />
     <link rel="prev" title="2. Model Design" href="Model_Design.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> tRIBS - Distributed Hydrologic Model System
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
@@ -104,81 +56,42 @@
 <li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7. Contacts and Further Readings</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">tRIBS - Distributed Hydrologic Model System</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li><span class="section-number">3. </span>Model Input Formats</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/man/Model_Input_Formats.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="model-input-formats">
-<h1><span class="section-number">3. </span>Model Input Formats<a class="headerlink" href="#model-input-formats" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="model-input-formats">
+<h1><span class="section-number">3. </span>Model Input Formats<a class="headerlink" href="#model-input-formats" title="Permalink to this headline"></a></h1>
 <blockquote>
-<div><div class="figure align-center" id="id3">
+<div><figure class="align-center" id="id3">
 <img alt="../_images/tRIBSFlowchart.jpg" src="../_images/tRIBSFlowchart.jpg" />
-<p class="caption"><span class="caption-text">A schematic of the tRIBS Model Framework illustrates the various components and input types within the model. The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data supplied to the model can be time-invariant (soils and land use) or time-varying (rainfall or weather) grids. The TIN data are inputted into the model in a variety of methods that represent the nodes within the mesh or represent the topography that is intended to be modeled. The method chosen to input the TIN data depends upon the particular application. The point data represent the values of time-varying parameters, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used within the model for inputting parameter values associated with the soil and land use maps or the hydrometeorological data.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">A schematic of the tRIBS Model Framework illustrates the various components and input types within the model. The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data supplied to the model can be time-invariant (soils and land use) or time-varying (rainfall or weather) grids. The TIN data are inputted into the model in a variety of methods that represent the nodes within the mesh or represent the topography that is intended to be modeled. The method chosen to input the TIN data depends upon the particular application. The point data represent the values of time-varying parameters, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used within the model for inputting parameter values associated with the soil and land use maps or the hydrometeorological data.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 </div></blockquote>
-<div class="section" id="grid-input">
-<h2><span class="section-number">3.1. </span>Grid Input<a class="headerlink" href="#grid-input" title="Permalink to this headline">¶</a></h2>
+<section id="grid-input">
+<h2><span class="section-number">3.1. </span>Grid Input<a class="headerlink" href="#grid-input" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>A standard ASCII grid format is used for all grid input to the model, which may include soil and land use reclassification fields, initial groundwater table depth, depth to bedrock and radar rainfall grids. The ASCII grid format used is a standard created by ESRI for the exchange of grid data for GIS applications. It consists of a small, 6-line header that describes the matrix data presented in the text file. This format is a convenient method for data exchange into GIS since the format is easily read by all ESRI software. In other software programs for visualization of matrix data (<em>i.e.</em> MATLAB), care must be taken when reading in the header information. Any extension name for the grid data can be used within tRIBS as long the filename is specified in the Model Input File. However, for visualization of the grid within GIS, an extension <code class="docutils literal notranslate"><span class="pre">*.asc</span></code> is required for the grid to be read properly (ESRI, 1996).</p>
 <p>As mentioned previously, the grid input to the tRIBS model can consist of time-invariant watershed descriptors, such as soil and land use coverage grids, or time-varying, spatially-distributed hydrometeorologic forcings, such as radar rainfall estimates or grid meteorological data from numerical weather models. Although each grid input is treated differently within the model, the user input should be identical. It consists mostly of specifying the grid pathname within the Model Input File, as described in a later section. As illustrated in the tRIBS Model Framework, all grid input are resampled onto the TIN terrain representation created within the tRIBS model, and specifically onto the Voronoi Polygon Network (VPN).</p>
@@ -291,9 +204,9 @@
 </ol>
 </div></blockquote>
 </div></blockquote>
-</div>
-<div class="section" id="tin-input">
-<h2><span class="section-number">3.2. </span>TIN Input<a class="headerlink" href="#tin-input" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tin-input">
+<h2><span class="section-number">3.2. </span>TIN Input<a class="headerlink" href="#tin-input" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>Topographic data is inputted into the tRIBS Model through a variety of methods that are implemented in the tMesh class.  For applications in real watersheds with complex topography and stream networks, the method of choice is to generate the TIN mesh within Arc/Info GIS and export it into a format that tRIBS can convert to a Points File (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>). This Points File is then read during a subsequent model run. For tRIBS, a set of Arc/Info scripts have been created that manipulate the watershed Digital Elevation Model (DEM), the stream network, the watershed boundary and the bottom-valley floodplain to created a “hydrologically” significant TIN Terrain Model. Further details of these scripts are presented in the Terrain Analysis Section of this document. Exporting the TIN mesh from Arc/Info is performed through a procedure that ungenerates the TIN into a set of points (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>) and lines (<code class="docutils literal notranslate"><span class="pre">*.lin</span></code>). tRIBS can read these files and construct from them a Points (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>) file, an example of which is shown in <strong>Figure 3.2</strong>.</p>
 <blockquote>
@@ -352,23 +265,23 @@
 <p>A Points File is a simple text file that contains a listing of point coordinates (<em>x, y, z</em>) and the boundary code (<em>b</em>) for each point (in that specific order) with a small header that indicates the total number of points in the file. The boundary code is indicative of the node position within the watershed: 0 (mesh interior node), 1 (closed mesh boundary node), 2 (open mesh boundary or outlet node), 3 (stream network node). Proper creation and consistency of the Points File is very important for the tRIBS Model and the <code class="docutils literal notranslate"><span class="pre">*.points</span></code> file should be carefully inspected using ArcView GIS or a similar environment. The Points File can be the appropriate method of TIN input for points obtained from a field survey, from a GIS point coverage, from a sampled DEM or from a ungenerated TIN mesh.</p>
 <p>The Points File is the recommended TIN input for the tRIBS Model during the initial model construction, usually necessary when a new basin is modeled for the first time. After a successful tRIBS model run, the model outputs a set of files that describe the TIN mesh properties in greater detail, including the connectivity between nodes and the triangles within the mesh. The set of files includes: <code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code> and <code class="docutils literal notranslate"><span class="pre">*.z</span></code>. These files can be read directly into the model during subsequent model runs, thus avoiding the use of the <code class="docutils literal notranslate"><span class="pre">*.points</span></code> file and speeding up the process of mesh construction. Further details on both of these options will be discussed in subsequent sections and are also available in Tucker (1999) <a class="reference internal" href="Contacts_Further_Readings.html#tucker-1999" id="id1"><span>[Tucker_1999]</span></a> .</p>
 </div></blockquote>
-</div>
-<div class="section" id="point-station-input">
-<h2><span class="section-number">3.3. </span>Point Station Input<a class="headerlink" href="#point-station-input" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="point-station-input">
+<h2><span class="section-number">3.3. </span>Point Station Input<a class="headerlink" href="#point-station-input" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>Hydrometeorological data can be inputted into the tRIBS model through methods for Point Station Input implemented in the <code class="docutils literal notranslate"><span class="pre">tEvapoTrans</span></code> and <code class="docutils literal notranslate"><span class="pre">tRainfall</span></code> classes and the <code class="docutils literal notranslate"><span class="pre">tHydroMet</span></code> and <code class="docutils literal notranslate"><span class="pre">tRainGauge</span></code> storage classes. Point Station Input is useful for providing meteorological data from a sparse set of weather stations or for providing rain gauge rainfall data, instead for radar rainfall maps, to the model. The data from these sparse stations or points is resampled onto the Voronoi Polygon Network (VPN) by using a Thiessen polygon method at the point coordinates. The station properties, including coordinates, are specified through an SDF file (Station Descriptor File), while the station data are provided in an MDF file (Meteorological Data File). Both file types are discussed in the section on Meteorological Point Data Input in this document.</p>
 </div></blockquote>
-</div>
-<div class="section" id="text-file-inputs">
-<h2><span class="section-number">3.4. </span>Text File Inputs<a class="headerlink" href="#text-file-inputs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="text-file-inputs">
+<h2><span class="section-number">3.4. </span>Text File Inputs<a class="headerlink" href="#text-file-inputs" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>Various types of text files are used in the tRIBS Model to specify model options, hydrologic parameters or control commands. The most important of the text files is the Model Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>). This file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. There are over 40 different keyword inputs in a typical Model Input File. These can be classified into various groupings: Model Run Parameters, Model Run Options and Model Input Files and Pathnames. Subgroupings include: Time Variables, Routing Variables, Mesh Generation, Resampling Grids, Meteorological Data and Output Data. More details concerning the Model Input File will be presented in the section on Model Input File in this document.</p>
 <p>Another important use of text files is for the reclassification of soil and land use grids into meaningful hydrologic parameters assigned to each Voronoi polygon. A simple text file is used to relate each cover class to the particular hydrologic parameter required for the model equations. It consists of a small header followed by a matrix of parameter values for each cover class. In the case of the soil reclassification table (<code class="docutils literal notranslate"><span class="pre">*.sdt</span></code>), the parameters are used to specify the soil hydraulic and thermal properties. In the case of the land reclassification table (<code class="docutils literal notranslate"><span class="pre">*.ldt</span></code>), the parameters are used to relate the cover type to the interception and evapotranspiration properties of the vegetation and land cover. Both types of files will be explain in greater detail in the section on Soil and Land Use Input.</p>
 <p>A text file can also be used to run the model and specify the command line options desired during the run by using a Model Run File (<code class="docutils literal notranslate"><span class="pre">*_run</span></code>). This file consists of a single line that specifies the pathname of the tRIBS executable followed by the name of the Model Input File and the desired command line options.</p>
 </div></blockquote>
-</div>
-<div class="section" id="special-parallel-model-inputs">
-<h2><span class="section-number">3.5. </span>Special Parallel Model Inputs<a class="headerlink" href="#special-parallel-model-inputs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="special-parallel-model-inputs">
+<h2><span class="section-number">3.5. </span>Special Parallel Model Inputs<a class="headerlink" href="#special-parallel-model-inputs" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>The tRIBS model utilizes the same model input formats (<code class="docutils literal notranslate"><span class="pre">*.points</span></code> file for TIN input, ASCII grids for vegetation and soils input, etc.) as in the tRIBS model. The parallel mode can be toggled on/off using the keyword <em>PARALLELMODE</em> in the tRIBS Model Input file (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>). In this section, we will only provide details on the input of the graph partitioning files (<code class="docutils literal notranslate"><span class="pre">*.graph</span></code>). The graph files are utilized to specify how a large watershed domain is partitioned into subbasins and on which computer processor each subbasin is run on. There are currently three methods implemented to partition a domain:</p>
 <blockquote>
@@ -444,55 +357,38 @@
 <blockquote>
 <div><p><em>Last update:</em> 02/06/2021 C. Lizarraga</p>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Model_Execution.html" class="btn btn-neutral float-right" title="4. Model Execution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Model_Design.html" class="btn btn-neutral float-left" title="2. Model Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Model_Execution.html" class="btn btn-neutral float-right" title="4. Model Execution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.
-
-    </p>
+    <p>&#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

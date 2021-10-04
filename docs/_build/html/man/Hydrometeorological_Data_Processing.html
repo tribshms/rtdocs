@@ -1,72 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>6. Hydrometeorological Data Processing &mdash; tRIBS - Distributed Hydrologic Model System 3.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Contacts and Further Readings" href="Contacts_Further_Readings.html" />
     <link rel="prev" title="5. Terrain Analysis for Model Setup" href="Terrain_Analysis_for_Model_Setup.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> tRIBS - Distributed Hydrologic Model System
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
@@ -101,78 +53,37 @@
 <li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7. Contacts and Further Readings</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">tRIBS - Distributed Hydrologic Model System</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li><span class="section-number">6. </span>Hydrometeorological Data Processing</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/man/Hydrometeorological_Data_Processing.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="hydrometeorological-data-processing">
-<h1><span class="section-number">6. </span>Hydrometeorological Data Processing<a class="headerlink" href="#hydrometeorological-data-processing" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="hydrometeorological-data-processing">
+<h1><span class="section-number">6. </span>Hydrometeorological Data Processing<a class="headerlink" href="#hydrometeorological-data-processing" title="Permalink to this headline"></a></h1>
 <blockquote>
 <div><p>Hydrometeorological data is a requirement in the tRIBS Distributed Hydrologic Model whenever the application calls for continuous hydrologic simulations over the storm-interstorm cycle or even during event-based modeling where the rainfall forcing is required. In either case, the appropriate hydrometeorological data must be obtained from available sources and preprocessed into a format amenable for input into the tRIBS Model. The processing of radar rainfall data and weather station data are briefly described in the following sections. Additional model capabilities, including rain gauge precipitation input and grid meteorological input, are omitted for brevity but have also been incorporated into the tRIBS model. Further details are available upon submitting a request to the authors.</p>
 </div></blockquote>
-<div class="section" id="nexrad-stage-iii-and-wsi-rainfall-radar-data">
-<h2><span class="section-number">6.1. </span>NEXRAD Stage III and WSI Rainfall Radar Data<a class="headerlink" href="#nexrad-stage-iii-and-wsi-rainfall-radar-data" title="Permalink to this headline">¶</a></h2>
+<section id="nexrad-stage-iii-and-wsi-rainfall-radar-data">
+<h2><span class="section-number">6.1. </span>NEXRAD Stage III and WSI Rainfall Radar Data<a class="headerlink" href="#nexrad-stage-iii-and-wsi-rainfall-radar-data" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>Various sources of rainfall data for hydrologic modeling are available through the National Weather Service (NWS) and other state, local or federal agencies. Rain gauges, the traditional sources of rainfall data, measure the amount of precipitation falling inside a calibrated bucket at a single point. Measurements from rain gauges are typically sparse in their spatial coverage (1 rain gauge for every 1-50 square kilometers) but reasonably accurate a single point. The use of rain gauges for distributed hydrologic modeling requires an interpolation of rainfall values over the watershed (using Thiessen polygons) so that each model computational element is assigned the value of its nearest neighboring gauge. An improvement upon the use of rainfall gauges can be obtained by using the spatially-variable rainfall fields available from radar sensors. In the United States, a significant effort has been made to sample rainfall fields through a nationwide network of weather radars. The NEXRAD system provides rainfall coverage for the continental United States by using approximately 160 individual radars that measure the three dimensional reflectivity field every six minutes at a spatial resolution of 2 kilometers by 2 kilometers.</p>
 <p>For hydrologic modeling purposes, the NEXRAD reflectivity data from the individual radars have to be processed to obtain a mosaiced rainfall product that has been adjusted by raingauge values (mean-field bias adjustment). Various sources of NEXRAD data are available from different public and private sector distributors:</p>
@@ -190,9 +101,9 @@
 <p>The tRIBS Distributed Hydrologic Model has been used with both the NWS Stage III data and the WSI Corporation radar rainfall data. The NWS Stage III data was downloaded from the archived source as a collection of tar-gzipped binary files. A utility called <code class="docutils literal notranslate"><span class="pre">read_xmrg</span></code> is available from the NWS to read the binary file and convert them to ASCII grids (<em>e.g.</em> <strong>Figure 3.1</strong>). Our work has used a previous version of this code named <code class="docutils literal notranslate"><span class="pre">xmrgtoascster.c</span></code>  to convert the binary format into a grid product in Polar Stereographic projection. Once in an amenable ASCII format, a set of Arc/Info Arc Macro Language (AML) scripts have been developed to convert the Polar Stereographic grids for the entire RFC into a grid for the particular watershed in a specific local coordinate system (in <em>cm/hr</em>) . The AML routine (<code class="docutils literal notranslate"><span class="pre">radarconvert.aml</span></code>) also perform the unpacking of the tar-gzip ball, calling of the xmrgtoascster program, as well as the projection and clipping of the rainfall grid. A useful paper describing the NEXRAD projections and coordinate system is Reed and Maidment (1998).  The former Weather Services International (WSI), now IBM Weather, radar rainfall data is not freely available to the public. Through our project collaborators, Atmospheric and Environmental Research, Inc. (AER), we obtain rainfall ASCII grids in decimal degrees (in <em>mm/hr</em>) for the particular region of interest. The data are obtained at AER through a satellite feed, archived and preprocessed from the binary stream to an ASCII grid file structure. A set of AMLs have been developed for projecting, clipping and preparing the WSI data into the tRIBS grid input format (<code class="docutils literal notranslate"><span class="pre">wsiconvert.aml</span></code>). The WSI data are available at a 15 minute temporal resolution and up to a 2 km by 2 km grid spatial resolution. Comparisons between the WSI and Stage III radar products have shown that the WSI have an improved spatial resolution and remove many of the artifacts in the interpolation scheme used for the Stage III data. A report on this subject is in preparation.</p>
 <p>In terms of the tRIBS Model, the use of the two radar rainfall sources is controlled by the keyword <em>RAINSOURCE</em> ( <em>= 0</em>, NEXRAD Stage III, <em>= 1</em>, WSI Product ) in the tRIBS Model Input File. The <em>RAINFILE</em> and <em>RAINEXTENSION</em> keywords are used to specify the pathname and basename, and the extension of the rainfall input grids. In addition, the <em>RAININTRVL</em> and <em>RAINSEARCH</em> keywords are used to specify the temporal spacing of the input rainfall grids and the maximum time over which the model will search for a new input rainfall grid. Finally, the tRIBS Model computes a basin-averaged rainfall hyetograph from the grid input rainfall fields, which is outputted as the second column of the hydrograph (<code class="docutils literal notranslate"><span class="pre">*.mdf</span></code>) file.</p>
 </div></blockquote>
-</div>
-<div class="section" id="operational-rfc-meteorological-data">
-<h2><span class="section-number">6.2. </span>Operational RFC Meteorological Data<a class="headerlink" href="#operational-rfc-meteorological-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="operational-rfc-meteorological-data">
+<h2><span class="section-number">6.2. </span>Operational RFC Meteorological Data<a class="headerlink" href="#operational-rfc-meteorological-data" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><p>Various sources are available for hydrometeorological data through state, federal and local government agencies. In the United States, however, the distribution of weather data is neither standardized or centralized. Weather data, in general, is available in a number of different formats, sampling periods, number of parameters, record lengths, aerial extents and accuracy. Finding an appropriate source for input into a hydrologic model is not straightforward, even more so if you consider that a change in the any of the above properties alters the input code, data checks and calculations possible within the model. In the search for hydrometeorological data, the reader is referred to the following data sources:</p>
 <blockquote>
@@ -250,55 +161,38 @@
 <blockquote>
 <div><p><em>Last Update:</em> 02/28/2021  C. Lizarraga</p>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Contacts_Further_Readings.html" class="btn btn-neutral float-right" title="7. Contacts and Further Readings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Terrain_Analysis_for_Model_Setup.html" class="btn btn-neutral float-left" title="5. Terrain Analysis for Model Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Contacts_Further_Readings.html" class="btn btn-neutral float-right" title="7. Contacts and Further Readings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.
-
-    </p>
+    <p>&#169; Copyright 2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
