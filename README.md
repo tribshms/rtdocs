@@ -1,4 +1,6 @@
 # tribshms.readthedocs.io
 tRIBS documentation files for ReadTheDocs.io
 
-Jan 22, 2020
+Link to latest documentation: [Documentation](https://tribshms.readthedocs.io/en/latest/)
+
+Feb 14, 2023
