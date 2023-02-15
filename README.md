@@ -6,3 +6,4 @@ Inside the docs folder, documentation files in Re-Structured Text format. See [S
 Link to latest built tRIBS documentation: [Documentation](https://tribshms.readthedocs.io/en/latest/)
 
 Feb 14, 2023
+C. Lizarraga
