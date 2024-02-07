@@ -20,18 +20,40 @@ Download instructions
 Compilation Instructions
 -------------------------------
 
-    The tRIBS Model was originally written and compiled on an SGI Irix 6.5 UNIX system. Since the model design uses standard C++ programming structures, the compilation onto other UNIX platforms is straightforward. tRIBS has been compiled for a range of platforms (Mac G5, Alpha Tru64, Linux, Cygwin, IBM, Solaris). The current version should compile on all platforms without need for any major changes to the code by using the different makefiles provided. As an example, the model code is compiled for SUN Solaris by issuing the following command at the UNIX prompt:
+    tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake is outlined below.
+
+    Note: these instructions are for using CMake via terminal, there is additional documentation [here](https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#guide:User%20Interaction%20Guide) for using the CMake gui.
+
+    1. Use [Homebrew](https://formulae.brew.sh/formula/cmake) to install CMake, alternatively you can download [CMake](https://cmake.org/download/), but Homebrew or a similar package manager is preferred as it will catch additional dependencies.
+
+    2. You can check to see if CMake is on your path, by typing cmake into the command line. If it says its not found then you will need to set cmake to your path. For example if you downloaded CMake and its now in your application folder you can use:
+
     ::
+    sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
 
-            % make -f makeSUN [options]
+    3. Next change directory to the tRIBS source code, should look something like this but is dependent on where the tRIBS source code is located:
 
-
-    The makefile provided allows for various options to be included after the command: *clean* (erases the previously compiled objects) and *all* (cleans and compiles the code). If no options are included, then the command simply compiles the code without removing the previous objects. The user should be warned that the compilation of certain low-level objects requires all objects to be recreated for proper functioning. For this reason, the *all* option is recommended. The make utility will create an executable called ``tribs`` in the current working directory. It will also place the object files under a directory ``_Objects_`` that must be created within the directory of the executable.
-
-    To run the model using the parallelized option, the operating system requries the appropriate MPI libraries. The current version should compile on other platforms with MPI libraries without need for any major changes to the code. Several makefiles are provided for the particular compilation of tRIBS (``makeLINUX_PAR`` and ``makeMAC_PAR``). As an example, the model code is compiled for LINUX by issuing the following command at the prompt
     ::
+    cd ~/Documents/tRIBS
 
-            % make -f makeLINUX_PAR [options]
+    4. Once in the directory containing the src code subdirectory and CMakeText.txt execute the following code in the terminal.
+
+    ::
+    cmake -S . -B build
+    cmake --build build --target all
+
+    The first command tells CMake to generate the make files for tribs in a folder called build. Followed by the second line which effectively compiles the code.
+
+    5. After you can check to see that the executable was made by using.
+    ::
+    ls build/
+
+    The executable will have a name specified in the CMakeList.txt file. Currently it is set to tRIBS.
+
+    **Content of CMakeFile.txt**
+
+    In some instance you may want to modify the CMakeFile.txt, for example if you want to change the name of the executable, or change compilation parallel mode to serial, or add additional compiler flags. *This section will be updated with more detail to demonstrate how this is possible here, but the CMakeFile.txt is documented with where these changes can be made.*
+
 
 
 Run Instructions
