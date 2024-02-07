@@ -13,27 +13,17 @@ tRIBS Documentation
     The **tRIBS (TIN-based Real-Time Integrated Basin Simulator)
     Distributed Hydrologic Model** is a set of object-oriented,
     *C++* programs that allow for the construction and simulation
-    of catchment scale hydrologic processes on a *Triangulated
-    Irregular Network (TIN)*. The development of the tRIBS Model
-    has been the result of hydrologic modeling and software
-    development efforts performed by various researchers in the
-    Ralph M. Parsons Laboratory in the Department of Civil and
-    Environmental Engineering of the Massachusetts Institute of
-    Technology. Model development continues at MIT and New Mexico Tech,
-    among other partnering institutions. This document is intended
-    to serve as a user manual for the tRIBS Model, including instructions
-    on how to download, compile, set up and run tRIBS. In addition,
+    of watershed hydrologic processes on a *Triangulated
+    Irregular Network (TIN)*. This document is intended
+    to serve as a user manual for the tRIBS model, including instructions
+    on how to obtain, compile, set up and run tRIBS. In addition,
     an effort has been made to document the model software design using
     class and workflow diagrams. This guide assumes that the reader is
-    familiar with the capabilities of the tRIBS Model and its intended
+    familiar with the capabilities of the tRIBS model and its intended
     purposes. More information concerning the model can be obtained
     through the tRIBS Research Description and Publication List.
 
-    Additional instructions regarding the Mesh Generation can be
-    found in the `CHILD Model User Manual <https://github.com/childmodel/child/blob/master/Child/Docs/child_users_guide.pdf/>`_.
-
-    tRIBS is copyrighted 2000-2021 by Enrique R. Vivoni, Valeri Y. Ivanov, Rafael L. Bras
-    and Dara Entekhabi and may not be used for commercial purposes without written consent from the authors.
+    tRIBS is copyrighted 2024 by the tRIBS Developers.
 
 
         .. figure::  images/hydrocycle.png
@@ -49,7 +39,7 @@ tRIBS Documentation
 **What type of processes does tRIBS model?**
 
 
-    The *tRIBS* model description can be found in [Ivanov_2004a]_, [Ivanov_2004b]_ and [Vivoni_2004]_.
+    The *tRIBS* model description can be found in [Ivanov_2004]_ and [Vivoni_2004]_.
 
     We mention a few *tRIBS* processes it models:
 
@@ -63,13 +53,10 @@ tRIBS Documentation
         - other.
 
 
-.. [Ivanov_2004a] Ivanov, V.Y., Vivoni, E.R., Bras, R.L. and Entekhabi, D. 2004a. Catchment Hydrologic
-   Response with a Fully-Distributed Triangulated Irregular Network Model. Water Resources Research. 40(11): W11102.
-.. [Ivanov_2004b] Ivanov, V.Y., Vivoni E.R., Bras, R.L. and Entekhabi, D. 2004b. Preserving high-resolution
-   surface and rainfall data in operational-scale basin hydrology: A fully-distributed, physically-based
-   approach. Journal of Hydrology. 298(1-4): 80-111
-.. [Vivoni_2004] Vivoni, E. R., Ivanov, V. Y., Bras, R. L. & Entekhabi, D. (2004). Generation of triangulated
-   irregular networks based on hydrological similarity.Journal of Hydrologic Engineering, 9(4), 288–302.
+.. [Ivanov_2004] Ivanov, V.Y., Vivoni, E.R., Bras, R.L. and Entekhabi, D. 2004. Catchment Hydrologic
+   Response with a Fully-Distributed Triangulated Irregular Network Model. Water Resources Research. 40(11): W11102. https://doi.org/10.1029/2004WR003218
+.. [Vivoni_2004] Vivoni, E.R., Ivanov, V.Y., Bras, R.L. and Entekhabi, D. 2004. Generation of Triangulated
+   Irregular Networks based on Hydrological Similarity. Journal of Hydrologic Engineering, 9(4), 288–302. https://doi.org/10.1061/(ASCE)1084-0699(2004)9:4(288)
 
 ------------------------------------------------------------------------------------
 
@@ -98,4 +85,4 @@ tRIBS Documentation
 
 ----------------------------------------------------------
 
-    *Last update:* C. Lizarraga, 01/30/2021
+    *Last update:* E. Vivoni, 02/14/2024
