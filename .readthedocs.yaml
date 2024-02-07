@@ -3,17 +3,17 @@ version: 2
 # Set the OS, Python version and other tools you might need
 build:
   os: ubuntu-22.04
-  tools:
-    python: "3.12"
+  python:
+    version: "3.12"
 
 sphinx:
   configuration: docs/conf.py
   builder: html
   fail_on_warning: true
   python:
-    version: 3.12
-  install:
-    - requirements: docs/requirements.txt
+    version: "3.12"
+    install:
+      - requirements: docs/requirements.txt
   theme:
     name: sphinx_rtd_theme
     version: latest
