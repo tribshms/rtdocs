@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Introduction &mdash; tRIBS - Distributed Hydrologic Model System 3.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=110ea713"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,17 +31,21 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> tRIBS - Distributed Hydrologic Model System
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tRIBS - Distributed Hydrologic Model System
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">TABLE OF CONTENTS</span></p>
+              <p class="caption" role="heading"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Design.html">2. Model Design</a></li>
@@ -62,8 +69,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">1. </span>Introduction</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Introduction</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/man/Introduction.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -74,7 +81,7 @@
            <div itemprop="articleBody">
              
   <section id="introduction">
-<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p>A number of physically-based, distributed hydrologic models of varying degrees of complexity have been developed for the purpose of flood prediction. Physically-based models solve parameterized equations for fluid flow in the land components of the hydrologic cycle, rather than using the calibration approach of conceptual models. Distributed models try to resolve these physical processes in both space and time, leading to the implementation of numeric codes. Most physically-based, distributed models, however, tend to be so complex that execution times are prohibitively large. This drawback diminishes the capacity for model calibration and validation and eliminates the possibility for ensemble averaging or probabilistic forecasting. One of the major factors leading to the large execution times is the inefficiency in the representation of terrain inherent in a raster grid, the preferred mesh structure in most commercial or research-based distributed hydrologic models. This document elaborates on the use and application of a new distributed model that attempts to bypass many of the current difficulties by representing the terrain through triangulated irregular networks (TINs).</p>
 <p>The TIN-based Real-time Integrated Basin Simulator (tRIBS) is a collection of C++ classes designed for distributed hydrologic modeling at small to mid-size catchment scales. The object-oriented software design offers several advantages over traditional procedural programming. In particular, by grouping data and functions operating on these variables into distinct classes, it becomes possible to separate the various hydrologic processes operating on the TIN mesh from the procedures for creating the mesh itself (Tucker <em>et. al</em>, 2001) <a class="reference internal" href="Contacts_Further_Readings.html#tucker-2001" id="id1"><span>[Tucker_2001]</span></a>. The object-oriented approach also allows for code modularity in such a way as to facilitate model development through code reuse and integration or substitution of new process modules. Such a strategy permitted the development of the tRIBS model from the CHILD modeling framework (Tucker <em>et. al</em>, 1999) <a class="reference internal" href="Contacts_Further_Readings.html#tucker-1999a" id="id2"><span>[Tucker_1999a]</span></a> within a reasonable amount of time and effort. Hydrologic modules from the RIBS model (Garrote and Bras, 1995) <a class="reference internal" href="Contacts_Further_Readings.html#garrote-bras-1995a" id="id3"><span>[Garrote_Bras_1995a]</span></a> and new hydrologic process models were incorporated into the CHILD framework as separate classes. In addition, the modularity allows for the integration of additional process modules and the potential for finite element modeling (FEM) within the existing mesh architecture.</p>
