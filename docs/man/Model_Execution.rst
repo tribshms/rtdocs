@@ -19,6 +19,7 @@ Download instructions
 
 Compilation Instructions
 -------------------------------
+IN PROGRESS
 
     tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake is outlined below.
 
