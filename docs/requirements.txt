@@ -1,1 +1,1 @@
-sphinx_rtd_theme>=X.Y.Z
+sphinx_rtd_theme
