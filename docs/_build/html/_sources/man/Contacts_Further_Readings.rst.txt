@@ -7,8 +7,6 @@ Contacts
 
         Enrique R. Vivoni
 
-        School of Earth and Space Exploration
-
         School of Sustainable Engineering and the Built Environment
 
         Arizona State University
