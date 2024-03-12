@@ -33,13 +33,13 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'tRIBS - Distributed Hydrologic Model System'
-copyright = '2000-2021. E.R. Vivoni, V.Y. Ivanov, R.L. Bras, and D. Entekhabi'
-authors = 'E. Vivoni, C. Lizarraga'
+project = 'tRIBS - Distributed Hydrologic Model'
+copyright = '2024 tRIBS Developers'
+authors = '2024 tRIBS Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '3.0'
-author='Enrique R. Vivoni, Carlos Lizárraga-Celaya'
+release = '5.2'
+author = '2024 tRIBS Developersa'
 
 # -- General configuration ---------------------------------------------------
 
