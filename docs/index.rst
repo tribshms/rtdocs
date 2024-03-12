@@ -63,19 +63,29 @@ tRIBS Documentation
 
 ..  toctree::
     :maxdepth: 3
-    :numbered:
-    :caption: TABLE OF CONTENTS
-
+    **:numbered:**
+    
+    :caption: ABOUT
     man/Introduction.rst
     man/References.rst
+    man/Contacts.rst
+
+    :caption: DOCUMENTATION
     man/Model_Design.rst
     man/Model_Input_Formats.rst
     man/Model_Execution.rst
     man/Terrain_Analysis_for_Model_Setup.rst
     man/Hydrometeorological_Data_Processing.rst
-    man/Contacts_Further_Readings.rst
 
+    :caption: DEVELOPMENT
+    man/Development.rst
+    man/Contributing.rst
+    man/ReleaseNotes.rst
+    man/UsingGit.rst
 
+    :caption: DOWNLOADS
+    man/BenchMarks.rst
+    man/Docker.rst
 
 ..  toctree:
     :maxdepth:  2
