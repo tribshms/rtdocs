@@ -73,9 +73,8 @@ tRIBS Documentation
     :caption: DOCUMENTATION
     man/Model_Design.rst
     man/Model_Input_Formats.rst
+    man/ModelParameters_Forcings.rst
     man/Model_Execution.rst
-    man/Terrain_Analysis_for_Model_Setup.rst
-    man/Hydrometeorological_Data_Processing.rst
 
     :caption: DEVELOPMENT
     man/Development.rst
