@@ -21,7 +21,7 @@ tRIBS Documentation
     class and workflow diagrams. This guide assumes that the reader is
     familiar with the capabilities of the tRIBS model and its intended
     purposes. More information concerning the model can be obtained
-    through the tRIBS Research Description and Publication List.
+    through the tRIBS Publication List.
 
     tRIBS is copyrighted 2024 by the tRIBS Developers.
 
@@ -43,14 +43,15 @@ tRIBS Documentation
 
     We mention a few *tRIBS* processes it models:
 
-        - Couple the vadose and saturated zones with the dynamic water table.
-        - Moisture infiltration waves.
-        - Soil moisture redistribution.
+        - Couple the vadose and saturated zones with a dynamic water table.
+        - Soil moisture infiltration fronts and their redistribution.
         - Topography-driven lateral fluxes in the vadose and groundtable zones.
-        - Computes the radiation and energy balance.
-        - Interception, evaporation and evapotranspiration.
-        - Hydrologic and hydraulic routing.
-        - other.
+        - Radiation and energy balance components on complex terrain. 
+        - Single layer snowpack accumulation, ablation and melt.
+        - Rainfall and snow interception on vegetation canopies.
+        - Evaporation of intercepted rainfall, soil evaporation and plant transpiration.
+        - Hydrologic in hillslopes and hydraulic routing in channels.
+        - Level-pool reservoir routing.
 
 
 .. [Ivanov_2004] Ivanov, V.Y., Vivoni, E.R., Bras, R.L. and Entekhabi, D. 2004. Catchment Hydrologic
