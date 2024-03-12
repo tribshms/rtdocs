@@ -67,6 +67,7 @@ tRIBS Documentation
     :caption: TABLE OF CONTENTS
 
     man/Introduction.rst
+    man/References.rst
     man/Model_Design.rst
     man/Model_Input_Formats.rst
     man/Model_Execution.rst
