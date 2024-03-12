@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hydrometeorological Data Processing &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+  <title>6. Hydrometeorological Data Processing &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
@@ -45,13 +45,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">TABLE OF CONTENTS</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">Model Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">Model Input Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">Model Execution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Terrain_Analysis_for_Model_Setup.html">Terrain Analysis for Model Setup</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Hydrometeorological Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">Contacts and Further Readings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">2. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">3. Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terrain_Analysis_for_Model_Setup.html">5. Terrain Analysis for Model Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Hydrometeorological Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7. Contacts and Further Readings</a></li>
 </ul>
 
         </div>
@@ -68,7 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Hydrometeorological Data Processing</li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Hydrometeorological Data Processing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/man/Hydrometeorological_Data_Processing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -79,12 +79,12 @@
            <div itemprop="articleBody">
              
   <section id="hydrometeorological-data-processing">
-<h1>Hydrometeorological Data Processing<a class="headerlink" href="#hydrometeorological-data-processing" title="Link to this heading"></a></h1>
+<h1><span class="section-number">6. </span>Hydrometeorological Data Processing<a class="headerlink" href="#hydrometeorological-data-processing" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p>Hydrometeorological data is a requirement in the tRIBS Distributed Hydrologic Model whenever the application calls for continuous hydrologic simulations over the storm-interstorm cycle or even during event-based modeling where the rainfall forcing is required. In either case, the appropriate hydrometeorological data must be obtained from available sources and preprocessed into a format amenable for input into the tRIBS Model. The processing of radar rainfall data and weather station data are briefly described in the following sections. Additional model capabilities, including rain gauge precipitation input and grid meteorological input, are omitted for brevity but have also been incorporated into the tRIBS model. Further details are available upon submitting a request to the authors.</p>
 </div></blockquote>
 <section id="nexrad-stage-iii-and-wsi-rainfall-radar-data">
-<h2>NEXRAD Stage III and WSI Rainfall Radar Data<a class="headerlink" href="#nexrad-stage-iii-and-wsi-rainfall-radar-data" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.1. </span>NEXRAD Stage III and WSI Rainfall Radar Data<a class="headerlink" href="#nexrad-stage-iii-and-wsi-rainfall-radar-data" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Various sources of rainfall data for hydrologic modeling are available through the National Weather Service (NWS) and other state, local or federal agencies. Rain gauges, the traditional sources of rainfall data, measure the amount of precipitation falling inside a calibrated bucket at a single point. Measurements from rain gauges are typically sparse in their spatial coverage (1 rain gauge for every 1-50 square kilometers) but reasonably accurate a single point. The use of rain gauges for distributed hydrologic modeling requires an interpolation of rainfall values over the watershed (using Thiessen polygons) so that each model computational element is assigned the value of its nearest neighboring gauge. An improvement upon the use of rainfall gauges can be obtained by using the spatially-variable rainfall fields available from radar sensors. In the United States, a significant effort has been made to sample rainfall fields through a nationwide network of weather radars. The NEXRAD system provides rainfall coverage for the continental United States by using approximately 160 individual radars that measure the three dimensional reflectivity field every six minutes at a spatial resolution of 2 kilometers by 2 kilometers.</p>
 <p>For hydrologic modeling purposes, the NEXRAD reflectivity data from the individual radars have to be processed to obtain a mosaiced rainfall product that has been adjusted by raingauge values (mean-field bias adjustment). Various sources of NEXRAD data are available from different public and private sector distributors:</p>
@@ -104,7 +104,7 @@
 </div></blockquote>
 </section>
 <section id="operational-rfc-meteorological-data">
-<h2>Operational RFC Meteorological Data<a class="headerlink" href="#operational-rfc-meteorological-data" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.2. </span>Operational RFC Meteorological Data<a class="headerlink" href="#operational-rfc-meteorological-data" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Various sources are available for hydrometeorological data through state, federal and local government agencies. In the United States, however, the distribution of weather data is neither standardized or centralized. Weather data, in general, is available in a number of different formats, sampling periods, number of parameters, record lengths, aerial extents and accuracy. Finding an appropriate source for input into a hydrologic model is not straightforward, even more so if you consider that a change in the any of the above properties alters the input code, data checks and calculations possible within the model. In the search for hydrometeorological data, the reader is referred to the following data sources:</p>
 <blockquote>

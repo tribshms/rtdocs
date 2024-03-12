@@ -63,28 +63,28 @@ tRIBS Documentation
 
 ..  toctree::
     :maxdepth: 3
-    **:numbered:**
+    :numbered:
     
     :caption: ABOUT
-    man/Introduction.rst
-    man/References.rst
-    man/Contacts.rst
+    man/Introduction
+    man/References
+    man/Contacts
 
     :caption: DOCUMENTATION
-    man/Model_Design.rst
-    man/Model_Input_Formats.rst
-    man/ModelParameters_Forcings.rst
-    man/Model_Execution.rst
+    man/Model_Design
+    man/Model_Input_Formats
+    man/ModelParameters_Forcings
+    man/Model_Execution
 
     :caption: DEVELOPMENT
-    man/Development.rst
-    man/Contributing.rst
-    man/ReleaseNotes.rst
-    man/UsingGit.rst
+    man/Development
+    man/Contributing
+    man/ReleaseNotes
+    man/UsingGit
 
     :caption: DOWNLOADS
-    man/BenchMarks.rst
-    man/Docker.rst
+    man/BenchMarks
+    man/Docker
 
 ..  toctree:
     :maxdepth:  2
