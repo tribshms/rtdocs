@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7d0012f7"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tRIBS - Distributed Hydrologic Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TABLE OF CONTENTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">2. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">3. Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terrain_Analysis_for_Model_Setup.html">5. Terrain Analysis for Model Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hydrometeorological_Data_Processing.html">6. Hydrometeorological Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7. Contacts and Further Readings</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tRIBS - Distributed Hydrologic Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Docker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/man/Docker.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://www.docker.com/">Docker</a> is a containerization platform that enables developers to package applications and their dependencies into portable containers. These containers effectively run like a virtual machine and can be utilized across different computing environments. Docker images of tRIBS (both parallel and serial versions) and MeshBuilder are maintained at <a class="reference external" href="https://hub.docker.com/">Docker Hub</a>.</p>
+<section id="getting-started-with-docker">
+<h2>Getting Started with Docker<a class="headerlink" href="#getting-started-with-docker" title="Link to this heading"></a></h2>
+<p>To get started with Docker, first, install Docker on your system by downloading the appropriate version for your operating system from the official Docker <a class="reference external" href="https://www.docker.com/products/docker-desktop/">website</a>. Docker can be ran both through the desktop client or via command line. In this tutorial we only focus on pulling and running tRIBS and or MeshBuilder via the command line. Additional information about running Docker can be found <a class="reference external" href="https://docs.docker.com/">here</a>.</p>
+</section>
+<section id="pulling-and-running-tribs-and-meshbuider-docker-images">
+<h2>Pulling and Running tRIBS and MeshBuider Docker Images<a class="headerlink" href="#pulling-and-running-tribs-and-meshbuider-docker-images" title="Link to this heading"></a></h2>
+<p>Once docker has successfully been installed you can pull either image from Docker Hub. We walk through both case here highlighting minor differences in this processes.</p>
+<section id="tribs">
+<h3>tRIBS<a class="headerlink" href="#tribs" title="Link to this heading"></a></h3>
+<p>From the command line execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>tribs/tribs:latest
+</pre></div>
+</div>
+<p>You can check to see if the image is now available locally by:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>image
+</pre></div>
+</div>
+<p>From here the tRIBS image can be ran using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">tribs/tribs:latest</span></code>, where the <code class="docutils literal notranslate"><span class="pre">-it</span></code> flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. Note: it is also possible to download data into the image. This can be accomplished by using <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, where the local directory is mapped to a directory in the image following this structure __path/in/local:path/in/<a href="#id3"><span class="problematic" id="id4">image__</span></a>. For example, one could run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/local/path/to/data:/tribs/data<span class="w"> </span>tribs/tribs:latest
+</pre></div>
+</div>
+<p>In this case <code class="docutils literal notranslate"><span class="pre">/tribs/data</span></code> represents the directory in the image to access your data stored locally. From here one can execute tRIBS normally. There are two tRIBS binaries stored in <code class="docutils literal notranslate"><span class="pre">/tribs/bin</span></code>, a serial version, <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> and a version for parallel simulation <code class="docutils literal notranslate"><span class="pre">tRIBS_par</span></code>.</p>
+</section>
+<section id="meshbuilder">
+<h3>MeshBuilder<a class="headerlink" href="#meshbuilder" title="Link to this heading"></a></h3>
+<p>Following the above steps one can obtain a Docker image of MeshBuilder as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>tribs/meshbuilder:latest
+</pre></div>
+</div>
+<p>MeshBuilder also requires data that should be mounted to the image. The MeshBuilder image contains a shell script <code class="docutils literal notranslate"><span class="pre">meshbuild_workflow.sh</span></code>. This script runs through the various <a class="reference external" href="https://github.com/tribshms/MeshBuilder">steps</a> required to successfully run MeshBuilder, but is predicated on the mounted volume containing:</p>
+<ol class="arabic simple">
+<li><p>A points file for the TIN mesh</p></li>
+<li><p>A .in file, where the POINTFILENAME refers to the point file in the volume, and OUTFILENAME is the same as the base name for the model simulation.</p></li>
+</ol>
+<p>To run the MeshBuilder image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/local/path/to/data:/meshbuild/data<span class="w"> </span>tribs/meshbuilder:latest
+</pre></div>
+</div>
+<p>This will open up the command line for the image. To initiate the MeshBuilder workflow run <code class="docutils literal notranslate"><span class="pre">./meshbuild_workflow.sh</span></code>. This will prompt the user to enter the following information:</p>
+<ol class="arabic simple">
+<li><p>Name of the .in file stored in the volume</p></li>
+<li><p>Number of compute nodes to partition the mesh on</p></li>
+<li><p>Method for partitioning</p></li>
+<li><p>And the model base name.</p></li>
+</ol>
+<p>These steps can be recreated manually with a more detailed description of the processes <a class="reference external" href="https://github.com/tribshms/MeshBuilder">here</a>.</p>
+<p>Return to <cite>README &lt;../../README.md&gt;</cite></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 tRIBS Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
