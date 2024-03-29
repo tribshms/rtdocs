@@ -6,7 +6,7 @@ Primary Historical Reference
 ---------------------------
 
 
-Primary Reference for GitHub Release 
+Primary GitHub Release References 
 ---------------------------
 
 
