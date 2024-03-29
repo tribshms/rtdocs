@@ -1,7 +1,7 @@
 References
 =============
 
-`Docker <https://www.docker.com/>`_ is a containerization platform that enables developers to package applications and their dependencies into portable containers. These containers effectively run like a virtual machine and can be utilized across different computing environments. Docker images of tRIBS (both parallel and serial versions) and MeshBuilder are maintained at `Docker Hub <https://hub.docker.com/>`_.
+The tRIBS model has substantial record of peer-reviewed publications. The sections below provide the key references for the model code released under the `tRIBS Github Page <https://github.com/tribshms>`_as well as the model application carried out in different watersheds and for varying purposes. 
 
 Getting Started with Docker
 ---------------------------
