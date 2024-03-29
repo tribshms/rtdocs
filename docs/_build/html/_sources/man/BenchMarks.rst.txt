@@ -1,4 +1,4 @@
-Bench Marks
+BenchMarks
 =====================
 
 Place Holder Text

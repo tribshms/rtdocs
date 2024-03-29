@@ -29,6 +29,10 @@ We mention a few *tRIBS* processes it models:
 ------------------------------------------------------------------------------------
 
 .. toctree::
+    Home <self>
+    :hidden:
+
+.. toctree::
     :maxdepth: 3
     :numbered:
     :caption: ABOUT
@@ -39,7 +43,6 @@ We mention a few *tRIBS* processes it models:
 
 .. toctree::
     :maxdepth: 3
-    :numbered:
     :caption: DOCUMENTATION
 
     man/Model_Design
@@ -49,7 +52,6 @@ We mention a few *tRIBS* processes it models:
 
 .. toctree::
     :maxdepth: 3
-    :numbered:
     :caption: DEVELOPMENT
 
     man/Development
@@ -59,7 +61,6 @@ We mention a few *tRIBS* processes it models:
 
 .. toctree::
     :maxdepth: 3
-    :numbered:
     :caption: DOWNLOADS
 
     man/Docker
@@ -67,10 +68,6 @@ We mention a few *tRIBS* processes it models:
 
 .. toctree::
     :maxdepth:  2
-
-    :ref:`genindex`
-    :ref:`modindex`
-    :ref:`search`
 
 ----------------------------------------------------
 
