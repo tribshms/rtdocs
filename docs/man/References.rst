@@ -25,16 +25,30 @@ Schreiner-McGraw, A.P., and Vivoni, E.R. 2018. On the Sensitivity of Hillslope R
 
 Vivoni, E.R., Mascaro, G., Mniszewski, S., Fasel, P., Springer, E.P., Ivanov, V.Y., and Bras, R.L. 2011. Real-world Hydrologic Assessment of a Fully-Distributed Hydrological Model in a Parallel Computing Environment. *Journal of Hydrology*. 409: 483-496. https://doi.org/10.1016/j.jhydrol.2011.08.053
 
-Other Model References 
----------------------------
+Selected Application References 
+---------------------------------
 
-Ivanov 
+Hawkins, G.A., Vivoni, E.R., Robles-Morua, A., Mascaro, G., Rivera, E., and Dominguez, F. 2015. A Climate Change Projection for Summer Hydrologic Conditions in a Semiarid Watershed of Central Arizona. *Journal of Arid Environments*. 118: 9-20. https://doi.org/10.1016/j.jaridenv.2015.02.022
 
+Ivanov, V.Y., Vivoni, E.R., Bras, R.L., and Entekhabi, D. 2004. Preserving High-Resolution Surface and Rainfall Data in Operational-scale Basin Hydrology: A Fully-distributed Physically-based Approach. *Journal of Hydrology*. 298(1-4): 80-111. https://doi.org/10.1016/j.jhydrol.2004.03.041
 
-Other Application References 
-------------------------------
+Mahmood, T.H., and Vivoni, E.R. 2014. Forest Ecohydrological Response to Bimodal Precipitation during Contrasting Winter to Summer Transitions. *Ecohydrology*. 7(3): 998-1013. https://doi.org/10.1002/eco.1424
 
-Ivanov 
+Mahmood, T.H., and Vivoni, E.R. 2011. A Climate-Induced Threshold in Hydrologic Response in a Semiarid Ponderosa Pine Hillslope. *Water Resources Research*. 47: W09529. https://doi.org/10.1029/2011WR010384
+
+Mascaro, G., and Vivoni, E.R. 2012. Utility of Coarse and Downscaled Soil Moisture Products at L-band for Hydrologic Modeling at the Catchment Scale. *Geophysical Research Letters*. 39: L10403. https://doi.org/10.1029/2012GL051809
+
+Mascaro, G., Vivoni, E.R., and Deidda, R. 2010. Implications of Ensemble Quantitative Precipitation Forecast Errors on Distributed Streamflow Forecasting. *Journal of Hydrometeorology*. 11(1): 69-86. https://doi.org/10.1175/2009JHM1144.1
+
+Mascaro, G., Ko, A., and Vivoni, E.R. 2019. Closing the Loop of Satellite Soil Moisture Estimation via Scale Invariance of Hydrologic Simulations. *Scientific Reports*. 9: 16123. https://doi.org/10.1038/s41598-019-52650-3
+
+Mendez-Barroso, L.A., Vivoni, E.R., Robles-Morua, A., Mascaro, G., Yepez, E.A., Rodriguez, J.C., Watts, C.J., Garatuza-Payan, J., and Saiz-Hernandez, J. 2014. A Modeling Approach Reveals Differences in Evapotranspiration and Its Partitioning in Two Semiarid Ecosystems in Northwest Mexico. *Water Resources Research*. 50(4): 3229-3252. https://doi.org/10.1002/2013WR014838
+
+Moreno, H.A., Vivoni, E.R., and Gochis, D.J. 2013. Limits to Flood Forecasting in the Colorado Front Range for Two Summer Convection Periods using Radar Nowcasting and a Distributed Hydrologic Model. *Journal of Hydrometeorology*. 14(4): 1075-1097. https://doi.org/10.1175/JHM-D-12-0129.1
+
+Vivoni, E.R., Rodriguez, J.C., and Watts, C.J. 2010. On the Spatiotemporal Variability of Soil Moisture and Evapotranspiration in a Mountainous Basin within the North American Monsoon Region. *Water Resources Research*. 46: W02509. https://doi.org/10.1029/2009WR008240
+
+Xiang, T.T., Vivoni, E.R., and Gochis, D.J. 2014. Seasonal Evolution of Ecohydrological Controls on Land Surface Temperature over Complex Terrain. *Water Resources Research*. 50(5): 3852-3874. https://doi.org/10.1002/2013WR014787
 
 
 ----------------------------------------------------
