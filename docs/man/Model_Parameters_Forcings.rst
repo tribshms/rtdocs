@@ -1,2 +1,2 @@
-Model Parameters and Forgings
+Model Parameters and Forcings
 =====================
