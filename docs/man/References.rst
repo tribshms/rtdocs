@@ -5,7 +5,7 @@ tRIBS Model References
 Primary Historical Reference 
 ---------------------------
 
-Ivanov 
+Ivanov, V.Y., Vivoni, E.R., Bras, R.L., and Entekhabi, D. 2004. Catchment Hydrologic Response with a Fully-distributed Triangulated Irregular Network Model. Water Resources Research. 40(11): W11102.  
 
 
 Primary GitHub Release References 
