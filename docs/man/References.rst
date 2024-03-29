@@ -1,20 +1,20 @@
-tRIBS Model References
+tRIBS Model References 
 =============
 
 
-Primary Historical Reference
+Primary Historical Reference 
 ---------------------------
 
 
-Primary Reference for GitHub Release
+Primary Reference for GitHub Release 
 ---------------------------
 
 
-Other Model References
+Other Model References 
 ---------------------------
 
 
-Other Application References
+Other Application References 
 ---------------------------
 
 
