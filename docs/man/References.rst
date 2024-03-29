@@ -11,6 +11,8 @@ Ivanov, V.Y., Vivoni, E.R., Bras, R.L., and Entekhabi, D. 2004. Catchment Hydrol
 Primary GitHub Release References 
 ---------------------------
 
+Rinehart, A.J., Vivoni, E.R., and Brooks, P.D. 2008. Effects of Vegetation, Albedo and Solar Radiation Sheltering on the Distribution of Snow in the Valles Caldera, New Mexico. Ecohydrology. 1(3): 253-270. https://doi.org/10.1002/eco.26
+
 Vivoni, E.R., Mascaro, G., Mniszewski, S., Fasel, P., Springer, E.P., Ivanov, V.Y., and Bras, R.L. 2011. Real-world Hydrologic Assessment of a Fully-Distributed Hydrological Model in a Parallel Computing Environment. Journal of Hydrology. 409: 483-496. https://doi.org/10.1016/j.jhydrol.2011.08.053
 
 
