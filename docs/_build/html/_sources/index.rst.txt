@@ -53,13 +53,14 @@ tRIBS Documentation
         - Hydrologic in hillslopes and hydraulic routing in channels.
         - Level-pool reservoir routing.
 
-
 .. [Ivanov_2004] Ivanov, V.Y., Vivoni, E.R., Bras, R.L. and Entekhabi, D. 2004. Catchment Hydrologic
    Response with a Fully-Distributed Triangulated Irregular Network Model. Water Resources Research. 40(11): W11102. https://doi.org/10.1029/2004WR003218
+
 .. [Vivoni_2004] Vivoni, E.R., Ivanov, V.Y., Bras, R.L. and Entekhabi, D. 2004. Generation of Triangulated
    Irregular Networks based on Hydrological Similarity. Journal of Hydrologic Engineering, 9(4), 288–302. https://doi.org/10.1061/(ASCE)1084-0699(2004)9:4(288)
 
 ------------------------------------------------------------------------------------
+
 .. toctree::
     :maxdepth: 3
     :numbered:
@@ -71,6 +72,7 @@ tRIBS Documentation
 
 .. toctree::
     :maxdepth: 3
+    :numbered:
     :caption: DOCUMENTATION
 
     man/Model_Design
@@ -80,6 +82,7 @@ tRIBS Documentation
 
 .. toctree::
     :maxdepth: 3
+    :numbered:
     :caption: DEVELOPMENT
 
     man/Development
@@ -89,6 +92,7 @@ tRIBS Documentation
 
 .. toctree::
     :maxdepth: 3
+    :numbered:
     :caption: DOWNLOADS
 
     man/Docker
