@@ -1,7 +1,7 @@
 tRIBS Distributed Hydrologic Modeling System
 =============================================
 
-The tRIBS (TIN-based Real-Time Integrated Basin Simulator) Distributed Hydrologic Modeling System is a set of object-oriented, C++ programs that allow for the construction and simulation of watershed hydrologic processes on a Triangulated Irregular Network (TIN). This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information =can be obtained through the tRIBS Model References.
+The tRIBS (TIN-based Real-Time Integrated Basin Simulator) is a set of object-oriented, C++ programs that allow for the construction and simulation of watershed hydrologic processes on a Triangulated Irregular Network (TIN). This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information =can be obtained through the tRIBS Model References.
 
 tRIBS is copyrighted 2024 by the tRIBS Developers.
 
@@ -79,7 +79,8 @@ tRIBS is copyrighted 2024 by the tRIBS Developers.
     :ref:`modindex`
     :ref:`search`
 
-----------------------------------------
-*Last update:* E. Vivoni, 03/29/2024
+----------------------------------------------------
+
+    *Last update:* 03/29/2024 E. Vivoni
 
 
