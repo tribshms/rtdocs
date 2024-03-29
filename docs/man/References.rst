@@ -1,7 +1,8 @@
 tRIBS Model References
-=====================
+=============
 
 Primary Historical Reference
+------------
 
 Primary Reference for GitHub Release
 
