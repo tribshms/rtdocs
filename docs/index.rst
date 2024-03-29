@@ -12,16 +12,9 @@ tRIBS is copyrighted 2024 by the tRIBS Developers.
           :align:   center
 
 
-    The **TIN-based Real-time Integrated Basin Simulator (tRIBS)**, is fully
-    distributed model of hydrologic processes.
-
-
 **What type of processes does tRIBS model?**
 
-
-    The *tRIBS* model description can be found in [Ivanov_2004]_ and [Vivoni_2004]_.
-
-    We mention a few *tRIBS* processes it models:
+We mention a few *tRIBS* processes it models:
 
         - Couple the vadose and saturated zones with a dynamic water table.
         - Soil moisture infiltration fronts and their redistribution.
