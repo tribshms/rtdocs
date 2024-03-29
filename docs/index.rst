@@ -60,40 +60,48 @@ tRIBS Documentation
    Irregular Networks based on Hydrological Similarity. Journal of Hydrologic Engineering, 9(4), 288–302. https://doi.org/10.1061/(ASCE)1084-0699(2004)9:4(288)
 
 ------------------------------------------------------------------------------------
-
 ..  toctree::
     :maxdepth: 3
     :numbered:
-    
     :caption: ABOUT
+
     man/Introduction
     man/References
     man/Contacts
 
+..  toctree::
+    :maxdepth: 3
     :caption: DOCUMENTATION
+
     man/Model_Design
     man/Model_Input_Formats
     man/ModelParameters_Forcings
     man/Model_Execution
 
+
+
+..  toctree::
+    :maxdepth: 3
     :caption: DEVELOPMENT
+
     man/Development
     man/Contributing
     man/ReleaseNotes
     man/UsingGit
 
+..  toctree::
+    :maxdepth: 3
     :caption: DOWNLOADS
-    man/BenchMarks
     man/Docker
+    man/BenchMarks
 
-..  toctree:
+
+.. toctree::
     :maxdepth:  2
 
-  * :ref:`genindex`
-  * :ref:`modindex`
-  * :ref:`search`
+    :ref:`genindex`
+    :ref:`modindex`
+    :ref:`search`
 
+*Last update:* E. Vivoni, 02/14/2024
 
-----------------------------------------------------------
-
-    *Last update:* E. Vivoni, 02/14/2024
