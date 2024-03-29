@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. References" href="References.html" />
-    <link rel="prev" title="tRIBS Documentation" href="../index.html" /> 
+    <link rel="prev" title="tRIBS Distributed Hydrologic Modeling System" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,30 +45,33 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">2. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contacts.html">3. Contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts.html">3. Primary Contacts</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forgings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">Model Parameters and Forcings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">Model Execution</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">3. Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="UsingGit.html">4. Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingGit.html">Using Git</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. Bench Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">BenchMarks</a></li>
 </ul>
 
         </div>
@@ -97,14 +100,12 @@
              
   <section id="introduction">
 <h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
-<blockquote>
-<div><p>A number of distributed hydrologic models of varying degrees of complexity have been developed to simulate the land phase of the hydrologic cycle. Physically-based, distributed models solve parameterized equations for fluid flow in both space and time, leading to the implementation of numeric codes. Most models of this type, however, have large execution times, diminishing their capacity for model calibration and validation and ensemble forecasting. One of the major factors leading to the large execution times is the inefficiency in the representation of terrain inherent in a raster grid, the preferred mesh structure in most distributed hydrologic models. This document elaborates on the use and application of a distributed model resolves these difficulties by representing the terrain through triangulated irregular networks (TINs).</p>
-<p>The TIN-based Real-time Integrated Basin Simulator (tRIBS) is a collection of C++ classes designed for distributed hydrologic modeling at small to mid-size catchment scales. The object-oriented software design offers several advantages. In particular, by grouping data and functions operating on these variables into distinct classes, it becomes possible to separate the various hydrologic processes operating on the TIN mesh from the procedures for creating the mesh itself (Tucker <em>et. al</em>, 2001) <a class="reference internal" href="Contacts_Further_Readings.html#tucker-2001" id="id1"><span>[Tucker_2001]</span></a>. The object-oriented approach also allows for code modularity in such a way as to facilitate model development through code reuse and integration or substitution of new process modules. Such a strategy permitted the development of the tRIBS model from the CHILD modeling framework (Tucker <em>et. al</em>, 1999) <a class="reference internal" href="Contacts_Further_Readings.html#tucker-1999a" id="id2"><span>[Tucker_1999a]</span></a>. Hydrologic modules from the RIBS model (Garrote and Bras, 1995) <a class="reference internal" href="Contacts_Further_Readings.html#garrote-bras-1995a" id="id3"><span>[Garrote_Bras_1995a]</span></a> and new hydrologic process models were incorporated into the CHILD framework as separate classes.</p>
-<p>The tRIBS documentation is intended to serve as an introduction for new users. It covers topic areas related to the design, setup, execution and proper usage of the model, in addition to discussing limitations. An exhaustive explanation of each topic area is avoided to maintain this document as a short reference manual. tRIBS is provided here as an open source tool for the use in the resesarch and practitioner communities. It is the responsibility of the user to make sure that the input file formats are correct and that parameter values are reasonable. This document provides sufficient information for the proper construction and execution of tRIBS.</p>
-</div></blockquote>
+<p>A number of distributed hydrologic models of varying degrees of complexity have been developed to simulate the land phase of the hydrologic cycle. Physically-based, distributed models solve parameterized equations for fluid flow in both space and time. Most models of this type, however, have large execution times, diminishing their capacity for model simulations. One of the major factors leading to the large execution times is the inefficiency in the representation of terrain inherent in a raster grid, the preferred mesh structure in most distributed hydrologic models. This document elaborates on the use and application of a distributed model that resolves these difficulties by representing the terrain through triangulated irregular networks (TINs).</p>
+<p>The TIN-based Real-time Integrated Basin Simulator (tRIBS) is a collection of C++ classes designed for distributed hydrologic modeling at small to regional catchment scales. The object-oriented software design offers several advantages. In particular, by grouping data and functions operating on these variables into distinct classes, it becomes possible to separate the various hydrologic processes operating on the TIN mesh from the procedures for creating the mesh itself (Tucker <em>et. al</em>, 2001). The object-oriented approach also allows for code modularity that facilitates development through code reuse and integration of new process modules. Such a strategy permitted the development of the tRIBS model from the CHILD modeling framework (Tucker <em>et. al</em>, 1999). Hydrologic modules from the RIBS model (Garrote and Bras, 1995) and new hydrologic process models were incorporated into the CHILD framework as separate classes.</p>
+<p>The tRIBS documentation is intended to serve as an introduction for new users. It covers topic areas related to the design, setup, execution and proper usage of the model, in addition to discussing limitations. tRIBS is provided here as an open source tool for the use in the resesarch and practitioner communities. It is the responsibility of the user to make sure that input file formats are correct and that parameter values are reasonable. This document provides sufficient information for the proper construction and execution of tRIBS.</p>
 <hr class="docutils" />
 <blockquote>
-<div><p><em>Last update:</em> 03/11/2024 E. Vivoni</p>
+<div><p><em>Last update:</em> 03/29/2024 E. Vivoni</p>
 </div></blockquote>
 </section>
 
@@ -112,7 +113,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="tRIBS Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="tRIBS Distributed Hydrologic Modeling System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="References.html" class="btn btn-neutral float-right" title="2. References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
