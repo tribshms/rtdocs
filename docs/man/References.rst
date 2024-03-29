@@ -1,9 +1,9 @@
 References
 =============
 
-The tRIBS model has substantial record of peer-reviewed publications. The sections below provide the key references for the model code released under the `tRIBS Github Page <https://github.com/tribshms>`_as well as the model application carried out in different watersheds and for varying purposes. 
+The tRIBS model has a substantial record of peer-reviewed publications. The sections below provide the key references for the model code released under the `tRIBS Github Page <https://github.com/tribshms>`_as well as the model application carried out in different watersheds and for varying purposes. 
 
-Getting Started with Docker
+Model References
 ---------------------------
 
 tRIBS Model References 
