@@ -1,3 +1,11 @@
+Docker
+=============
+
+`Docker <https://www.docker.com/>`_ is a containerization platform that enables developers to package applications and their dependencies into portable containers. These containers effectively run like a virtual machine and can be utilized across different computing environments. Docker images of tRIBS (both parallel and serial versions) and MeshBuilder are maintained at `Docker Hub <https://hub.docker.com/>`_.
+
+Getting Started with Docker
+---------------------------
+
 tRIBS Model References 
 =============
 
