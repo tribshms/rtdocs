@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. Model Execution &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+  <title>Model Execution &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Development" href="Development.html" />
-    <link rel="prev" title="3. Model Input Formats" href="Model_Input_Formats.html" /> 
+    <link rel="prev" title="Model Parameters and Forgings" href="Model_Parameters_Forcings.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,50 +45,59 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">TABLE OF CONTENTS</span></p>
+              <p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">2. Model Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">3. Model Input Formats</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Model Execution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#download-instructions">4.1. Download instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#compilation-instructions">4.2. Compilation Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-instructions">4.3. Run Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-model-inputs">4.4. Creating Model Inputs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#model-input-file">4.4.1. Model Input File</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#parallel-model-inputs">4.4.1.1. Parallel Model Inputs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-restart-mode">4.4.1.2. Model Run Parameters: Restart Mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-parallel-mode">4.4.1.3. Model Run Parameters: Parallel Mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-visualization-mode">4.4.1.4. Model Run Parameters: Visualization Mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-time-variables">4.4.1.5. Model Run Parameters: Time Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-routing-variables">4.4.1.6. Model Run Parameters: Routing Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-run-options">4.4.1.7. Model Run Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-input-files-and-pathnames-mesh-generation">4.4.1.8. Model Input Files and Pathnames: Mesh Generation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mesh-input-files-and-pathnames-resampling-grids">4.4.1.9. Mesh Input Files and Pathnames: Resampling Grids</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mesh-input-files-and-pathnames-meteorological-data">4.4.1.10. Mesh Input Files and Pathnames: Meteorological Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mesh-input-files-and-pathnames-output-data">4.4.1.11. Mesh Input Files and Pathnames: Output Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-modes-rainfall-forecasting-mode">4.4.1.12. Model Modes: Rainfall Forecasting Mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-modes-stochastic-rainfall-mode">4.4.1.13. Model Modes: Stochastic Rainfall Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">Model Parameters and Forgings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Execution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-instructions">Download instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compilation-instructions">Compilation Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-instructions">Run Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-model-inputs">Creating Model Inputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-input-file">Model Input File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parallel-model-inputs">Parallel Model Inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-restart-mode">Model Run Parameters: Restart Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-parallel-mode">Model Run Parameters: Parallel Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-visualization-mode">Model Run Parameters: Visualization Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-time-variables">Model Run Parameters: Time Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-run-parameters-routing-variables">Model Run Parameters: Routing Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-run-options">Model Run Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-input-files-and-pathnames-mesh-generation">Model Input Files and Pathnames: Mesh Generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-input-files-and-pathnames-resampling-grids">Mesh Input Files and Pathnames: Resampling Grids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-input-files-and-pathnames-meteorological-data">Mesh Input Files and Pathnames: Meteorological Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-input-files-and-pathnames-output-data">Mesh Input Files and Pathnames: Output Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-modes-rainfall-forecasting-mode">Model Modes: Rainfall Forecasting Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-modes-stochastic-rainfall-mode">Model Modes: Stochastic Rainfall Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#soil-and-land-use-input">4.4.2. Soil and Land Use Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meteorological-point-data-input">4.4.3. Meteorological Point Data Input</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#station-descriptor-file-structure">4.4.3.1. Station Descriptor File Structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meteorological-data-file-structure">4.4.3.2. Meteorological Data File Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#soil-and-land-use-input">Soil and Land Use Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meteorological-point-data-input">Meteorological Point Data Input</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#station-descriptor-file-structure">Station Descriptor File Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meteorological-data-file-structure">Meteorological Data File Structure</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#meteorological-grid-data-input">4.4.4. Meteorological Grid Data Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#land-cover-grid-data-input">4.4.5. Land Cover Grid Data Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reservoir-data-input">4.4.6. Reservoir Data Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#soil-grid-data-input">4.4.7. Soil Grid Data Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meteorological-grid-data-input">Meteorological Grid Data Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#land-cover-grid-data-input">Land Cover Grid Data Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reservoir-data-input">Reservoir Data Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#soil-grid-data-input">Soil Grid Data Input</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#model-output">4.5. Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-output">Model Output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Terrain_Analysis_for_Model_Setup.html">5. Terrain Analysis for Model Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Hydrometeorological_Data_Processing.html">6. Hydrometeorological Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contacts_Further_Readings.html">7. Contacts and Further Readings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingGit.html">Using Git</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">Bench Marks</a></li>
 </ul>
 
         </div>
@@ -105,7 +114,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4. </span>Model Execution</li>
+      <li class="breadcrumb-item active">Model Execution</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/man/Model_Execution.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -1693,7 +1702,7 @@ ls build/</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Model_Input_Formats.html" class="btn btn-neutral float-left" title="3. Model Input Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Model_Parameters_Forcings.html" class="btn btn-neutral float-left" title="Model Parameters and Forgings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Development.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
