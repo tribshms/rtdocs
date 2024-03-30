@@ -23,14 +23,13 @@ Hydrologic Processes:
 
 Computational Processes:
 
-        - Soil moisture infiltration fronts and their vertical redistribution.
-        - Coupled dynamics of the vadose and saturated zones with a dynamic water table.
-        - Topography-driven lateral fluxes in the vadose and saturated zones.
-        - Radiation and energy balance components on complex terrain. 
-        - Single layer snowpack accumulation, ablation and melt on complex terrain.
-        - Rainfall and snow interception on vegetation canopies.
-        - Evaporation of intercepted rainfall, soil evaporation and plant transpiration.
-        - Hydrologic hillslope routing, hydraulic routing in channels, level-pool reservoir routing.
+        - Multi-resolution domain generated with channel network and watershed boundary.
+        - Computationally-efficient methods for infiltration, snow dynamics and flow routing.
+        - Serial operation for point-scale simulations and small watershed domains. 
+        - Parallelized operation for large domains optimized through subbasin partitioning methods.
+        - Ingestion of time-varying meteorological forcing from stations or raster-based products. 
+        - Ingestion of soil and vegetation parameters from tabular data or raster-based products.
+        - Pre- and post-processing workflows for time series and spatial analysis using Python.
 
 ------------------------------------------------------------------------------------
 
