@@ -6,7 +6,7 @@ The tRIBS source code is stored on GitHub using the version control system Git. 
 1) Start by creating a `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_ of the tRIBS repository.
 2) Create a development branch to add any changes in the source code.
 3) Keep your main and development branch up to date with changes from the main tRIBS repository.
-4) Updates the main tRIBS source code from your local fork can by creating `pull requests <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests>`_ on GitHub.
+4) Update the main tRIBS source code from your local fork by creating `pull requests <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests>`_ on GitHub.
 
 In summary, this means that, any modification or fixes of the tRIBS source code should take place in your own *fork* of the main tRIBS repository. A fork is a *mirror* of the repository and is hosted on your personal GitHub account. Any updates, modifications, or fixes to the tRIBS source code can be implemented on this fork. These updates then can be merged to the tRIBS main repository through implementing a pull request on the GitHub website.
 
@@ -32,7 +32,7 @@ Cloning your fork to your computer
 
 You can clone the fork (that lives on the GitHub website) locally to
 your computer either using the GitHub app (the GUI), or directly from
-the command line using git. If you've never used git before, the app is
+the command line using git. If you've never used Git before, the app is
 probably the way to go.
 
 Using the GUI/app
@@ -40,7 +40,7 @@ Using the GUI/app
 
 1. Sign in to GitHub on the GUI.
 2. Click on your account on the left side of the GUI.
-3. This will show you your fork of tRIBS. Click on the clone option next to
+3. This will show your fork of tRIBS. Click on the clone option next to
    the fork which will initiate the download of tRIBS to your computer.
 
 Using the command line
