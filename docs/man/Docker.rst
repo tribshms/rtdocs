@@ -28,13 +28,13 @@ You can check to see if the image is now available locally by:
 
     docker image
 
-From here the tRIBS image can be ran using ``docker run -it tribs/tribs:latest``, where the ``-it`` flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. Note: it is also possible to download data into the image. This can be accomplished by using ``-v`` flag, where the local directory is mapped to a directory in the image following this structure __path/in/local:path/in/image__. For example, one could run: 
+From here the tRIBS image can be accessed by using ``docker run -it tribs/tribs:latest``, where the ``-it`` flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. This can be accomplished by using the ``-v`` flag, where the local directory is mapped to a directory in the image following this structure __path/in/local:path/in/image__. For example, one could run:
 
 .. code-block:: bash
 
     docker run -it -v /local/path/to/data:/tribs/data tribs/tribs:latest
 
-In this case ``/tribs/data`` represents the directory in the image to access your data stored locally. From here one can execute tRIBS normally. There are two tRIBS binaries stored in ``/tribs/bin``, a serial version, ``tRIBS`` and a version for parallel simulation ``tRIBS_par``.
+In this case ``/tribs/data`` represents the directory in the image to access your data stored locally. Note: it is also possible to download data into the image. From here one can execute tRIBS normally. There are two tRIBS binaries stored in ``/tribs/bin``, a serial version, ``tRIBS`` and a version for parallel simulation ``tRIBS_par``.
 
 MeshBuilder
 ~~~~~~~~~~~
@@ -65,4 +65,3 @@ This will open up the command line for the image. To initiate the MeshBuilder wo
 
 These steps can be recreated manually with a more detailed description of the processes `here <https://github.com/tribshms/MeshBuilder>`_.
 
-Return to `README <../../README.md>`

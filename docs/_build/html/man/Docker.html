@@ -126,11 +126,11 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>image
 </pre></div>
 </div>
-<p>From here the tRIBS image can be ran using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">tribs/tribs:latest</span></code>, where the <code class="docutils literal notranslate"><span class="pre">-it</span></code> flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. Note: it is also possible to download data into the image. This can be accomplished by using <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, where the local directory is mapped to a directory in the image following this structure __path/in/local:path/in/<a href="#id3"><span class="problematic" id="id4">image__</span></a>. For example, one could run:</p>
+<p>From here the tRIBS image can be accessed by using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">tribs/tribs:latest</span></code>, where the <code class="docutils literal notranslate"><span class="pre">-it</span></code> flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. This can be accomplished by using the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, where the local directory is mapped to a directory in the image following this structure __path/in/local:path/in/<a href="#id3"><span class="problematic" id="id4">image__</span></a>. For example, one could run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/local/path/to/data:/tribs/data<span class="w"> </span>tribs/tribs:latest
 </pre></div>
 </div>
-<p>In this case <code class="docutils literal notranslate"><span class="pre">/tribs/data</span></code> represents the directory in the image to access your data stored locally. From here one can execute tRIBS normally. There are two tRIBS binaries stored in <code class="docutils literal notranslate"><span class="pre">/tribs/bin</span></code>, a serial version, <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> and a version for parallel simulation <code class="docutils literal notranslate"><span class="pre">tRIBS_par</span></code>.</p>
+<p>In this case <code class="docutils literal notranslate"><span class="pre">/tribs/data</span></code> represents the directory in the image to access your data stored locally. Note: it is also possible to download data into the image. From here one can execute tRIBS normally. There are two tRIBS binaries stored in <code class="docutils literal notranslate"><span class="pre">/tribs/bin</span></code>, a serial version, <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> and a version for parallel simulation <code class="docutils literal notranslate"><span class="pre">tRIBS_par</span></code>.</p>
 </section>
 <section id="meshbuilder">
 <h3><span class="section-number">1.2.2. </span>MeshBuilder<a class="headerlink" href="#meshbuilder" title="Link to this heading"></a></h3>
@@ -155,7 +155,6 @@
 <li><p>And the model base name.</p></li>
 </ol>
 <p>These steps can be recreated manually with a more detailed description of the processes <a class="reference external" href="https://github.com/tribshms/MeshBuilder">here</a>.</p>
-<p>Return to <cite>README &lt;../../README.md&gt;</cite></p>
 </section>
 </section>
 </section>
