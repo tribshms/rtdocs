@@ -50,7 +50,3 @@ Vivoni, E.R., Rodriguez, J.C., and Watts, C.J. 2010. On the Spatiotemporal Varia
 
 Xiang, T.T., Vivoni, E.R., and Gochis, D.J. 2014. Seasonal Evolution of Ecohydrological Controls on Land Surface Temperature over Complex Terrain. *Water Resources Research*. 50(5): 3852-3874. https://doi.org/10.1002/2013WR014787
 
-
-----------------------------------------------------
-
-    *Last update:* 03/29/2024 E. Vivoni
