@@ -29,7 +29,7 @@ We mention a few *tRIBS* processes it models:
 ------------------------------------------------------------------------------------
 
 .. toctree::
-    Home <self>
+    HOME <self>
     :hidden:
 
 .. toctree::
@@ -71,9 +71,3 @@ We mention a few *tRIBS* processes it models:
 
 .. toctree::
     :maxdepth:  2
-
-----------------------------------------------------
-
-    *Last update:* 03/29/2024 E. Vivoni
-
-
