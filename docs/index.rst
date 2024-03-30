@@ -3,15 +3,12 @@ tRIBS Distributed Hydrologic Modeling System
 
 The TIN-based Real-Time Integrated Basin Simulator is a fully-distributed, continuous hydrologic model operating on a Triangulated Irregular Network (TIN). This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS using GitHub. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information can be obtained through the `tRIBS References <https://tribshms.readthedocs.io/en/latest/man/References.html/>`_.
 
-tRIBS is copyrighted 2024 by the tRIBS Developers.
-
-
         .. figure::  images/hydrocycle.png
           :width: 600
           :alt: tRIBS Distributed Hydrologic Modeling System
           :align:   center
 
-We mention a few *tRIBS* processes it models:
+The tRIBS mode in this release under the `MIT license <https://opensource.org/license/mit>`_ includes the following hydrologic processes:
 
         - Couple the vadose and saturated zones with a dynamic water table.
         - Soil moisture infiltration fronts and their redistribution.
