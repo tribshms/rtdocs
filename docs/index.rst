@@ -8,17 +8,29 @@ The TIN-based Real-Time Integrated Basin Simulator is a fully-distributed, conti
           :alt: tRIBS Distributed Hydrologic Modeling System
           :align:   center
 
-The tRIBS mode in this release under the `MIT license <https://opensource.org/license/mit>`_ includes the following hydrologic processes:
+The tRIBS model in this release under the `MIT license <https://opensource.org/license/mit>`_ includes:
 
-        - Couple the vadose and saturated zones with a dynamic water table.
-        - Soil moisture infiltration fronts and their redistribution.
-        - Topography-driven lateral fluxes in the vadose and groundtable zones.
+Hydrologic Processes:
+
+        - Soil moisture infiltration fronts and their vertical redistribution.
+        - Coupled dynamics of the vadose and saturated zones with a dynamic water table.
+        - Topography-driven lateral fluxes in the vadose and saturated zones.
         - Radiation and energy balance components on complex terrain. 
-        - Single layer snowpack accumulation, ablation and melt.
+        - Single layer snowpack accumulation, ablation and melt on complex terrain.
         - Rainfall and snow interception on vegetation canopies.
         - Evaporation of intercepted rainfall, soil evaporation and plant transpiration.
-        - Hydrologic in hillslopes and hydraulic routing in channels.
-        - Level-pool reservoir routing.
+        - Hydrologic hillslope routing, hydraulic routing in channels, level-pool reservoir routing.
+
+Computational Processes:
+
+        - Soil moisture infiltration fronts and their vertical redistribution.
+        - Coupled dynamics of the vadose and saturated zones with a dynamic water table.
+        - Topography-driven lateral fluxes in the vadose and saturated zones.
+        - Radiation and energy balance components on complex terrain. 
+        - Single layer snowpack accumulation, ablation and melt on complex terrain.
+        - Rainfall and snow interception on vegetation canopies.
+        - Evaporation of intercepted rainfall, soil evaporation and plant transpiration.
+        - Hydrologic hillslope routing, hydraulic routing in channels, level-pool reservoir routing.
 
 ------------------------------------------------------------------------------------
 
