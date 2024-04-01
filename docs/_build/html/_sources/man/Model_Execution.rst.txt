@@ -67,11 +67,11 @@ Compilation Instructions
 
     In some instance you may want to modify the CMakeLists.txt, for example if you want to change the name of the executable, or change compilation parallel mode to serial, or add additional compiler flags.
 
-    * To compile the parallel version or serial version of tRIBS can be achieved by setting the variable ``parallel`` to ``ON`` or ``OFF``.
+    * Compiling the parallel or serial version of tRIBS can be achieved by setting the variable ``parallel`` to ``ON`` or ``OFF``.
 
-    * The executable name is specified here ``set(exe "tRIBS")``, where the name "tRIBS" can be changed modified.
+    * The executable name is specified here ``set(exe "tRIBS")``, where "tRIBS" can be modified.
 
-    * Additional compiler flags can be set here ``set(cxx_flags "-O2")``, in this case an optimization level of 2 is being passed by ``-O2``.
+    * Additional compiler flags can be set here: ``set(cxx_flags "-O2")``, in this case an optimization level of 2 is being passed by ``-O2``.
 
 
 
