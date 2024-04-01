@@ -151,30 +151,47 @@
 </section>
 <section id="compilation-instructions">
 <h2><span class="section-number">4.2. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Link to this heading"></a></h2>
-<p>IN PROGRESS</p>
 <blockquote>
-<div><p>tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either <em>parallel</em> or <em>serial</em> mode we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake is outlined below.</p>
-<p>Note: these instructions are for using CMake via terminal, there is additional documentation [here](<a class="reference external" href="https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#guide:User%20Interaction%20Guide">https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#guide:User%20Interaction%20Guide</a>) for using the CMake gui.</p>
+<div><p>tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either <em>parallel</em> or <em>serial</em> mode, we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/Docker.html">here</a>.</p>
+<p>Note: these instructions are for using CMake via terminal; additional <a class="reference external" href="https://cmake.org/cmake/help/latest/guide/user-interaction/index.html">documentation</a> is available for using the CMake GUI.</p>
+<p><strong>CMake Instructions</strong></p>
 <ol class="arabic simple">
-<li><p>Use [Homebrew](<a class="reference external" href="https://formulae.brew.sh/formula/cmake">https://formulae.brew.sh/formula/cmake</a>) to install CMake, alternatively you can download [CMake](<a class="reference external" href="https://cmake.org/download/">https://cmake.org/download/</a>), but Homebrew or a similar package manager is preferred as it will catch additional dependencies.</p></li>
+<li><p>Use <a class="reference external" href="https://formulae.brew.sh/formula/cmake">Homebrew</a> to install CMake. Alternatively, you can download <a class="reference external" href="https://cmake.org/download/">CMake</a> directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.</p></li>
 </ol>
-<p>2. You can check to see if CMake is on your path, by typing cmake into the command line. If it says its not found then you will need to set cmake to your path. For example if you downloaded CMake and its now in your application folder you can use:
-::
-sudo “/Applications/CMake.app/Contents/bin/cmake-gui” –install</p>
-<p>3. Next change directory to the tRIBS source code, should look something like this but is dependent on where the tRIBS source code is located:
-::
-cd ~/Documents/tRIBS</p>
-<p>4. Once in the directory containing the src code subdirectory and CMakeText.txt execute the following code in the terminal.
-::
-cmake -S . -B build
-cmake –build build –target all</p>
-<p>The first command tells CMake to generate the make files for tribs in a folder called build. Followed by the second line which effectively compiles the code.</p>
-<p>5. After you can check to see that the executable was made by using.
-::
-ls build/</p>
-<p>The executable will have a name specified in the CMakeList.txt file. Currently it is set to tRIBS.</p>
-<p><strong>Content of CMakeFile.txt</strong></p>
-<p>In some instance you may want to modify the CMakeFile.txt, for example if you want to change the name of the executable, or change compilation parallel mode to serial, or add additional compiler flags. <em>This section will be updated with more detail to demonstrate how this is possible here, but the CMakeFile.txt is documented with where these changes can be made.</em></p>
+<ol class="arabic simple" start="2">
+<li><p>You can check to see if CMake is on your path by typing <cite>cmake</cite> into the command line. If it says it’s not found, then you will need to set cmake to your path. For example, if you downloaded CMake and it’s now in your application folder, you can use:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="s2">&quot;/Applications/CMake.app/Contents/bin/cmake-gui&quot;</span><span class="w"> </span>--install
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Next, change directory to the tRIBS source code. It should look something like this but is dependent on where the tRIBS source code is located:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Documents/tRIBS
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Once in the directory containing the src code subdirectory and CMakeLists.txt, execute the following code in the terminal:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>all
+</pre></div>
+</div>
+<p>The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code.</p>
+<ol class="arabic simple" start="5">
+<li><p>After, you can check to see that the executable was made by using:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>build/
+</pre></div>
+</div>
+<p>The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.</p>
+<p><strong>Content of CMakeLists.txt</strong></p>
+<p>In some instance you may want to modify the CMakeLists.txt, for example if you want to change the name of the executable, or change compilation parallel mode to serial, or add additional compiler flags.</p>
+<ul class="simple">
+<li><p>To compile the parallel version or serial version of tRIBS can be achieved by setting the variable <code class="docutils literal notranslate"><span class="pre">parallel</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> or <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p></li>
+<li><p>The executable name is specified here <code class="docutils literal notranslate"><span class="pre">set(exe</span> <span class="pre">&quot;tRIBS&quot;)</span></code>, where the name “tRIBS” can be changed modified.</p></li>
+<li><p>Additional compiler flags can be set here <code class="docutils literal notranslate"><span class="pre">set(cxx_flags</span> <span class="pre">&quot;-O2&quot;)</span></code>, in this case an optimization level of 2 is being passed by <code class="docutils literal notranslate"><span class="pre">-O2</span></code>.</p></li>
+</ul>
 </div></blockquote>
 </section>
 <section id="run-instructions">
