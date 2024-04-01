@@ -1,35 +1,40 @@
 tRIBS Distributed Hydrologic Modeling System
 =============================================
 
-The TIN-based Real-Time Integrated Basin Simulator is a fully-distributed, continuous hydrologic process model operating on a Triangulated Irregular Network (TIN). This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information can be obtained through the tRIBS Model References.
-
-tRIBS is copyrighted 2024 by the tRIBS Developers.
-
+The TIN-based Real-Time Integrated Basin Simulator is a fully-distributed, continuous hydrologic model operating on a Triangulated Irregular Network (TIN). The code can be accessed through GitHub at `tRIBS Distributed Hydrologic Modeling System <https://github.com/tribshms/>`_. This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS using GitHub. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information can be obtained through the `tRIBS References <https://tribshms.readthedocs.io/en/latest/man/References.html/>`_.
 
         .. figure::  images/hydrocycle.png
-          :width: 400
-          :alt: tRIBS Distributed Hydrologic Model System
+          :width: 600
+          :alt: tRIBS Distributed Hydrologic Modeling System
           :align:   center
 
+The tRIBS model in this release under the `MIT license <https://opensource.org/license/mit>`_ includes:
 
-**What type of processes does tRIBS model?**
+Hydrologic Processes:
 
-We mention a few *tRIBS* processes it models:
-
-        - Couple the vadose and saturated zones with a dynamic water table.
-        - Soil moisture infiltration fronts and their redistribution.
-        - Topography-driven lateral fluxes in the vadose and groundtable zones.
+        - Soil moisture infiltration fronts and their vertical redistribution.
+        - Coupled dynamics of the vadose and saturated zones with a dynamic water table.
+        - Topography-driven lateral fluxes in the vadose and saturated zones.
         - Radiation and energy balance components on complex terrain. 
-        - Single layer snowpack accumulation, ablation and melt.
+        - Single layer snowpack accumulation, ablation and melt on complex terrain.
         - Rainfall and snow interception on vegetation canopies.
         - Evaporation of intercepted rainfall, soil evaporation and plant transpiration.
-        - Hydrologic in hillslopes and hydraulic routing in channels.
-        - Level-pool reservoir routing.
+        - Hydrologic hillslope routing, hydraulic routing in channels, level-pool reservoir routing.
+
+Computational Processes:
+
+        - Multi-resolution domain generated with channel network and watershed boundary.
+        - Computationally-efficient methods for infiltration, snow dynamics and flow routing.
+        - Serial operation for point-scale simulations and small watershed domains. 
+        - Parallelized operation for large domains optimized through subbasin partitioning methods.
+        - Ingestion of time-varying meteorological forcing from stations or raster-based products. 
+        - Ingestion of soil and vegetation parameters from tabular data or raster-based products.
+        - Pre- and post-processing workflows for time series and spatial analysis using Python.
 
 ------------------------------------------------------------------------------------
 
 .. toctree::
-    Home <self>
+    HOME <self>
     :hidden:
 
 .. toctree::
@@ -71,9 +76,3 @@ We mention a few *tRIBS* processes it models:
 
 .. toctree::
     :maxdepth:  2
-
-----------------------------------------------------
-
-    *Last update:* 03/29/2024 E. Vivoni
-
-

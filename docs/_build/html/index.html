@@ -45,7 +45,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HOME</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
 <ul>
@@ -99,26 +99,36 @@
              
   <section id="tribs-distributed-hydrologic-modeling-system">
 <h1>tRIBS Distributed Hydrologic Modeling System<a class="headerlink" href="#tribs-distributed-hydrologic-modeling-system" title="Link to this heading"></a></h1>
-<p>The TIN-based Real-Time Integrated Basin Simulator is a fully-distributed, continuous hydrologic process model operating on a Triangulated Irregular Network (TIN). This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information can be obtained through the tRIBS Model References.</p>
-<p>tRIBS is copyrighted 2024 by the tRIBS Developers.</p>
+<p>The TIN-based Real-Time Integrated Basin Simulator is a fully-distributed, continuous hydrologic model operating on a Triangulated Irregular Network (TIN). The code can be accessed through GitHub at <a class="reference external" href="https://github.com/tribshms/">tRIBS Distributed Hydrologic Modeling System</a>. This document is intended to serve as a user manual for the tRIBS model, including instructions on how to obtain, compile, set up and run tRIBS using GitHub. In addition, an effort has been made to document the model software design using class and workflow diagrams. Additional information can be obtained through the <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/References.html/">tRIBS References</a>.</p>
 <blockquote>
 <div><figure class="align-center">
-<a class="reference internal image-reference" href="_images/hydrocycle.png"><img alt="tRIBS Distributed Hydrologic Model System" src="_images/hydrocycle.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/hydrocycle.png"><img alt="tRIBS Distributed Hydrologic Modeling System" src="_images/hydrocycle.png" style="width: 600px;" /></a>
 </figure>
 </div></blockquote>
-<p><strong>What type of processes does tRIBS model?</strong></p>
-<p>We mention a few <em>tRIBS</em> processes it models:</p>
+<p>The tRIBS model in this release under the <a class="reference external" href="https://opensource.org/license/mit">MIT license</a> includes:</p>
+<p>Hydrologic Processes:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Couple the vadose and saturated zones with a dynamic water table.</p></li>
-<li><p>Soil moisture infiltration fronts and their redistribution.</p></li>
-<li><p>Topography-driven lateral fluxes in the vadose and groundtable zones.</p></li>
+<li><p>Soil moisture infiltration fronts and their vertical redistribution.</p></li>
+<li><p>Coupled dynamics of the vadose and saturated zones with a dynamic water table.</p></li>
+<li><p>Topography-driven lateral fluxes in the vadose and saturated zones.</p></li>
 <li><p>Radiation and energy balance components on complex terrain.</p></li>
-<li><p>Single layer snowpack accumulation, ablation and melt.</p></li>
+<li><p>Single layer snowpack accumulation, ablation and melt on complex terrain.</p></li>
 <li><p>Rainfall and snow interception on vegetation canopies.</p></li>
 <li><p>Evaporation of intercepted rainfall, soil evaporation and plant transpiration.</p></li>
-<li><p>Hydrologic in hillslopes and hydraulic routing in channels.</p></li>
-<li><p>Level-pool reservoir routing.</p></li>
+<li><p>Hydrologic hillslope routing, hydraulic routing in channels, level-pool reservoir routing.</p></li>
+</ul>
+</div></blockquote>
+<p>Computational Processes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Multi-resolution domain generated with channel network and watershed boundary.</p></li>
+<li><p>Computationally-efficient methods for infiltration, snow dynamics and flow routing.</p></li>
+<li><p>Serial operation for point-scale simulations and small watershed domains.</p></li>
+<li><p>Parallelized operation for large domains optimized through subbasin partitioning methods.</p></li>
+<li><p>Ingestion of time-varying meteorological forcing from stations or raster-based products.</p></li>
+<li><p>Ingestion of soil and vegetation parameters from tabular data or raster-based products.</p></li>
+<li><p>Pre- and post-processing workflows for time series and spatial analysis using Python.</p></li>
 </ul>
 </div></blockquote>
 <hr class="docutils" />
@@ -209,10 +219,6 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
-<hr class="docutils" />
-<blockquote>
-<div><p><em>Last update:</em> 03/29/2024 E. Vivoni</p>
-</div></blockquote>
 </section>
 
 
