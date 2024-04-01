@@ -46,7 +46,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">HOME</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
 <ul class="current">
@@ -103,10 +103,6 @@
 <p>A number of distributed hydrologic models of varying degrees of complexity have been developed to simulate the land phase of the hydrologic cycle. Physically-based, distributed models solve parameterized equations for fluid flow in both space and time. Most models of this type, however, have large execution times, diminishing their capacity for model simulations. One of the major factors leading to the large execution times is the inefficiency in the representation of terrain inherent in a raster grid, the preferred mesh structure in most distributed hydrologic models. This document elaborates on the use and application of a distributed model that resolves these difficulties by representing the terrain through triangulated irregular networks (TINs).</p>
 <p>The TIN-based Real-time Integrated Basin Simulator (tRIBS) is a collection of C++ classes designed for distributed hydrologic modeling at small to regional catchment scales. The object-oriented software design offers several advantages. In particular, by grouping data and functions operating on these variables into distinct classes, it becomes possible to separate the various hydrologic processes operating on the TIN mesh from the procedures for creating the mesh itself (Tucker <em>et. al</em>, 2001). The object-oriented approach also allows for code modularity that facilitates development through code reuse and integration of new process modules. Such a strategy permitted the development of the tRIBS model from the CHILD modeling framework (Tucker <em>et. al</em>, 1999). Hydrologic modules from the RIBS model (Garrote and Bras, 1995) and new hydrologic process models were incorporated into the CHILD framework as separate classes.</p>
 <p>The tRIBS documentation is intended to serve as an introduction for new users. It covers topic areas related to the design, setup, execution and proper usage of the model, in addition to discussing limitations. tRIBS is provided here as an open source tool for the use in the resesarch and practitioner communities. It is the responsibility of the user to make sure that input file formats are correct and that parameter values are reasonable. This document provides sufficient information for the proper construction and execution of tRIBS.</p>
-<hr class="docutils" />
-<blockquote>
-<div><p><em>Last update:</em> 03/29/2024 E. Vivoni</p>
-</div></blockquote>
 </section>
 
 
