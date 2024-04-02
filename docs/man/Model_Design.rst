@@ -110,50 +110,6 @@ Model File Structure
 
     The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in ``tRIBS/Headers/Classes.h``. ``main.cpp`` is used in tRIBS to construct the various objects, while the simulation control is performed by ``tSimul.cpp``. 
 
-Model Class Diagrams
--------------------------
-
-    Model class diagrams are a useful tool for summarizing the class properties, in terms of variables and functions, in a visual format without recurring to the actual code. Function and variable declarations are presented as they are implemented within the code, including knowledge of the accessibility of each object property and the use of other model objects. For the tRIBS model, the UML (Universal Modeling Language) has been used to create class diagrams through Microsoft Visio, part of the Microsoft Visual Studio development framework. The UML format is a standard diagramming language used by software engineers and architects to document model code. **Table 2.3** presents a list of the model classes and references to the class diagram for each.
-
-        **Table 2.3** tRIBS Class Diagrams
-
-        .. tabularcolumns:: |c|c|c|c|
-
-        +------------------------+------------------------+------------------------+------------------------+
-        |**Templated**           |**Control and Storage** |**Hydrological**        |                        |
-        |**Classes**             |**Classes**             |**Classes**             |                        |
-        +========================+========================+========================+========================+
-        |  tMesh                 |  tTriangle             |  tHydroModel           |  SoilType              |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tMeshList             |  tNode                 |  tEvapoTrans           |  GenericSoilData       |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tMeshListIter         |  tEdge                 |  tIntercept            |  tStorm                |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tList                 |  tCNode                |  tRainfall             |  tHydroMetStoch        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tListNode             |  Point2D               |  tRainGauge            |  tSnowPack             |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tListIter             |  Point3D               |  tHydroMet             |  tSnowIntercept        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tPtrList              |  vcell                 |  tHydroMetConvert      |  tShelter              |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tPtrListNode          |  Predicates            |  tResample             |  tResData              |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tPtrListIter          |  Simulator             |  tVariant              |  tReservoir            |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tArray                |  SimulationControl     |  tFlowNet              |                        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tMatrix               |  tRunTimer             |  tFlowResults          |                        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tOutput               |  tPreprocess           |  tKinemat              |                        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tCOutput              |  tControl              |  tWaterBalance         |                        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tListInputData        |                        |  LandType              |                        |
-        +------------------------+------------------------+------------------------+------------------------+
-        |  tIdArray              |                        |  GenericLandData       |                        |
-        +------------------------+------------------------+------------------------+------------------------+
-
 Computational Mesh
 ------------------------
 
