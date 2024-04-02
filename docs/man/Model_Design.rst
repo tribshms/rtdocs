@@ -163,16 +163,10 @@ Model Class Diagrams
         +------------------------+------------------------+------------------------+------------------------+
 
 
-
-Model Workflow Diagrams
------------------------------
-
-    Model workflow diagrams present the steps followed during model execution in a graphical manner that facilitates understanding of the model procedures. The workflow could be documented at various levels of complexity (at the model level, at the class level and at the function level). Here, the model level is chosen as an appropriate representation and the details of the workflow within classes or functions are not shown for brevity. The tRIBS Model Workflow Diagram presents the model procedure at the coarsest level possible. For more information, the user is referred to the ``main.cpp`` and ``tSimul.cpp`` classes which encapsulate the model execution procedures.
-
 Computational Mesh
 ------------------------
 
-    The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture directly from the CHILD model framework (Tucker *et. al*, 1999) [Tucker_1999a]_ . As such, the model has the same capabilities as CHILD in constructing TIN meshes using the various options available in the ``tMesh`` class. In addition, some new input capabilities have been added that take advantage of the TIN creation capabilities of Arc/Info TIN (ESRI, 1996) [ArcInfoMethod_1996]_ . These new input capabilities e| end the mesh framework to the more complicated topography present in real world watersheds and also allow us to input "hydrologically" significant TIN terrain representations. The existing options for creating the computational mesh include:
+    The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model framework (Tucker *et. al*, 1999) using various options in the ``tMesh`` class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multireslution mesh generators to represent real world watersheds as "hydrologically" significant TINs. The existing options for creating the computational mesh include:
 
       - Generating a synthetic rectangular mesh with random or hexagonal node arrangements.
       - Read in an existing tRIBS Mesh files from a previous run.
