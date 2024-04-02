@@ -1,14 +1,12 @@
-
 Model Design
 =================
 
     The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs a set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. **Tables 2.1** and **2.2** list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates. 
 
-
 Model File Structure
 --------------------------
 
-    The tRIBS Model is organized into a single directory (called ``tRIBS``) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. **Table 2.1** demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (``tHydro``, ``tFlowNet``, ``tRasTin``), others create the mesh architecture (``tMesh``, ``tMeshElements``, ``tMeshList``), while others are general purpose classes used for model execution (``tSimulator``, ``tInOut``, ``tCNode``) or within other classes (``tArray``, ``tList``, ``tPtrList``).  The ``Headers`` and ``Mathutil`` directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (``tGraph``, ``tParallel``).
+    The tRIBS Model is organized into a single directory (called ``tRIBS``) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. **Table 2.1** shows the sub directories as a user would see upon downloading the source code. Various of these sub directories deal with the hydrologic processes (``tHydro``, ``tFlowNet``, ``tRasTin``), others create the mesh architecture (``tMesh``, ``tMeshElements``, ``tMeshList``), while others are general purpose classes used for model execution (``tSimulator``, ``tInOut``, ``tCNode``) or within other classes (``tArray``, ``tList``, ``tPtrList``).  The ``Headers`` and ``Mathutil`` directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (``tGraph``, ``tParallel``).
 
         **Table 2.1** tRIBS Model Subdirectories
 
@@ -19,7 +17,7 @@ Model File Structure
         +--------------------+--------------------+--------------------+
         |  Mathutil          |  tList             |  tPtrList          |
         +--------------------+--------------------+--------------------+
-        |  Utilities         |  tListInputData    |  tRasTin           |
+        |  utilities         |  tListInputData    |  tRasTin           |
         +--------------------+--------------------+--------------------+
         |  tArray            |  tMesh             |  tSimulator        |
         +--------------------+--------------------+--------------------+
@@ -30,9 +28,7 @@ Model File Structure
         |  tParallel         |                    |                    |
         +--------------------+--------------------+--------------------+
 
-
-    In addition to the sub directories, the ``tRIBS`` directory contains a main function (``main.cpp``) and a makefile for each particular UNIX platform (``makeSUN``, ``makeLINUX``, ``makeG5``, ``makeIBM``, ``makeSGI``, ``makeALPHA``, ``makeLAMPI``, ``makeOPENMPI``) and makefiles for the parallel model compilation (``makeLINUX_PAR``, ``makeMAC_PAR``). Running the make file properly will create a directory to store the object files for each class (``*.o``) and the platform-specific executable (called ``tribs``). Each sub directory will include the C++ class files (``*.cpp`` used as convention) and the C++ Header Files (``*.h``). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998) [Deitel_Deitel_2001]_, [Lippman_Lajoie_1998]_ .  **Table 2.2** shows a list of the code files in the tRIBS model for further reference.
-
+    In addition to the sub directories, the ``tRIBS`` directory contains a main function (``main.cpp``) and a makefile (``CMake``). Running the makefile will create a directory to store the object files for each class (``*.o``) and the platform-specific executable (called ``tribs``). Each sub directory of the source code includes the C++ class files (``*.cpp`` used as convention) and the C++ Header Files (``*.h``). **Table 2.2** shows a list of the code files in the tRIBS model for further reference.
 
         **Table 2.2** tRIBS Model Class and Header Files
 
@@ -43,17 +39,15 @@ Model File Structure
         +--------------------+-------------------------------------------------------------------+
         |  /Headers          |  Classes.h, Definitions.h, Inclusions.h, globalFns.h,             |
         +--------------------+-------------------------------------------------------------------+
-        |                    |  globalFns.cpp, TemplDefinitions.h, tribs_os.h,                   |
+        |                    |  globalFns.cpp, TemplDefinitions.h, globallO.h                    |
         +--------------------+-------------------------------------------------------------------+
-        |                    |  tribs_os_ALPHA64.h, tribs_os_LINUX32.h                           |
+        |  /Mathutil         |  geometry.h , mathutil.h, mathutil.cpp,                           |
         +--------------------+-------------------------------------------------------------------+
-        |  /Mathutil         |  geometry.h , mathutil.h, mathutil.cpp, predicates.h,             |
+        |                    |  predicates.h, predicates.cpp                                     |
         +--------------------+-------------------------------------------------------------------+
-        |                    |  predicates.cpp                                                   |
+        |  /utilities        |  InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp, mergOutput.pl |
         +--------------------+-------------------------------------------------------------------+
-        |  /Utilities        |  InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp                |
-        +--------------------+-------------------------------------------------------------------+
-        |  /tArray           |  tArray.h, tArray.cpp, tMatrix.h, tMatrix.cpp                     |
+        |  /tArray           |  tArray.h, tMatrix.h, tMatrix.cpp                                 |
         +--------------------+-------------------------------------------------------------------+
         |  /tCNode           |  tCNode.h, tCNode.cpp                                             |
         +--------------------+-------------------------------------------------------------------+
@@ -73,27 +67,27 @@ Model File Structure
         +--------------------+-------------------------------------------------------------------+
         |                    |  tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp,|
         +--------------------+-------------------------------------------------------------------+
-        |                    |  tSnowPack.h, tSnowPack.cpp,                                      |
-        +--------------------+-------------------------------------------------------------------+
-        |                    |  tSnowIntercept.h, tSnowIntercept.cpp                             |
+        |                    |  tSnowPack.h, tSnowPack.cpp                                       |
         +--------------------+-------------------------------------------------------------------+
         |  /tInOut           |  tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,            |
         +--------------------+-------------------------------------------------------------------+
-        |                    |  tOstream.h, tOstream.h                                           |
+        |                    |  tOstream.h, tOstream.cpp                                         |
         +--------------------+-------------------------------------------------------------------+
         |  /tList            |  tList.h, tList.cpp                                               |
         +--------------------+-------------------------------------------------------------------+
         |  /tListInputData   |  tListInputData.h, tListInputData.cpp                             |
         +--------------------+-------------------------------------------------------------------+
         |  /tMesh            |  tMesh.h, tMesh.cpp, tTriangulator.h, tTriangulator.cpp,          |
+        +--------------------+-------------------------------------------------------------------+
         |                    |  heapsort.h                                                       |
         +--------------------+-------------------------------------------------------------------+
         |  /tMeshElements    |  meshElements.h, meshElements.cpp                                 |
         +--------------------+-------------------------------------------------------------------+
-        |  /tMeshList        |  tMeshList.h, tMeshList.cpp                                       |
+        |  /tMeshList        |  tMeshList.h                                                      |
         +--------------------+-------------------------------------------------------------------+
-        |  /tParallel        |  tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp, tParallel.h,     |
-        |                    |  tParallel.cpp                                                    |
+        |  /tParallel        |  tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp,                  |
+        +--------------------+-------------------------------------------------------------------+
+        |                    |  tParallel.h, tParallel.cpp                                                    |
         +--------------------+-------------------------------------------------------------------+
         |  /tPtrList         |  tPtrList.h, tPtrList.cpp                                         |
         +--------------------+-------------------------------------------------------------------+
@@ -105,18 +99,16 @@ Model File Structure
         +--------------------+-------------------------------------------------------------------+
         |                    |  tShelter.h, tShelter.cpp                                         |
         +--------------------+-------------------------------------------------------------------+
-        |  /tSimulator       |  tRunTimer.h, tRunTimer.cpp, tSimul.h, tRestart.h, tRestart.cpp,  |
+        |  /tSimulator       |  tRunTimer.h, tRunTimer.cpp,  tRestart.h, tRestart.cpp,           |
         +--------------------+-------------------------------------------------------------------+
-        |                    |  tSimul.cpp, tControl.h, tControl.cpp, tPreProcess.cpp,           |
+        |                    |  tSimul.h, tSimul.cpp, tControl.h, tControl.cpp,                  |
         +--------------------+-------------------------------------------------------------------+
-        |                    |  tPreProcess.h                                                    |
+        |                    |  tPreProcess.h, tPreProcess.cpp,                                  |
         +--------------------+-------------------------------------------------------------------+
         |  /tStorm           |  tStorm.h, tStorm.cpp                                             |
         +--------------------+-------------------------------------------------------------------+
 
-
-    The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in ``tRIBS/Headers/Classes.h``. The main function is exclusively used in tRIBS to construct the various objects, while the simulation control itself is performed by the SimulationControl class. Further details on the classes and the flow of data in the tRIBS model are presented in concise, graphical format using diagrams.
-
+    The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in ``tRIBS/Headers/Classes.h``. ``main.cpp`` is used in tRIBS to construct the various objects, while the simulation control is performed by ``tSimul.cpp``. 
 
 Model Class Diagrams
 -------------------------
@@ -161,7 +153,6 @@ Model Class Diagrams
         +------------------------+------------------------+------------------------+------------------------+
         |  tIdArray              |                        |  GenericLandData       |                        |
         +------------------------+------------------------+------------------------+------------------------+
-
 
 Computational Mesh
 ------------------------
