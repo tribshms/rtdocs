@@ -6,7 +6,7 @@ A tRIBS model application consists of a series of Voronoi polygons that discrete
 Model Parameters
 ------------------
 
-In the case of soil and vegetation cover, different sources of data can be used to assign uniform or spatially-explicit parameter values required for the governing equations. The soils parameters listed in **Table 3.1** are necessary for carrying out the vertical infiltration and lateral flow redistribution, as well computing the soil heat budget within the sloped, heterogeneous, anisotropic soil columns assumed at each Voronoi polygon. Note that the parameter requirements vary with the specified hydrologic processes selected during a model run. For example, the surface heat parameters are only required if the radiation balance is computed. The order in which the soil parameters are listed in the tabular input should correspond to the list below and the units should match. Similar units need to be used when specifying soil parameters as raster inputs. 
+In the case of soil and vegetation cover, different sources of data can be used to assign uniform or spatially-explicit parameter values required for the governing equations. The soils parameters listed in **Table 3.1** are necessary for carrying out the vertical infiltration and lateral flow redistribution, as well computing the soil heat budget within the sloped, heterogeneous, anisotropic soil columns assumed at each Voronoi polygon. Note that the parameter requirements vary with the specified hydrologic processes selected during a model run. For example, the surface heat parameters are only required if the radiation balance is computed. The order in which the soil parameters are listed in the tabular input should correspond to the list below and the units should match. Actual parameter names are not important for tabular input, whereas raster-based inputs assume slightly different naming conventions. Similar units need to be used when specifying soil parameters as raster inputs. 
 
         **Table 3.1** tRIBS Soil Parameter Description
 
@@ -38,7 +38,7 @@ In the case of soil and vegetation cover, different sources of data can be used 
         |  *Cs*              |  Soil Heat Capacity                           |  [J/m3K]           |
         +--------------------+-----------------------------------------------+--------------------+
 
-The vegetation or land-use parameters in **Table 3.2** are necessary for carrying out the rainfall interception, bare soil evaporation and evapotranspiration within each Voronoi polygon, as well as determining the radiation and energy balance within the land surface. Note that the parameter requirements vary with the specified processes selected during a model run. For example, rainfall interception can be computed using a simple canopy storage method or the more complex Rutter model. The order in which the vegetation parameters are listed in the tabular input should correspond to the list below and the units should match. Similar units need to be used when specifying vegetation parameters as raster inputs. 
+The vegetation or land-use parameters in **Table 3.2** are necessary for carrying out the rainfall interception, bare soil evaporation and evapotranspiration within each Voronoi polygon, as well as determining the radiation and energy balance within the land surface. Note that the parameter requirements vary with the specified processes selected during a model run. For example, rainfall interception can be computed using a simple canopy storage method or the more complex Rutter model. The order in which the vegetation parameters are listed in the tabular input should correspond to the list below and the units should match. Actual parameter names are not important for tabular input, whereas raster-based inputs assume slightly different naming conventions. Similar units need to be used when specifying vegetation parameters as raster inputs. 
 
         **Table 3.2** tRIBS Vegetation or Land Use Description
 
@@ -79,3 +79,37 @@ The vegetation or land-use parameters in **Table 3.2** are necessary for carryin
 
 Model Forcings
 ----------------
+
+In the case of hydrometeorological forcings, model inputs can be achieved in a number of different ways: (1) point input of hydrometeorological observations; (2) grid input of meteorological observations or numerical model results, or (3) point input of stochastic climate simulations. The model can handle the meteorological forcing in the point or grid format and has internal routines to assign this information to Voronoi polygons or TIN nodes via Thiessen resampling or nearest neighbor approaches.
+
+**Table 3.3** lists the hydrometeorological model forcings. The primary hydrometeorological parameter is rainfall at a specified temporal resolution, typically hourly. Sub-hourly forcing can be specified despite having no minute column, by simply providing the data in order using the same hour in the hour column. The requirement of the other meteorological parameters depends on the processes selected for the model run. Some of the parameter information is redundant, for example dew point temperature and relative humidity are interchangeable. When incoming solar radiation is used, sky cover is not neeed. Other information can be input directly or computed within the model, for example net radiation, using the other meteorological measurements. The naming convention for each variable is used when specifying raster-based inputs. Units should be preserved. 
+
+        **Table 3.3** tRIBS Hydrometeorological Parameter Description
+
+        .. tabularcolumns:: |c|c|c|
+
+        +--------------------+-----------------------------------------------+--------------------+
+        |  **Parameter**     |  **Description**                              |  **Unit**          |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *PA*              |  Atmospheric Pressure                         |  [mb]              |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *TD*              |  Dew Point Temperature                        |  [C]               |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *RH*              |  Relative Humidity                            |  [%]               |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *VP*              |  Vapor Pressure                               |  [mb]              |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *XC*              |  Sky Cover                                    |  [tenths] (0 to 10)|
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *US*              |  Wind Speed                                   |  [m/s]             |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *TA*              |  Air Temperature                              |  [C]               |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *TS*              |  Surface Temperature                          |  [C]               |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *NR*              |  Net Radiation                                |  [W/m2]            |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *R*               |  Rainfall                                     |  [mm/hr]           |
+        +--------------------+-----------------------------------------------+--------------------+
+        |  *IS*              |  Incoming Solar Radiation                     |  [W/m2]            |
+        +--------------------+-----------------------------------------------+--------------------+
