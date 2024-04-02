@@ -58,8 +58,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Model Parameters and Forcings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Model Parameters and Forcings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model-parameters">3.1. Model Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-forcings">3.2. Model Forcings</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Temporal and Spatial Output</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
@@ -100,6 +105,194 @@
              
   <section id="model-parameters-and-forcings">
 <h1><span class="section-number">3. </span>Model Parameters and Forcings<a class="headerlink" href="#model-parameters-and-forcings" title="Link to this heading"></a></h1>
+<p>A tRIBS model application consists of a series of Voronoi polygons that discretely represent a watershed. At each TIN node associated with a Voronoi polygon, a set of governing equations describing the hydrologic and energy processes are computed. To solve these equations for each location, spatially distributed data describing surface topography, soils, vegetation and hydrometeorology are required, which can be obtained from field measurements, remote sensing data interpretation or model output such as numerical weather models.</p>
+<section id="model-parameters">
+<h2><span class="section-number">3.1. </span>Model Parameters<a class="headerlink" href="#model-parameters" title="Link to this heading"></a></h2>
+<p>In the case of soil and vegetation cover, different sources of data can be used to assign uniform or spatially-explicit parameter values required for the governing equations. The soils parameters listed in <strong>Table 3.1</strong> are necessary for carrying out the vertical infiltration and lateral flow redistribution, as well computing the soil heat budget within the sloped, heterogeneous, anisotropic soil columns assumed at each Voronoi polygon. Note that the parameter requirements vary with the specified hydrologic processes selected during a model run. For example, the surface heat parameters are only required if the radiation balance is computed. The order in which the soil parameters are listed in the tabular input should correspond to the list below and the units should match. Actual parameter names are not important for tabular input, whereas raster-based inputs assume slightly different naming conventions. Similar units need to be used when specifying soil parameters as raster inputs.</p>
+<blockquote>
+<div><p><strong>Table 3.1</strong> tRIBS Soil Parameter Description</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Parameter</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+<td><p><strong>Unit</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Ks</em></p></td>
+<td><p>Saturated Hydraulic Conductivity</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>thetaS</em></p></td>
+<td><p>Saturated Soil Moisture</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>thetaR</em></p></td>
+<td><p>Residual Soil Moisture</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>m</em></p></td>
+<td><p>Pore Distribution Index</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>PsiB</em></p></td>
+<td><p>Air Entry Bubbling Pressure</p></td>
+<td><p>[mm] (negative)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>f</em></p></td>
+<td><p>Hydraulic Decay Parameter</p></td>
+<td><p>[1/mm]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>As</em></p></td>
+<td><p>Saturated Anisotropy Ratio</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Au</em></p></td>
+<td><p>Unsaturated Anisotropy Ratio</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>n</em></p></td>
+<td><p>Porosity</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>ks</em></p></td>
+<td><p>Volumetric Heat Conductivity</p></td>
+<td><p>[J/msK]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Cs</em></p></td>
+<td><p>Soil Heat Capacity</p></td>
+<td><p>[J/m3K]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The vegetation or land-use parameters in <strong>Table 3.2</strong> are necessary for carrying out the rainfall interception, bare soil evaporation and evapotranspiration within each Voronoi polygon, as well as determining the radiation and energy balance within the land surface. Note that the parameter requirements vary with the specified processes selected during a model run. For example, rainfall interception can be computed using a simple canopy storage method or the more complex Rutter model. The order in which the vegetation parameters are listed in the tabular input should correspond to the list below and the units should match. Actual parameter names are not important for tabular input, whereas raster-based inputs assume slightly different naming conventions. Similar units need to be used when specifying vegetation parameters as raster inputs.</p>
+<blockquote>
+<div><p><strong>Table 3.2</strong> tRIBS Vegetation or Land Use Description</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Parameter</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+<td><p><strong>Unit</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><em>a</em></p></td>
+<td><p>Canopy Storage - Storage Method</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>b1</em></p></td>
+<td><p>Interception Coefficient - Storage Method</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>P</em></p></td>
+<td><p>Free Throughfall Coefficient - Rutter Method</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>S</em></p></td>
+<td><p>Canopy Field Capacity - Rutter Method</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>K</em></p></td>
+<td><p>Drainage Coefficient - Rutter Method</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>b2</em></p></td>
+<td><p>Drainage Exponent - Rutter Method</p></td>
+<td><p>[1/mm]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Al</em></p></td>
+<td><p>Albedo</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>h</em></p></td>
+<td><p>Vegetation Height</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Kt</em></p></td>
+<td><p>Optical Transmission Coefficient</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Rs</em></p></td>
+<td><p>Stomata Resistance</p></td>
+<td><p>[s/m]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>V</em></p></td>
+<td><p>Vegetation Fraction</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>LAI</em></p></td>
+<td><p>Leaf Area Index</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>thetas</em></p></td>
+<td><p>Stress Threshold for Evaporation [0 to 1]</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>thetat</em></p></td>
+<td><p>Stress Threshold for Transpiration [0 to 1]</p></td>
+<td><p>[-]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
+<section id="model-forcings">
+<h2><span class="section-number">3.2. </span>Model Forcings<a class="headerlink" href="#model-forcings" title="Link to this heading"></a></h2>
+<p>In the case of hydrometeorological forcings, model inputs can be achieved in a number of different ways: (1) point input of hydrometeorological observations; (2) grid input of meteorological observations or numerical model results, or (3) point input of stochastic climate simulations. The model can handle the meteorological forcing in the point or grid format and has internal routines to assign this information to Voronoi polygons or TIN nodes via Thiessen resampling or nearest neighbor approaches.</p>
+<p><strong>Table 3.3</strong> lists the hydrometeorological model forcings. The primary hydrometeorological parameter is rainfall at a specified temporal resolution, typically hourly. Sub-hourly forcing can be specified despite having no minute column, by simply providing the data in order using the same hour in the hour column. The requirement of the other meteorological parameters depends on the processes selected for the model run. Some of the parameter information is redundant, for example dew point temperature and relative humidity are interchangeable. When incoming solar radiation is used, sky cover is not neeed. Other information can be input directly or computed within the model, for example net radiation, using the other meteorological measurements. The naming convention for each variable is used when specifying raster-based inputs. Units should be preserved.</p>
+<blockquote>
+<div><p><strong>Table 3.3</strong> tRIBS Hydrometeorological Parameter Description</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Parameter</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+<td><p><strong>Unit</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><em>PA</em></p></td>
+<td><p>Atmospheric Pressure</p></td>
+<td><p>[mb]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>TD</em></p></td>
+<td><p>Dew Point Temperature</p></td>
+<td><p>[C]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>RH</em></p></td>
+<td><p>Relative Humidity</p></td>
+<td><p>[%]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>VP</em></p></td>
+<td><p>Vapor Pressure</p></td>
+<td><p>[mb]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>XC</em></p></td>
+<td><p>Sky Cover</p></td>
+<td><p>[tenths] (0 to 10)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>US</em></p></td>
+<td><p>Wind Speed</p></td>
+<td><p>[m/s]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>TA</em></p></td>
+<td><p>Air Temperature</p></td>
+<td><p>[C]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>TS</em></p></td>
+<td><p>Surface Temperature</p></td>
+<td><p>[C]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>NR</em></p></td>
+<td><p>Net Radiation</p></td>
+<td><p>[W/m2]</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>R</em></p></td>
+<td><p>Rainfall</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p><em>IS</em></p></td>
+<td><p>Incoming Solar Radiation</p></td>
+<td><p>[W/m2]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
 </section>
 
 

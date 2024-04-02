@@ -58,14 +58,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Model Design</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#model-file-structure">1.1. Model File Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-class-diagrams">1.2. Model Class Diagrams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-workflow-diagrams">1.3. Model Workflow Diagrams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#computational-mesh">1.4. Computational Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computational-mesh">1.2. Computational Mesh</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Temporal and Spatial Output</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
@@ -107,14 +106,14 @@
   <section id="model-design">
 <h1><span class="section-number">1. </span>Model Design<a class="headerlink" href="#model-design" title="Link to this heading"></a></h1>
 <blockquote>
-<div><p>The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs as set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. <strong>Tables 2.1</strong> and <strong>2.2</strong> list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates. After knowing the various class names, the user should inspect the Class Diagrams to understand the variables and functions within each class. Class Diagrams summarize the class properties in a visual format without recurring to the actual code. Work Flow Diagrams present how the model procedures flow from one to another, thus allowing a new user to grasp how various objects depend upon and call other objects. Again, these diagrams are tools for quick inspection and a more detailed understanding requires interpretation of the actual code. Since the total code for tRIBS includes approximately 60,000 lines of code within the various files, these tools for quick inspection should be very useful for the new tRIBS user. Note that some new classes have been added to the tRIBS model to handle parallelization routines.</p>
+<div><p>The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs a set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. <strong>Tables 1.1</strong> and <strong>1.2</strong> list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates.</p>
 </div></blockquote>
 <section id="model-file-structure">
 <h2><span class="section-number">1.1. </span>Model File Structure<a class="headerlink" href="#model-file-structure" title="Link to this heading"></a></h2>
 <blockquote>
-<div><p>The tRIBS Model is organized into a single directory (called <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code>) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. <strong>Table 2.1</strong> demonstrates the various sub directories found within the tRIBS directory, as a user would see upon downloading the source code. Various of these sub directories deal specifically with the hydrologic processes (<code class="docutils literal notranslate"><span class="pre">tHydro</span></code>, <code class="docutils literal notranslate"><span class="pre">tFlowNet</span></code>, <code class="docutils literal notranslate"><span class="pre">tRasTin</span></code>), others create the mesh architecture (<code class="docutils literal notranslate"><span class="pre">tMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshElements</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshList</span></code>), while others are general purpose classes used for model execution (<code class="docutils literal notranslate"><span class="pre">tSimulator</span></code>, <code class="docutils literal notranslate"><span class="pre">tInOut</span></code>, <code class="docutils literal notranslate"><span class="pre">tCNode</span></code>) or within other classes (<code class="docutils literal notranslate"><span class="pre">tArray</span></code>, <code class="docutils literal notranslate"><span class="pre">tList</span></code>, <code class="docutils literal notranslate"><span class="pre">tPtrList</span></code>).  The <code class="docutils literal notranslate"><span class="pre">Headers</span></code> and <code class="docutils literal notranslate"><span class="pre">Mathutil</span></code> directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (<code class="docutils literal notranslate"><span class="pre">tGraph</span></code>, <code class="docutils literal notranslate"><span class="pre">tParallel</span></code>).</p>
+<div><p>The tRIBS Model is organized into a single directory (called <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code>) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. <strong>Table 1.1</strong> shows the sub directories as a user would see upon downloading the source code. Various of these sub directories deal with the hydrologic processes (<code class="docutils literal notranslate"><span class="pre">tHydro</span></code>, <code class="docutils literal notranslate"><span class="pre">tFlowNet</span></code>, <code class="docutils literal notranslate"><span class="pre">tRasTin</span></code>), others create the mesh architecture (<code class="docutils literal notranslate"><span class="pre">tMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshElements</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshList</span></code>), while others are general purpose classes used for model execution (<code class="docutils literal notranslate"><span class="pre">tSimulator</span></code>, <code class="docutils literal notranslate"><span class="pre">tInOut</span></code>, <code class="docutils literal notranslate"><span class="pre">tCNode</span></code>) or within other classes (<code class="docutils literal notranslate"><span class="pre">tArray</span></code>, <code class="docutils literal notranslate"><span class="pre">tList</span></code>, <code class="docutils literal notranslate"><span class="pre">tPtrList</span></code>).  The <code class="docutils literal notranslate"><span class="pre">Headers</span></code> and <code class="docutils literal notranslate"><span class="pre">Mathutil</span></code> directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (<code class="docutils literal notranslate"><span class="pre">tGraph</span></code>, <code class="docutils literal notranslate"><span class="pre">tParallel</span></code>).</p>
 <blockquote>
-<div><p><strong>Table 2.1</strong> tRIBS Model Subdirectories</p>
+<div><p><strong>Table 1.1</strong> tRIBS Model Subdirectories</p>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p>Headers</p></td>
@@ -125,7 +124,7 @@
 <td><p>tList</p></td>
 <td><p>tPtrList</p></td>
 </tr>
-<tr class="row-odd"><td><p>Utilities</p></td>
+<tr class="row-odd"><td><p>utilities</p></td>
 <td><p>tListInputData</p></td>
 <td><p>tRasTin</p></td>
 </tr>
@@ -148,250 +147,26 @@
 </tbody>
 </table>
 </div></blockquote>
-<p>In addition to the sub directories, the <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> directory contains a main function (<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) and a makefile for each particular UNIX platform (<code class="docutils literal notranslate"><span class="pre">makeSUN</span></code>, <code class="docutils literal notranslate"><span class="pre">makeLINUX</span></code>, <code class="docutils literal notranslate"><span class="pre">makeG5</span></code>, <code class="docutils literal notranslate"><span class="pre">makeIBM</span></code>, <code class="docutils literal notranslate"><span class="pre">makeSGI</span></code>, <code class="docutils literal notranslate"><span class="pre">makeALPHA</span></code>, <code class="docutils literal notranslate"><span class="pre">makeLAMPI</span></code>, <code class="docutils literal notranslate"><span class="pre">makeOPENMPI</span></code>) and makefiles for the parallel model compilation (<code class="docutils literal notranslate"><span class="pre">makeLINUX_PAR</span></code>, <code class="docutils literal notranslate"><span class="pre">makeMAC_PAR</span></code>). Running the make file properly will create a directory to store the object files for each class (<code class="docutils literal notranslate"><span class="pre">*.o</span></code>) and the platform-specific executable (called <code class="docutils literal notranslate"><span class="pre">tribs</span></code>). Each sub directory will include the C++ class files (<code class="docutils literal notranslate"><span class="pre">*.cpp</span></code> used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). The reader is referred to various textbooks on C++ programming for more information on the structure for these files (Deitel and Deitel, 2001, Lippman and Lajole, 1998) <span id="id1">[Deitel_Deitel_2001]</span>, <span id="id2">[Lippman_Lajoie_1998]</span> .  <strong>Table 2.2</strong> shows a list of the code files in the tRIBS model for further reference.</p>
+<p>In addition to the sub directories, the <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> directory contains a main function (<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) and a makefile (<code class="docutils literal notranslate"><span class="pre">CMake</span></code>). Running the makefile will create a directory to store the object files for each class (<code class="docutils literal notranslate"><span class="pre">*.o</span></code>) and the platform-specific executable (called <code class="docutils literal notranslate"><span class="pre">tribs</span></code>). Each sub directory of the source code includes the C++ class files (<code class="docutils literal notranslate"><span class="pre">*.cpp</span></code> used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). <strong>Table 1.2</strong> shows a list of the code files in the tRIBS model for further reference.</p>
 <blockquote>
-<div><p><strong>Table 2.2</strong> tRIBS Model Class and Header Files</p>
-<table class="docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p>tRIBS</p></td>
-<td><p>main.cpp, makefile</p></td>
-</tr>
-<tr class="row-even"><td><p>/Headers</p></td>
-<td><p>Classes.h, Definitions.h, Inclusions.h, globalFns.h,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>globalFns.cpp, TemplDefinitions.h, tribs_os.h,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tribs_os_ALPHA64.h, tribs_os_LINUX32.h</p></td>
-</tr>
-<tr class="row-odd"><td><p>/Mathutil</p></td>
-<td><p>geometry.h , mathutil.h, mathutil.cpp, predicates.h,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>predicates.cpp</p></td>
-</tr>
-<tr class="row-odd"><td><p>/Utilities</p></td>
-<td><p>InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tArray</p></td>
-<td><p>tArray.h, tArray.cpp, tMatrix.h, tMatrix.cpp</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tCNode</p></td>
-<td><p>tCNode.h, tCNode.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tFlowNet</p></td>
-<td><p>tFlowNet.h, tFlowNet.cpp, tFlowResults.h, tFlowResults.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tKinemat.h, tKinemat.cpp, tReservoir.cpp, tReservoir.h,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tResData.cpp, tResData.h</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tGraph</p></td>
-<td><p>tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tHydro</p></td>
-<td><p>tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tSnowPack.h, tSnowPack.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tSnowIntercept.h, tSnowIntercept.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tInOut</p></td>
-<td><p>tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tOstream.h, tOstream.h</p></td>
-</tr>
-<tr class="row-even"><td><p>/tList</p></td>
-<td><p>tList.h, tList.cpp</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tListInputData</p></td>
-<td><p>tListInputData.h, tListInputData.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tMesh</p></td>
-<td><p>tMesh.h, tMesh.cpp, tTriangulator.h, tTriangulator.cpp,
-heapsort.h</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tMeshElements</p></td>
-<td><p>meshElements.h, meshElements.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tMeshList</p></td>
-<td><p>tMeshList.h, tMeshList.cpp</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tParallel</p></td>
-<td><p>tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp, tParallel.h,
-tParallel.cpp</p></td>
-</tr>
-<tr class="row-even"><td><p>/tPtrList</p></td>
-<td><p>tPtrList.h, tPtrList.cpp</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tRasTin</p></td>
-<td><p>tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tResample.h, tResample.cpp, tVariant.h, tVariant.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tRainGauge.h, tRainGauge.cpp,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tShelter.h, tShelter.cpp</p></td>
-</tr>
-<tr class="row-odd"><td><p>/tSimulator</p></td>
-<td><p>tRunTimer.h, tRunTimer.cpp, tSimul.h, tRestart.h, tRestart.cpp,</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>tSimul.cpp, tControl.h, tControl.cpp, tPreProcess.cpp,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>tPreProcess.h</p></td>
-</tr>
-<tr class="row-even"><td><p>/tStorm</p></td>
-<td><p>tStorm.h, tStorm.cpp</p></td>
-</tr>
-</tbody>
-</table>
+<div><p><strong>Table 1.2</strong> tRIBS Model Class and Header Files</p>
 </div></blockquote>
-<p>The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in <code class="docutils literal notranslate"><span class="pre">tRIBS/Headers/Classes.h</span></code>. The main function is exclusively used in tRIBS to construct the various objects, while the simulation control itself is performed by the SimulationControl class. Further details on the classes and the flow of data in the tRIBS model are presented in concise, graphical format using diagrams.</p>
-</div></blockquote>
-</section>
-<section id="model-class-diagrams">
-<h2><span class="section-number">1.2. </span>Model Class Diagrams<a class="headerlink" href="#model-class-diagrams" title="Link to this heading"></a></h2>
-<blockquote>
-<div><p>Model class diagrams are a useful tool for summarizing the class properties, in terms of variables and functions, in a visual format without recurring to the actual code. Function and variable declarations are presented as they are implemented within the code, including knowledge of the accessibility of each object property and the use of other model objects. For the tRIBS model, the UML (Universal Modeling Language) has been used to create class diagrams through Microsoft Visio, part of the Microsoft Visual Studio development framework. The UML format is a standard diagramming language used by software engineers and architects to document model code. <strong>Table 2.3</strong> presents a list of the model classes and references to the class diagram for each.</p>
-<blockquote>
-<div><p><strong>Table 2.3</strong> tRIBS Class Diagrams</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Templated</strong>
-<strong>Classes</strong></p></th>
-<th class="head"><p><strong>Control and Storage</strong>
-<strong>Classes</strong></p></th>
-<th class="head"><p><strong>Hydrological</strong>
-<strong>Classes</strong></p></th>
-<th class="head"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>tMesh</p></td>
-<td><p>tTriangle</p></td>
-<td><p>tHydroModel</p></td>
-<td><p>SoilType</p></td>
-</tr>
-<tr class="row-odd"><td><p>tMeshList</p></td>
-<td><p>tNode</p></td>
-<td><p>tEvapoTrans</p></td>
-<td><p>GenericSoilData</p></td>
-</tr>
-<tr class="row-even"><td><p>tMeshListIter</p></td>
-<td><p>tEdge</p></td>
-<td><p>tIntercept</p></td>
-<td><p>tStorm</p></td>
-</tr>
-<tr class="row-odd"><td><p>tList</p></td>
-<td><p>tCNode</p></td>
-<td><p>tRainfall</p></td>
-<td><p>tHydroMetStoch</p></td>
-</tr>
-<tr class="row-even"><td><p>tListNode</p></td>
-<td><p>Point2D</p></td>
-<td><p>tRainGauge</p></td>
-<td><p>tSnowPack</p></td>
-</tr>
-<tr class="row-odd"><td><p>tListIter</p></td>
-<td><p>Point3D</p></td>
-<td><p>tHydroMet</p></td>
-<td><p>tSnowIntercept</p></td>
-</tr>
-<tr class="row-even"><td><p>tPtrList</p></td>
-<td><p>vcell</p></td>
-<td><p>tHydroMetConvert</p></td>
-<td><p>tShelter</p></td>
-</tr>
-<tr class="row-odd"><td><p>tPtrListNode</p></td>
-<td><p>Predicates</p></td>
-<td><p>tResample</p></td>
-<td><p>tResData</p></td>
-</tr>
-<tr class="row-even"><td><p>tPtrListIter</p></td>
-<td><p>Simulator</p></td>
-<td><p>tVariant</p></td>
-<td><p>tReservoir</p></td>
-</tr>
-<tr class="row-odd"><td><p>tArray</p></td>
-<td><p>SimulationControl</p></td>
-<td><p>tFlowNet</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>tMatrix</p></td>
-<td><p>tRunTimer</p></td>
-<td><p>tFlowResults</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>tOutput</p></td>
-<td><p>tPreprocess</p></td>
-<td><p>tKinemat</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>tCOutput</p></td>
-<td><p>tControl</p></td>
-<td><p>tWaterBalance</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>tListInputData</p></td>
-<td></td>
-<td><p>LandType</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>tIdArray</p></td>
-<td></td>
-<td><p>GenericLandData</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</div></blockquote>
-</section>
-<section id="model-workflow-diagrams">
-<h2><span class="section-number">1.3. </span>Model Workflow Diagrams<a class="headerlink" href="#model-workflow-diagrams" title="Link to this heading"></a></h2>
-<blockquote>
-<div><p>Model workflow diagrams present the steps followed during model execution in a graphical manner that facilitates understanding of the model procedures. The workflow could be documented at various levels of complexity (at the model level, at the class level and at the function level). Here, the model level is chosen as an appropriate representation and the details of the workflow within classes or functions are not shown for brevity. The tRIBS Model Workflow Diagram presents the model procedure at the coarsest level possible. For more information, the user is referred to the <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">tSimul.cpp</span></code> classes which encapsulate the model execution procedures.</p>
+<p>The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in <code class="docutils literal notranslate"><span class="pre">tRIBS/Headers/Classes.h</span></code>. <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is used in tRIBS to construct the various objects, while the simulation control is performed by <code class="docutils literal notranslate"><span class="pre">tSimul.cpp</span></code>.</p>
 </div></blockquote>
 </section>
 <section id="computational-mesh">
-<h2><span class="section-number">1.4. </span>Computational Mesh<a class="headerlink" href="#computational-mesh" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2. </span>Computational Mesh<a class="headerlink" href="#computational-mesh" title="Link to this heading"></a></h2>
 <blockquote>
-<div><p>The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture directly from the CHILD model framework (Tucker <em>et. al</em>, 1999) <span id="id3">[Tucker_1999a]</span> . As such, the model has the same capabilities as CHILD in constructing TIN meshes using the various options available in the <code class="docutils literal notranslate"><span class="pre">tMesh</span></code> class. In addition, some new input capabilities have been added that take advantage of the TIN creation capabilities of Arc/Info TIN (ESRI, 1996) <span id="id4">[ArcInfoMethod_1996]</span> . These new input capabilities e| end the mesh framework to the more complicated topography present in real world watersheds and also allow us to input “hydrologically” significant TIN terrain representations. The existing options for creating the computational mesh include:</p>
+<div><p>The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model (Tucker <em>et al.</em>, 1999) using various options in the <code class="docutils literal notranslate"><span class="pre">tMesh</span></code> class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multiple reslution mesh generators to represent real world watersheds as “hydrologically” significant TINs. The most used options for creating the computational mesh are the following:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Generating a synthetic rectangular mesh with random or hexagonal node arrangements.</p></li>
-<li><p>Read in an existing tRIBS Mesh files from a previous run.</p></li>
-<li><p>Generate a mesh from a given set of (<em>x</em> , <em>y</em> , <em>z</em>, <em>b</em>) points.</p></li>
-<li><p>Generate a mesh from a Digital Elevation Model (DEM) Arc/Info ascii grid</p></li>
-<li><p>Generate a set of points from an Arc/Info TIN ungenerate file (<code class="docutils literal notranslate"><span class="pre">*.net</span></code>)</p></li>
-<li><p>Generate a set of points from an Arc/Info TIN ungenerate files (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>, <code class="docutils literal notranslate"><span class="pre">*.lin</span></code>)</p></li>
+<li><p>Generate a set of points from an Arc/Info TIN ungenerate files (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>, <code class="docutils literal notranslate"><span class="pre">*.lin</span></code>).</p></li>
+<li><p>Generate a new mesh from a given set of coordinates (x , y , z, b) with a boundary flag (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>).</p></li>
+<li><p>Generate a new mesh using the outputs of tRIBS Meshbuilder for large domains (<code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>,``*.edges``,``*.tri``,``*.z``).</p></li>
+<li><p>Read in existing tRIBS Mesh files from a previous run (<code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>,``*.edges``,``*.tri``,``*.z``).</p></li>
 </ul>
 </div></blockquote>
-<p>Additional details concerning the generation of the TIN input for the tRIBS Model will be discussed further in this document. It is important, however, to briefly describe the concept behind the TIN computational mesh for the two distributed hydrologic and geomorphologic models (tRIBS and CHILD). A TIN within these models can be described as a set of highly interconnected triangle objects that each possesses three edge and three node objects (as defined in <code class="docutils literal notranslate"><span class="pre">MeshElements.cpp</span></code>). The TIN mesh allows for flow and transport from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation in the tRIBS model. The Voronoi polygon (or Thiessen polygon) is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge. Since a unique relation exists between a TIN Mesh and its Voronoi Polygon Network (VPN), it is convenient to use both representations interchangeably within the model to simulate hydrological processes. For more details, the reader is referred to Tucker <em>et. al</em> (2001) <span id="id5">[Tucker_2001]</span> .</p>
-</div></blockquote>
-<hr class="docutils" />
-<blockquote>
-<div><p><em>Last update:</em> 02/05/2021 C. Lizarraga</p>
+<p>A TIN within these methods is a set of highly interconnected triangle objects with three edge and three node objects (as defined in <code class="docutils literal notranslate"><span class="pre">MeshElements.cpp</span></code>). The TIN mesh allows for flow from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation. The Voronoi polygon is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge.</p>
 </div></blockquote>
 </section>
 </section>

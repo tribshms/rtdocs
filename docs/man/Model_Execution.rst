@@ -27,7 +27,8 @@ Compilation Instructions
 
     .. _documentation: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html
 
-    **CMake Instructions**
+CMake
+~~~~~
 
     1. Use `Homebrew`_ to install CMake. Alternatively, you can download CMake_ directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.
 
@@ -63,9 +64,10 @@ Compilation Instructions
 
     The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.
 
-    **Content of CMakeLists.txt**
+Content of CMakeLists
+~~~~~~~~~~~~~~~~~~~~~
 
-    In some instance you may want to modify the CMakeLists.txt, for example if you want to change the name of the executable, or change compilation parallel mode to serial, or add additional compiler flags.
+    In some instance you may want to modify the CMakeLists.txt, for example if you want to change the name of the executable, or specify the parallel or serial build, or add additional compiler flags.
 
     * Compiling the parallel or serial version of tRIBS can be achieved by setting the variable ``parallel`` to ``ON`` or ``OFF``.
 
@@ -942,62 +944,6 @@ Soil Grid Data Input
 
 
     The parameter grids required are *KS* (Surface hydraulic conductivity, *Ks*), *TS* (Soil Moisture at Saturation, *thetaS*), *TR* (Residual Soil moisture, *thetaR*), *PI* (Pore distribution index, *m*), *PB* (Air entry bubbling pressure, *PsiB*), *FD* (Decay parameter, *f*), *AR* (Saturated Anisotropy Ratio, *As*), *UA* (Unsaturated Anisotropy Ratio, *Au*), *PO* (Porosity, *n*), *VH* (Volumetric heat conductivity, *ks*), and *SH* (Soil heat capacity, *Cs*), which are described in **Figure 4.4a** and **4.4b** in terms of units.
-
-Model Output
-------------------
-
-    The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. Currently, the time series output files are processes using MATLAB scripts while the spatial maps of model variables are read directly into Arc/Info or ArcView GIS for viewing using a set of AML scripts. **Figure 4.16** summarizes the various output files created by a typical tRIBS model run.
-
-    **Figure 4.16** Summary of tRIBS Output Files
-
-            .. tabularcolumns::  |c|c|l|
-
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | Output File Type             |  Extension       | Content Summary                                                |
-            +==============================+==================+================================================================+
-            | *Mesh Node File*             |  ``*.nodes``     | Node (x,y), ID of spoke, boundary code.                        |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Edge File*             |  ``*.edges``     | ID of origin and destination node, ID of CCW edge.             |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Triangle File*         |  ``*.tri``       | ID of vertex nodes, ID of neighboring triangles opposite the   |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            |                              |                  | vertex node , ID of CCW edge originating with the vertex node. |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Node Elevation File*   | ``*.z``          |  Node elevation (meters).                                      |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Voronoi Geometry*      | ``*_voi``        |Arc/Info Generate format file with the Voronoi polygon geometry.|
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Basin Averaged File*        |  ``*.mrf``       | Time series of outlet hydrograph (m3/s) and                    |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            |                              |                  | mean basin rainfall (mm/hr).                                   |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            |*Hydrograph Runoff Types File*|  ``*.rft``       | Time series of outlet hydrograph by runoff type (m3/s).        |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Node Dynamic Output File*   |  ``*.pixel``     |  Time series of dynamic variables for a specific node.         |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            |*Mesh Dynamic Output File*    |``*timestamp_00d``|  Dynamic variable output for all mesh nodes at specific time.  |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            |*Mesh Integrated Output File* |``*timestamp_00i``|  Time-integrated variable output for all mesh nodes.           |
-            +------------------------------+------------------+----------------------------------------------------------------+
-
-
-
-    The location of the output files is specified in the tRIBS Model Input File by using the keywords *OUTFILENAME* and *OUTHYDROFILENAME*. Typically, two separate directories are created within a basin output directory, one for the output related to the mesh (``voronoi``) and one with the output related to the hydrograph files (``hyd``). The keywords describe the pathname to those directories relative to the location of the executable and the basename to be given to all the files. The two directories facilitates the distinction between spatial and temporal output from the tRIBS Model. An important note to make is that the ``*.mrf``, ``*.rft`` and ``*.dat`` files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each *OPINTRVL* time step, the model will produce output of the ``*.mrf`` type, while the ``*.rft`` file is produced only after completion of the entire run. The spatial output (``*timestamp_00d``) are determined by the time step specified in the *SPOPINTRVL* keyword. Time-integrated spatial output (``*timestamp_00i``) is produced only at the end of the simulation. The model also produces various files with a ``*.pixel`` extension followed by a node ID number at the end of the run. The ``*.pixel#`` files contain the dynamic variable output for a single node for all model times. The number of ``*.pixel#`` files produced is specified through a Node Output List (``*.nol``) File described in *Figure 4.17*.
-
-
-    **Figure 4.17** Node Output List File Structure
-
-            .. tabularcolumns:: |c|c|c|
-
-            +-----------+-----------+-----------+
-            | *#Nodes*  |                       |
-            +-----------+-----------+-----------+
-            | *NodeID1* | *NodeID2* | *NodeID3* |
-            +-----------+-----------+-----------+
-
-    A similar structure and file is used for the keyword *HYDRONODELIST* and *OUTLETNODELIST*. Using this file, allows the user to obtain the runtime hydrologic information in the unsaturated and saturated model for each time step as output to the screen, a useful tool for debugging. No filename suppresses the debugging information. A more detailed description of the output format for each file type is not included here for brevity. The user is referred to the CHILD User Manual (Tucker, 1999) for information on the Mesh Output Files and to the tRIBS Sample Application for more details concerning the output files particular to tRIBS. In addition, more information can be found in the tRIBS Temporal and Spatial Model Output section within the tRIBS website.
-
-
 ---------------------------------------------------------
 
     *Last Update:* 02/13/2021  C. Lizarraga
