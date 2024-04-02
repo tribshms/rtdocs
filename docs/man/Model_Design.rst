@@ -166,14 +166,12 @@ Model Class Diagrams
 Computational Mesh
 ------------------------
 
-    The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model framework (Tucker *et. al*, 1999) using various options in the ``tMesh`` class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multireslution mesh generators to represent real world watersheds as "hydrologically" significant TINs. The existing options for creating the computational mesh include:
+    The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model (Tucker *et. al*, 1999) using various options in the ``tMesh`` class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multiple reslution mesh generators to represent real world watersheds as "hydrologically" significant TINs. The most used options for creating the computational mesh are the following:
 
-      - Generating a synthetic rectangular mesh with random or hexagonal node arrangements.
-      - Read in an existing tRIBS Mesh files from a previous run.
-      - Generate a mesh from a given set of (*x* , *y* , *z*, *b*) points.
-      - Generate a mesh from a Digital Elevation Model (DEM) Arc/Info ascii grid
-      - Generate a set of points from an Arc/Info TIN ungenerate file (``*.net``)
-      - Generate a set of points from an Arc/Info TIN ungenerate files (``*.pnt``, ``*.lin``)
+      - Generate a set of points from an Arc/Info TIN ungenerate files (``*.pnt``, ``*.lin``). 
+      - Generate a new mesh from a given set of coordinates (*x* , *y* , *z*, *b*) with a boundary flag (``*.points``).
+      - Generate a new mesh using the outputs of tRIBS Meshbuilder for large domains (``*.nodes``,``*.edges``,``*.tri``,``*.z``).
+      - Read in existing tRIBS Mesh files from a previous run (``*.nodes``,``*.edges``,``*.tri``,``*.z``).
 
-    A TIN within these methods is a set of highly interconnected triangle objects with three edge and three node objects (as defined in ``MeshElements.cpp``). The TIN mesh allows for flow from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation. The Voronoi polygon (or Thiessen polygon) is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge. Since a unique relation exists between a TIN Mesh and its Voronoi Polygon Network (VPN), it is convenient to use both representations interchangeably.
+    A TIN within these methods is a set of highly interconnected triangle objects with three edge and three node objects (as defined in ``MeshElements.cpp``). The TIN mesh allows for flow from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation. The Voronoi polygon is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge.
 
