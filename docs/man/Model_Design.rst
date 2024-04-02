@@ -113,7 +113,7 @@ Model File Structure
 Computational Mesh
 ------------------------
 
-    The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model (Tucker *et. al*, 1999) using various options in the ``tMesh`` class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multiple reslution mesh generators to represent real world watersheds as "hydrologically" significant TINs. The most used options for creating the computational mesh are the following:
+    The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model (Tucker *et al.*, 1999) using various options in the ``tMesh`` class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multiple reslution mesh generators to represent real world watersheds as "hydrologically" significant TINs. The most used options for creating the computational mesh are the following:
 
       - Generate a set of points from an Arc/Info TIN ungenerate files (``*.pnt``, ``*.lin``). 
       - Generate a new mesh from a given set of coordinates (*x* , *y* , *z*, *b*) with a boundary flag (``*.points``).
