@@ -1,14 +1,14 @@
 Model Design
 =================
 
-    The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs a set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. **Tables 2.1** and **2.2** list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates. 
+    The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs a set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. **Tables 1.1** and **1.2** list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates. 
 
 Model File Structure
 --------------------------
 
-    The tRIBS Model is organized into a single directory (called ``tRIBS``) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. **Table 2.1** shows the sub directories as a user would see upon downloading the source code. Various of these sub directories deal with the hydrologic processes (``tHydro``, ``tFlowNet``, ``tRasTin``), others create the mesh architecture (``tMesh``, ``tMeshElements``, ``tMeshList``), while others are general purpose classes used for model execution (``tSimulator``, ``tInOut``, ``tCNode``) or within other classes (``tArray``, ``tList``, ``tPtrList``).  The ``Headers`` and ``Mathutil`` directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (``tGraph``, ``tParallel``).
+    The tRIBS Model is organized into a single directory (called ``tRIBS``) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. **Table 1.1** shows the sub directories as a user would see upon downloading the source code. Various of these sub directories deal with the hydrologic processes (``tHydro``, ``tFlowNet``, ``tRasTin``), others create the mesh architecture (``tMesh``, ``tMeshElements``, ``tMeshList``), while others are general purpose classes used for model execution (``tSimulator``, ``tInOut``, ``tCNode``) or within other classes (``tArray``, ``tList``, ``tPtrList``).  The ``Headers`` and ``Mathutil`` directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (``tGraph``, ``tParallel``).
 
-        **Table 2.1** tRIBS Model Subdirectories
+        **Table 1.1** tRIBS Model Subdirectories
 
         .. tabularcolumns:: |c|c|c|
 
@@ -28,9 +28,9 @@ Model File Structure
         |  tParallel         |                    |                    |
         +--------------------+--------------------+--------------------+
 
-    In addition to the sub directories, the ``tRIBS`` directory contains a main function (``main.cpp``) and a makefile (``CMake``). Running the makefile will create a directory to store the object files for each class (``*.o``) and the platform-specific executable (called ``tribs``). Each sub directory of the source code includes the C++ class files (``*.cpp`` used as convention) and the C++ Header Files (``*.h``). **Table 2.2** shows a list of the code files in the tRIBS model for further reference.
+    In addition to the sub directories, the ``tRIBS`` directory contains a main function (``main.cpp``) and a makefile (``CMake``). Running the makefile will create a directory to store the object files for each class (``*.o``) and the platform-specific executable (called ``tribs``). Each sub directory of the source code includes the C++ class files (``*.cpp`` used as convention) and the C++ Header Files (``*.h``). **Table 1.2** shows a list of the code files in the tRIBS model for further reference.
 
-        **Table 2.2** tRIBS Model Class and Header Files
+        **Table 1.2** tRIBS Model Class and Header Files
 
         .. tabularcolumns:: |c|l|
 
