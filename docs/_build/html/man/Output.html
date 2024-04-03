@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Temporal and Spatial Output &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+  <title>5. Model Outputs &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
@@ -60,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Temporal and Spatial Output</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Model Outputs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#time-series">5.1. Time Series</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basin-outlet-discharge-time-series">5.1.1. Basin Outlet Discharge Time Series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#hydrologic-time-series-at-selected-tin-nodes">5.1.2. Hydrologic Time Series at Selected TIN nodes</a></li>
@@ -104,7 +104,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">5. </span>Temporal and Spatial Output</li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Model Outputs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/man/Output.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,54 +114,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="temporal-and-spatial-output">
-<h1><span class="section-number">5. </span>Temporal and Spatial Output<a class="headerlink" href="#temporal-and-spatial-output" title="Link to this heading"></a></h1>
+  <section id="model-outputs">
+<h1><span class="section-number">5. </span>Model Outputs<a class="headerlink" href="#model-outputs" title="Link to this heading"></a></h1>
+<p>The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation. <strong>Table 5.1</strong>, <strong>Table 5.2</strong>, and <strong>Table 5.3</strong> summarize: (1) mesh output files, (2) time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.</p>
 <blockquote>
-<div><p>The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. <strong>Table 1</strong>, <strong>Table 2</strong>, and <strong>Table 3</strong> summarize (1) the associated domain/mesh output files, (2) the time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.</p>
-<p><strong>Table 1</strong> Summary of tRIBS Mesh Output Files</p>
+<div><p><strong>Table 5.1</strong> tRIBS Mesh Output Files</p>
 <blockquote>
-<div><table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Model Mesh Files</p></th>
-<th class="head"><p>Extension</p></th>
-<th class="head"><p>Content Summary</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><em>Mesh Node File</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*.nodes</span></code></p></td>
-<td><p>Node (x,y), ID of spoke, boundary code.</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mesh Edge File</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*.edges</span></code></p></td>
-<td><p>ID of origin and destination node, ID of CCW edge.</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Mesh Triangle File</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*.tri</span></code></p></td>
-<td><p>ID of vertex nodes, ID of neighboring triangles opposite the</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>vertex node , ID of CCW edge originating with the vertex node.</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Mesh Node Elevation File</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*.z</span></code></p></td>
-<td><p>Node elevation (meters).</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mesh Voronoi Geometry</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*_voi</span></code></p></td>
-<td><p>File containing individual Voronoi polygon geometry.</p></td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-<p><strong>Table 2</strong> Summary of tRIBS Model Time Series Files</p>
+<div></div></blockquote>
+<p><strong>Table 5.2</strong> tRIBS Model Time Series Files</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Time Series</p></th>
 <th class="head"><p>Extension</p></th>
-<th class="head"><p>Content Summary</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -192,27 +158,9 @@
 </tbody>
 </table>
 </div></blockquote>
-<p><strong>Table 3</strong> Summary of tRIBS Model Spatial Output Files</p>
+<p><strong>Table 5.3</strong> tRIBS Model Spatial Output Files</p>
 <blockquote>
-<div><table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Model Spatial Output Files</p></th>
-<th class="head"><p>Extension</p></th>
-<th class="head"><p>Content Summary</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><em>Mesh Dynamic Output File</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code></p></td>
-<td><p>Dynamic variable output for all mesh nodes at specific time.</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mesh Integrated Output File</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code></p></td>
-<td><p>Time-integrated variable output for all mesh nodes.</p></td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
+<div></div></blockquote>
 <p>The location of the output files is specified in the tRIBS Model Input File by using the keywords <em>OUTFILENAME</em> and <em>OUTHYDROFILENAME</em>. An important note to make is that the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code>, <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> and <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each <em>OPINTRVL</em> time step, the model will produce output of the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code> type, while the <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> file is produced only after completion of the entire run. The spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code>) are determined by the time step specified in the <em>SPOPINTRVL</em> keyword. Time-integrated spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code>) is produced only at the end of the simulation. The model also produces various files with a <code class="docutils literal notranslate"><span class="pre">*.pixel</span></code> extension followed by a node ID number at the end of the run. The <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files contain the dynamic variable output for a single node for all model times. The number of <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files produced is specified through a Node Output List (<code class="docutils literal notranslate"><span class="pre">*.nol</span></code>) File described below.</p>
 <p><strong>Table 5</strong> Node Output List File Structure</p>
 <blockquote>
