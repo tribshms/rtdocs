@@ -1,5 +1,5 @@
-Temporal and Spatial Output
-==============================
+Model Outputs
+==================================
 
     The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. **Table 1**, **Table 2**, and **Table 3** summarize (1) the associated domain/mesh output files, (2) the time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.
 
