@@ -74,6 +74,7 @@ Computational Processes:
 
     man/Docker
     man/BenchMarks
+    man/Templates
 
 .. toctree::
     :maxdepth:  2
