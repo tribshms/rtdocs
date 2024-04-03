@@ -1,14 +1,14 @@
 Model Outputs
 ==================================
 
-    The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation, just to name a few. **Table 1**, **Table 2**, and **Table 3** summarize (1) the associated domain/mesh output files, (2) the time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.
+The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation. **Table 5.1**, **Table 5.2**, and **Table 5.3** summarize: (1) mesh output files, (2) time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.
 
-    **Table 1** Summary of tRIBS Mesh Output Files
+    **Table 5.1** tRIBS Mesh Output Files
 
             .. tabularcolumns::  |c|c|l|
 
             +------------------------------+------------------+----------------------------------------------------------------+
-            | Model Mesh Files             |  Extension       | Content Summary                                                |
+            | Model Mesh Files             |  Extension       |  Description                                                   |
             +==============================+==================+================================================================+
             | *Mesh Node File*             |  ``*.nodes``     |  Node (x,y), ID of spoke, boundary code.                       |
             +------------------------------+------------------+----------------------------------------------------------------+
@@ -16,19 +16,19 @@ Model Outputs
             +------------------------------+------------------+----------------------------------------------------------------+
             | *Mesh Triangle File*         |  ``*.tri``       |  ID of vertex nodes, ID of neighboring triangles opposite the  |
             +------------------------------+------------------+----------------------------------------------------------------+
-            |                              |                  | vertex node , ID of CCW edge originating with the vertex node. |
+            |                              |                  | vertex node, ID of CCW edge originating with the vertex node.  |
             +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Node Elevation File*   | ``*.z``          |   Node elevation (meters).                                     |
+            | *Mesh Node Elevation File*   | ``*.z``          |  Node elevation (meters).                                     |
             +------------------------------+------------------+----------------------------------------------------------------+
             | *Mesh Voronoi Geometry*      | ``*_voi``        |  File containing individual Voronoi polygon geometry.          |
             +------------------------------+------------------+----------------------------------------------------------------+
 
-    **Table 2** Summary of tRIBS Model Time Series Files
+    **Table 5.2** tRIBS Model Time Series Files
 
             .. tabularcolumns::  |c|c|l|
 
             +------------------------------+------------------+----------------------------------------------------------------+
-            | Time Series                  |  Extension       | Content Summary                                                |
+            | Time Series                  |  Extension       | Description                                                    |
             +==============================+==================+================================================================+
             | *Discharge Time Series*.     |``_Outlet.qout``  | Time series of outlet hydrograph (m3/s)                        |
             |                              |  ``or *qout``.   |                                                                |
@@ -42,16 +42,16 @@ Model Outputs
             | *Node Dynamic Output File*   |  ``*.pixel``     |  Time series of dynamic variables for a specific node.         |
             +------------------------------+------------------+----------------------------------------------------------------+
 
-    **Table 3** Summary of tRIBS Model Spatial Output Files
+    **Table 5.3** tRIBS Model Spatial Output Files
 
             .. tabularcolumns::  |c|c|l|
 
             +------------------------------+------------------+----------------------------------------------------------------+
-            |Model Spatial Output Files    |  Extension       | Content Summary                                                |
+            |Model Spatial Output Files    |  Extension       |  Description                                                  |
             +==============================+==================+================================================================+
-            |*Mesh Dynamic Output File*    |``*timestamp_00d``|   Dynamic variable output for all mesh nodes at specific time. |
+            |*Mesh Dynamic Output File*    |``*timestamp_00d``|  Dynamic variable output for all mesh nodes at specific time. |
             +------------------------------+------------------+----------------------------------------------------------------+
-            |*Mesh Integrated Output File* |``*timestamp_00i``|   Time-integrated variable output for all mesh nodes.          |
+            |*Mesh Integrated Output File* |``*timestamp_00i``|  Time-integrated variable output for all mesh nodes.          |
             +------------------------------+------------------+----------------------------------------------------------------+
 
 
@@ -664,6 +664,4 @@ Time-integrated Spatial Output Table
         +-------+----------------------------------------+-------------+
         | 55    | Av. Canopy Leaf Area Index, AvLeafAI   | [ ]         |
         +-------+----------------------------------------+-------------+
-
-
 
