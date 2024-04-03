@@ -32,7 +32,7 @@ Model File Structure
 
         **Table 1.2** tRIBS Model Class and Header Files
 
-        .. tabularcolumns:: |c|l|
+        .. tabularcolumns:: |c|c|
 
         +--------------------+-------------------------------------------------------------------+
         |  tRIBS             |  main.cpp, makefile                                               |
