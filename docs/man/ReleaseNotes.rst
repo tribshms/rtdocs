@@ -1,9 +1,9 @@
 Release Notes
 =====================
 
-tRIBS Distributed Hydrologic Model, Version 5.2.0, represents a culmination of efforts and significant improvements from the initial release [#]_ and later versions [#]_, [#]_. This latest version includes new physical processes related to level-pool reservoir routing [#]_ and channel transmission losses [#]_. In addition, the latest updates (Version 5.0 and onward) entail a CMake build system ,  major code improvements, including a refactored snow module, fixed memory leaks in parallel mode, and updates to C++ 17 standards.
+The tRIBS Distributed Hydrologic Modeling System, Version 5.2.0, represents a culmination of efforts and significant improvements from the initial release [#]_ and later versions [#]_, [#]_. This latest version includes new physical processes related to level-pool reservoir routing [#]_ and channel transmission losses [#]_. In addition, the latest updates (Version 5.0 and onward) entail a CMake build system ,  major code improvements, including a refactored snow module, fixed memory leaks in parallel mode, and updates to C++ 17 standards.
 
-.. [#] Ivanov, V. Y., Vivoni, E. R., Bras, R. L. & Entekhabi, D. Catchment hydrologic response with a fully distributed triangulated irregular network model. Water Resources Research 40, (2004).
+.. [#] Ivanov, V. Y., Vivoni, E. R., Bras, R. L. & Entekhabi, D. Catchment hydrologic response with a fully distributed triangulated irregular network model. *Water Resources Research*. 40, (2004).
 
 .. [#] Vivoni, E. R. et al. Real-world hydrologic assessment of a fully-distributed hydrological model in a parallel computing environment. Journal of Hydrology 409, 483–496 (2011)
 
