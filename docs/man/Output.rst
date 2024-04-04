@@ -10,17 +10,17 @@ The tRIBS Model produces a number of output files that represent the time series
             +------------------------------+------------------+----------------------------------------------------------------+
             | Model Mesh Files             |  Extension       |  Description                                                   |
             +==============================+==================+================================================================+
-            | *Mesh Node File*             |  ``*.nodes``     |  Node (x,y), ID of spoke, boundary code.                       |
+            |*Mesh Node File*              |  ``*.nodes``     |  Node (x,y), ID of spoke, boundary code.                       |
             +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Edge File*             |  ``*.edges``     |  ID of origin and destination node, ID of CCW edge.            |
+            |*Mesh Edge File*              |  ``*.edges``     |  ID of origin and destination node, ID of CCW edge.            |
             +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Triangle File*         |  ``*.tri``       |  ID of vertex nodes, ID of neighboring triangles opposite the  |
+            |*Mesh Triangle File*          |  ``*.tri``       |  ID of vertex nodes, ID of neighboring triangles opposite the  |
             +------------------------------+------------------+----------------------------------------------------------------+
             |                              |                  | vertex node, ID of CCW edge originating with the vertex node.  |
             +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Node Elevation File*   | ``*.z``          |  Node elevation (meters).                                     |
+            |*Mesh Node Elevation File*    | ``*.z``          |  Node elevation (meters).                                      |
             +------------------------------+------------------+----------------------------------------------------------------+
-            | *Mesh Voronoi Geometry*      | ``*_voi``        |  File containing individual Voronoi polygon geometry.          |
+            |*Mesh Voronoi Geometry*       | ``*_voi``        |  File containing individual Voronoi polygon geometry.          |
             +------------------------------+------------------+----------------------------------------------------------------+
 
     **Table 5.2** tRIBS Model Time Series Files
@@ -30,16 +30,14 @@ The tRIBS Model produces a number of output files that represent the time series
             +------------------------------+------------------+----------------------------------------------------------------+
             | Time Series                  |  Extension       | Description                                                    |
             +==============================+==================+================================================================+
-            | *Discharge Time Series*.     |``_Outlet.qout``  | Time series of outlet hydrograph (m3/s)                        |
+            |*Discharge Time Series*.      |``_Outlet.qout``  | Time series of outlet hydrograph (m³/s).                       |
             |                              |  ``or *qout``.   |                                                                |
             +------------------------------+------------------+----------------------------------------------------------------+
-            | *Basin Averaged File*        |  ``*.mrf``       | Time series of outlet hydrograph (m3/s) and                    |
+            |*Basin Averaged File*         |  ``*.mrf``       | Time series of basin-averaged model variables.                 |
             +------------------------------+------------------+----------------------------------------------------------------+
-            |                              |                  | mean basin rainfall (mm/hr).                                   |
+            |*Hydrograph Runoff Types File*|  ``*.rft``       | Time series of outlet hydrograph by runoff type (m³/s).        |
             +------------------------------+------------------+----------------------------------------------------------------+
-            |*Hydrograph Runoff Types File*|  ``*.rft``       | Time series of outlet hydrograph by runoff type (m3/s).        |
-            +------------------------------+------------------+----------------------------------------------------------------+
-            | *Node Dynamic Output File*   |  ``*.pixel``     |  Time series of dynamic variables for a specific node.         |
+            |*Node Dynamic Output File*    |  ``*.pixel``     | Time series of dynamic variables for a specific node.          |
             +------------------------------+------------------+----------------------------------------------------------------+
 
     **Table 5.3** tRIBS Model Spatial Output Files
@@ -47,19 +45,16 @@ The tRIBS Model produces a number of output files that represent the time series
             .. tabularcolumns::  |c|c|l|
 
             +------------------------------+------------------+----------------------------------------------------------------+
-            |Model Spatial Output Files    |  Extension       |  Description                                                  |
+            |Model Spatial Output Files    |  Extension       |  Description                                                   |
             +==============================+==================+================================================================+
-            |*Mesh Dynamic Output File*    |``*timestamp_00d``|  Dynamic variable output for all mesh nodes at specific time. |
+            |*Mesh Dynamic Output File*    |``*timestamp_00d``|  Dynamic variable output for all mesh nodes at specific time.  |
             +------------------------------+------------------+----------------------------------------------------------------+
-            |*Mesh Integrated Output File* |``*timestamp_00i``|  Time-integrated variable output for all mesh nodes.          |
+            |*Mesh Integrated Output File* |``*timestamp_00i``|  Time-integrated variable output for all mesh nodes.           |
             +------------------------------+------------------+----------------------------------------------------------------+
-
-
 
     The location of the output files is specified in the tRIBS Model Input File by using the keywords *OUTFILENAME* and *OUTHYDROFILENAME*. An important note to make is that the ``*.mrf``, ``*.rft`` and ``*.dat`` files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each *OPINTRVL* time step, the model will produce output of the ``*.mrf`` type, while the ``*.rft`` file is produced only after completion of the entire run. The spatial output (``*timestamp_00d``) are determined by the time step specified in the *SPOPINTRVL* keyword. Time-integrated spatial output (``*timestamp_00i``) is produced only at the end of the simulation. The model also produces various files with a ``*.pixel`` extension followed by a node ID number at the end of the run. The ``*.pixel#`` files contain the dynamic variable output for a single node for all model times. The number of ``*.pixel#`` files produced is specified through a Node Output List (``*.nol``) File described below.
 
-
-    **Table 5** Node Output List File Structure
+    **Table 5.4** Node Output List File Structure
 
             .. tabularcolumns:: |c|c|c|
 
@@ -71,14 +66,13 @@ The tRIBS Model produces a number of output files that represent the time series
 
     A similar structure and file is used for the keyword *HYDRONODELIST* and *OUTLETNODELIST*. Using this file, allows the user to obtain the runtime hydrologic information in the unsaturated and saturated model for each time step as output to the screen, a useful tool for debugging. No filename suppresses the debugging information.
 
-
 Time Series
 -----------
 
 Basin Outlet Discharge Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 6** Content of *_Outlet.qout file or *qout file if Voronoi IDs are provided via OUTLETNODELIST
+  **Table 5.5** Content of *_Outlet.qout file or *qout file if Voronoi IDs are provided via OUTLETNODELIST
 
         .. tabularcolumns:: |c|c|c|
 
@@ -96,7 +90,7 @@ Basin Outlet Discharge Time Series
 Hydrologic Time Series at Selected TIN nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 7** Content of *.pixel files
+  **Table 5.6** Content of *.pixel files
 
         .. tabularcolumns:: |c|c|c|
 
@@ -278,7 +272,7 @@ Hydrologic Time Series at Selected TIN nodes
 Basin-averaged Hydrological Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 8** Content of *.mrf file
+  **Table 5.7** Content of *.mrf file
 
         .. tabularcolumns:: |c|c|c|
 
@@ -360,7 +354,7 @@ Basin-averaged Hydrological Time Series
 Basin-averaged Hydrological Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 9** Content for *.mrf files
+  **Table 5.8** Content for *.mrf files
 
         .. tabularcolumns:: |c|c|c|
 
@@ -384,7 +378,7 @@ Spatial Output
 Dynamic Spatial Output Tables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 10** Content of *timestamp_00d files
+  **Table 5.9** Content of *timestamp_00d files
 
         .. tabularcolumns:: |c|c|c|
 
@@ -520,7 +514,7 @@ Dynamic Spatial Output Tables
 Time-integrated Spatial Output Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 11** Content of *timestamp_00i file
+  **Table 5.10** Content of *timestamp_00i file
 
         .. tabularcolumns:: |c|c|c|
 
