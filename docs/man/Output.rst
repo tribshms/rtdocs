@@ -206,7 +206,7 @@ Hydrologic Time Series at Selected TIN nodes
         +-------+--------------------------------------------+--------+
         | 51    | Sensible Heat Flux from Snow Cover, snSHF  | [kJ/m²]|
         +-------+--------------------------------------------+--------+
-        | 52.   | Ground Heat Flux from Snow Cover, snGHF    | [kJ/m²]|
+        | 52    | Ground Heat Flux from Snow Cover, snGHF    | [kJ/m²]|
         +-------+--------------------------------------------+--------+
         | 53    | Precip Heat Flux from Snow Cover, snPHF    | [kJ/m²]|
         +-------+--------------------------------------------+--------+
