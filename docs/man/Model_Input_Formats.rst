@@ -1,7 +1,7 @@
 Model Input Formats
 ========================
 
-The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data supplied to the model can be time-invariant (soils and vegetation) or time-varying (rainfall and weather) grids. TIN data are inputted using a variety of methods depending on the application. The point data represent the values of time-varying parameters, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used in the model for inputting parameter values associated with soil and vegetation maps or the hydrometeorological data.
+The tRIBS model is designed to accept input from various types of data formats: grid data, TIN data, point data and text tables. The grid data can be time-invariant (soils and vegetation) or time-varying (rainfall and weather) grids. TIN data are inputted using a variety of methods depending on the application. The point data represent the values of time-varying forcings, such as meteorological data, that are available at specified points within the watershed. Resampling routines are available for geographically overlaying the grid or point data onto the Voronoi polygon mesh. Finally, text tables are used in the model for inputting parameter values associated with soil and vegetation maps or time series of hydrometeorological data.
 
 Grid Input
 ---------------
