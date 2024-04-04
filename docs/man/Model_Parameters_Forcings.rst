@@ -210,9 +210,9 @@ Model Forcings
 
 In the case of hydrometeorological forcings, model inputs can be achieved in a number of different ways: (1) point input of hydrometeorological observations; (2) grid input of meteorological observations or numerical model results, or (3) point input of stochastic climate simulations. The model can handle the meteorological forcing in the point or grid format and has internal routines to assign this information to Voronoi polygons or TIN nodes via Thiessen resampling or nearest neighbor approaches.
 
-**Table 3.6** lists the hydrometeorological model forcings. The primary hydrometeorological parameter is rainfall at a specified temporal resolution, typically hourly. Sub-hourly forcing can be specified despite having no minute column, by simply providing the data in order using the same hour in the hour column. The requirement of the other meteorological parameters depends on the processes selected for the model run. Some of the parameter information is redundant, for example dew point temperature and relative humidity are interchangeable. When incoming solar radiation is used, sky cover is not neeed. Other information can be input directly or computed within the model, for example net radiation, using the other meteorological measurements. The naming convention for each variable is used when specifying raster-based inputs. Units should be preserved. 
+**Table 3.8** lists the hydrometeorological model forcings. The primary hydrometeorological parameter is rainfall at a specified temporal resolution, typically hourly. Sub-hourly forcing can be specified despite having no minute column, by simply providing the data in order using the same hour in the hour column. The requirement of the other meteorological parameters depends on the processes selected for the model run. Some of the parameter information is redundant, for example dew point temperature and relative humidity are interchangeable. When incoming solar radiation is used, sky cover is not neeed. Other information can be input directly or computed within the model, for example net radiation, using the other meteorological measurements. The naming convention for each variable is used when specifying raster-based inputs. Units should be preserved. 
 
-        **Table 3.6** tRIBS Hydrometeorological Parameter Description
+        **Table 3.8** tRIBS Hydrometeorological Parameter Description
 
         .. tabularcolumns:: |c|c|c|
 
@@ -244,3 +244,102 @@ In the case of hydrometeorological forcings, model inputs can be achieved in a n
 
 Input Formats
 ~~~~~~~~~~~~~~
+
+Meteorological input into tRIBS can from point data or grid data, depending on the data sources available. The two data inputs are treated differently in the model. **Table 3.9** shows the two forms of meteorological data input and storage.
+
+            **Table 3.9** Meteorological Data Input Methods
+
+            .. tabularcolumns:: |c|c|c|
+
+            +--------------+--------------------------------------+-----------------------------------------------+
+            |Characteristic|  Point Data                          |  Grid Data                                    |
+            +==============+======================================+===============================================+
+            |  *Input*     |*Station Descriptor File* (``*.sdf``) |*ASCII grids* (``*.txt``, ``*.lan``, ``*.soi``)|
+            +--------------+--------------------------------------+-----------------------------------------------+
+            |              |*Meteorological Data File* (``*.mdf``)|                                               |
+            +--------------+--------------------------------------+-----------------------------------------------+
+            | *Storage*    | *Assignment to storage objects*      | *Direct assignment to* ``tCNode``             |
+            +--------------+--------------------------------------+-----------------------------------------------+
+            |*Manipulation*|*Thiessen point resampling*           | *Grid resampling*                             |
+            +--------------+--------------------------------------+-----------------------------------------------+
+            | *Examples*   | ``tHydroMet``, ``tRainGauge``        | ``tRainfall``, ``tVariant``, ``tInvariant``   |
+            +--------------+--------------------------------------+-----------------------------------------------+
+
+The format of the Station Descriptor Files (``*.sdf``) and the Meteorological Data Files (``*.mdf``) is modified slightly depending on whether these contain meteorological or rain gauge data. 
+
+        **Table 3.10.** Weather Station SDF Structure
+
+        .. tabularcolumns::     |c|c|c|c|c|c|c|c|c|c|
+
+        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+-------+
+        |*#Stations*|*#Params* |        |        |         |          |         |              |                |       |
+        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+-------+
+        |*StationID*|*FilePath*|*AbsLat*|*RefLat*|*AbsLong*| *RefLong*| *GMT*   |*RecordLength*|*#WeatherParams*|*Other*|
+        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+-------+
+
+        **Table 3.11.** Rain Gauge SDF Structure
+
+        .. tabularcolumns::   |c|c|c|c|c|c|c|
+
+        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+        | *#Stations* | *#Params*  |          |           |                |               |             |
+        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+        | *StationID* | *FilePath* | *RefLat* | *RefLong* | *RecordLength* | *#RainParams* | *Elevation* |
+        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+
+Note the following: *#Stations* is the number of total stations to be read, *#Params* is the number of parameters for each of the subsequent lines, *StationID* must be unique values for each station (starting at 0), the *FilePath* refers to the MDF file for that particular station and must be relative to the location of the executable, the *AbsLong* and *AbsLat* must be in decimal degree (lat/long), the RefLong and RefLat must be in the same coordinate system as the input grids and watershed TIN, Greenwich Mean Time (*GMT*) is difference in hours between the location and the Greenwich Meridian (negative number in Western Hemisphere), the *RecordLength* is the length of the time series in the MDF file, the *#WeatherParams* and *#RainParams* are the number of parameters in the MDF file including the date and time, and *Other* is used for inputting additional station information, such as station elevation, if desired. These keywords are not included in the file, just the parameter value. 
+
+           **Table 3.12** Weather Station MDF Structure
+
+            .. tabularcolumns::  |c|c|c|c|c|c|c|c|c|c|c|
+
+            +-----+-----+-----+-----+------+------------+------+------+------+------+------+
+            | *Y* | *M* | *D* | *H* | *PA* | *TD/RH/VP* | *XC* | *US* | *TA* | *TS* | *NR* |
+            +-----+-----+-----+-----+------+------------+------+------+------+------+------+
+            | ... | ... | ... | ... | ...  | ...        | ...  | ...  | ...  | ...  | ...  |
+            +-----+-----+-----+-----+------+------------+------+------+------+------+------+
+
+           **Table 3.13** Rain Gauge MDF Structure
+
+            .. tabularcolumns::  |c|c|c|c|c|
+
+            +-----+-----+-----+-----+--------+
+            | *Y* | *M* | *D* | *H* | *R*    |
+            +-----+-----+-----+-----+--------+
+            | ... | ... | ... | ... | ...    |
+            +-----+-----+-----+-----+--------+
+
+Note the following: the parameter names must be a placed in a header for each MDF file, the *TD/RH/VP* imply that either one of these parameters can be inputted into that particular field, there must be *RecordLength* number of lines following after the header in intervals, missing data must be inputted with the *NO_DATA* flag *= 9999.99*, and the units must be retained as indicated, including for *IS*, *NR* and *TS*. Rainfall (*R*) is typically specified in its own MDF file. Notice that the file does not contain a minute column. Nevertheless, sub-hourly data can be inputted into the model at intervals that are multiples of the *TIMESTEP*. For example, for 15-minute data, the user should specify four rows for each hour (same *H*) in order. A similar approach is taken for sub-hourly rain gauge data. 
+
+An alternative input format type for meteorological data is with the use of grid data. This option in the tRIBS model is used with the keyword *METDATAOPTION = 2*, while the more traditional weather station data is specified with *METDATAOPTION = 1*.  The additional information is provided through a text file for reading in meteorological input (``*.gdf``) as specified through the keyword *HYDROMETGRID* in the Input File. The structure of the Grid Data File or GDF is presented in **Table 3.14**.
+
+           **Table 3.14** Meteorological GDF File Structure
+
+            .. tabularcolumns:: |c|c|c|
+
+            +------------+----------------------+------------------+
+            | *#Params*                                            |
+            +------------+----------------------+------------------+
+            | *Latitude* | *Longitude*          |  *GMT*           |
+            +------------+----------------------+------------------+
+            | *PA*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *TD*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *XC*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *US*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *TA*       | *Grid File Pathname* | *Grid Extension* |
+            +------------+----------------------+------------------+
+            | *IS*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+            | *TS*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+            | *NR*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+            | *RH*       | *NO_DATA*            | *NO_DATA*        |
+            +------------+----------------------+------------------+
+
+Note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next *#Params* lines are used to specify the parameter code, the file pathname of the weather grid (including the basename of the file) and the extension given to the particular grid. The *NO_DATA* flag is used to specify that weather grids are not available for a particular parameter. All the keywords used to represent the parameters are fixed as well as the units. 
+
