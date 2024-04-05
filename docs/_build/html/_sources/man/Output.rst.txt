@@ -30,8 +30,8 @@ The tRIBS Model produces a number of output files that represent the time series
             +------------------------------+------------------+----------------------------------------------------------------+
             | Time Series                  |  Extension       | Description                                                    |
             +==============================+==================+================================================================+
-            |*Discharge Time Series*.      |``_Outlet.qout``  | Time series of outlet hydrograph (m³/s).                       |
-            |                              |  ``or *qout``.   |                                                                |
+            |*Discharge Time Series*.      |``*_Outlet.qout`` | Time series of outlet or node hydrograph (m³/s).               |
+            |                              |  ``or *qout``    |                                                                |
             +------------------------------+------------------+----------------------------------------------------------------+
             |*Basin Averaged File*         |  ``*.mrf``       | Time series of basin-averaged model variables.                 |
             +------------------------------+------------------+----------------------------------------------------------------+

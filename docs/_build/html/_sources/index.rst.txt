@@ -51,9 +51,10 @@ Computational Processes:
     :numbered:
     :caption: DOCUMENTATION
 
-    man/Model_Design
+    man/Model Design
     man/Model_Input_Formats
     man/Model_Parameters_Forcings
+    man/Model Input File
     man/Model_Execution
     man/Output
 
@@ -73,7 +74,7 @@ Computational Processes:
     :caption: DOWNLOADS
 
     man/Docker
-    man/BenchMarks
+    man/Benchmarks
     man/Templates
 
 .. toctree::

@@ -63,8 +63,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution and Input File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Model Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">6. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
@@ -76,7 +77,7 @@
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">2. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
 </ul>
 
@@ -96,7 +97,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">1. </span>Model Design</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/man/Model_Design.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/man/Model Design.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -151,6 +152,118 @@
 <p>In addition to the sub directories, the <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> directory contains a main function (<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) and a makefile (<code class="docutils literal notranslate"><span class="pre">CMake</span></code>). Running the makefile will create a directory to store the object files for each class (<code class="docutils literal notranslate"><span class="pre">*.o</span></code>) and the platform-specific executable (called <code class="docutils literal notranslate"><span class="pre">tribs</span></code>). Each sub directory of the source code includes the C++ class files (<code class="docutils literal notranslate"><span class="pre">*.cpp</span></code> used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). <strong>Table 1.2</strong> shows a list of the code files in the tRIBS model for further reference.</p>
 <blockquote>
 <div><p><strong>Table 1.2</strong> tRIBS Model Class and Header Files</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>tRIBS</p></td>
+<td><p>main.cpp, makefile</p></td>
+</tr>
+<tr class="row-even"><td><p>/Headers</p></td>
+<td><p>Classes.h, Definitions.h, Inclusions.h, globalFns.h,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>globalFns.cpp, TemplDefinitions.h, globallO.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/Mathutil</p></td>
+<td><p>geometry.h , mathutil.h, mathutil.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>predicates.h, predicates.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/utilities</p></td>
+<td><p>InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp, mergOutput.pl</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tArray</p></td>
+<td><p>tArray.h, tMatrix.h, tMatrix.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tCNode</p></td>
+<td><p>tCNode.h, tCNode.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tFlowNet</p></td>
+<td><p>tFlowNet.h, tFlowNet.cpp, tFlowResults.h, tFlowResults.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tKinemat.h, tKinemat.cpp, tReservoir.cpp, tReservoir.h,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tResData.cpp, tResData.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tGraph</p></td>
+<td><p>tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tHydro</p></td>
+<td><p>tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tSnowPack.h, tSnowPack.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tInOut</p></td>
+<td><p>tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tOstream.h, tOstream.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tList</p></td>
+<td><p>tList.h, tList.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tListInputData</p></td>
+<td><p>tListInputData.h, tListInputData.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tMesh</p></td>
+<td><p>tMesh.h, tMesh.cpp, tTriangulator.h, tTriangulator.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>heapsort.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tMeshElements</p></td>
+<td><p>meshElements.h, meshElements.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tMeshList</p></td>
+<td><p>tMeshList.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tParallel</p></td>
+<td><p>tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tParallel.h, tParallel.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tPtrList</p></td>
+<td><p>tPtrList.h, tPtrList.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tRasTin</p></td>
+<td><p>tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tResample.h, tResample.cpp, tVariant.h, tVariant.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tRainGauge.h, tRainGauge.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tShelter.h, tShelter.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tSimulator</p></td>
+<td><p>tRunTimer.h, tRunTimer.cpp,  tRestart.h, tRestart.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tSimul.h, tSimul.cpp, tControl.h, tControl.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tPreProcess.h, tPreProcess.cpp,</p></td>
+</tr>
+<tr class="row-even"><td><p>/tStorm</p></td>
+<td><p>tStorm.h, tStorm.cpp</p></td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <p>The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in <code class="docutils literal notranslate"><span class="pre">tRIBS/Headers/Classes.h</span></code>. <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is used in tRIBS to construct the various objects, while the simulation control is performed by <code class="docutils literal notranslate"><span class="pre">tSimul.cpp</span></code>.</p>
 </div></blockquote>

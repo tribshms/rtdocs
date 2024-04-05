@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Contributing" href="Contributing.html" />
-    <link rel="prev" title="5. Model Outputs" href="Output.html" /> 
+    <link rel="prev" title="6. Model Outputs" href="Output.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,17 +56,19 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution and Input File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Model Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">6. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#versioning">1.1. Versioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tribs-release">1.2. tRIBS Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support">1.1. Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#versioning">1.2. Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tribs-release">1.3. tRIBS Release</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
@@ -76,7 +78,7 @@
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">2. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
 </ul>
 
@@ -107,8 +109,12 @@
   <section id="development">
 <h1><span class="section-number">1. </span>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h1>
 <p>tRIBS model development is driven by research, testing, and updates in software standards. We document information about the latest release in <a class="reference internal" href="Release%20Notes.html"><span class="doc">Release Notes</span></a>. Technical issues related to tRIBS code are logged using <a class="reference external" href="https://github.com/tribshms/tRIBS/issues">GitHub Issues</a>. Additional resource about model setup and applications can be found through the <a class="reference external" href="https://groups.google.com/g/tribs">tRIBS User Google Group</a>. The remaining portion of this section is dedicated to describing the formal steps involved in tRIBS development and release of new versions. If you are interested in working with the tRIBS source code please see <a class="reference internal" href="Contributing.html"><span class="doc">Contributing</span></a> and <a class="reference internal" href="Using%20GitHub.html"><span class="doc">Using GitHub</span></a>.</p>
+<section id="support">
+<h2><span class="section-number">1.1. </span>Support<a class="headerlink" href="#support" title="Link to this heading"></a></h2>
+<p>We want to emphasize that tRIBS is a research related product developed and maintained in academic environment. Consequently, there is no official support for the tRIBS model. You are welcome to use tRIBS in your own research endeavors, however, the model code comes with <strong>no guarantees, expressed or implied, as to suitability, completeness, accuracy, and whatever other claim you would like to make</strong>. Additionally, we cannot provide individual support in setting up and running the model. This website includes reasonably complete instructions on how to run the model, including benchmark cases with full setups for example. See <a class="reference internal" href="Model%20Design.html"><span class="doc">Model Design</span></a> and <a class="reference internal" href="Benchmarks.html"><span class="doc">Benchmark Datasets</span></a>. Finally, as an open source code we rely on the community for helping drive model development and improvements refer to <a class="reference internal" href="Contributing.html"><span class="doc">Contributing</span></a> for more information on how you can contribute to tRIBS.</p>
+</section>
 <section id="versioning">
-<h2><span class="section-number">1.1. </span>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2. </span>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h2>
 <p>tRIBS follows <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a> nomenclature for model versions. In summary, the naming convention is as follows: tRIBS MAJOR.MINOR.PATCH.</p>
 <ul class="simple">
 <li><p>MAJOR version number is updated when ever a backward incompatible change is introduced.</p></li>
@@ -117,7 +123,7 @@
 </ul>
 </section>
 <section id="tribs-release">
-<h2><span class="section-number">1.2. </span>tRIBS Release<a class="headerlink" href="#tribs-release" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.3. </span>tRIBS Release<a class="headerlink" href="#tribs-release" title="Link to this heading"></a></h2>
 <p>Anytime there is a MAJOR, MINOR, or PATCH update the following steps are performed.</p>
 <p>1.) The updated/fixed branch is merged with the main tRIBS branch through a pull request. This requires review and approval from the tRIBS maintainers. For more detail see <a class="reference internal" href="Using%20GitHub.html"><span class="doc">Using GitHub</span></a>.</p>
 <p>2.) Currently we are in the progress of developing various tests, from testing code compilation, end-to-end tests, and science tests. As these are developed any new changes will be tested following these protocols.</p>
@@ -130,7 +136,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Output.html" class="btn btn-neutral float-left" title="5. Model Outputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Output.html" class="btn btn-neutral float-left" title="6. Model Outputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Contributing.html" class="btn btn-neutral float-right" title="2. Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

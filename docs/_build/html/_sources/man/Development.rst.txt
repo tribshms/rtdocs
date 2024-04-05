@@ -3,6 +3,11 @@ Development
 
 tRIBS model development is driven by research, testing, and updates in software standards. We document information about the latest release in :doc:`Release Notes`. Technical issues related to tRIBS code are logged using `GitHub Issues <https://github.com/tribshms/tRIBS/issues>`_. Additional resource about model setup and applications can be found through the `tRIBS User Google Group <https://groups.google.com/g/tribs>`_. The remaining portion of this section is dedicated to describing the formal steps involved in tRIBS development and release of new versions. If you are interested in working with the tRIBS source code please see :doc:`Contributing` and :doc:`Using GitHub`.
 
+Support
+-------
+We want to emphasize that tRIBS is a research related product developed and maintained in academic environment. Consequently, there is no official support for the tRIBS model. You are welcome to use tRIBS in your own research endeavors, however, the model code comes with **no guarantees, expressed or implied, as to suitability, completeness, accuracy, and whatever other claim you would like to make**. Additionally, we cannot provide individual support in setting up and running the model. This website includes reasonably complete instructions on how to run the model, including benchmark cases with full setups for example. See :doc:`Model Design` and :doc:`Benchmarks`. Finally, as an open source code we rely on the community for helping drive model development and improvements refer to :doc:`Contributing` for more information on how you can contribute to tRIBS.
+
+
 Versioning
 ----------
 tRIBS follows `Semantic Versioning <https://semver.org/spec/v2.0.0.html>`_ nomenclature for model versions. In summary, the naming convention is as follows: tRIBS MAJOR.MINOR.PATCH.
