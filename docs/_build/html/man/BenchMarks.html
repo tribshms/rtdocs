@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. BenchMarks &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+  <title>2. Benchmark Datasets &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
@@ -59,22 +59,22 @@
 <li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Temporal and Spatial Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution and Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">3. Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="UsingGit.html">4. Using GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using%20GitHub.html">4. Using GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. BenchMarks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#point-scale">2.1. Point-Scale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basin-scale">2.2. Basin-Scale</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Benchmark Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#point-scale-simulations">2.1. Point-Scale Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basin-scale-simulations">2.2. Basin-Scale Simulations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
@@ -94,7 +94,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2. </span>BenchMarks</li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Benchmark Datasets</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/man/BenchMarks.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,17 +104,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="benchmarks">
-<h1><span class="section-number">2. </span>BenchMarks<a class="headerlink" href="#benchmarks" title="Link to this heading"></a></h1>
-<p>Currently we provide two publicly available benchmark datasets which are hosted on Zenodo. The first demonstrates the application of tRIBS in serial mode at a point-scale, whereas the second is a basin-scale simulation that can be executed in serial or parallel mode.</p>
-<p>The contents of the benchmarks are described both on Zenodo and the accompanying README file.
-The accompanying README file also contains simple instructions for running tRIBS on the individual benchmark.</p>
-<section id="point-scale">
-<h2><span class="section-number">2.1. </span>Point-Scale<a class="headerlink" href="#point-scale" title="Link to this heading"></a></h2>
+  <section id="benchmark-datasets">
+<h1><span class="section-number">2. </span>Benchmark Datasets<a class="headerlink" href="#benchmark-datasets" title="Link to this heading"></a></h1>
+<p>Benchmark datasets are publicly available and hosted permanently on Zenodo, under version control and with an assigned digital object identifier (DOI). These examples are provided for a user to test the model execution against a previously-derived set of model outputs. The contents of the benchmark datasets are described both on Zenodo and the accompanying README file, which contain simple instructions for running tRIBS. The point-scale benchmark dataset demonstrates the application of tRIBS in serial mode, whereas the basin-scale benchmark dataset is a simulation that can be executed in either serial or parallel mode.</p>
+<p>These examples are for forested regions in northern Arizona with warm and cold season hydrologic processes. As such, these cases test a wide range of the model physics for interception, soil moisture, evapotranspiration, snowpack dynamics and streamflow. Nevertheless, not all of the model capabilities are executed in the benchmark datasets and a model user needs to exercise caution when changing model inputs or altering the selected procesess.</p>
+<p>Additional benchmark datasets will be addded here as these are released via Zenodo.</p>
+<section id="point-scale-simulations">
+<h2><span class="section-number">2.1. </span>Point-Scale Simulations<a class="headerlink" href="#point-scale-simulations" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://zenodo.org/records/10909507">tRIBS benchmark: SNOTEL point-scale simulation, Happy Jack, AZ, USA.</a></p>
 </section>
-<section id="basin-scale">
-<h2><span class="section-number">2.2. </span>Basin-Scale<a class="headerlink" href="#basin-scale" title="Link to this heading"></a></h2>
+<section id="basin-scale-simulations">
+<h2><span class="section-number">2.2. </span>Basin-Scale Simulations<a class="headerlink" href="#basin-scale-simulations" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://zenodo.org/records/10909729">tRIBS benchmark: Basin-scale simulation, Big Spring, AZ, USA.</a></p>
 </section>
 </section>

@@ -1,7 +1,7 @@
 Using GitHub
 =====================
 
-The tRIBS source code is stored on GitHub using the version control system Git. As a result any effort to develop, fix, or modify tRIBS source code requires understanding of these tools. While there are a number of useful resources that describe these tools, below we outline the steps that we request all tRIBS developers and users adhere to.
+The tRIBS source code is stored on GitHub using the version control system Git. As a result, any effort to develop, fix, or modify tRIBS source code requires understanding of these tools. While there are a number of useful resources that describe these tools, below we outline the steps that we request all tRIBS developers and users adhere to:
 
 1) Start by creating a `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_ of the tRIBS repository.
 2) Create a development branch to add any changes in the source code.

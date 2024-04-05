@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2. BenchMarks" href="BenchMarks.html" /> 
+    <link rel="prev" title="2. Benchmark Datasets" href="BenchMarks.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,21 +58,25 @@
 <li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Temporal and Spatial Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution and Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">3. Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="UsingGit.html">4. Using GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using%20GitHub.html">4. Using GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. BenchMarks</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. Benchmark Datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-files">3.1. Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-scripts">3.2. Shell Scripts</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -101,14 +105,27 @@
              
   <section id="templates">
 <h1><span class="section-number">3. </span>Templates<a class="headerlink" href="#templates" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="https://gist.github.com/tribshms/84204d6ab53e0ec9b673d4f2413790f2">Template for tRIBS V 5.2 input file</a></p>
+<p>The tRIBS model setup can be facilitated by inspecting prior model runs, including the format of the main text file (Input File <code class="docutils literal notranslate"><span class="pre">*.in</span></code>) used to input information to the model, as well as example files for gridded or text-based inputs. The <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/BenchMarks.html">tRIBS Benchmark datasets</a> provide useful examples. Below are some useful templates.</p>
+<section id="input-files">
+<h2><span class="section-number">3.1. </span>Input Files<a class="headerlink" href="#input-files" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/tribshms/84204d6ab53e0ec9b673d4f2413790f2">Template for tRIBS V 5.2 input file</a></p></li>
+</ul>
+</section>
+<section id="shell-scripts">
+<h2><span class="section-number">3.2. </span>Shell Scripts<a class="headerlink" href="#shell-scripts" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/tribshms/f410c644f5419a41de1a5dac317fa2b5">Example shell script for running tRIBS in parallel</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/tribshms/c341be3abb375fadb225336cc2aebe38">Example shell script for running tRIBS in serial</a></p></li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="BenchMarks.html" class="btn btn-neutral float-left" title="2. BenchMarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BenchMarks.html" class="btn btn-neutral float-left" title="2. Benchmark Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
