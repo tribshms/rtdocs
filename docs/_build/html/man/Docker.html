@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Benchmark Datasets" href="BenchMarks.html" />
+    <link rel="next" title="2. Benchmark Datasets" href="Benchmarks.html" />
     <link rel="prev" title="4. Using GitHub" href="Using%20GitHub.html" /> 
 </head>
 
@@ -56,11 +56,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution and Input File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Output.html">5. Model Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">6. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
@@ -80,7 +81,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">2. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
 </ul>
 
@@ -128,7 +129,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>image
 </pre></div>
 </div>
-<p>From here the tRIBS image can be accessed by using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">tribs/tribs:latest</span></code>, where the <code class="docutils literal notranslate"><span class="pre">-it</span></code> flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. This can be accomplished by using the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, where the local directory is mapped to a directory in the image following this structure __path/in/local:path/in/<a href="#id3"><span class="problematic" id="id4">image__</span></a>. For example, one could run:</p>
+<p>From here the tRIBS image can be accessed by using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">tribs/tribs:latest</span></code>, where the <code class="docutils literal notranslate"><span class="pre">-it</span></code> flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. This can be accomplished by using the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, where the local directory is mapped to a directory in the image following this structure <em>path/in/local:path/in/image</em>. For example, one could run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/local/path/to/data:/tribs/data<span class="w"> </span>tribs/tribs:latest
 </pre></div>
 </div>
@@ -166,7 +167,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Using%20GitHub.html" class="btn btn-neutral float-left" title="4. Using GitHub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="BenchMarks.html" class="btn btn-neutral float-right" title="2. Benchmark Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Benchmarks.html" class="btn btn-neutral float-right" title="2. Benchmark Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

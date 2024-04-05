@@ -55,11 +55,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="man/Model_Design.html">1. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model%20Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">4. Model Execution and Input File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/Output.html">5. Model Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Output.html">6. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
@@ -71,7 +72,7 @@
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="man/Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/BenchMarks.html">2. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Benchmarks.html">2. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Templates.html">3. Templates</a></li>
 </ul>
 
@@ -152,9 +153,9 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="man/Model_Design.html">1. Model Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Design.html#model-file-structure">1.1. Model File Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Design.html#computational-mesh">1.2. Computational Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model%20Design.html">1. Model Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Model%20Design.html#model-file-structure">1.1. Model File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model%20Design.html#computational-mesh">1.2. Computational Mesh</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Input_Formats.html">2. Model Input Formats</a><ul>
@@ -177,27 +178,44 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">4. Model Execution and Input File</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#compilation-instructions">4.1. Compilation Instructions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#cmake">4.1.1. CMake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#content-of-cmakelists">4.1.2. Content of CMakeLists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model%20Input%20File.html">4. Model Input File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Model%20Input%20File.html#input-file-contents">4.1. Input File Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model%20Input%20File.html#input-file-options">4.2. Input File Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-run-parameters-time-variables">4.2.1. Model Run Parameters: Time Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-run-parameters-routing-variables">4.2.2. Model Run Parameters: Routing Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-run-parameters-hydrologic-processes">4.2.3. Model Run Parameters: Hydrologic Processes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-input-files-and-pathnames-mesh-generation">4.2.4. Model Input Files and Pathnames: Mesh Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#mesh-input-files-and-pathnames-resampling-grids">4.2.5. Mesh Input Files and Pathnames: Resampling Grids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#mesh-input-files-and-pathnames-meteorological-data">4.2.6. Mesh Input Files and Pathnames: Meteorological Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#mesh-input-files-and-pathnames-output-data">4.2.7. Mesh Input Files and Pathnames: Output Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-modes-rainfall-forecasting-mode">4.2.8. Model Modes: Rainfall Forecasting Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-modes-stochastic-rainfall-mode">4.2.9. Model Modes: Stochastic Rainfall Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-modes-restart-mode">4.2.10. Model Modes: Restart Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model%20Input%20File.html#model-modes-parallel-mode">4.2.11. Model Modes: Parallel Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#run-instructions">4.2. Run Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#model-input-file">4.3. Model Input File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/Output.html">5. Model Outputs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/Output.html#time-series">5.1. Time Series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="man/Output.html#basin-outlet-discharge-time-series">5.1.1. Basin Outlet Discharge Time Series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/Output.html#hydrologic-time-series-at-selected-tin-nodes">5.1.2. Hydrologic Time Series at Selected TIN nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/Output.html#basin-averaged-hydrological-time-series">5.1.3. Basin-averaged Hydrological Time Series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/Output.html#id9">5.1.4. Basin-averaged Hydrological Time Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">5. Model Execution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#compilation-instructions">5.1. Compilation Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#cmake">5.1.1. CMake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#content-of-cmakelists">5.1.2. Content of CMakeLists</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="man/Output.html#spatial-output">5.2. Spatial Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="man/Output.html#dynamic-spatial-output-tables">5.2.1. Dynamic Spatial Output Tables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/Output.html#time-integrated-spatial-output-table">5.2.2. Time-integrated Spatial Output Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#run-instructions">5.2. Run Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/Output.html">6. Model Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Output.html#time-series">6.1. Time Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Output.html#basin-outlet-discharge-time-series">6.1.1. Basin Outlet Discharge Time Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Output.html#hydrologic-time-series-at-selected-tin-nodes">6.1.2. Hydrologic Time Series at Selected TIN nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Output.html#basin-averaged-hydrological-time-series">6.1.3. Basin-averaged Hydrological Time Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Output.html#id9">6.1.4. Basin-averaged Hydrological Time Series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/Output.html#spatial-output">6.2. Spatial Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Output.html#dynamic-spatial-output-tables">6.2.1. Dynamic Spatial Output Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Output.html#time-integrated-spatial-output-table">6.2.2. Time-integrated Spatial Output Table</a></li>
 </ul>
 </li>
 </ul>
@@ -208,15 +226,29 @@
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="man/Development.html">1. Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/Development.html#versioning">1.1. Versioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Development.html#tribs-release">1.2. tRIBS Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Development.html#support">1.1. Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Development.html#versioning">1.2. Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Development.html#tribs-release">1.3. tRIBS Release</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/Contributing.html">2. Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/Contributing.html#open-source-frame-work">2.1. Open Source Frame Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Contributing.html#resources">2.2. Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Contributing.html#integrated-development-environment-ide">2.2.1. Integrated Development Environment (IDE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Contributing.html#issues">2.2.2. Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Contributing.html#modifications-and-improvements">2.2.3. Modifications and Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/Release%20Notes.html">3. Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/Release%20Notes.html">3. Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Release%20Notes.html#known-issues">3.1. Known Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Release%20Notes.html#version-history">3.2. Version History</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Release%20Notes.html#tribs-5-2-0-march-2024">3.2.1. tRIBS 5.2.0 (March 2024)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="man/Using%20GitHub.html">4. Using GitHub</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/Using%20GitHub.html#forking-tribs">4.1. Forking tRIBS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/Using%20GitHub.html#cloning-your-fork-to-your-computer">4.2. Cloning your fork to your computer</a><ul>
@@ -240,9 +272,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/BenchMarks.html">2. Benchmark Datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/BenchMarks.html#point-scale-simulations">2.1. Point-Scale Simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/BenchMarks.html#basin-scale-simulations">2.2. Basin-Scale Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Benchmarks.html">2. Benchmark Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Benchmarks.html#point-scale-simulations">2.1. Point-Scale Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Benchmarks.html#basin-scale-simulations">2.2. Basin-Scale Simulations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/Templates.html">3. Templates</a><ul>
