@@ -64,8 +64,8 @@ Computational Processes:
 
     man/Development
     man/Contributing
-    man/ReleaseNotes
-    man/UsingGit
+    man/Release Notes
+    man/Using GitHub
 
 .. toctree::
     :maxdepth: 3

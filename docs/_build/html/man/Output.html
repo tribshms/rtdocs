@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1. Development" href="Development.html" />
-    <link rel="prev" title="4. Model Execution" href="Model_Execution.html" /> 
+    <link rel="prev" title="4. Model Execution and Input File" href="Model_Execution.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,7 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Model_Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">4. Model Execution and Input File</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. Model Outputs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#time-series">5.1. Time Series</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basin-outlet-discharge-time-series">5.1.1. Basin Outlet Discharge Time Series</a></li>
@@ -80,13 +80,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">3. Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="UsingGit.html">4. Using GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using%20GitHub.html">4. Using GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. BenchMarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BenchMarks.html">2. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
 </ul>
 
@@ -120,7 +120,41 @@
 <blockquote>
 <div><p><strong>Table 5.1</strong> tRIBS Mesh Output Files</p>
 <blockquote>
-<div></div></blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Mesh Files</p></th>
+<th class="head"><p>Extension</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Mesh Node File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.nodes</span></code></p></td>
+<td><p>Node (x,y), ID of spoke, boundary code.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mesh Edge File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.edges</span></code></p></td>
+<td><p>ID of origin and destination node, ID of CCW edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Mesh Triangle File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.tri</span></code></p></td>
+<td><p>ID of vertex nodes, ID of neighboring triangles opposite the</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>vertex node, ID of CCW edge originating with the vertex node.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Mesh Node Elevation File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.z</span></code></p></td>
+<td><p>Node elevation (meters).</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mesh Voronoi Geometry</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*_voi</span></code></p></td>
+<td><p>File containing individual Voronoi polygon geometry.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 <p><strong>Table 5.2</strong> tRIBS Model Time Series Files</p>
 <blockquote>
 <div><table class="docutils align-default">
@@ -137,21 +171,17 @@
 </dd>
 </dl>
 </td>
-<td><p>Time series of outlet hydrograph (m3/s)</p></td>
+<td><p>Time series of outlet hydrograph (m³/s).</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>Basin Averaged File</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">*.mrf</span></code></p></td>
-<td><p>Time series of outlet hydrograph (m3/s) and</p></td>
+<td><p>Time series of basin-averaged model variables.</p></td>
 </tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>mean basin rainfall (mm/hr).</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Hydrograph Runoff Types File</em></p></td>
+<tr class="row-even"><td><p><em>Hydrograph Runoff Types File</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">*.rft</span></code></p></td>
-<td><p>Time series of outlet hydrograph by runoff type (m3/s).</p></td>
+<td><p>Time series of outlet hydrograph by runoff type (m³/s).</p></td>
 </tr>
-<tr class="row-even"><td><p><em>Node Dynamic Output File</em></p></td>
+<tr class="row-odd"><td><p><em>Node Dynamic Output File</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">*.pixel</span></code></p></td>
 <td><p>Time series of dynamic variables for a specific node.</p></td>
 </tr>
@@ -160,9 +190,27 @@
 </div></blockquote>
 <p><strong>Table 5.3</strong> tRIBS Model Spatial Output Files</p>
 <blockquote>
-<div></div></blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Spatial Output Files</p></th>
+<th class="head"><p>Extension</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Mesh Dynamic Output File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code></p></td>
+<td><p>Dynamic variable output for all mesh nodes at specific time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mesh Integrated Output File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code></p></td>
+<td><p>Time-integrated variable output for all mesh nodes.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 <p>The location of the output files is specified in the tRIBS Model Input File by using the keywords <em>OUTFILENAME</em> and <em>OUTHYDROFILENAME</em>. An important note to make is that the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code>, <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> and <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each <em>OPINTRVL</em> time step, the model will produce output of the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code> type, while the <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> file is produced only after completion of the entire run. The spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code>) are determined by the time step specified in the <em>SPOPINTRVL</em> keyword. Time-integrated spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code>) is produced only at the end of the simulation. The model also produces various files with a <code class="docutils literal notranslate"><span class="pre">*.pixel</span></code> extension followed by a node ID number at the end of the run. The <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files contain the dynamic variable output for a single node for all model times. The number of <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files produced is specified through a Node Output List (<code class="docutils literal notranslate"><span class="pre">*.nol</span></code>) File described below.</p>
-<p><strong>Table 5</strong> Node Output List File Structure</p>
+<p><strong>Table 5.4</strong> Node Output List File Structure</p>
 <blockquote>
 <div><table class="docutils align-default">
 <tbody>
@@ -183,7 +231,7 @@
 <section id="basin-outlet-discharge-time-series">
 <h3><span class="section-number">5.1.1. </span>Basin Outlet Discharge Time Series<a class="headerlink" href="#basin-outlet-discharge-time-series" title="Link to this heading"></a></h3>
 <blockquote>
-<div><p><strong>Table 6</strong> Content of <a href="#id1"><span class="problematic" id="id2">*</span></a>_Outlet.qout file or <a href="#id3"><span class="problematic" id="id4">*</span></a>qout file if Voronoi IDs are provided via OUTLETNODELIST</p>
+<div><p><strong>Table 5.5</strong> Content of <a href="#id1"><span class="problematic" id="id2">*</span></a>_Outlet.qout file or <a href="#id3"><span class="problematic" id="id4">*</span></a>qout file if Voronoi IDs are provided via OUTLETNODELIST</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
@@ -213,7 +261,7 @@ HLevel</p></td>
 <section id="hydrologic-time-series-at-selected-tin-nodes">
 <h3><span class="section-number">5.1.2. </span>Hydrologic Time Series at Selected TIN nodes<a class="headerlink" href="#hydrologic-time-series-at-selected-tin-nodes" title="Link to this heading"></a></h3>
 <blockquote>
-<div><p><strong>Table 7</strong> Content of <a href="#id5"><span class="problematic" id="id6">*</span></a>.pixel files</p>
+<div><p><strong>Table 5.6</strong> Content of <a href="#id5"><span class="problematic" id="id6">*</span></a>.pixel files</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
@@ -434,10 +482,7 @@ EvpDryCan</p></td>
 <td><p>Sensible Heat Flux from Snow Cover, snSHF</p></td>
 <td><p>[kJ/m²]</p></td>
 </tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="52">
-<li></li>
-</ol>
-</td>
+<tr class="row-odd"><td><p>52</p></td>
 <td><p>Ground Heat Flux from Snow Cover, snGHF</p></td>
 <td><p>[kJ/m²]</p></td>
 </tr>
@@ -565,7 +610,7 @@ StomRes</p></td>
 <section id="basin-averaged-hydrological-time-series">
 <h3><span class="section-number">5.1.3. </span>Basin-averaged Hydrological Time Series<a class="headerlink" href="#basin-averaged-hydrological-time-series" title="Link to this heading"></a></h3>
 <blockquote>
-<div><p><strong>Table 8</strong> Content of <a href="#id7"><span class="problematic" id="id8">*</span></a>.mrf file</p>
+<div><p><strong>Table 5.7</strong> Content of <a href="#id7"><span class="problematic" id="id8">*</span></a>.mrf file</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
@@ -712,7 +757,7 @@ AvInSu</p></td>
 <section id="id9">
 <h3><span class="section-number">5.1.4. </span>Basin-averaged Hydrological Time Series<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <blockquote>
-<div><p><strong>Table 9</strong> Content for <a href="#id10"><span class="problematic" id="id11">*</span></a>.mrf files</p>
+<div><p><strong>Table 5.8</strong> Content for <a href="#id10"><span class="problematic" id="id11">*</span></a>.mrf files</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
@@ -753,7 +798,7 @@ AvInSu</p></td>
 <section id="dynamic-spatial-output-tables">
 <h3><span class="section-number">5.2.1. </span>Dynamic Spatial Output Tables<a class="headerlink" href="#dynamic-spatial-output-tables" title="Link to this heading"></a></h3>
 <blockquote>
-<div><p><strong>Table 10</strong> Content of <a href="#id12"><span class="problematic" id="id13">*</span></a>timestamp_00d files</p>
+<div><p><strong>Table 5.9</strong> Content of <a href="#id12"><span class="problematic" id="id13">*</span></a>timestamp_00d files</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
@@ -1003,7 +1048,7 @@ StomRes</p></td>
 <section id="time-integrated-spatial-output-table">
 <h3><span class="section-number">5.2.2. </span>Time-integrated Spatial Output Table<a class="headerlink" href="#time-integrated-spatial-output-table" title="Link to this heading"></a></h3>
 <blockquote>
-<div><p><strong>Table 11</strong> Content of <a href="#id14"><span class="problematic" id="id15">*</span></a>timestamp_00i file</p>
+<div><p><strong>Table 5.10</strong> Content of <a href="#id14"><span class="problematic" id="id15">*</span></a>timestamp_00i file</p>
 <blockquote>
 <div><table class="docutils align-default">
 <thead>
@@ -1275,7 +1320,7 @@ AvStomRes</p></td>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Model_Execution.html" class="btn btn-neutral float-left" title="4. Model Execution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Model_Execution.html" class="btn btn-neutral float-left" title="4. Model Execution and Input File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Development.html" class="btn btn-neutral float-right" title="1. Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

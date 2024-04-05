@@ -8,7 +8,7 @@ Getting Started with Docker
 
 To get started with Docker, first, install Docker on your system by downloading the appropriate version for your operating system from the official Docker `website <https://www.docker.com/products/docker-desktop/>`_. Docker can be ran both through the desktop client or via command line. In this tutorial we only focus on pulling and running tRIBS and or MeshBuilder via the command line. Additional information about running Docker can be found `here <https://docs.docker.com/>`_.
 
-Pulling and Running tRIBS and MeshBuider Docker Images
+Pulling and Running Docker Images
 -------------------------------------------------------
 
 Once docker has successfully been installed you can pull either image from Docker Hub. We walk through both case here highlighting minor differences in this processes.

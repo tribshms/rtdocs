@@ -58,20 +58,20 @@
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Design.html">1. Model Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Input_Formats.html">2. Model Input Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">4. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">4. Model Execution and Input File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Output.html">5. Model Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="man/Development.html">1. Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Contributing.html">2. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/ReleaseNotes.html">3. Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/UsingGit.html">4. Using GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Using%20GitHub.html">4. Using GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="man/Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/BenchMarks.html">2. BenchMarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/BenchMarks.html">2. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man/Templates.html">3. Templates</a></li>
 </ul>
 
@@ -166,19 +166,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Parameters_Forcings.html#model-parameters">3.1. Model Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Parameters_Forcings.html#model-forcings">3.2. Model Forcings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Parameters_Forcings.html#model-parameters">3.1. Model Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Model_Parameters_Forcings.html#input-formats">3.1.1. Input Formats</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">4. Model Execution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#download-instructions">4.1. Download instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#compilation-instructions">4.2. Compilation Instructions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#cmake">4.2.1. CMake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#content-of-cmakelists">4.2.2. Content of CMakeLists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Parameters_Forcings.html#model-forcings">3.2. Model Forcings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Model_Parameters_Forcings.html#id1">3.2.1. Input Formats</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#run-instructions">4.3. Run Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#creating-model-inputs">4.4. Creating Model Inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/Model_Execution.html">4. Model Execution and Input File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#compilation-instructions">4.1. Compilation Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#cmake">4.1.1. CMake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Model_Execution.html#content-of-cmakelists">4.1.2. Content of CMakeLists</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#run-instructions">4.2. Run Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Model_Execution.html#creating-model-inputs">4.3. Creating Model Inputs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/Output.html">5. Model Outputs</a><ul>
@@ -201,14 +206,21 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="man/Development.html">1. Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/Contributing.html">2. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/ReleaseNotes.html">3. Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man/UsingGit.html">4. Using GitHub</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/UsingGit.html#forking-tribs">4.1. Forking tRIBS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/UsingGit.html#cloning-your-fork-to-your-computer">4.2. Cloning your fork to your computer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="man/UsingGit.html#using-the-gui-app">4.2.1. Using the GUI/app</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man/UsingGit.html#using-the-command-line">4.2.2. Using the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Development.html">1. Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Development.html#versioning">1.1. Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Development.html#tribs-release">1.2. tRIBS Release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/Contributing.html">2. Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Contributing.html#open-source-frame-work">2.1. Open Source Frame Work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Using%20GitHub.html">4. Using GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Using%20GitHub.html#forking-tribs">4.1. Forking tRIBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Using%20GitHub.html#cloning-your-fork-to-your-computer">4.2. Cloning your fork to your computer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/Using%20GitHub.html#using-the-gui-app">4.2.1. Using the GUI/app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/Using%20GitHub.html#using-the-command-line">4.2.2. Using the command line</a></li>
 </ul>
 </li>
 </ul>
@@ -220,19 +232,23 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="man/Docker.html">1. Docker</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/Docker.html#getting-started-with-docker">1.1. Getting Started with Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/Docker.html#pulling-and-running-tribs-and-meshbuider-docker-images">1.2. Pulling and Running tRIBS and MeshBuider Docker Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Docker.html#pulling-and-running-docker-images">1.2. Pulling and Running Docker Images</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="man/Docker.html#tribs">1.2.1. tRIBS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="man/Docker.html#meshbuilder">1.2.2. MeshBuilder</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/BenchMarks.html">2. BenchMarks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/BenchMarks.html#point-scale">2.1. Point-Scale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/BenchMarks.html#basin-scale">2.2. Basin-Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/BenchMarks.html">2. Benchmark Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/BenchMarks.html#point-scale-simulations">2.1. Point-Scale Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/BenchMarks.html#basin-scale-simulations">2.2. Basin-Scale Simulations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/Templates.html">3. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/Templates.html">3. Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/Templates.html#input-files">3.1. Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/Templates.html#shell-scripts">3.2. Shell Scripts</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
