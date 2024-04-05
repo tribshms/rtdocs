@@ -1,5 +1,6 @@
 Templates
 =========
+The tRIBS model setup can be facilitated by inspecting prior model runs, including the format of the main text file (Input File ``*.in``) used to input information to the model, as well as example files for gridded or text-based inputs. The `tRIBS Benchmark datasets <https://tribshms.readthedocs.io/en/latest/man/BenchMarks.html>`_ provide useful examples. Below are some useful templates.
 
 Input Files
 -----------

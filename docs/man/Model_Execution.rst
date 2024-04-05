@@ -106,12 +106,12 @@ Alternatively, the model can be run from a separate directory by specifying the 
 
 The most important of these options for the new user to be acquainted with are *-R* (write intermediate results), *-G* (run the groundwater model), *-V* (verbose screen output), *-O* (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Input File (all model inputs except the TIN Mesh can be altered). 
 
-Creating Model Inputs
+Model Input File
 -----------------------------
 
 As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message. 
 
-Model Input File
+Input File Contents
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 The tRIBS Model Input File (``*.in``) is currently the primary user interface to the model. Although not a graphical medium, it is an easy and efficient means of manipulating all modeling options, parameters and inputs. Those parameters that are not required for a particular run are ignored by the model. The ``*.in`` file is organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. **Table 4.2** presents a list of the keywords. Note that all keywords are capitalized. The values associated with each parameter may be a number or a string. If the units are specified as ints or doubles, this implies that the parameters are dimensionless, otherwise a unit is expressed. The difference between a pathname and a base pathname is simply that the pathname includes the entire path plus the entire name of the file, including the extension, while a base pathname is only the path and the base name of the file (no extension). NOTE: All keywords in the inputfile must have a entry for proper model execution.
@@ -340,6 +340,9 @@ The tRIBS Model Input File (``*.in``) is currently the primary user interface to
             |   *OUTVIZFILENAME*    |   *filename*    |   Filename for viz binary files                    |
             +-----------------------+-----------------+----------------------------------------------------+
 
+Input File Options
+^^^^^^^^^^^^^^^^^^^^^^^^
+
 Model Run Parameters: Time Variables
 """"""""""""""""""""""""""""""""""""""
 
@@ -350,8 +353,8 @@ Model Run Parameters: Routing Variables
 
 The tRIBS has a simplified hydrologic scheme for hillslope routing and a finite-element channel routing scheme. The model allows for non-linear routing based on the discharge at a single watershed outlet and two parameter values, the stream velocity and the hillslope velocity, shared by all TIN nodes of that particular type. The hydrologic routing scheme utilizes the discharge at the closest stream node to determine the hillslope velocity. Six routing parameters are specified to the model: *BASEFLOW*, *VELOCITYCOEF*, *FLOWEXP*, *VELOCITYRATIO*, *CHANNELROUGHNESS*, and *CHANNELWIDTH*. The first of these is used to specify the minimum flow in the stream network in cubic meters per second, a required parameter since the flow network velocities depend on the outlet discharge in some linear or nonlinear fashion. If the *BASEFLOW* parameter is not specified, a value of 0.001 cubic meters per second is assigned as default. *VELOCITYCOEF* is used to specify the coefficient in the relationship between the stream velocity and the outlet discharge, while the *FLOWEXP* is the exponent on the discharge in this relationship. Specifying *FLOWEXP = 0* implies a linear relationship between the stream velocity and the outlet discharge. The *VELOCITYRATIO* keyword is the ratio between the calculated stream velocity and the hillslope velocity assigned to non-stream nodes. The last two parameters: *CHANNELROUGHNESS* and *CHANNELWIDTH* are both uniform parameters for the entire stream network in this model version. The roughness parameters refers to a non-dimensional Manning's coefficient while the width is a channel width in meters.
 
-Model Run Options
-""""""""""""""""""
+Model Run Parameters: Hydrologic Processes
+""""""""""""""""""""""""""""""""""""""""""""
 
 A major section in the tRIBS Model Input File is dedicated to the model run options used to specify which hydrological processes are chosen for a particular model run. 
 

@@ -66,7 +66,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#run-instructions">4.2. Run Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-model-inputs">4.3. Creating Model Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-input-file">4.3. Model Input File</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Output.html">5. Model Outputs</a></li>
@@ -231,8 +231,8 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 </div></blockquote>
 <p>The most important of these options for the new user to be acquainted with are <em>-R</em> (write intermediate results), <em>-G</em> (run the groundwater model), <em>-V</em> (verbose screen output), <em>-O</em> (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Input File (all model inputs except the TIN Mesh can be altered).</p>
 </section>
-<section id="creating-model-inputs">
-<h2><span class="section-number">4.3. </span>Creating Model Inputs<a class="headerlink" href="#creating-model-inputs" title="Link to this heading"></a></h2>
+<section id="model-input-file">
+<h2><span class="section-number">4.3. </span>Model Input File<a class="headerlink" href="#model-input-file" title="Link to this heading"></a></h2>
 <p>As with any model, half the battle in getting a correct model run is in providing the appropriate model input. Without having all the correct model input, the tRIBS Model will exit with an appropriate error message.</p>
 <p>The tRIBS Model Input File (<code class="docutils literal notranslate"><span class="pre">*.in</span></code>) is currently the primary user interface to the model. Although not a graphical medium, it is an easy and efficient means of manipulating all modeling options, parameters and inputs. Those parameters that are not required for a particular run are ignored by the model. The <code class="docutils literal notranslate"><span class="pre">*.in</span></code> file is organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. <strong>Table 4.2</strong> presents a list of the keywords. Note that all keywords are capitalized. The values associated with each parameter may be a number or a string. If the units are specified as ints or doubles, this implies that the parameters are dimensionless, otherwise a unit is expressed. The difference between a pathname and a base pathname is simply that the pathname includes the entire path plus the entire name of the file, including the extension, while a base pathname is only the path and the base name of the file (no extension). NOTE: All keywords in the inputfile must have a entry for proper model execution.</p>
 <blockquote>
