@@ -20,15 +20,12 @@ tRIBS Release
 -------------
 Anytime there is a MAJOR, MINOR, or PATCH update the following steps are performed.
 
-1.) The updated/fixed branch is merged with the main tRIBS branch through a pull request. This requires review and approval from the tRIBS maintainers. For more detail see :doc:`Using GitHub`.
+1) The updated/fixed branch is merged with the main tRIBS branch through a pull request. This requires review and approval from the tRIBS maintainers. For more detail see :doc:`Using GitHub`.
 
-2.) Currently we are in the progress of developing various tests, from testing code compilation, end-to-end tests, and science tests. As these are developed any new changes will be tested following these protocols.
+2) We are developing various tests, from testing code compilation, end-to-end tests, and science tests. As these are developed, any new changes will be tested following these protocols.
 
-3.) With the completion of successful tests, a new build of the docker image and updates to documentation will be implemented. Note: At a minimum the :doc:`Release Notes` must be updated.
+3) With the completion of successful tests, a new build of the docker image and updates to documentation will be implemented. Note: At a minimum the :doc:`Release Notes` must be updated.
 
-4.) The release will be finalized on GitHub with ``git tag -a v<Major.Minor.Patch> -m "example of tagging"``, where previous releases can be identified by searching these tags.
-
-
-
+4) The release will be finalized on GitHub with ``git tag -a v<Major.Minor.Patch> -m "example of tagging"``, where previous releases can be identified by searching these tags.
 
 

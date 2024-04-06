@@ -28,7 +28,3 @@ Modifications and Improvements
 If you have comments or ideas for improving tRIBS, or would like to introduce new functionality to the source code, we ask that you log these ideas under the tRIBS GitHub Milestone page: `Exploratory Ideas <https://github.com/tribshms/tRIBS/milestone/1>`_. Also consider starting a conversation around your ideas or comments on the `tRIBS Google Group site <tribs@googlegroups.com>`_. Lastly, we would like to note that tRIBS is a large program and introducing new features or improvements can be challenging and requires significant tests as well as clear demonstration that the improvements are needed.
 
 For minor fixes that are on the level of patches, see :doc:`Development`, we maintain a separate tRIBS GitHub Milestone page: `To Do <https://github.com/tribshms/tRIBS/milestone/2>`_ this is mostly intended as a place to log needed fixes that are not critical but are on the docket for the next PATCH update.
-
-
-
-
