@@ -1,9 +1,9 @@
 Model Outputs
 ==================================
 
-The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation. **Table 5.1**, **Table 5.2**, and **Table 5.3** summarize: (1) mesh output files, (2) time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.
+The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation. **Table 6.1**, **Table 6.2**, and **Table 6.3** summarize: (1) mesh output files, (2) time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.
 
-    **Table 5.1** tRIBS Mesh Output Files
+    **Table 6.1** tRIBS Mesh Output Files
 
             .. tabularcolumns::  |c|c|l|
 
@@ -23,7 +23,7 @@ The tRIBS Model produces a number of output files that represent the time series
             |*Mesh Voronoi Geometry*       | ``*_voi``        |  File containing individual Voronoi polygon geometry.          |
             +------------------------------+------------------+----------------------------------------------------------------+
 
-    **Table 5.2** tRIBS Model Time Series Files
+    **Table 6.2** tRIBS Model Time Series Files
 
             .. tabularcolumns::  |c|c|l|
 
@@ -40,7 +40,7 @@ The tRIBS Model produces a number of output files that represent the time series
             |*Node Dynamic Output File*    |  ``*.pixel``     | Time series of dynamic variables for a specific node.          |
             +------------------------------+------------------+----------------------------------------------------------------+
 
-    **Table 5.3** tRIBS Model Spatial Output Files
+    **Table 6.3** tRIBS Model Spatial Output Files
 
             .. tabularcolumns::  |c|c|l|
 
@@ -54,7 +54,7 @@ The tRIBS Model produces a number of output files that represent the time series
 
     The location of the output files is specified in the tRIBS Model Input File by using the keywords *OUTFILENAME* and *OUTHYDROFILENAME*. An important note to make is that the ``*.mrf``, ``*.rft`` and ``*.dat`` files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each *OPINTRVL* time step, the model will produce output of the ``*.mrf`` type, while the ``*.rft`` file is produced only after completion of the entire run. The spatial output (``*timestamp_00d``) are determined by the time step specified in the *SPOPINTRVL* keyword. Time-integrated spatial output (``*timestamp_00i``) is produced only at the end of the simulation. The model also produces various files with a ``*.pixel`` extension followed by a node ID number at the end of the run. The ``*.pixel#`` files contain the dynamic variable output for a single node for all model times. The number of ``*.pixel#`` files produced is specified through a Node Output List (``*.nol``) File described below.
 
-    **Table 5.4** Node Output List File Structure
+    **Table 6.4** Node Output List File Structure
 
             .. tabularcolumns:: |c|c|c|
 
@@ -72,7 +72,7 @@ Time Series
 Basin Outlet Discharge Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 5.5** Content of *_Outlet.qout file or *qout file if Voronoi IDs are provided via OUTLETNODELIST
+  **Table 6.5** Content of *_Outlet.qout file or *qout file if Voronoi IDs are provided via OUTLETNODELIST
 
         .. tabularcolumns:: |c|c|c|
 
@@ -90,7 +90,7 @@ Basin Outlet Discharge Time Series
 Hydrologic Time Series at Selected TIN nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 5.6** Content of *.pixel files
+  **Table 6.6** Content of *.pixel files
 
         .. tabularcolumns:: |c|c|c|
 
@@ -272,7 +272,7 @@ Hydrologic Time Series at Selected TIN nodes
 Basin-averaged Hydrological Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 5.7** Content of *.mrf file
+  **Table 6.7** Content of *.mrf file
 
         .. tabularcolumns:: |c|c|c|
 
@@ -354,7 +354,7 @@ Basin-averaged Hydrological Time Series
 Basin-averaged Hydrological Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 5.8** Content for *.mrf files
+  **Table 6.8** Content for *.mrf files
 
         .. tabularcolumns:: |c|c|c|
 
@@ -378,7 +378,7 @@ Spatial Output
 Dynamic Spatial Output Tables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 5.9** Content of *timestamp_00d files
+  **Table 6.9** Content of *timestamp_00d files
 
         .. tabularcolumns:: |c|c|c|
 
@@ -514,7 +514,7 @@ Dynamic Spatial Output Tables
 Time-integrated Spatial Output Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 5.10** Content of *timestamp_00i file
+  **Table 6.10** Content of *timestamp_00i file
 
         .. tabularcolumns:: |c|c|c|
 
