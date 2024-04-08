@@ -13,15 +13,15 @@ If you are going to be interacting with tRIBS source code we recommend that you 
 
 Issues
 ~~~~~~
-If you encounter an error, we first ask that you check to ensure that it is not user related. The majority of issues arise from user related errors, a result of improperly setting up the model inputs, including not specifying the right paths to important datasets or forgetting to turn on or off certain option in the input file. Though, tRIBS had been developed to catch a number of user errors and provide informative error messages, we ask that if you encounter a potential error that you double check to ensure that is not user related, this can be achieved using an IDE or GDB as outlined above. If it is user related, but tRIBS does not provide an informative error message, we encourage you to still log the issue as outlined below.
+If you encounter an error, we first ask that you check to ensure that it is not user related. The majority of issues arise from user related errors, a result of improperly setting up the model inputs, including not specifying the right paths to important datasets or forgetting to turn on or off certain option in the input file. Though tRIBS had been developed to catch a number of user errors and provide informative error messages, we ask that if you encounter a potential error that you double check to ensure that is not user related, this can be achieved using an IDE or GDB as outlined above. If it is user related, but tRIBS does not provide an informative error message, we encourage you to still log the issue as outlined below.
 
-If you do encounter an error that is clearly related to tRIBS syntax or semantics we encourage you to take the following steps.
+If you do encounter an error that is clearly related to tRIBS syntax or semantics, we encourage you to take the following steps.
 
-1.) Visit both the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ and the `tRIBS Google Group <tribs@googlegroups.com>`_ and search the sites to see if your error has been encountered before.
+1) Visit both the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ and the `tRIBS Google Group <tribs@googlegroups.com>`_ and search the sites to see if your error has been encountered before.
 
-2.) If the issue has not been documented then feel free to create a new issue on the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ . We ask that if your issue is related to tRIBS behavior that you provide as much information as possible about the error, including details in your model setup, etc.
+2) If the issue has not been documented, then feel free to create a new issue on the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ . We ask that if your issue is related to tRIBS behavior that you provide as much information as possible about the error, including details in your model setup.
 
-3.) Once the issue is flagged you can either wait for another user or one of the maintainers to fix the problem. Or If you are able to fix the problem yourself, you can provide a pull request outlined at :doc:`Using GitHub`.
+3) Once the issue is flagged, you can either wait for another user or one of the maintainers to fix the problem. Or if you are able to fix the problem yourself, you can provide a pull request outlined at :doc:`Using GitHub`.
 
 Modifications and Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
