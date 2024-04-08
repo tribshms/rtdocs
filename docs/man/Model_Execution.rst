@@ -76,9 +76,9 @@ In order to run the tRIBS Model, an Input File is required. This file can have a
 
               % mpirun [options] ./tRIBS inputfile.in [options]
 
-Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Input File. **Table 4.1** presents a list of the options with descriptions and default values.
+Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Input File. **Table 5.1** presents a list of the options with descriptions and default values.
 
-      **Table 4.1** tRIBS Run Options (``*_run``) [NEEDS TO BE UPDATED]
+      **Table 5.1** tRIBS Run Options (``*_run``) [NEEDS TO BE UPDATED]
 
       .. tabularcolumns:: |c|l|c|
 
