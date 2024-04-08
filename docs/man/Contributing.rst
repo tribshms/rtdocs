@@ -17,7 +17,7 @@ If you encounter an error, we first ask that you check to ensure that it is not 
 
 If you do encounter an error that is clearly related to tRIBS syntax or semantics, we encourage you to take the following steps.
 
-1) Visit both the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ and the `tRIBS Google Group <tribs@googlegroups.com>`_ and search the sites to see if your error has been encountered before.
+1) Visit both the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ and the `tRIBS Google Group <https://groups.google.com/g/tribs>`_ and search the sites to see if your error has been encountered before.
 
 2) If the issue has not been documented, then feel free to create a new issue on the `tRIBS GitHub Issue page <https://github.com/tribshms/tRIBS/issues>`_ . We ask that if your issue is related to tRIBS behavior that you provide as much information as possible about the error, including details in your model setup.
 
@@ -25,6 +25,6 @@ If you do encounter an error that is clearly related to tRIBS syntax or semantic
 
 Modifications and Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you have comments or ideas for improving tRIBS, or would like to introduce new functionality to the source code, we ask that you log these ideas under the tRIBS GitHub Milestone page: `Exploratory Ideas <https://github.com/tribshms/tRIBS/milestone/1>`_. Also consider starting a conversation around your ideas or comments on the `tRIBS Google Group site <tribs@googlegroups.com>`_. Lastly, we would like to note that tRIBS is a large program and introducing new features or improvements can be challenging and requires significant tests as well as clear demonstration that the improvements are needed.
+If you have comments or ideas for improving tRIBS, or would like to introduce new functionality to the source code, we ask that you log these ideas under the tRIBS GitHub Milestone page: `Exploratory Ideas <https://github.com/tribshms/tRIBS/milestone/1>`_. Also consider starting a conversation around your ideas or comments on the `tRIBS Google Group site <https://groups.google.com/g/tribs>`_. Lastly, we would like to note that tRIBS is a large program and introducing new features or improvements can be challenging and requires significant tests as well as clear demonstration that the improvements are needed.
 
 For minor fixes that are on the level of patches, see :doc:`Development`, we maintain a separate tRIBS GitHub Milestone page: `To Do <https://github.com/tribshms/tRIBS/milestone/2>`_ this is mostly intended as a place to log needed fixes that are not critical but are on the docket for the next PATCH update.
