@@ -82,11 +82,11 @@ Hydrometeorological data can be inputted into the tRIBS model through methods fo
 Text File Inputs
 ----------------------
 
-Various types of text files are used in the tRIBS Model to specify model options, hydrologic parameters or control commands. The most important of the text files is the Model Input File (``*.in``). This file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. There are over 40 different keyword inputs in a typical Model Input File. These can be classified into various groupings: Model Run Parameters, Model Run Options and Model Input Files and Pathnames. Subgroupings include: Time Variables, Routing Variables, Mesh Generation, Resampling Grids, Meteorological Data and Output Data. More details concerning the Model Input File will be presented in the section on Model Input File in this document.
+Various types of text files are used in the tRIBS Model to specify model options, hydrologic parameters or control commands. The most important of the text files is the Model Input File (``*.in``). This file contains various required and optional parameters organized by keywords. The format for each parameter consists of a line of descriptive text followed by the value of the parameter itself on a second line. There are over 100 different keyword inputs in a typical Model Input File. These can be classified into various groupings: Model Run Parameters, Model Run Options and Model Input Files and Pathnames. Subgroupings include: Time Variables, Routing Variables, Mesh Generation, Resampling Grids, Meteorological Data and Output Data. More details concerning the Model Input File will be presented in the section on Model Input File in this document. An example ``.in`` file is provided on the :doc:`Templates` page.
 
 Another important use of text files is for the reclassification of soil and land use grids into meaningful hydrologic parameters assigned to each Voronoi polygon. A simple text file is used to relate each cover class to the particular hydrologic parameter required for the model equations. It consists of a small header followed by a matrix of parameter values for each cover class. In the case of the soil reclassification table (``*.sdt``), the parameters are used to specify the soil hydraulic and thermal properties. In the case of the land reclassification table (``*.ldt``), the parameters are used to relate the cover type to the interception and evapotranspiration properties of the vegetation and land cover. Both types of files will be explain in greater detail in the section on Soil and Land Use Input.
 
-A text file can also be used to run the model and specify the command line options desired during the run by using a Model Run File (``*_run``). This file consists of a single line that specifies the pathname of the tRIBS executable followed by the name of the Model Input File and the desired command line options.
+A shell script can also be used to run the model and specify the command line options desired during the run by using a Model Run File (``*_run``). This file consists of a single line that specifies the pathname of the tRIBS executable followed by the name of the Model Input File and the desired command line options. For examples see the :doc:`Templates` page.
 
 Parallel Model Inputs
 -----------------------------------
@@ -183,7 +183,7 @@ The second file that the user should provide is the *RESDATA* information (``*.e
             +-----------+-------------------+----------------------------------------------+
             | *nTypes*  |  *nResParams*     |                                              |
             +-----------+-------------------+----------------------------------------------+
-            | *Type#*   |  *Eñevation (m)*  |  *Discharge (m3/s)*   |  *Storage (1000m3)*  |
+            | *Type#*   |  *Elevation (m)*  |  *Discharge (m3/s)*   |  *Storage (1000m3)*  |
             +-----------+-------------------+----------------------------------------------+
 
     **Table 2.8** Example of a Reservoir Data File (``*.eds``).

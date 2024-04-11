@@ -117,8 +117,8 @@ Computational Mesh
 
       - Generate a set of points from an Arc/Info TIN ungenerate files (``*.pnt``, ``*.lin``). 
       - Generate a new mesh from a given set of coordinates (x , y , z, b) with a boundary flag (``*.points``).
-      - Generate a new mesh using the outputs of tRIBS Meshbuilder for large domains (``*.nodes``,``*.edges``,``*.tri``,``*.z``).
-      - Read in existing tRIBS Mesh files from a previous run (``*.nodes``,``*.edges``,``*.tri``,``*.z``).
+      - Generate a new mesh using the outputs of tRIBS Meshbuilder for large domains (``*.nodes``, ``*.edges``, ``*.tri``, ``*.z``).
+      - Read in existing tRIBS Mesh files from a previous run (``*.nodes``, ``*.edges``, ``*.tri``, ``*.z``).
 
     A TIN within these methods is a set of highly interconnected triangle objects with three edge and three node objects (as defined in ``MeshElements.cpp``). The TIN mesh allows for flow from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation. The Voronoi polygon is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge.
 

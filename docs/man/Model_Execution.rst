@@ -6,50 +6,48 @@ The development, operation, and execution of the tRIBS model has been improved s
 Compilation Instructions
 -------------------------------
 
-tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode, we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented `here`_.
+tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode, we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented `here`_. Note: these instructions are for using CMake via terminal; additional documentation_ is available for using the CMake GUI.
+    
+.. _here: https://tribshms.readthedocs.io/en/latest/man/Docker.html
 
-    .. _here: https://tribshms.readthedocs.io/en/latest/man/Docker.html
-
-    Note: these instructions are for using CMake via terminal; additional documentation_ is available for using the CMake GUI.
-
-    .. _documentation: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html
+.. _documentation: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html
 
 CMake
 ~~~~~
 
-    1. Use `Homebrew`_ to install CMake. Alternatively, you can download CMake_ directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.
+1. Use `Homebrew`_ to install CMake. Alternatively, you can download CMake_ directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.
 
     .. _Homebrew: https://formulae.brew.sh/formula/cmake
     .. _CMake: https://cmake.org/download/
 
-    2. You can check to see if CMake is on your path by typing `cmake` into the command line. If it says it's not found, then you will need to set cmake to your path. For example, if you downloaded CMake and it's now in your application folder, you can use:
+2. You can check to see if CMake is on your path by typing `cmake` into the command line. If it says it's not found, then you will need to set cmake to your path. For example, if you downloaded CMake and it's now in your application folder, you can use:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
+    sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
 
-    3. Next, change directory to the tRIBS source code. It should look something like this but is dependent on where the tRIBS source code is located:
+3. Next, change directory to the tRIBS source code. It should look something like this but is dependent on where the tRIBS source code is located:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        cd ~/Documents/tRIBS
+    cd ~/Documents/tRIBS
 
-    4. Once in the directory containing the src code subdirectory and CMakeLists.txt, execute the following code in the terminal:
+4. Once in the directory containing the src code subdirectory and CMakeLists.txt, execute the following code in the terminal:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        cmake -S . -B build
-        cmake --build build --target all
+    cmake -S . -B build
+    cmake --build build --target all
 
 The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code.
 
-    5. After, you can check to see that the executable was made by using:
+5. After, you can check to see that the executable was made by using:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        ls build/
+    ls build/
 
-    The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.
+The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.
 
 Content of CMakeLists
 ~~~~~~~~~~~~~~~~~~~~~
@@ -71,7 +69,7 @@ In order to run the tRIBS Model, an Input File is required. This file can have a
 
               % tribs inputfile.in [options]
 
-    For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:
+For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:
     ::
 
               % mpirun [options] ./tRIBS inputfile.in [options]

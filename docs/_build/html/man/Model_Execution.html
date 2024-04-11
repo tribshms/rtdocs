@@ -114,17 +114,14 @@
 <p>The development, operation, and execution of the tRIBS model has been improved significantly for the release under the MIT license. Despite this, it remains the responsibility of the user to provide the model with the appropriate inputs in the correct format and to understand the various means of running the model.</p>
 <section id="compilation-instructions">
 <h2><span class="section-number">5.1. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Link to this heading"></a></h2>
-<p>tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either <em>parallel</em> or <em>serial</em> mode, we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/Docker.html">here</a>.</p>
-<blockquote>
-<div><p>Note: these instructions are for using CMake via terminal; additional <a class="reference external" href="https://cmake.org/cmake/help/latest/guide/user-interaction/index.html">documentation</a> is available for using the CMake GUI.</p>
-</div></blockquote>
+<p>tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either <em>parallel</em> or <em>serial</em> mode, we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/Docker.html">here</a>. Note: these instructions are for using CMake via terminal; additional <a class="reference external" href="https://cmake.org/cmake/help/latest/guide/user-interaction/index.html">documentation</a> is available for using the CMake GUI.</p>
 <section id="cmake">
 <h3><span class="section-number">5.1.1. </span>CMake<a class="headerlink" href="#cmake" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Use <a class="reference external" href="https://formulae.brew.sh/formula/cmake">Homebrew</a> to install CMake. Alternatively, you can download <a class="reference external" href="https://cmake.org/download/">CMake</a> directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.</p>
 <blockquote>
-<div><ol class="arabic simple">
-<li><p>Use <a class="reference external" href="https://formulae.brew.sh/formula/cmake">Homebrew</a> to install CMake. Alternatively, you can download <a class="reference external" href="https://cmake.org/download/">CMake</a> directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.</p></li>
-</ol>
-<ol class="arabic simple" start="2">
+<div></div></blockquote>
+</li>
 <li><p>You can check to see if CMake is on your path by typing <cite>cmake</cite> into the command line. If it says it’s not found, then you will need to set cmake to your path. For example, if you downloaded CMake and it’s now in your application folder, you can use:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="s2">&quot;/Applications/CMake.app/Contents/bin/cmake-gui&quot;</span><span class="w"> </span>--install
@@ -143,17 +140,14 @@
 cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>all
 </pre></div>
 </div>
-</div></blockquote>
 <p>The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code.</p>
-<blockquote>
-<div><ol class="arabic simple" start="5">
+<ol class="arabic simple" start="5">
 <li><p>After, you can check to see that the executable was made by using:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>build/
 </pre></div>
 </div>
 <p>The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.</p>
-</div></blockquote>
 </section>
 <section id="content-of-cmakelists">
 <h3><span class="section-number">5.1.2. </span>Content of CMakeLists<a class="headerlink" href="#content-of-cmakelists" title="Link to this heading"></a></h3>
@@ -174,11 +168,13 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tribs</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mpirun</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">./</span><span class="n">tRIBS</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</div></blockquote>
+<dl>
+<dt>For running the model in parallel mode, mpirun (or a suitable alternative MPI command) is needed:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mpirun</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">./</span><span class="n">tRIBS</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 <p>Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Input File. <strong>Table 5.1</strong> presents a list of the options with descriptions and default values.</p>
 <blockquote>
 <div><p><strong>Table 5.1</strong> tRIBS Run Options (<code class="docutils literal notranslate"><span class="pre">*_run</span></code>) [NEEDS TO BE UPDATED]</p>

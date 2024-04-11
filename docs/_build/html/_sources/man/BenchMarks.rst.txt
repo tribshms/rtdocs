@@ -13,4 +13,4 @@ Point-Scale Simulations
 
 Basin-Scale Simulations
 ~~~~~~~~~~~~~~~~~~~~~~~~
-`tRIBS benchmark: Basin-scale simulation, Big Spring, AZ, USA. <https://zenodo.org/records/10909729>`_
+`tRIBS benchmark: Basin-scale simulation, Big Spring, AZ, USA. <https://zenodo.org/records/10951574>`_
