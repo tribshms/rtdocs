@@ -13,7 +13,7 @@ If you are going to be interacting with tRIBS source code we recommend that you 
 
 Issues
 ~~~~~~
-If you encounter an error, we first ask that you check to ensure that it is not user related. The majority of issues arise from user related errors, a result of improperly setting up the model inputs, including not specifying the right paths to important datasets or forgetting to turn on or off certain option in the input file. Though tRIBS had been developed to catch a number of user errors and provide informative error messages, we ask that if you encounter a potential error that you double check to ensure that is not user related, this can be achieved using an IDE or GDB as outlined above. If it is user related, but tRIBS does not provide an informative error message, we encourage you to still log the issue as outlined below.
+If you encounter an error, we first ask that you check to ensure that it is not user related. The majority of issues arise from user related errors, a result of improperly setting up the model inputs, including not specifying the right paths to important datasets or forgetting to turn on or off certain option in the input file. Though tRIBS has been developed to catch a number of user errors and provide informative error messages, we ask that if you encounter a potential error that you double check to ensure that is not user related, this can be achieved using an IDE or GDB as outlined above. If it is user related, but tRIBS does not provide an informative error message, we encourage you to still log the issue as outlined below.
 
 If you do encounter an error that is clearly related to tRIBS syntax or semantics, we encourage you to take the following steps.
 
