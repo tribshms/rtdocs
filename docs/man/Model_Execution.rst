@@ -74,9 +74,9 @@ For running the model in parallel mode, mpirun (or a suitable alternative MPI co
 
               % mpirun [options] ./tRIBS inputfile.in [options]
 
-Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Input File. **Table 4.1** presents a list of the options with descriptions and default values.
+Alternatively, the model can be run from a separate directory by specifying the pathnames of the executable and the Input File. **Table 5.1** presents a list of the options with descriptions and default values.
 
-      **Table 4.1** tRIBS Run Options (``*_run``) [NEEDS TO BE UPDATED]
+      **Table 5.1** tRIBS Run Options (``*_run``) [NEEDS TO BE UPDATED]
 
       .. tabularcolumns:: |c|l|c|
 
@@ -94,4 +94,4 @@ Alternatively, the model can be run from a separate directory by specifying the 
       |    *-K*        |   Check input file for consistency                    |  (default = on)   |
       +----------------+-------------------------------------------------------+-------------------+
 
-The most important of these options for the new user to be acquainted with are *-R* (write intermediate results), *-G* (run the groundwater model), *-V* (verbose screen output), *-O* (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Input File (all model inputs except the TIN Mesh can be altered). 
+The most important of these options for the new user to be acquainted with are *-V* (verbose screen output), *-O* (continuously on model state). The last of these should be used only if one wishes to keep the model in memory while changing the inputs specified in the Input File (all model inputs except the TIN Mesh can be altered).
