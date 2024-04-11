@@ -6,7 +6,7 @@ The development, operation, and execution of the tRIBS model has been improved s
 Compilation Instructions
 -------------------------------
 
-tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode, we employ the CMake build system. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented `here`_. Note: these instructions are for using CMake via terminal; additional documentation_ is available for using the CMake GUI.
+tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode, we employ the CMake build system. If you intend to use tRIBS in *parallel* then you will need to install a Message Passing Interface (MPI), the current version has been tested to compile correctly with `OpenMPI <https://open-mpi.org/>`_ though other MPI software may work. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented `here`_. Note: these instructions are for using CMake via terminal; additional documentation_ is available for using the CMake GUI.
     
 .. _here: https://tribshms.readthedocs.io/en/latest/man/Docker.html
 
