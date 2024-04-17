@@ -6,7 +6,9 @@
 version: 2
 
 #Enable downloads
-formats: epub
+formats:
+  - epub
+  - htmlzip
 
 # Set the version of Python and other tools you might need
 build:
