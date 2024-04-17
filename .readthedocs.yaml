@@ -5,6 +5,9 @@
 # Required
 version: 2
 
+#Enable downloads
+formats: all
+
 # Set the version of Python and other tools you might need
 build:
   os: ubuntu-22.04
