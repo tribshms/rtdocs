@@ -61,12 +61,12 @@
 <li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. Model Execution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#compilation-instructions">5.1. Compilation Instructions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cmake">5.1.1. CMake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#content-of-cmakelists">5.1.2. Content of CMakeLists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packaged-software">5.1. Packaged Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compilation-instructions">5.2. Compilation Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cmake">5.2.1. CMake</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#run-instructions">5.2. Run Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-instructions">5.3. Run Instructions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Output.html">6. Model Outputs</a></li>
@@ -81,8 +81,9 @@
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">2. Benchmark Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">3. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templates.html">4. Templates</a></li>
 </ul>
 
         </div>
@@ -111,12 +112,16 @@
              
   <section id="model-execution">
 <h1><span class="section-number">5. </span>Model Execution<a class="headerlink" href="#model-execution" title="Link to this heading"></a></h1>
-<p>The development, operation, and execution of the tRIBS model has been improved significantly for the release under the MIT license. Despite this, it remains the responsibility of the user to provide the model with the appropriate inputs in the correct format and to understand the various means of running the model.</p>
+<p>The development, operation, and execution of the tRIBS model has been improved significantly for the release under the MIT license. Despite this, it remains the responsibility of the user to provide the model with the appropriate inputs in the correct format and to understand the various means of running the model. Below we provide information on how to obtain the tRIBS executable and how to run it.</p>
+<section id="packaged-software">
+<h2><span class="section-number">5.1. </span>Packaged Software<a class="headerlink" href="#packaged-software" title="Link to this heading"></a></h2>
+<p>We offer built tRIBS executables for both MacOS (compatible with Intel or Silicon chips) and Ubuntu. For MacOS, the Intel chip version requires at least macOS 13 (Ventura), while the Silicon chip version needs macOS 14 (Sonoma). The Ubuntu binary was created using version 22.04. If you plan to run the model in parallel using these binaries, it’s advisable to have the latest version (5.0.3) of OpenMPI &lt;<a class="reference external" href="https://open-mpi.org/">https://open-mpi.org/</a>&gt;_ installed and upgraded. Additionally, we provide a Docker image detailed in the :doc:Docker section.</p>
+</section>
 <section id="compilation-instructions">
-<h2><span class="section-number">5.1. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Link to this heading"></a></h2>
-<p>tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either <em>parallel</em> or <em>serial</em> mode, we employ the CMake build system. If you intend to use tRIBS in <em>parallel</em> then you will need to install a Message Passing Interface (MPI), the current version has been tested to compile correctly with <a class="reference external" href="https://open-mpi.org/">OpenMPI</a> though other MPI software may work. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/Docker.html">here</a>. Note: these instructions are for using CMake via terminal; additional <a class="reference external" href="https://cmake.org/cmake/help/latest/guide/user-interaction/index.html">documentation</a> is available for using the CMake GUI.</p>
+<h2><span class="section-number">5.2. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Link to this heading"></a></h2>
+<p>tRIBS is written in C++ and must be compiled before use. You can obtain the source code from the tRIBS <a class="reference external" href="https://github.com/tribshms/tRIBS">GitHub repository</a>. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either <em>parallel</em> or <em>serial</em> mode, we employ the CMake build system. If you intend to use tRIBS in <em>parallel</em> then you will need to install a Message Passing Interface (MPI), the current version has been tested to compile correctly with <a class="reference external" href="https://open-mpi.org/">OpenMPI</a> though other MPI software may work. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented <a class="reference external" href="https://tribshms.readthedocs.io/en/latest/man/Docker.html">here</a>. Note: these instructions are for using CMake via terminal; additional <a class="reference external" href="https://cmake.org/cmake/help/latest/guide/user-interaction/index.html">documentation</a> is available for using the CMake GUI.</p>
 <section id="cmake">
-<h3><span class="section-number">5.1.1. </span>CMake<a class="headerlink" href="#cmake" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.1. </span>CMake<a class="headerlink" href="#cmake" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Use <a class="reference external" href="https://formulae.brew.sh/formula/cmake">Homebrew</a> to install CMake. Alternatively, you can download <a class="reference external" href="https://cmake.org/download/">CMake</a> directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.</p>
 <blockquote>
@@ -140,7 +145,12 @@
 cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>all
 </pre></div>
 </div>
-<p>The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code.</p>
+<p>The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code. If you would like to compile the parallel version of tRIBS the you can pass the flag <code class="docutils literal notranslate"><span class="pre">-Dparallel=ON</span></code> as follows.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-Dparallel<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>all
+</pre></div>
+</div>
+<p>Note you can pass other flags including the optimization level.</p>
 <ol class="arabic simple" start="5">
 <li><p>After, you can check to see that the executable was made by using:</p></li>
 </ol>
@@ -149,20 +159,9 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 </div>
 <p>The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.</p>
 </section>
-<section id="content-of-cmakelists">
-<h3><span class="section-number">5.1.2. </span>Content of CMakeLists<a class="headerlink" href="#content-of-cmakelists" title="Link to this heading"></a></h3>
-<p>In some instance, CMakeLists.txt needs to be modified, for example if you want to change the name of the executable, or specify the parallel or serial build, or add additional compiler flags.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Compiling the parallel or serial version of tRIBS can be achieved by setting the variable <code class="docutils literal notranslate"><span class="pre">parallel</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> or <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p></li>
-<li><p>The executable name is specified here <code class="docutils literal notranslate"><span class="pre">set(exe</span> <span class="pre">&quot;tRIBS&quot;)</span></code>, where “tRIBS” can be modified.</p></li>
-<li><p>Additional compiler flags can be set here: <code class="docutils literal notranslate"><span class="pre">set(cxx_flags</span> <span class="pre">&quot;-O2&quot;)</span></code>, in this case an optimization level of 2 is being passed by <code class="docutils literal notranslate"><span class="pre">-O2</span></code>.</p></li>
-</ul>
-</div></blockquote>
-</section>
 </section>
 <section id="run-instructions">
-<h2><span class="section-number">5.2. </span>Run Instructions<a class="headerlink" href="#run-instructions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>Run Instructions<a class="headerlink" href="#run-instructions" title="Link to this heading"></a></h2>
 <p>In order to run the tRIBS Model, an Input File is required. This file can have any name, but by convention the extension <code class="docutils literal notranslate"><span class="pre">*.in</span></code> is used. The model can be run from the UNIX command line by using the following syntax (within the same directory as the <code class="docutils literal notranslate"><span class="pre">tribs</span></code> executable):</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tribs</span> <span class="n">inputfile</span><span class="o">.</span><span class="ow">in</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
