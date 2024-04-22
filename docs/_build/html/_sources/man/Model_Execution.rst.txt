@@ -6,8 +6,7 @@ The development, operation, and execution of the tRIBS model has been improved s
 Packaged Software
 -----------------
 
-We offer built tRIBS executables for both MacOS (compatible with Intel or Silicon chips) and Ubuntu. For MacOS, the Intel chip version requires at least macOS 13 (Ventura), while the Silicon chip version needs macOS 14 (Sonoma). The Ubuntu binary was created using version 22.04. If you plan to run the model in parallel using these binaries, it's advisable to have the latest version (5.0.3) of OpenMPI <https://open-mpi.org/>_ installed and upgraded. Additionally, we provide a Docker image detailed in the :doc:Docker section.
-
+We offer tRIBS executables for both MacOS (compatible with Intel or Silicon chips) and Ubuntu. For MacOS, the Intel chip version was built on macOS 13 (Ventura), while the Silicon chip was built on  macOS 14 (Sonoma). The Ubuntu binary was created using version 22.04. If you plan to run the model in parallel using these binaries, it's advisable to have the latest version (5.0.3) of `OpenMPI <https://open-mpi.org/>`_ installed and upgraded. See the :doc:`Executables` page for more details. If these compiled versions are not compatible with your system we also provide a Docker image detailed in the :doc:`Docker` section. And lastly, building tRIBS is a relative simple process as outlined below.
 
 Compilation Instructions
 -------------------------------
@@ -21,7 +20,7 @@ tRIBS is written in C++ and must be compiled before use. You can obtain the sour
 CMake
 ~~~~~
 
-1. Use `Homebrew`_ to install CMake. Alternatively, you can download CMake_ directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.
+1. Use `Homebrew`_ for macOS or similar package manager for Linux to install CMake. Alternatively, you can download CMake_ directly, but a package manager is preferred as it will catch additional dependencies.
 
     .. _Homebrew: https://formulae.brew.sh/formula/cmake
     .. _CMake: https://cmake.org/download/
@@ -60,7 +59,7 @@ Note you can pass other flags including the optimization level.
 
     ls build/
 
-The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.
+The executable will have a name specified by the CMakeLists.txt file. Currently, for the serial version the executable name is tRIBS and tRIBSpar for the parallel version.
 
 Run Instructions
 ----------------------

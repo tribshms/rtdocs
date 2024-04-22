@@ -81,7 +81,7 @@
 <p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Executables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">3. Benchmark Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Templates.html">4. Templates</a></li>
 </ul>
@@ -115,7 +115,7 @@
 <p>The development, operation, and execution of the tRIBS model has been improved significantly for the release under the MIT license. Despite this, it remains the responsibility of the user to provide the model with the appropriate inputs in the correct format and to understand the various means of running the model. Below we provide information on how to obtain the tRIBS executable and how to run it.</p>
 <section id="packaged-software">
 <h2><span class="section-number">5.1. </span>Packaged Software<a class="headerlink" href="#packaged-software" title="Link to this heading"></a></h2>
-<p>We offer built tRIBS executables for both MacOS (compatible with Intel or Silicon chips) and Ubuntu. For MacOS, the Intel chip version requires at least macOS 13 (Ventura), while the Silicon chip version needs macOS 14 (Sonoma). The Ubuntu binary was created using version 22.04. If you plan to run the model in parallel using these binaries, it’s advisable to have the latest version (5.0.3) of OpenMPI &lt;<a class="reference external" href="https://open-mpi.org/">https://open-mpi.org/</a>&gt;_ installed and upgraded. Additionally, we provide a Docker image detailed in the :doc:Docker section.</p>
+<p>We offer tRIBS executables for both MacOS (compatible with Intel or Silicon chips) and Ubuntu. For MacOS, the Intel chip version was built on macOS 13 (Ventura), while the Silicon chip was built on  macOS 14 (Sonoma). The Ubuntu binary was created using version 22.04. If you plan to run the model in parallel using these binaries, it’s advisable to have the latest version (5.0.3) of <a class="reference external" href="https://open-mpi.org/">OpenMPI</a> installed and upgraded. See the <a class="reference internal" href="Executables.html"><span class="doc">Executables</span></a> page for more details. If these compiled versions are not compatible with your system we also provide a Docker image detailed in the <a class="reference internal" href="Docker.html"><span class="doc">Docker</span></a> section. And lastly, building tRIBS is a relative simple process as outlined below.</p>
 </section>
 <section id="compilation-instructions">
 <h2><span class="section-number">5.2. </span>Compilation Instructions<a class="headerlink" href="#compilation-instructions" title="Link to this heading"></a></h2>
@@ -123,7 +123,7 @@
 <section id="cmake">
 <h3><span class="section-number">5.2.1. </span>CMake<a class="headerlink" href="#cmake" title="Link to this heading"></a></h3>
 <ol class="arabic">
-<li><p>Use <a class="reference external" href="https://formulae.brew.sh/formula/cmake">Homebrew</a> to install CMake. Alternatively, you can download <a class="reference external" href="https://cmake.org/download/">CMake</a> directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.</p>
+<li><p>Use <a class="reference external" href="https://formulae.brew.sh/formula/cmake">Homebrew</a> for macOS or similar package manager for Linux to install CMake. Alternatively, you can download <a class="reference external" href="https://cmake.org/download/">CMake</a> directly, but a package manager is preferred as it will catch additional dependencies.</p>
 <blockquote>
 <div></div></blockquote>
 </li>
@@ -157,7 +157,7 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>build/
 </pre></div>
 </div>
-<p>The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.</p>
+<p>The executable will have a name specified by the CMakeLists.txt file. Currently, for the serial version the executable name is tRIBS and tRIBSpar for the parallel version.</p>
 </section>
 </section>
 <section id="run-instructions">
