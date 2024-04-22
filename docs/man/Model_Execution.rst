@@ -1,12 +1,17 @@
 Model Execution
 ===============
 
-The development, operation, and execution of the tRIBS model has been improved significantly for the release under the MIT license. Despite this, it remains the responsibility of the user to provide the model with the appropriate inputs in the correct format and to understand the various means of running the model. 
+The development, operation, and execution of the tRIBS model has been improved significantly for the release under the MIT license. Despite this, it remains the responsibility of the user to provide the model with the appropriate inputs in the correct format and to understand the various means of running the model. Below we provide information on how to obtain the tRIBS executable and how to run it.
+
+Packaged Software
+-----------------
+
+We offer tRIBS executables for both MacOS (compatible with Intel or Silicon chips) and Ubuntu. For MacOS, the Intel chip version was built on macOS 13 (Ventura), while the Silicon chip was built on  macOS 14 (Sonoma). The Ubuntu binary was created using version 22.04. If you plan to run the model in parallel using these binaries, it's advisable to have the latest version (5.0.3) of `OpenMPI <https://open-mpi.org/>`_ installed and upgraded. See the :doc:`Executables` page for more details. If these compiled versions are not compatible with your system we also provide a Docker image detailed in the :doc:`Docker` section. And lastly, building tRIBS is a relative simple process as outlined below.
 
 Compilation Instructions
 -------------------------------
 
-tRIBS is written in C++ and must be compiled before use. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode, we employ the CMake build system. If you intend to use tRIBS in *parallel* then you will need to install a Message Passing Interface (MPI), the current version has been tested to compile correctly with `OpenMPI <https://open-mpi.org/>`_ though other MPI software may work. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented `here`_. Note: these instructions are for using CMake via terminal; additional documentation_ is available for using the CMake GUI.
+tRIBS is written in C++ and must be compiled before use. You can obtain the source code from the tRIBS `GitHub repository <https://github.com/tribshms/tRIBS>`_. To facilitate cross-platform compilation and increase the ease of compiling tRIBS in either *parallel* or *serial* mode, we employ the CMake build system. If you intend to use tRIBS in *parallel* then you will need to install a Message Passing Interface (MPI), the current version has been tested to compile correctly with `OpenMPI <https://open-mpi.org/>`_ though other MPI software may work. Instructions for compiling tRIBS on your machine using CMake are outlined below. Additionally, we maintain a Docker image that contains both the serial and parallel version of tRIBS as documented `here`_. Note: these instructions are for using CMake via terminal; additional documentation_ is available for using the CMake GUI.
     
 .. _here: https://tribshms.readthedocs.io/en/latest/man/Docker.html
 
@@ -15,7 +20,7 @@ tRIBS is written in C++ and must be compiled before use. To facilitate cross-pla
 CMake
 ~~~~~
 
-1. Use `Homebrew`_ to install CMake. Alternatively, you can download CMake_ directly, but Homebrew or a similar package manager is preferred as it will catch additional dependencies.
+1. Use `Homebrew`_ for macOS or similar package manager for Linux to install CMake. Alternatively, you can download CMake_ directly, but a package manager is preferred as it will catch additional dependencies.
 
     .. _Homebrew: https://formulae.brew.sh/formula/cmake
     .. _CMake: https://cmake.org/download/
@@ -39,7 +44,14 @@ CMake
     cmake -S . -B build
     cmake --build build --target all
 
-The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code.
+The first command tells CMake to generate the make files for tRIBS in a folder called build, followed by the second line which effectively compiles the code. If you would like to compile the parallel version of tRIBS the you can pass the flag ``-Dparallel=ON`` as follows.
+
+.. code-block:: bash
+
+    cmake -S . -B build -Dparallel=ON
+    cmake --build build --target all
+
+Note you can pass other flags including the optimization level.
 
 5. After, you can check to see that the executable was made by using:
 
@@ -47,18 +59,7 @@ The first command tells CMake to generate the make files for tRIBS in a folder c
 
     ls build/
 
-The executable will have a name specified in the CMakeLists.txt file. Currently, it is set to tRIBS.
-
-Content of CMakeLists
-~~~~~~~~~~~~~~~~~~~~~
-
-In some instance, CMakeLists.txt needs to be modified, for example if you want to change the name of the executable, or specify the parallel or serial build, or add additional compiler flags.
-
-    * Compiling the parallel or serial version of tRIBS can be achieved by setting the variable ``parallel`` to ``ON`` or ``OFF``.
-
-    * The executable name is specified here ``set(exe "tRIBS")``, where "tRIBS" can be modified.
-
-    * Additional compiler flags can be set here: ``set(cxx_flags "-O2")``, in this case an optimization level of 2 is being passed by ``-O2``.
+The executable will have a name specified by the CMakeLists.txt file. Currently, for the serial version the executable name is tRIBS and tRIBSpar for the parallel version.
 
 Run Instructions
 ----------------------

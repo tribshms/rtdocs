@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Benchmark Datasets" href="Benchmarks.html" />
+    <link rel="next" title="2. Executables" href="Executables.html" />
     <link rel="prev" title="4. Using GitHub" href="Using%20GitHub.html" /> 
 </head>
 
@@ -81,8 +81,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">2. Benchmark Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Templates.html">3. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">3. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templates.html">4. Templates</a></li>
 </ul>
 
         </div>
@@ -130,10 +131,10 @@
 </pre></div>
 </div>
 <p>From here the tRIBS image can be accessed by using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">tribs/tribs:latest</span></code>, where the <code class="docutils literal notranslate"><span class="pre">-it</span></code> flag creates an interactive session from the command line. However, in most cases, in order to successfully run tRIBS through the docker image you will need to be able to mount a local volume where data to run tRIBS is located. This can be accomplished by using the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, where the local directory is mapped to a directory in the image following this structure <em>path/in/local:path/in/image</em>. For example, one could run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/local/path/to/data:/tribs/data<span class="w"> </span>tribs/tribs:latest
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/local/path/to/data:/tribs/shared<span class="w"> </span>tribs/tribs:latest
 </pre></div>
 </div>
-<p>In this case <code class="docutils literal notranslate"><span class="pre">/tribs/data</span></code> represents the directory in the image to access your data stored locally. Note: it is also possible to download data into the image. From here one can execute tRIBS normally. There are two tRIBS binaries stored in <code class="docutils literal notranslate"><span class="pre">/tribs/bin</span></code>, a serial version, <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> and a version for parallel simulation <code class="docutils literal notranslate"><span class="pre">tRIBS_par</span></code>.</p>
+<p>In this case <code class="docutils literal notranslate"><span class="pre">/tribs/shared</span></code> represents the directory in the image to access your local data. Note: it is also possible to download data into the image. From here one can execute tRIBS normally. There are two tRIBS binaries stored in <code class="docutils literal notranslate"><span class="pre">/tribs/bin</span></code>, a serial version, <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> and a version for parallel simulation <code class="docutils literal notranslate"><span class="pre">tRIBSpar</span></code>.</p>
 </section>
 <section id="meshbuilder">
 <h3><span class="section-number">1.2.2. </span>MeshBuilder<a class="headerlink" href="#meshbuilder" title="Link to this heading"></a></h3>
@@ -167,7 +168,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Using%20GitHub.html" class="btn btn-neutral float-left" title="4. Using GitHub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Benchmarks.html" class="btn btn-neutral float-right" title="2. Benchmark Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Executables.html" class="btn btn-neutral float-right" title="2. Executables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

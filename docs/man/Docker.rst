@@ -32,9 +32,9 @@ From here the tRIBS image can be accessed by using ``docker run -it tribs/tribs:
 
 .. code-block:: bash
 
-    docker run -it -v /local/path/to/data:/tribs/data tribs/tribs:latest
+    docker run -it -v /local/path/to/data:/tribs/shared tribs/tribs:latest
 
-In this case ``/tribs/data`` represents the directory in the image to access your data stored locally. Note: it is also possible to download data into the image. From here one can execute tRIBS normally. There are two tRIBS binaries stored in ``/tribs/bin``, a serial version, ``tRIBS`` and a version for parallel simulation ``tRIBS_par``.
+In this case ``/tribs/shared`` represents the directory in the image to access your local data. Note: it is also possible to download data into the image. From here one can execute tRIBS normally. There are two tRIBS binaries stored in ``/tribs/bin``, a serial version, ``tRIBS`` and a version for parallel simulation ``tRIBSpar``.
 
 MeshBuilder
 ~~~~~~~~~~~

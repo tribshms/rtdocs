@@ -74,8 +74,10 @@ Computational Processes:
     :caption: DOWNLOADS
 
     man/Docker
+    man/Executables
     man/Benchmarks
     man/Templates
+
 
 .. toctree::
     :maxdepth:  2
