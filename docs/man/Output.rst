@@ -363,7 +363,7 @@ Basin-averaged Hydrological Time Series
 Basin-averaged Hydrological Time Series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  **Table 6.8** Content for *.mrf files
+  **Table 6.8** Content for *.rft files
 
         .. tabularcolumns:: |c|c|c|
 
