@@ -62,3 +62,7 @@ Note if you are running into the following errors,
    fatal: Could not read from remote repository.
 
 then you will likely need to generate a new ssh key and add it to your `GitHub profile <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>`_.
+
+Working with branches
+~~~~~~~~~~~~~~~~~~~~~
+For tRIBS we maintain a *main* and *dev* branch. The *dev* branch is intended to be used for development, hot-fixes, and testing. Consequently, the *dev* branch may not be functional or fully tested. When you submit a pull request, it can either be on *dev* branch or a new branch that we will merge with source code after test and evaluating the proposed modifications.
