@@ -9,8 +9,6 @@ formats:
   - epub
   - htmlzip
 
-formats: all
-
 # Set the version of Python and other tools you might need
 build:
   os: ubuntu-22.04
