@@ -5,14 +5,11 @@
 # Required
 version: 2
 
-<<<<<<< HEAD
-#Enable downloads
 formats:
   - epub
   - htmlzip
 =======
 formats: all
->>>>>>> 64f1c8c (added a quick start guide)
 
 # Set the version of Python and other tools you might need
 build:
