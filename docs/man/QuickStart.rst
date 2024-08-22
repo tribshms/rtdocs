@@ -136,6 +136,12 @@ Once the model has successfully terminated, you should be able to see that the `
 		plt.axis('off')
 		plt.show()
 
+  The resulting plot should appear as provided below: 
+
+  .. image:: ../images/QuickStart_example.png
+    :alt: Alternative text for the image
+    :width: 680px
+    :align: center
 
 
 
