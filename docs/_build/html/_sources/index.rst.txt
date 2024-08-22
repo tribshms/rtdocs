@@ -57,6 +57,7 @@ Computational Processes:
     man/Model Input File
     man/Model_Execution
     man/Output
+    man/QuickStart
 
 .. toctree::
     :maxdepth: 3
