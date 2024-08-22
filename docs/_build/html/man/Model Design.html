@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Model Design &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7d0012f7"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Model Input Formats" href="Model_Input_Formats.html" />
+    <link rel="prev" title="3. Primary Contacts" href="Contacts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tRIBS - Distributed Hydrologic Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">HOME</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">2. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts.html">3. Primary Contacts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Model Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model-file-structure">1.1. Model File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computational-mesh">1.2. Computational Mesh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">6. Model Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QuickStart.html">7. Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using%20GitHub.html">4. Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">3. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templates.html">4. Templates</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tRIBS - Distributed Hydrologic Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Model Design</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/man/Model Design.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="model-design">
+<h1><span class="section-number">1. </span>Model Design<a class="headerlink" href="#model-design" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>The software design of the tRIBS Model is based on object-oriented C++ programming. The model classes support and use various object oriented methods including inheritance, polymorphism and virtual functions. In addition, the use of linked list and class templates is particularly important within the tRIBS code. As an object-oriented code, tRIBS constructs a set of objects that encapsulate variables and functions and declares their accessibility to other model objects. These objects are then used to carry out the various modeling functions in the hydrologic simulation. In order to best describe the software architecture of the model, it is important to first understand the file structure. <strong>Tables 1.1</strong> and <strong>1.2</strong> list the directories and files that form part of tRIBS. For the new user, this is a starting point to begin to form a mental picture of how the model operates.</p>
+</div></blockquote>
+<section id="model-file-structure">
+<h2><span class="section-number">1.1. </span>Model File Structure<a class="headerlink" href="#model-file-structure" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The tRIBS Model is organized into a single directory (called <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code>) with various sub directories that contain the model C++ classes. Each sub directory encapsulates classes with similar functionality or behavior. <strong>Table 1.1</strong> shows the sub directories as a user would see upon downloading the source code. Various of these sub directories deal with the hydrologic processes (<code class="docutils literal notranslate"><span class="pre">tHydro</span></code>, <code class="docutils literal notranslate"><span class="pre">tFlowNet</span></code>, <code class="docutils literal notranslate"><span class="pre">tRasTin</span></code>), others create the mesh architecture (<code class="docutils literal notranslate"><span class="pre">tMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshElements</span></code>, <code class="docutils literal notranslate"><span class="pre">tMeshList</span></code>), while others are general purpose classes used for model execution (<code class="docutils literal notranslate"><span class="pre">tSimulator</span></code>, <code class="docutils literal notranslate"><span class="pre">tInOut</span></code>, <code class="docutils literal notranslate"><span class="pre">tCNode</span></code>) or within other classes (<code class="docutils literal notranslate"><span class="pre">tArray</span></code>, <code class="docutils literal notranslate"><span class="pre">tList</span></code>, <code class="docutils literal notranslate"><span class="pre">tPtrList</span></code>).  The <code class="docutils literal notranslate"><span class="pre">Headers</span></code> and <code class="docutils literal notranslate"><span class="pre">Mathutil</span></code> directories contain global header files and mathematical utilities for the model, respectively. Two subdirectories have been added for parallelization (<code class="docutils literal notranslate"><span class="pre">tGraph</span></code>, <code class="docutils literal notranslate"><span class="pre">tParallel</span></code>).</p>
+<blockquote>
+<div><p><strong>Table 1.1</strong> tRIBS Model Subdirectories</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Headers</p></td>
+<td><p>tInOut</p></td>
+<td><p>tMeshList</p></td>
+</tr>
+<tr class="row-even"><td><p>Mathutil</p></td>
+<td><p>tList</p></td>
+<td><p>tPtrList</p></td>
+</tr>
+<tr class="row-odd"><td><p>utilities</p></td>
+<td><p>tListInputData</p></td>
+<td><p>tRasTin</p></td>
+</tr>
+<tr class="row-even"><td><p>tArray</p></td>
+<td><p>tMesh</p></td>
+<td><p>tSimulator</p></td>
+</tr>
+<tr class="row-odd"><td><p>tCNode</p></td>
+<td><p>tMeshElements</p></td>
+<td><p>tStorm</p></td>
+</tr>
+<tr class="row-even"><td><p>tHydro</p></td>
+<td><p>tFlowNet</p></td>
+<td><p>tGraph</p></td>
+</tr>
+<tr class="row-odd"><td><p>tParallel</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>In addition to the sub directories, the <code class="docutils literal notranslate"><span class="pre">tRIBS</span></code> directory contains a main function (<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) and a makefile (<code class="docutils literal notranslate"><span class="pre">CMake</span></code>). Running the makefile will create a directory to store the object files for each class (<code class="docutils literal notranslate"><span class="pre">*.o</span></code>) and the platform-specific executable (called <code class="docutils literal notranslate"><span class="pre">tribs</span></code>). Each sub directory of the source code includes the C++ class files (<code class="docutils literal notranslate"><span class="pre">*.cpp</span></code> used as convention) and the C++ Header Files (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). <strong>Table 1.2</strong> shows a list of the code files in the tRIBS model for further reference.</p>
+<blockquote>
+<div><p><strong>Table 1.2</strong> tRIBS Model Class and Header Files</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>tRIBS</p></td>
+<td><p>main.cpp, makefile</p></td>
+</tr>
+<tr class="row-even"><td><p>/Headers</p></td>
+<td><p>Classes.h, Definitions.h, Inclusions.h, globalFns.h,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>globalFns.cpp, TemplDefinitions.h, globallO.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/Mathutil</p></td>
+<td><p>geometry.h , mathutil.h, mathutil.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>predicates.h, predicates.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/utilities</p></td>
+<td><p>InitialGW.cpp, RunTracker.cpp, RainInputCheck.cpp, mergOutput.pl</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tArray</p></td>
+<td><p>tArray.h, tMatrix.h, tMatrix.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tCNode</p></td>
+<td><p>tCNode.h, tCNode.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tFlowNet</p></td>
+<td><p>tFlowNet.h, tFlowNet.cpp, tFlowResults.h, tFlowResults.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tKinemat.h, tKinemat.cpp, tReservoir.cpp, tReservoir.h,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tResData.cpp, tResData.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tGraph</p></td>
+<td><p>tGraph.h, tGraph.cpp, tGraphNode.h, tGraphNode.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tHydro</p></td>
+<td><p>tEvapoTrans.h, tEvapoTrans.cpp, tHydroMet.h, tHydroMet.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tHydroMetConvert.h, tHydroMetConvert.cpp, tHydroMetStoch.h,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tHydroMetStoch.cpp tHydroModel.h, tHydroModel.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tIntercept.h, tIntercept.cpp, tWaterBalance.h, tWaterBalance.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tSnowPack.h, tSnowPack.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tInOut</p></td>
+<td><p>tInputFile.h, tInputFile.cpp, tOutput.h, tOutput.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tOstream.h, tOstream.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tList</p></td>
+<td><p>tList.h, tList.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tListInputData</p></td>
+<td><p>tListInputData.h, tListInputData.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tMesh</p></td>
+<td><p>tMesh.h, tMesh.cpp, tTriangulator.h, tTriangulator.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>heapsort.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tMeshElements</p></td>
+<td><p>meshElements.h, meshElements.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tMeshList</p></td>
+<td><p>tMeshList.h</p></td>
+</tr>
+<tr class="row-even"><td><p>/tParallel</p></td>
+<td><p>tTimer.h, tTimer.cpp, tTimings.h, tTimings.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tParallel.h, tParallel.cpp</p></td>
+</tr>
+<tr class="row-even"><td><p>/tPtrList</p></td>
+<td><p>tPtrList.h, tPtrList.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tRasTin</p></td>
+<td><p>tInvariant.h, tInvariant.cpp, tRainfall.h, tRainfall.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tResample.h, tResample.cpp, tVariant.h, tVariant.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tRainGauge.h, tRainGauge.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tShelter.h, tShelter.cpp</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tSimulator</p></td>
+<td><p>tRunTimer.h, tRunTimer.cpp,  tRestart.h, tRestart.cpp,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tSimul.h, tSimul.cpp, tControl.h, tControl.cpp,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tPreProcess.h, tPreProcess.cpp,</p></td>
+</tr>
+<tr class="row-even"><td><p>/tStorm</p></td>
+<td><p>tStorm.h, tStorm.cpp</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The class names are indicative of the functionality for that particular class. Most files contain a single class that encapsulate the data and functions operating on the data within a single object. In some occasions, it has been convenient to include several interrelated classes within the same file. A list of all non-derived tRIBS Classes can be found in <code class="docutils literal notranslate"><span class="pre">tRIBS/Headers/Classes.h</span></code>. <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is used in tRIBS to construct the various objects, while the simulation control is performed by <code class="docutils literal notranslate"><span class="pre">tSimul.cpp</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="computational-mesh">
+<h2><span class="section-number">1.2. </span>Computational Mesh<a class="headerlink" href="#computational-mesh" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The tRIBS Model inherited the Triangulated Irregular Network (TIN) mesh architecture from the CHILD model (Tucker <em>et al.</em>, 1999) using various options in the <code class="docutils literal notranslate"><span class="pre">tMesh</span></code> class. In addition, new input capabilities take advantage of the TIN creation capabilities in external multiple reslution mesh generators to represent real world watersheds as “hydrologically” significant TINs. The most used options for creating the computational mesh are the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Generate a set of points from an Arc/Info TIN ungenerate files (<code class="docutils literal notranslate"><span class="pre">*.pnt</span></code>, <code class="docutils literal notranslate"><span class="pre">*.lin</span></code>).</p></li>
+<li><p>Generate a new mesh from a given set of coordinates (x , y , z, b) with a boundary flag (<code class="docutils literal notranslate"><span class="pre">*.points</span></code>).</p></li>
+<li><p>Generate a new mesh using the outputs of tRIBS Meshbuilder for large domains (<code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code>, <code class="docutils literal notranslate"><span class="pre">*.z</span></code>).</p></li>
+<li><p>Read in existing tRIBS Mesh files from a previous run (<code class="docutils literal notranslate"><span class="pre">*.nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">*.edges</span></code>, <code class="docutils literal notranslate"><span class="pre">*.tri</span></code>, <code class="docutils literal notranslate"><span class="pre">*.z</span></code>).</p></li>
+</ul>
+</div></blockquote>
+<p>A TIN within these methods is a set of highly interconnected triangle objects with three edge and three node objects (as defined in <code class="docutils literal notranslate"><span class="pre">MeshElements.cpp</span></code>). The TIN mesh allows for flow from TIN node to TIN node, along a triangle edge, using a finite difference approach. Hydrologic computations made at each TIN node (e.g. infiltration, evaporation, groundwater table elevation) are assumed valid over a region consisting of the Voronoi polygon associated with the node. In this way the Voronoi polygon is used as the control volume for mass conservation. The Voronoi polygon is the dual diagram of the TIN mesh and can be computed by the intersection of perpendicular bisectors to each TIN edge.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Contacts.html" class="btn btn-neutral float-left" title="3. Primary Contacts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Model_Input_Formats.html" class="btn btn-neutral float-right" title="2. Model Input Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 tRIBS Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

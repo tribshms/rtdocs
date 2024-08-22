@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Model Outputs &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7d0012f7"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Quick Start" href="QuickStart.html" />
+    <link rel="prev" title="5. Model Execution" href="Model_Execution.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tRIBS - Distributed Hydrologic Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">HOME</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">2. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts.html">3. Primary Contacts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Model%20Design.html">1. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Model Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#time-series">6.1. Time Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basin-outlet-discharge-time-series">6.1.1. Basin Outlet Discharge Time Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hydrologic-time-series-at-selected-tin-nodes">6.1.2. Hydrologic Time Series at Selected TIN nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basin-averaged-hydrological-time-series">6.1.3. Basin-averaged Hydrological Time Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.1.4. Basin-averaged Hydrological Time Series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spatial-output">6.2. Spatial Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-spatial-output-tables">6.2.1. Dynamic Spatial Output Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-integrated-spatial-output-table">6.2.2. Time-integrated Spatial Output Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QuickStart.html">7. Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using%20GitHub.html">4. Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">3. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templates.html">4. Templates</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tRIBS - Distributed Hydrologic Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Model Outputs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/man/Output.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="model-outputs">
+<h1><span class="section-number">6. </span>Model Outputs<a class="headerlink" href="#model-outputs" title="Link to this heading"></a></h1>
+<p>The tRIBS Model produces a number of output files that represent the time series or the spatial distribution of model state or output variables. Output variables include the position of moisture fronts in the unsaturated zone, water table elevation, surface runoff, subsurface flux, rainfall rate, interception loss, evapotranspiration, and information on the mesh triangulation. <strong>Table 6.1</strong>, <strong>Table 6.2</strong>, and <strong>Table 6.3</strong> summarize: (1) mesh output files, (2) time series outputs, and (3) spatial outputs. More detailed descriptions of the individual files are provided in the following sections.</p>
+<blockquote>
+<div><p><strong>Table 6.1</strong> tRIBS Mesh Output Files</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Mesh Files</p></th>
+<th class="head"><p>Extension</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Mesh Node File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.nodes</span></code></p></td>
+<td><p>Node (x,y), ID of spoke, boundary code.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mesh Edge File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.edges</span></code></p></td>
+<td><p>ID of origin and destination node, ID of CCW edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Mesh Triangle File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.tri</span></code></p></td>
+<td><p>ID of vertex nodes, ID of neighboring triangles opposite the</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>vertex node, ID of CCW edge originating with the vertex node.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Mesh Node Elevation File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.z</span></code></p></td>
+<td><p>Node elevation (meters).</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mesh Voronoi Geometry</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*_voi</span></code></p></td>
+<td><p>File containing individual Voronoi polygon geometry.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Table 6.2</strong> tRIBS Model Time Series Files</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time Series</p></th>
+<th class="head"><p>Extension</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Discharge Time Series</em>.</p></td>
+<td><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">*_Outlet.qout</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">*qout</span></code></p>
+</dd>
+</dl>
+</td>
+<td><p>Time series of outlet or node hydrograph (m³/s).</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Basin Averaged File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.mrf</span></code></p></td>
+<td><p>Time series of basin-averaged model variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Hydrograph Runoff Types File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.rft</span></code></p></td>
+<td><p>Time series of outlet hydrograph by runoff type (m³/s).</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Node Dynamic Output File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*.pixel</span></code></p></td>
+<td><p>Time series of dynamic variables for a specific node.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Table 6.3</strong> tRIBS Model Spatial Output Files</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Spatial Output Files</p></th>
+<th class="head"><p>Extension</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Mesh Dynamic Output File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code></p></td>
+<td><p>Dynamic variable output for all mesh nodes at specific time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mesh Integrated Output File</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code></p></td>
+<td><p>Time-integrated variable output for all mesh nodes.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The location of the output files is specified in the tRIBS Model Input File by using the keywords <em>OUTFILENAME</em> and <em>OUTHYDROFILENAME</em>. An important note to make is that the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code>, <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> and <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> files produced by the model are labeled with additional identifiers before the extension that relate to the time of the output. For each <em>OPINTRVL</em> time step, the model will produce output of the <code class="docutils literal notranslate"><span class="pre">*.mrf</span></code> type, while the <code class="docutils literal notranslate"><span class="pre">*.rft</span></code> file is produced only after completion of the entire run. The spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00d</span></code>) are determined by the time step specified in the <em>SPOPINTRVL</em> keyword. Time-integrated spatial output (<code class="docutils literal notranslate"><span class="pre">*timestamp_00i</span></code>) is produced only at the end of the simulation. The model also produces various files with a <code class="docutils literal notranslate"><span class="pre">*.pixel</span></code> extension followed by a node ID number at the end of the run. The <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files contain the dynamic variable output for a single node for all model times. The number of <code class="docutils literal notranslate"><span class="pre">*.pixel#</span></code> files produced is specified through a Node Output List (<code class="docutils literal notranslate"><span class="pre">*.nol</span></code>) File described below.</p>
+<p><strong>Table 6.4</strong> Node Output List File Structure</p>
+<blockquote>
+<div><table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><em>#Nodes</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>NodeID 1</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>…</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>NodeID n</em></p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>A similar structure and file is used for the keyword <em>HYDRONODELIST</em> and <em>OUTLETNODELIST</em>. Using this file, allows the user to obtain the runtime hydrologic information in the unsaturated and saturated model for each time step as output to the screen, a useful tool for debugging. No filename suppresses the debugging information.</p>
+</div></blockquote>
+<section id="time-series">
+<h2><span class="section-number">6.1. </span>Time Series<a class="headerlink" href="#time-series" title="Link to this heading"></a></h2>
+<section id="basin-outlet-discharge-time-series">
+<h3><span class="section-number">6.1.1. </span>Basin Outlet Discharge Time Series<a class="headerlink" href="#basin-outlet-discharge-time-series" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Table 6.5</strong> Content of <a href="#id1"><span class="problematic" id="id2">*</span></a>_Outlet.qout file or <a href="#id3"><span class="problematic" id="id4">*</span></a>qout file if Voronoi IDs are provided via OUTLETNODELIST</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Time</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Discharge, Qstrm</p></td>
+<td><p>[m3/s]</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Channel stage,
+HLevel</p></td>
+<td><p>[m]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="hydrologic-time-series-at-selected-tin-nodes">
+<h3><span class="section-number">6.1.2. </span>Hydrologic Time Series at Selected TIN nodes<a class="headerlink" href="#hydrologic-time-series-at-selected-tin-nodes" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Table 6.6</strong> Content of <a href="#id5"><span class="problematic" id="id6">*</span></a>.pixel files</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Node Identification, ID</p></td>
+<td><p>[id]</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Time</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Depth to groundwater table, Nwt</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Wetting front depth, Nf</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Top front depth, Nt</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Total moisture above the water table, Mu</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Moisture content in the initialization
+profile, Mi</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Unsaturated lateral flow out from cell,
+Qpout</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Unsaturated lateral flow into cell, Qpin</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Transmissivity, Trnsm</p></td>
+<td><p>[m²/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Groundwater flux, GWflx</p></td>
+<td><p>[m³/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Surface Runoff, Srf</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Rainfall, Rain</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Soil Moisture, top 10 cm, SoilMoist</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Root Zone Moisture, top 1 m, RootMoist</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Air Temperature, AirT</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Dew Point Temperature, DewT</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Surface Temperature, SurfT</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Soil Temperature, SoilT</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Atmospheric Pressure, Press</p></td>
+<td><p>[Pa]</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Relative Humidity, RelHum</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>Sky Cover, SkyCov</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>Wind Speed, Wind</p></td>
+<td><p>[m/s]</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>Net Radiation, NetRad</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Incoming Shortwave Radiation, ShrtRadIn</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Incoming Direct Shortwave Radiation,
+ShrtRadIn_dir</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>Incoming Diffuse Shortwave Radiation,
+ShrtRadIn_dif</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Shortwave Absorbed Radiation, Vegetation,
+ShortAbsbVeg</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>Shortwave Absorbed Radiation, Soil,
+ShortAbsbSoi</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>Incoming Longwave Radiation, LngRadIn</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>Outgoing Longwave Radiation, LngRadOut</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>Potential Evaporation, PotEvp</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>Actual Evaporation, ActEvp</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>Total Evapotranspiration, EvpTtrs</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>Evaporation from Wet Canopy, EvpWetCan</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>36</p></td>
+<td><p>Evaporation from Dry Canopy,
+EvpDryCan</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>Evaporation from Bare Soil, EvpSoil</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>Ground Heat Flux, Gflux</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>39</p></td>
+<td><p>Sensible Heat Flux, Hflux</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>Latent Heat Flux, Lflux</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>Net Precipitation, NetPrecip</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>42</p></td>
+<td><p>Liquid Water Equivalent, LiqWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>Ice Water Equivalent, IceWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>44</p></td>
+<td><p>Snow Water Equivalent, SnWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>Sublimation from Snowpack, SnSub</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>46</p></td>
+<td><p>Evaporation from Snowpack, SnEvap</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>46</p></td>
+<td><p>Internal Energy of Snow Pack, U</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>47</p></td>
+<td><p>Routed Melt Water Equivalent, RouteWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>48</p></td>
+<td><p>Snow Temperature, SnTemp</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>Snow Surface Age, SurfAge</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>Change in Snow Pack Internal Energy, DU</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>Latent Heat Flux from Snow Cover, snLHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>Sensible Heat Flux from Snow Cover, snSHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>54</p></td>
+<td><p>Ground Heat Flux from Snow Cover, snGHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>55</p></td>
+<td><p>Precip Heat Flux from Snow Cover, snPHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>56</p></td>
+<td><p>Outgoing Longw. Rad. from Snow, snRLout</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>Incom. Longw. Radn. from Snow, snRLin</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>58</p></td>
+<td><p>Incom. Shortw. Radn. from Snow, snRSin</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>59</p></td>
+<td><p>Error in Energy Balance, Uerror</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>Intercepted Snow Water Equivalent, intSWEq</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>61</p></td>
+<td><p>Sublim. Snow Water Equiv. from Canopy,
+intSub</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>62</p></td>
+<td><p>Unloaded SWE from Canopy, intSnUnload</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>63</p></td>
+<td><p>Canopy Storage, CanStorage</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>Cumulative Interception, CumIntercept</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>65</p></td>
+<td><p>Interception, Interception</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>66</p></td>
+<td><p>Recharge, Recharge</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>67</p></td>
+<td><p>Runon, RunOn</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>68</p></td>
+<td><p>Surface Runoff in Hour, srf_Hour</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>69</p></td>
+<td><p>Discharge, Qstrm</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+<tr class="row-odd"><td><p>70</p></td>
+<td><p>Channel Stage, Hlevel</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-even"><td><p>71</p></td>
+<td><p>Canopy Storage Parameter, CanStorParam</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>72</p></td>
+<td><p>Interception Coefficient, IntercepCoeff</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>73</p></td>
+<td><p>Free Throughfall Coeff.- Rutter,
+ThroughFall</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>74</p></td>
+<td><p>Canopy Field Capacity – Rutter, CanFieldCap</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>75</p></td>
+<td><p>Drainage coefficient – Rutter, DrainCoeff</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>76</p></td>
+<td><p>Drainage Expon. Param. – Rutter,
+DrainExpPar</p></td>
+<td><p>[mm⁻¹]</p></td>
+</tr>
+<tr class="row-even"><td><p>77</p></td>
+<td><p>Albedo, LandUseAlb</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>78</p></td>
+<td><p>Vegetation Height , VegHeight</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-even"><td><p>79</p></td>
+<td><p>Optical Transmission Coeff., OptTransmCoeff</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>Canopy- Average Stomatal Resistance,
+StomRes</p></td>
+<td><p>[s/m]</p></td>
+</tr>
+<tr class="row-even"><td><p>81</p></td>
+<td><p>Vegetation Fraction, VegFraction</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>82</p></td>
+<td><p>Canopy Leaf Area Index, LeafAI</p></td>
+<td><p>[ ]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="basin-averaged-hydrological-time-series">
+<h3><span class="section-number">6.1.3. </span>Basin-averaged Hydrological Time Series<a class="headerlink" href="#basin-averaged-hydrological-time-series" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Table 6.7</strong> Content of <a href="#id7"><span class="problematic" id="id8">*</span></a>.mrf file</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Time</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Surface Runoff from Hydrologic Routing, Srf</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Mean Areal Precipitation, MAP</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Maximum Rainfall Rate, Max</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Minimum Rainfall Rate, Min</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Forecast State, Fstate</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Mean Surface Soil Moisture (in top 10 cm),
+MSM100</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Mean Soil Moisture in Root Zone (in top 1
+m), MSMRt</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Mean Soil Moisture in Unsaturated Zone
+(above water table), MSMU</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Mean Depth to Groundwater, MGW</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Mean Evapotranspiration, MET</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Areal Fraction of Surface Saturation, Sat</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Areal Fraction of Rainfall, Rain</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Average Snow Water Equivalent, AvSWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Average Amount of Snow Melt, AvMelt</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Average Snow Temperature, AvSTC</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Average Change in Snow Pack Internal
+Energy, AvDUint</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Average Latent Heat Flux from Snow
+Covered Areas, AvSLHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Average Sensible Heat Flux from Snow
+Covered Areas, AvSSHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Average Precipitation Heat Flux from Snow
+Covered Areas, AvSPHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Average Ground Heat Flux from Snow
+Covered Areas, AvSGHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>Average Incoming Longwave Radiation from
+Snow Covered Areas, AvSRLI</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>Average Outgoing Longwave Radiation from
+Snow Covered Areas, AvSRLO</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>Average Incoming Shortwave Radiation from
+Snow Covered Areas, AvSRSI</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Mean Intercepted Snow Water Equivalent,
+AvInSn</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Mean Sublimation from Intercepted Snow,
+AvInSu</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>Mean Unloaded Snow from Canopy, AvInUn</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Fraction Snow Covered Area, SCA</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>Channel percolation, ChanP</p></td>
+<td><p>[m³]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="id9">
+<h3><span class="section-number">6.1.4. </span>Basin-averaged Hydrological Time Series<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Table 6.8</strong> Content for <a href="#id10"><span class="problematic" id="id11">*</span></a>.mrf files</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Time</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Infiltration-excess Runoff, Hsrf</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Saturation-excess Runoff, Sbsrf</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Perched Return Flow, Psrf</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Groundwater Exfiltration, Satsrf</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+<section id="spatial-output">
+<h2><span class="section-number">6.2. </span>Spatial Output<a class="headerlink" href="#spatial-output" title="Link to this heading"></a></h2>
+<section id="dynamic-spatial-output-tables">
+<h3><span class="section-number">6.2.1. </span>Dynamic Spatial Output Tables<a class="headerlink" href="#dynamic-spatial-output-tables" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Table 6.9</strong> Content of <a href="#id12"><span class="problematic" id="id13">*</span></a>timestamp_00d files</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Node Identification, ID</p></td>
+<td><p>[id]</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Depth to groundwater table, Nwt</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Total moisture above the water table,
+Mu</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Moisture content in the initialization
+profile, Mi</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Wetting front depth, Nf</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Top front depth, Nt</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Unsaturated lateral flow out from
+cell, Qpout</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Unsaturated lateral flow into cell,
+Qpin</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Surface Runoff, Srf</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Rainfall, Rain</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Snow Temperature, ST</p></td>
+<td><p>[°C]</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Ice Part of Snow Water Equivalent, IWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Liquid Part of Snow Water Equivalent,
+LWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Snow Sublimation, SnSu</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Snow Evaporation, SnEvap</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Snow Melt, SnMelt</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Internal Energy of Snow Pack, Upack</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Latent Heat Flux from Snow Cover, sLHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Sensible Heat Flux from Snow Cover,
+sSHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Ground Heat Flux from Snow Cover, sGHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Precipitation Heat Flux from Snow
+Cover, sPHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>Outgoing Longwave Radiation from Snow
+Cover, sRLo</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>Incoming Longwave Radation from Snow
+Cover, sRLi</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>Incoming Shortwave Radiation from Snow
+Cover, sRSi</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Error in Energy Balance, Uerr</p></td>
+<td><p>[J/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Intercepted SWE, IntSWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>Sublimated Snow from Canopy, IntSub</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Unloaded Snow from Canopy, IntUnl</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>Soil Moisture, top 10 cm, SoilMoist</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>Root Zone Moisture, top 1 m, RootMoist</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>Canopy Storage, CanStorage</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>Actual Evaporation, ActEvp</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>Evaporation from Bare Soil, EvpSoil</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>Total Evapotranspiration, ET</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>Ground Heat Flux, Gflux</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>36</p></td>
+<td><p>Sensible Heat Flux, Hflux</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>Latent Heat Flux, Lflux</p></td>
+<td><p>[W/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>Discharge, Qstrm</p></td>
+<td><p>[m³/s]</p></td>
+</tr>
+<tr class="row-even"><td><p>39</p></td>
+<td><p>Channel Stage, Hlev</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>Channel Flow Velocity, FlwVlc</p></td>
+<td><p>[m/s]</p></td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>Canopy Storage Parameter, CanStorParam</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>42</p></td>
+<td><p>Interception Coeff., IntercepCoeff.</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>Free Throughfall Coeff.- Rutter,
+ThroughFall</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>44</p></td>
+<td><p>Canopy Field Capacity – Rutter,
+CanFieldCap</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>Drainage coefficient – Rutter,
+DrainCoeff</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>46</p></td>
+<td><p>Drainage Expon. Param. – Rutter,
+DrainExpPar</p></td>
+<td><p>[mm⁻¹]</p></td>
+</tr>
+<tr class="row-even"><td><p>47</p></td>
+<td><p>Albedo, LandUseAlb</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>Vegetation Height , VegHeight</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>Optical Transmission Coeff.,
+OptTransmCoeff</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>Canopy- Average Stomatal Resistance,
+StomRes</p></td>
+<td><p>[s/m]</p></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>Vegetation Fraction, VegFraction</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>Canopy Leaf Area Index, LeafAI</p></td>
+<td><p>[ ]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="time-integrated-spatial-output-table">
+<h3><span class="section-number">6.2.2. </span>Time-integrated Spatial Output Table<a class="headerlink" href="#time-integrated-spatial-output-table" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Table 6.10</strong> Content of <a href="#id14"><span class="problematic" id="id15">*</span></a>timestamp_00i file</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Node Identification, ID</p></td>
+<td><p>[id]</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Boundary Flag, BndCd</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Elevation, Z</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Voronoi Area, VAr</p></td>
+<td><p>[m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Contributing Area, CAr</p></td>
+<td><p>[km²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Curvature, Curv</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Flow Edge Length, EdgL</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Tangent of Flow Edge Slope, tan(Slp)</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Width of Voronoi Flow Window, FWidth</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Site Aspect as Angle from North, Aspect</p></td>
+<td><p>[radian]</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Sky View Factor, SV</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Land View Factor, LV</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Average Soil Moisture, top 10 cm, AvSM</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Average Root Zone Moisture, top 1 m,
+AvRtM</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Infiltration-excess Runoff Occurences,
+HOccr</p></td>
+<td><p>[# of
+TIMESTEP]</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Infiltration-excess Runoff Average
+Rate, HRt</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Saturation-excess Runoff Occurences,
+SbOccr</p></td>
+<td><p>[# of
+TIMESTEP]</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Saturation-excess Runoff Average Rate,
+SbRt</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Perched Return Runoff Occurences,
+POccr</p></td>
+<td><p>[# of
+TIMESTEP]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Perched Return Runoff Average Rate,
+PRt</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Groundwater Exfiltration Runoff
+Occurences, SatOccr</p></td>
+<td><p>[# of
+GWSTEP]</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>Groundwater Exfiltration Runoff
+Average Rate, SatRt</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>Soil Saturation Occurences, SoiSatOccr</p></td>
+<td><p>[# of
+TIMESTEP]</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>Recharge-Discharge Variable, RchDsch</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Average Evapotranspiration, AveET</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Evaporative Fraction, EvpFrct</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>Cumulative Evapotranspiration, cET</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Cumulative Soil Evaporation, cEsoil</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>Cumulative Latent Heat Flux from Snow
+Cover, cLHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>Cumulative Melt, cMelt</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>Cumulative Sensible Heat Flux from
+Snow Cover, cSHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>Cumulative Precipitation Heat Flux
+from Snow Cover, cPHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>Cumulative Incoming Longwave
+Radiation from Snow Cover, cRLIn</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>Cumulative Outgoing Longwave
+Radiation from Snow Cover, cRLo</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>Cumulative Incoming Shortwave
+Radiation from Snow Cover, cRSIn</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>36</p></td>
+<td><p>Cumulative Ground Heat Flux from
+Snow Cover, cGHF</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>Cumulative Energy Balance Error, cUErr</p></td>
+<td><p>[kJ/m²]</p></td>
+</tr>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>Cumulative Hrs of Sun exposure,cHrsSun</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>39</p></td>
+<td><p>Cumulative Hours Snow Covered, cHrsSnow</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>Longest Time of Continuous Snow
+Cover, persTime</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>Maximum Season SWE, peakWE</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>42</p></td>
+<td><p>Simulation Hour of Maximum SWE,
+peakTime</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>Simulation Hr of Initial SWE, initTime</p></td>
+<td><p>[hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>44</p></td>
+<td colspan="2"><p>Cumulative Sublimated Snow from        | [cm]
+Canopy, cIntSub</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>Cumulative Sublimaton from Snow Pack,
+cSnSub</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>46</p></td>
+<td><p>Cumulative Evaporation from Snow Pack,
+cSnEvap</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-even"><td><p>47</p></td>
+<td><p>Cumulative Unloaded Snow from Canopy,
+cintUnl</p></td>
+<td><p>[cm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>Av. Canopy Storage Parameter,
+AvCanStorParam</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>Av. Intercep. Coeff., AvIntercCoeff</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>Av. Free Throughfall Coeff.- Rutter,
+AvTF</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>Av. Canopy Field Capac. – Rutter,
+AvCanFieldCap</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>Av. Drain. Coeff. – Rutter,
+AvDrainCoeff</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>Av. Drain. Expon. Param. – Rutter,
+AvDrainExpPar</p></td>
+<td><p>[mm⁻¹]</p></td>
+</tr>
+<tr class="row-odd"><td><p>54</p></td>
+<td><p>Av. Albedo,AvLUAlb</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>55</p></td>
+<td><p>Av. Veg. Height , AvVegHeight</p></td>
+<td><p>[m]</p></td>
+</tr>
+<tr class="row-odd"><td><p>56</p></td>
+<td><p>Av. Optical Transm. Coeff., AvOTCoeff</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>Av. Canopy- Average Stom. Resist.,
+AvStomRes</p></td>
+<td><p>[s/m]</p></td>
+</tr>
+<tr class="row-odd"><td><p>58</p></td>
+<td><p>Av. Veg. Frac., AvVegFract</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-even"><td><p>59</p></td>
+<td><p>Av. Canopy Leaf Area Index, AvLeafAI</p></td>
+<td><p>[ ]</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>Depth to Bedrock, Bedrock_Depth_mm</p></td>
+<td><p>[mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>61</p></td>
+<td><p>Saturate Hydraulic Conducitivity, Ks</p></td>
+<td><p>[mm/hr]</p></td>
+</tr>
+<tr class="row-odd"><td><p>62</p></td>
+<td><p>Saturated Soil Moisture, ThetaS</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p>63</p></td>
+<td><p>Residual Soil Moisture, ThetaR</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>Pore Distribution Index, PoreSize</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p>65</p></td>
+<td><p>Air Entry Bubbling Pressure,
+AirEBubP</p></td>
+<td><p>[mm]
+(negative)</p></td>
+</tr>
+<tr class="row-odd"><td><p>66</p></td>
+<td><p>Hydraulic Decay Parameter, DecayF</p></td>
+<td><p>[1/mm]</p></td>
+</tr>
+<tr class="row-even"><td><p>67</p></td>
+<td><p>Saturated Anisotropy Ratio, SatAnRatio</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p>68</p></td>
+<td><p>Unsaturated Anisotropy Ratio,
+UnsatAnRatio</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p>69</p></td>
+<td><p>Porosity, Porosity</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-odd"><td><p>70</p></td>
+<td><p>Volumetric Heat Conductivity,
+VolHeatCond</p></td>
+<td><p>[J/msK]</p></td>
+</tr>
+<tr class="row-even"><td><p>71</p></td>
+<td><p>Soil Heat Capacity, SoilHeatCap</p></td>
+<td><p>[J/m^k]</p></td>
+</tr>
+<tr class="row-odd"><td><p>72</p></td>
+<td><p>Soil Class, SoilID</p></td>
+<td><p>[-]</p></td>
+</tr>
+<tr class="row-even"><td><p>73</p></td>
+<td><p>Landuse Class, LandUseID</p></td>
+<td><p>[-]</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Model_Execution.html" class="btn btn-neutral float-left" title="5. Model Execution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="QuickStart.html" class="btn btn-neutral float-right" title="7. Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 tRIBS Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

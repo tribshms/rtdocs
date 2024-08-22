@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Using GitHub &mdash; tRIBS - Distributed Hydrologic Model 5.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=9ac31437" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7d0012f7"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Docker" href="Docker.html" />
+    <link rel="prev" title="3. Release Notes" href="Release%20Notes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tRIBS - Distributed Hydrologic Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">HOME</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ABOUT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">2. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contacts.html">3. Primary Contacts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCUMENTATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Design.html">1. Model Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Input_Formats.html">2. Model Input Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Parameters_Forcings.html">3. Model Parameters and Forcings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model%20Input%20File.html">4. Model Input File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model_Execution.html">5. Model Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">6. Model Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QuickStart.html">7. Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Development.html">1. Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">2. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release%20Notes.html">3. Release Notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Using GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#forking-tribs">4.1. Forking tRIBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-your-fork-to-your-computer">4.2. Cloning your fork to your computer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-gui-app">4.2.1. Using the GUI/app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-command-line">4.2.2. Using the command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-branches">4.2.3. Working with branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOWNLOADS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">1. Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Executables.html">2. Executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmarks.html">3. Benchmark Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templates.html">4. Templates</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tRIBS - Distributed Hydrologic Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Using GitHub</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/man/Using GitHub.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-github">
+<h1><span class="section-number">4. </span>Using GitHub<a class="headerlink" href="#using-github" title="Link to this heading"></a></h1>
+<p>The tRIBS source code is stored on GitHub using the version control system Git. As a result, any effort to develop, fix, or modify tRIBS source code requires understanding of these tools. While there are a number of useful resources that describe these tools, below we outline the steps that we request all tRIBS developers and users adhere to:</p>
+<ol class="arabic simple">
+<li><p>Start by creating a <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> of the tRIBS repository.</p></li>
+<li><p>Create a development branch to add any changes in the source code.</p></li>
+<li><p>Keep your main and development branch up to date with changes from the main tRIBS repository.</p></li>
+<li><p>Update the main tRIBS source code from your local fork by creating <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull requests</a> on GitHub.</p></li>
+</ol>
+<p>In summary, this means that, any modification or fixes of the tRIBS source code should take place in your own <em>fork</em> of the main tRIBS repository. A fork is a <em>mirror</em> of the repository and is hosted on your personal GitHub account. Any updates, modifications, or fixes to the tRIBS source code can be implemented on this fork. These updates then can be merged to the tRIBS main repository through implementing a pull request on the GitHub website.</p>
+<p>Note, if you do not already have a GitHub account you will need to create one, likewise you may need to install Git on your computer. Here are links for creating a <a class="reference external" href="https://github.com">GitHub account</a> and <a class="reference external" href="https://help.github.com/en/github/getting-started-with-github/set-up-git">installing Git</a>, or alternatively you can use a GitHub graphical user interface <a class="reference external" href="https://desktop.github.com">here</a>. If you use Git through the command line you will need to configure your account for write access using an SSH key with relevant documentation provided <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">here</a>.</p>
+<section id="forking-tribs">
+<h2><span class="section-number">4.1. </span>Forking tRIBS<a class="headerlink" href="#forking-tribs" title="Link to this heading"></a></h2>
+<p>The following steps will create a fork of the tRIBS repository under
+your GitHub account.</p>
+<ol class="arabic simple">
+<li><p>Sign in to your GitHub account.</p></li>
+<li><p>Go to the tRIBS <a class="reference external" href="https://github.com/tribshms/tRIBS">home page</a>
+on GitHub.</p></li>
+<li><p>Click the fork button in the upper-right corner of the page.</p></li>
+</ol>
+<p>Once completed, you will be redirected to the home page for your own
+copy of tRIBS.</p>
+</section>
+<section id="cloning-your-fork-to-your-computer">
+<h2><span class="section-number">4.2. </span>Cloning your fork to your computer<a class="headerlink" href="#cloning-your-fork-to-your-computer" title="Link to this heading"></a></h2>
+<p>You can clone the fork (that lives on the GitHub website) locally to
+your computer either using the GitHub app (the GUI), or directly from
+the command line using git. If you’ve never used Git before, the app is
+probably the way to go.</p>
+<section id="using-the-gui-app">
+<h3><span class="section-number">4.2.1. </span>Using the GUI/app<a class="headerlink" href="#using-the-gui-app" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Sign in to GitHub on the GUI.</p></li>
+<li><p>Click on your account on the left side of the GUI.</p></li>
+<li><p>This will show your fork of tRIBS. Click on the clone option next to
+the fork which will initiate the download of tRIBS to your computer.</p></li>
+</ol>
+</section>
+<section id="using-the-command-line">
+<h3><span class="section-number">4.2.2. </span>Using the command line<a class="headerlink" href="#using-the-command-line" title="Link to this heading"></a></h3>
+<p>Use the following commands from the terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:your-user-name/tRIBS.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tRIBS
+$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>git://github.com/tribshms/tRIBS.git
+</pre></div>
+</div>
+<p>Note if you are running into the following errors,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git@github.com:<span class="w"> </span>Permission<span class="w"> </span>denied<span class="w"> </span><span class="o">(</span>publickey<span class="o">)</span>.
+fatal:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span><span class="nb">read</span><span class="w"> </span>from<span class="w"> </span>remote<span class="w"> </span>repository.
+</pre></div>
+</div>
+<p>then you will likely need to generate a new ssh key and add it to your <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">GitHub profile</a>.</p>
+</section>
+<section id="working-with-branches">
+<h3><span class="section-number">4.2.3. </span>Working with branches<a class="headerlink" href="#working-with-branches" title="Link to this heading"></a></h3>
+<p>For tRIBS we maintain a <em>main</em> and <em>dev</em> branch. The <em>dev</em> branch is intended to be used for development, hot-fixes, and testing. Consequently, the <em>dev</em> branch may not be functional or fully tested. When you submit a pull request, it can either be on <em>dev</em> branch or a new branch that we will merge with source code after test and evaluating the proposed modifications.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Release%20Notes.html" class="btn btn-neutral float-left" title="3. Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Docker.html" class="btn btn-neutral float-right" title="1. Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 tRIBS Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
