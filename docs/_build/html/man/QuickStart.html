@@ -141,6 +141,7 @@
 </section>
 <section id="build-tribs-executable">
 <h2><span class="section-number">7.2. </span>Build tRIBS executable<a class="headerlink" href="#build-tribs-executable" title="Link to this heading"></a></h2>
+<p>Note: This step can be skipped if you prefer and are able to use the provided <a class="reference internal" href="Executables.html"><span class="doc">Executables</span></a>. If so the executable can be unpacked by running <code class="docutils literal notranslate"><span class="pre">path/to/tRIBS-5.2.0-*.sh</span></code> in the command line.</p>
 <ol class="arabic">
 <li><p>Download tRIBS source code from the main branch of the GitHub repository. A direct download link is available <a class="reference external" href="https://github.com/tribshms/tRIBS/archive/refs/heads/main.zip">here</a>. Unzip the repository and using the command line to change to the repository directory. Once in this directory you should see the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file and the <code class="docutils literal notranslate"><span class="pre">src</span></code> sub-directory which contains the tRIBS source code. The code block below provides an example of how to do this but you will need to update the path realative to where you have downloaded the tRIBS-main repository.</p>
 <blockquote>
@@ -209,7 +210,7 @@ pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class=
 </div>
 </div></blockquote>
 </li>
-<li><p>Once you have successfully installed the required packages you then can use python to visualize the results. Below we provide an example code snippet that can be used to plot a Voronoi Diagram with each cell colored by the average evapotranspiration rate over the entire simulation.</p>
+<li><p>Once you have successfully installed the required packages you then can use python to visualize the results. Below we provide an example code snippet that can be used to plot a Voronoi Diagram with each cell colored by the average evapotranspiration rate over the entire simulation. Note here we use the variable <code class="docutils literal notranslate"><span class="pre">'AvET'</span></code> but users can update this code with any of the variables found <a class="reference external" href="file:///Users/wr/Documents/Repos/Forked/rtdocs/docs/_build/html/man/Output.html#time-integrated-spatial-output-table">here</a></p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -229,7 +230,7 @@ pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class=
 <span class="c1"># generate the voronoi diagaram with variable from integrated file</span>
 <span class="n">voi_par</span> <span class="o">=</span> <span class="n">read_voi</span><span class="o">.</span><span class="n">merge_parallel_voi</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">par_results</span><span class="si">}</span><span class="s1">bigsp_voi&#39;</span><span class="p">,</span><span class="n">join</span><span class="o">=</span><span class="n">int_df_par</span><span class="p">[</span><span class="s1">&#39;35072&#39;</span><span class="p">])</span>
 
-
+<span class="c1"># see the documentation to see possible variables for plotting</span>
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">voi_par</span><span class="p">[</span><span class="s1">&#39;AvET&#39;</span><span class="p">],</span> <span class="mf">2.5</span><span class="p">)</span>
 <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">voi_par</span><span class="p">[</span><span class="s1">&#39;AvET&#39;</span><span class="p">],</span> <span class="mf">97.5</span><span class="p">)</span>

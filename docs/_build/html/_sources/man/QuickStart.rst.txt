@@ -38,6 +38,7 @@ Building tRIBS requires CMake and if you are running tRIBS in parallel you will 
 
 Build tRIBS executable
 ----------------------
+Note: This step can be skipped if you prefer and are able to use the provided :doc:`Executables`. If so the executable can be unpacked by running ``path/to/tRIBS-5.2.0-*.sh`` in the command line.
 
 1. Download tRIBS source code from the main branch of the GitHub repository. A direct download link is available `here <https://github.com/tribshms/tRIBS/archive/refs/heads/main.zip>`_. Unzip the repository and using the command line to change to the repository directory. Once in this directory you should see the ``CMakeLists.txt`` file and the ``src`` sub-directory which contains the tRIBS source code. The code block below provides an example of how to do this but you will need to update the path realative to where you have downloaded the tRIBS-main repository.
 
@@ -97,7 +98,7 @@ Once the model has successfully terminated, you should be able to see that the `
 		pip install -r doc/notebooks/requirements.txt # install related packages
 		pip install jupyterlab # this is optional but can be used to view doc/notebooks/Results.ipynb
 
-2. Once you have successfully installed the required packages you then can use python to visualize the results. Below we provide an example code snippet that can be used to plot a Voronoi Diagram with each cell colored by the average evapotranspiration rate over the entire simulation.
+2. Once you have successfully installed the required packages you then can use python to visualize the results. Below we provide an example code snippet that can be used to plot a Voronoi Diagram with each cell colored by the average evapotranspiration rate over the entire simulation. Note here we use the variable ``'AvET'`` but users can update this code with any of the variables found `here <file:///Users/wr/Documents/Repos/Forked/rtdocs/docs/_build/html/man/Output.html#time-integrated-spatial-output-table>`_
 
 	.. code-block:: python
 
@@ -119,12 +120,12 @@ Once the model has successfully terminated, you should be able to see that the `
 		# generate the voronoi diagaram with variable from integrated file
 		voi_par = read_voi.merge_parallel_voi(f'{par_results}bigsp_voi',join=int_df_par['35072'])
 
-
+		# see the documentation to see possible variables for plotting
 		fig,ax = plt.subplots()
 		low = np.percentile(voi_par['AvET'], 2.5)
 		high = np.percentile(voi_par['AvET'], 97.5)
 		voi_par.plot(ax=ax,
-					column='AvET',
+					column='AvET', 
 					cmap='YlOrBr',
 					legend=True,
 					vmin=low,
