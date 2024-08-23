@@ -28,7 +28,7 @@ Building tRIBS requires CMake and if you are running tRIBS in parallel you will 
 
    .. code-block:: bash
 
-      brew install open-mpi
+      brew install openmpi
 
    For Linux (Ubuntu) use:
 
