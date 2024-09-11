@@ -17,7 +17,7 @@ Cazares-Rodriguez, J.E., Vivoni, E.R., and Mascaro, G. 2017. Comparison of Two W
 
 Ko, A., Mascaro, G., and Vivoni, E.R. 2019. Strategies to Improve and Evaluate Physics-Based Hyperresolution Hydrologic Simulations at Regional Basin Scales. *Water Resources Research*. 55(2): 1129-1152. https://doi.org/10.1029/2018WR023521
 
-Raming, L.W., Vivoni, E.R., Mascaro, G., Cederstrom, C.J., Ko, A., Schreiner-McGraw, A.P., Cazares-Rodriguez, J.E., and Lizarraga-Celaya, C. 2024. tRIBS v5.2: A Multi-resolution, Parallel Platform for Tributary Hydrology in Forest Applications. *Journal of Open Source Software*. (Under Review).
+Raming, L.W., Vivoni, E.R., Mascaro, G., Cederstrom, C.J., Ko, A., Schreiner-McGraw, A.P., and Lizarraga-Celaya, C. 2024. tRIBS v5.2: A multi-resolution, parallel platform for tributary hydrology in forest applications. Journal of Open Source Software, 9(101), 6747, https://doi.org/10.21105/joss.06747
 
 Rinehart, A.J., Vivoni, E.R., and Brooks, P.D. 2008. Effects of Vegetation, Albedo and Solar Radiation Sheltering on the Distribution of Snow in the Valles Caldera, New Mexico. *Ecohydrology*. 1(3): 253-270. https://doi.org/10.1002/eco.26
 
