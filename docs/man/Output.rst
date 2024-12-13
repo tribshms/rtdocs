@@ -641,7 +641,7 @@ Time-integrated Spatial Output Table
         |       | cSnEvap                                |             | 
         +-------+----------------------------------------+-------------+
         | 47    | Cumulative Unloaded Snow from Canopy,  | [cm]        |
-        |       | cintUnl                                |             |
+        |       | cIntUnl                                |             |
         +-------+----------------------------------------+-------------+
         | 48    | Av. Canopy Storage Parameter,          | [mm]        |
         |       | AvCanStorParam                         |             |
