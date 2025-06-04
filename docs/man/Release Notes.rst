@@ -15,20 +15,7 @@ Version History
 tRIBS 5.2.1 (June 2024)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The tRIBS Distributed Hydrologic Modeling System, Version 5.2.1, provides a focused patch addressing key bugs and improving model stability and reproducibility. This maintenance release includes updates to meteorological variable initialization, improvements in numerical output precision, and enhancements to build configuration flexibility. Additionally, several legacy elements and potentially misleading behaviors have been deprecated or temporarily disabled pending review.
-
-Key updates include:
-- Improved handling of `Nwt` as bedrock depth through conditional cutoff logic in beta functions
-- Fixed improper initialization of critical meteorological variables, including `Tso` and `skycover_flag`
-- Added black-box testing for the Happy Jack and Big Spring benchmark scenarios
-- Introduced CMake build flag options for toggling between release and debug configurations
-- Increased precision of model output in `.qout` files to two decimal places
-- Commented out call to `inShortWaveCan` in the snow submodel (`tSnowPack::computeSub`) pending further validation
-- Resolved snow loss issue under full vegetation cover by adjusting the vegetation fraction to 0.99
-- Removed deprecated method `CNode::setrsrf(double value)` and unused variable `BasAltitude`
-- Temporarily disabled outdated 2012-era logic in `resFactCalc` affecting `vegHeight`, `coeffH`, and `coeffV`
-
-These targeted fixes aim to enhance the model's robustness and facilitate future development efforts.
+The tRIBS Distributed Hydrologic Modeling System, Version 5.2.1, provides a focused patch addressing key bugs and improving model stability and reproducibility. This maintenance release includes updates to meteorological variable initialization, improvements in numerical output precision, and enhancements to build configuration flexibility. Additionally, several legacy elements and potentially misleading behaviors have been deprecated or temporarily disabled pending review. These targeted fixes aim to enhance the model's robustness and facilitate future development efforts.
 
 tRIBS 5.2.0 (March 2024)
 ~~~~~~~~~~~~~~~~~~~~~~~~
