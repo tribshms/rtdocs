@@ -10,71 +10,73 @@ In the case of soil and vegetation cover, different data sources can be used to 
 
         **Table 3.1** tRIBS Soil Parameter Description
 
-        .. tabularcolumns:: |c|c|c|
+        .. tabularcolumns:: |c|c|c|c|
 
-        +--------------------+-----------------------------------------------+--------------------+
-        |  **Parameter**     |  **Description**                              |  **Unit**          |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *Ks*              |  Saturated Hydraulic Conductivity             |  [mm/hr]           |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *thetaS*          |  Saturated Soil Moisture                      |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *thetaR*          |  Residual Soil Moisture                       |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *m*               |  Pore Distribution Index                      |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *PsiB*            |  Air Entry Bubbling Pressure                  |  [mm] (negative)   |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *f*               |  Hydraulic Decay Parameter                    |  [1/mm]            |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *As*              |  Saturated Anisotropy Ratio                   |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *Au*              |  Unsaturated Anisotropy Ratio                 |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *n*               |  Porosity                                     |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *ks*              |  Volumetric Heat Conductivity                 |  [J/msK]           |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *Cs*              |  Soil Heat Capacity                           |  [J/m3K]           |
-        +--------------------+-----------------------------------------------+--------------------+
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  **Parameter**     |  **GDF Name**      |  **Description**                              |  **Unit**          |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *Ks*              |  *KS*              |  Saturated Hydraulic Conductivity             |  [mm/hr]           |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  :math:`\theta_S`  |  *TS*              |  Saturated Soil Moisture                      |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  :math:`\theta_R`  |  *TR*              |  Residual Soil Moisture                       |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *m*               |  *PI*              |  Pore Distribution Index                      |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *PsiB*            |  *PB*              |  Air Entry Bubbling Pressure                  |  [mm] (negative)   |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *f*               |  *FD*              |  Hydraulic Decay Parameter                    |  [1/mm]            |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *As*              |  *AR*              |  Saturated Anisotropy Ratio                   |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *Au*              |  *US*              |  Unsaturated Anisotropy Ratio                 |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *n*               |  *PO*              |  Porosity                                     |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *ks*              |  *VH*              |  Volumetric Heat Conductivity                 |  [J/msK]           |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *Cs*              |  *SH*              |  Soil Heat Capacity                           |  [J/m3K]           |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
 
 The vegetation or land-use parameters in **Table 3.2** are necessary for carrying out the rainfall interception, bare soil evaporation and evapotranspiration within each Voronoi polygon, as well as determining the radiation and energy balance within the land surface. Note that the parameter requirements vary with the specified processes selected during a model run. For example, rainfall interception can be computed using a simple canopy storage method or the more complex Rutter model. The order in which the vegetation parameters are listed in the tabular input should correspond to the list below and the units should match. Actual parameter names are not important for tabular input, whereas raster-based inputs assume slightly different naming conventions. Similar units need to be used when specifying vegetation parameters as raster inputs. 
 
         **Table 3.2** tRIBS Vegetation or Land Use Description
 
-        .. tabularcolumns:: |c|c|c|
+        .. tabularcolumns:: |c|c|c|c|
 
-        +--------------------+-----------------------------------------------+--------------------+
-        |  **Parameter**     |  **Description**                              |  **Unit**          |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *a*               |  Canopy Storage - Storage Method              |  [mm]              |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *b1*              |  Interception Coefficient - Storage Method    |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *P*               |  Free Throughfall Coefficient - Rutter Method |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *S*               |  Canopy Field Capacity - Rutter Method        |  [mm]              |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *K*               |  Drainage Coefficient - Rutter Method         |  [mm/hr]           |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *b2*              |  Drainage Exponent - Rutter Method            |  [1/mm]            |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *Al*              |  Albedo                                       |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *h*               |  Vegetation Height                            |  [m]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *Kt*              |  Optical Transmission Coefficient             |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *Rs*              |  Stomata Resistance                           |  [s/m]             |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *V*               |  Vegetation Fraction                          |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *LAI*             |  Leaf Area Index                              |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *thetas*          |   Stress Threshold for Evaporation [0 to 1]   |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
-        |  *thetat*          |   Stress Threshold for Transpiration [0 to 1] |  [-]               |
-        +--------------------+-----------------------------------------------+--------------------+
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  **Parameter**     |  **GDF Name**      |  **Description**                              |  **Unit**          |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *a*               |  None              |  Canopy Storage - Storage Method              |  [mm]              |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *b1*              |  None              |  Interception Coefficient - Storage Method    |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *P*               |  *TF*              |  Free Throughfall Coefficient - Rutter Method |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *S*               |  *CC*              |  Canopy Field Capacity - Rutter Method        |  [mm]              |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *K*               |  *DC*              |  Drainage Coefficient - Rutter Method         |  [mm/hr]           |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *b2*              |  *DE*              |  Drainage Exponent - Rutter Method            |  [1/mm]            |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *Al*              |  *AL*              |  Albedo                                       |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *h*               |  *VH*              |  Vegetation Height                            |  [m]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *Kt*              |  *OT*              |  Optical Transmission Coefficient             |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *Rs*              |  *SR*              |  Stomata Resistance                           |  [s/m]             |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *V*               |  *VF*              |  Vegetation Fraction                          |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        |  *LAI*             |  *LA*              |  Leaf Area Index                              |  [-]               |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        | :math:`\theta^*_s` |  *SE*              |   Stress Threshold for Evaporation            |  [-]               |
+        |                    |                    |   [:math:`\theta_R` to :math:`\theta_S`]      |                    |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
+        | :math:`\theta^*_t` |  *ST*              |   Stress Threshold for Transpiration          |  [-]               |
+        |                    |                    |   [:math:`\theta_R` to :math:`\theta_S`]      |                    |
+        +--------------------+--------------------+-----------------------------------------------+--------------------+
 
 Input Formats
 ~~~~~~~~~~~~~~
@@ -115,21 +117,29 @@ The parameter values for the soil and land use grids are read from a reclassific
 
             .. tabularcolumns:: |c|c|c|c|c|c|c|c|c|c|c|c|
 
-            +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
-            |*#Types* |*nParams*|                                                                        |
-            +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
-            |  *ID*   |  *Ks*   |*thetaS* |*thetaR* | *m* | *PsiB* | *f* | *As* | *Au* | *n* | *ks*| *Cs*|
-            +---------+---------+---------+---------+-----+--------+-----+------+------+-----+-----+-----+
-
+            +---------+---------+-----------------+-----------------+-----+--------+-----+------+------+-----+-----+-----+
+            |*#Types* |*nParams*|                                                                                        |
+            +---------+---------+-----------------+-----------------+-----+--------+-----+------+------+-----+-----+-----+
+            |  *ID*   |  *Ks*   |:math:`\theta_S` |:math:`\theta_R` | *m* | *PsiB* | *f* | *As* | *Au* | *n* | *ks*| *Cs*|
+            +---------+---------+-----------------+-----------------+-----+--------+-----+------+------+-----+-----+-----+
+          
             **Table 3.5** Land Use Reclassification Table Structure (``*.ldt``)
 
-            .. tabularcolumns:: |c|c|c|c|c|c|c|c|c|c|c|c|c|
+            .. raw:: html
 
-            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
-            |*#Types* |*nParams*|                                                                    |
-            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
-            |  *ID*   |  *a*    | *bI* |*P* | *S* | *K* | *b2*| *Al* | *h* | *Kt* | *Rs*| *V* | *LAI*|
-            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+
+               <div style="overflow-x: auto;">
+
+            .. tabularcolumns:: |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|
+
+            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+--------------------+--------------------+
+            |*#Types* |*nParams*|                                                                                                              |
+            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+--------------------+--------------------+
+            |  *ID*   |  *A*    | *b1* |*P* | *S* | *K* | *b2*| *Al* | *h* | *Kt* | *Rs*| *V* | *LAI*| :math:`\theta^*_s` | :math:`\theta^*_t` |
+            +---------+---------+------+----+-----+-----+-----+------+-----+------+-----+-----+------+--------------------+--------------------+
+            
+            .. raw:: html
+
+               </div>
 
 Note that the soil parameters relate to the hydraulic and thermal properties in the upper portions of the soil profile. Most of these can be directly related to the surface soil texture. The first nine parameters are essential for running the Unsaturated Zone Model while the last two are required if the keyword *GFLUXOPTION = 1*. Note that these land use parameters relate to the interception and evaporation properties of the vegetative cover or land use type. The first two parameters are required if the keyword *OPTINTERCEPT = 1*, while the next four are required if *OPTINTERCEPT = 2*. The final five parameters are required for various options of the keyword *OPTEVAPOTRANS*. The last two parameters have been added to specify the soil moisture stress threshold for soil evaporation and plant transpiration in units of relative soil moisture (varying from 0 to 1).
 
@@ -202,6 +212,10 @@ An alternative input format type for dynamic land cover data is with the use of 
             +------------+-----------------------+------------------+
             | *LA*       |  *Grid File Pathname* | *Grid Extension* |
             +------------+-----------------------+------------------+
+            | *SE*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
+            | *ST*       |  *Grid File Pathname* | *Grid Extension* |
+            +------------+-----------------------+------------------+
 
 In the above ``*.gdf`` files, note that the first line specifies the total number of parameters to be inputted, while the second line is used to input a representative absolute latitude, longitude and GMT values for all the input grids. The next *#Params* lines are used to specify the parameter code, the file pathname of the land cover parameter grid (including the basename of the file) and the extension given to the particular grid. The *NO_DATA* flag is used to specify the grids that are not available for a particular parameter. 
 
@@ -269,23 +283,31 @@ The format of the Station Descriptor Files (``*.sdf``) and the Meteorological Da
 
         **Table 3.10.** Weather Station SDF Structure
 
-        .. tabularcolumns::     |c|c|c|c|c|c|c|c|c|c|
+        .. raw:: html
 
-        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+-------+
-        |*#Stations*|*#Params* |        |        |         |          |         |              |                |       |
-        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+-------+
-        |*StationID*|*FilePath*|*AbsLat*|*RefLat*|*AbsLong*| *RefLong*| *GMT*   |*RecordLength*|*#WeatherParams*|*Other*|
-        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+-------+
+           <div style="overflow-x: auto;">
+
+        .. tabularcolumns::     |c|c|c|c|c|c|c|c|c|c|c|
+
+        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+------------------+
+        |*#Stations*|*#Params* |        |        |         |          |         |              |                |                  |
+        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+------------------+
+        |*StationID*|*FilePath*|*AbsLat*|*RefLat*|*AbsLong*| *RefLong*| *GMT*   |*RecordLength*|*#WeatherParams*|*StationElevation*|
+        +-----------+----------+--------+--------+---------+----------+---------+--------------+----------------+------------------+
+
+        .. raw:: html
+
+           </div>
 
         **Table 3.11.** Rain Gauge SDF Structure
 
         .. tabularcolumns::   |c|c|c|c|c|c|c|
 
-        +-------------+------------+----------+-----------+----------------+---------------+-------------+
-        | *#Stations* | *#Params*  |          |           |                |               |             |
-        +-------------+------------+----------+-----------+----------------+---------------+-------------+
-        | *StationID* | *FilePath* | *RefLat* | *RefLong* | *RecordLength* | *#RainParams* | *Elevation* |
-        +-------------+------------+----------+-----------+----------------+---------------+-------------+
+        +-------------+------------+----------+-----------+----------------+---------------+--------------------+
+        | *#Stations* | *#Params*  |          |           |                |               |                    |
+        +-------------+------------+----------+-----------+----------------+---------------+--------------------+
+        | *StationID* | *FilePath* | *RefLat* | *RefLong* | *RecordLength* | *#RainParams* | *StationElevation* |
+        +-------------+------------+----------+-----------+----------------+---------------+--------------------+
 
 Note the following: *#Stations* is the number of total stations to be read, *#Params* is the number of parameters for each of the subsequent lines, *StationID* must be unique values for each station (starting at 0), the *FilePath* refers to the MDF file for that particular station and must be relative to the location of the executable, the *AbsLong* and *AbsLat* must be in decimal degree (lat/long), the RefLong and RefLat must be in the same coordinate system as the input grids and watershed TIN, Greenwich Mean Time (*GMT*) is difference in hours between the location and the Greenwich Meridian (negative number in Western Hemisphere), the *RecordLength* is the length of the time series in the MDF file, the *#WeatherParams* and *#RainParams* are the number of parameters in the MDF file including the date and time, and *Other* is used for inputting additional station information, such as station elevation, if desired. These keywords are not included in the file, just the parameter value. 
 

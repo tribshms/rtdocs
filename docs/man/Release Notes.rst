@@ -12,6 +12,11 @@ For a list of known issues and their status, visit the tRIBS GitHub `Issues page
 Version History
 ---------------
 
+tRIBS 5.3.0 (August 2025)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The tRIBS Distributed Hydrologic Modeling System, Version 5.3.0, represents a feature and maintenance release that introduces new user-configurable parameters and enhances the physical realism of core model components. Key advancements include optional inputs for soil moisture stress and surface layer depths, a more physically-based partitioning of evapotranspiration components, and the incorporation of an atmospheric stability correction in the snowpack energy balance. This version also addresses critical bugs related to dynamic land use handling and mesh element calculations. Substantial refactoring of the solar radiation and snow modules has been performed to improve code clarity and maintainability. These combined updates significantly expand the model's flexibility and scientific capabilities while increasing its overall robustness.
+
 tRIBS 5.2.1 (June 2024)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
