@@ -1,1 +1,6 @@
 .DS_Store
+# Python virtual environment
+.venv/
+
+# Sphinx/Read the Docs build artifacts
+docs/_build/
