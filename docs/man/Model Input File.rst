@@ -131,6 +131,12 @@ The tRIBS Model Input File (``*.in``) is currently the primary user interface to
             +-----------------------+-----------------+----------------------------------------------------+
             |  *DEPTHTOBEDROCK*     |  *meters*       |   Uniform depth to bedrock                         |
             +-----------------------+-----------------+----------------------------------------------------+
+            |  *SURFACESOILDEPTH*   |  *millimeters*  |   Optional: defines the depth over which           |
+            |                       |                 |   the surface soil moisture is calculated          |
+            +-----------------------+-----------------+----------------------------------------------------+
+            |  *ROOTZONEDEPTH*      |  *millimeters*  |   Optional: defines the depth over which           |
+            |                       |                 |   the root zone soil moisture is calculated        |
+            +-----------------------+-----------------+----------------------------------------------------+
             |  *BEDROCKFILE*        |  *pathname*     |   Bedrock depth ASCII grid                         |
             +-----------------------+-----------------+----------------------------------------------------+
             |  *LUGRID*             |  *pathname*     |   Dynamic land cover ASCII grid list               |
