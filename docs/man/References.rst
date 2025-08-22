@@ -28,6 +28,8 @@ Vivoni, E.R., Mascaro, G., Mniszewski, S., Fasel, P., Springer, E.P., Ivanov, V.
 Selected Application References 
 ---------------------------------
 
+Cederstrom, C.J., Vivoni, E.R., Mascaro, G., and Svoma, B. 2024. Forest Treatment Effects on Watershed Responses Under Warming. *Water Resources Research*. 60(6): e2023WR035627. https://doi.org/10.1029/2023WR035627
+
 Hawkins, G.A., Vivoni, E.R., Robles-Morua, A., Mascaro, G., Rivera, E., and Dominguez, F. 2015. A Climate Change Projection for Summer Hydrologic Conditions in a Semiarid Watershed of Central Arizona. *Journal of Arid Environments*. 118: 9-20. https://doi.org/10.1016/j.jaridenv.2015.02.022
 
 Ivanov, V.Y., Vivoni, E.R., Bras, R.L., and Entekhabi, D. 2004. Preserving High-Resolution Surface and Rainfall Data in Operational-scale Basin Hydrology: A Fully-distributed Physically-based Approach. *Journal of Hydrology*. 298(1-4): 80-111. https://doi.org/10.1016/j.jhydrol.2004.03.041
